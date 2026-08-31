@@ -149,11 +149,11 @@
         var tags = (item.tags || []).map(function (tg) {
           return '<span class="tag">' + escapeHtml(tg) + "</span>";
         }).join("");
-        return '<a class="card card--nav" data-item href="' + escapeHtml(item.href) + '">' +
-          '<h3 class="card__title">' + escapeHtml(t(item.title)) + "</h3>" +
-          '<p class="card__summary">' + escapeHtml(t(item.summary)) + "</p>" +
-          (tags ? '<div class="card__tags">' + tags + "</div>" : "") +
-          '<span class="card__cta">' + escapeHtml(t(item.cta)) +
+        return '<a class="navcard" data-item href="' + escapeHtml(item.href) + '">' +
+          '<h3 class="navcard__title">' + escapeHtml(t(item.title)) + "</h3>" +
+          '<p class="navcard__summary">' + escapeHtml(t(item.summary)) + "</p>" +
+          (tags ? '<div class="navcard__tags">' + tags + "</div>" : "") +
+          '<span class="navcard__cta">' + escapeHtml(t(item.cta)) +
             '<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>' +
           "</span>" +
         "</a>";

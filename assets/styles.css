@@ -425,31 +425,55 @@ a { color: inherit; text-decoration: none; }
   outline: none;
 }
 
-/* Link cards (the year index) ------------------------------------------
+/* Link cards --------------------------------------------------------------
+   Deliberately NOT sharing .card. A .card opens a dialog in place; a .navcard
+   navigates away. Two opposite behaviours behind one class name confuses
+   every selector that touches them — tests, keyboard handling, analytics —
+   so they get separate namespaces even though they look related.
+
    Everything else on this site is a white card on an off-white page, so the
-   two doorways into the editions have to break that pattern to read as
-   clickable. They take the theme's single accent — pale clay fill, a solid
-   accent rail down the left, and a filled CTA button — which makes them the
-   only coloured blocks on the page and therefore the obvious place to click. */
-.card--nav {
+   doorways take the theme's single accent: pale clay fill, a solid rail down
+   the left, and a filled CTA. That makes them the only coloured blocks on the
+   page, and therefore the obvious place to click. */
+.navcard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  background: var(--primary-container);
-  border-color: transparent;
-  border-left: 4px solid var(--primary);
+  gap: 11px;
+  padding: 24px;
   padding-left: 24px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  border-left: 4px solid var(--primary);
+  background: var(--primary-container);
+  text-decoration: none;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
 }
-.card--nav .card__title { color: var(--on-primary-container); font-size: 1.28rem; }
-.card--nav .card__summary { flex: 1; color: var(--on-primary-container); opacity: .82; }
-/* Tags default to a near-white fill that disappears on the clay ground. */
-.card--nav .tag { background: var(--surface); color: var(--on-primary-container); border-color: transparent; }
-.card__cta {
+.navcard__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--on-primary-container);
+}
+.navcard__summary {
+  flex: 1;
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.65;
+  color: var(--on-primary-container);
+  opacity: .82;
+}
+.navcard__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+/* The shared .tag fill is near-white and disappears on the clay ground. */
+.navcard__tags .tag { background: var(--surface); color: var(--on-primary-container); border-color: transparent; }
+.navcard__cta {
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  margin-top: 16px;
+  margin-top: 4px;
   padding: 9px 16px;
   border-radius: 999px;
   background: var(--primary);
@@ -457,15 +481,11 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   font-size: .88rem;
 }
-.card__cta .material-symbols-rounded { font-size: 1.05rem; transition: transform .15s; }
-.card--nav:hover,
-.card--nav:focus-visible {
-  border-left-color: var(--primary);
-  box-shadow: var(--elev-3);
-  transform: translateY(-3px);
-}
-.card--nav:hover .card__cta .material-symbols-rounded,
-.card--nav:focus-visible .card__cta .material-symbols-rounded { transform: translateX(4px); }
+.navcard__cta .material-symbols-rounded { font-size: 1.05rem; transition: transform .15s; }
+.navcard:hover,
+.navcard:focus-visible { box-shadow: var(--elev-3); transform: translateY(-3px); }
+.navcard:hover .navcard__cta .material-symbols-rounded,
+.navcard:focus-visible .navcard__cta .material-symbols-rounded { transform: translateX(4px); }
 .card__title {
   margin: 0;
   font-size: 1.06rem;
