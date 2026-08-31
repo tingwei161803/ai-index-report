@@ -936,6 +936,57 @@ a { color: inherit; text-decoration: none; }
   .src-link,
   .nav-link { padding: 8px 9px; }
 }
+/* Six chrome controls plus a title do not fit on a phone. Something has to
+   give, and until now it was silently the title: at 390px #brandName was
+   squeezed to 0px, so a reader could not see which report or which year they
+   were in — on a site whose whole point is that there are two editions.
+   Put the controls on a diet instead, cheapest information first. */
+@media (max-width: 560px) {
+  /* Every page repeats this link in its closing call-to-action, so dropping it
+     from the bar costs the reader nothing. */
+  .src-link { display: none; }
+  /* Strip the remaining controls to a single glyph each. The star count, the
+     language letter and the dropdown caret are all decoration sitting next to
+     an icon that already says the same thing. */
+  .gh-star__count,
+  .gh-star__icon,
+  .ch-menu__caret,
+  .icon-btn__txt { display: none; }
+  /* And stop the title being the only element that yields. */
+  .brand { flex: 1 1 auto; }
+  .brand__name { font-size: .95rem; }
+}
+
+/* Below ~400px even five bare glyphs plus the title overrun the bar, so tighten
+   the bar's own spacing rather than let the title lose again. Touch targets stay
+   at least 32px, which the icons themselves already guarantee. */
+@media (max-width: 460px) {
+  .appbar__inner { padding-left: 12px; padding-right: 12px; }
+  .appbar__actions { gap: 3px; }
+  .icon-btn { padding: 8px 5px; }
+  .nav-link,
+  .gh-star,
+  .ch-menu__btn { padding: 7px 6px; }
+  .brand { gap: 6px; }
+  .brand__logo { font-size: 20px; }
+}
+
+/* Drop the decorative mark on phones so the words survive. The English title
+   ("AI Index Report 2026") needs 149px against the Chinese 117px, so the band
+   that still clipped was 381-430px — exactly where the logo was being kept.
+   The year is the half of the title that tells the two editions apart, so it
+   is the thing worth spending those 28px on. */
+@media (max-width: 430px) {
+  .brand__logo { display: none; }
+}
+
+/* Below 370px the long English title still overruns by ~12px. One more step
+   down in size buys it back; the Chinese title has been fitting comfortably
+   since 430px, so this only ever applies where it is needed. */
+@media (max-width: 370px) {
+  .brand__name { font-size: .86rem; }
+}
+
 @media (max-width: 420px) {
   .appbar__inner,
   .sectionnav__inner,
