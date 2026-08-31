@@ -361,6 +361,7 @@
   /* full-page paint in the page's language */
   function render() {
     paintChrome();
+    renderYearsLink();
     renderChaptersMenu();
     paintNav();
     paintSections();
@@ -384,6 +385,28 @@
     if (btn) btn.setAttribute("aria-expanded", "false");
   }
 
+  /* Going up a level is a different move from moving sideways between
+     chapters, so it gets its own control instead of hiding inside the
+     chapter dropdown — nobody opens a menu called "Chapters" looking for
+     the way out of the year they are in. */
+  function renderYearsLink() {
+    if (!CHAPTERS.length) return;            // the year index itself needs no link home
+    var actions = document.querySelector(".appbar__actions");
+    if (!actions) return;
+    var old = $("navYears");
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+
+    var a = document.createElement("a");
+    a.className = "nav-link nav-link--years";
+    a.id = "navYears";
+    a.href = "../index.html";
+    a.title = ui("navYearsTitle");
+    a.innerHTML =
+      '<span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>' +
+      '<span class="nav-link__txt">' + escapeHtml(ui("navYears")) + "</span>";
+    actions.insertBefore(a, actions.firstChild);
+  }
+
   function renderChaptersMenu() {
     var actions = document.querySelector(".appbar__actions");
     if (!actions) return;
@@ -404,16 +427,7 @@
         '<span class="ch-menu__num">' + escapeHtml(String(num)) + "</span>" +
         "<span>" + escapeHtml(name) + "</span></a>";
     }
-    /* Year pages live one level down (/2026/…), so the index of editions is
-       always ../index.html. Without this row the only way back is the browser
-       button or hand-editing the URL. */
-    var items =
-      '<a class="ch-menu__item ch-menu__item--years" href="../index.html" role="menuitem" ' +
-        'title="' + escapeHtml(ui("navYearsTitle")) + '">' +
-        '<span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>' +
-        "<span>" + escapeHtml(ui("navYears")) + "</span></a>" +
-      '<div class="ch-menu__sep" role="separator"></div>';
-    items += row(0, ui("navHome"), "index.html", !cur);
+    var items = row(0, ui("navHome"), "index.html", !cur);
     CHAPTERS.forEach(function (c) {
       items += row(c.num, state.lang === "zh" ? c.zh : c.en, c.file, c.slug === cur);
     });
