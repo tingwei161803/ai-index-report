@@ -543,14 +543,27 @@
       if (el.dataset.done === "1") return;
       el.dataset.done = "1";
       var target = parseFloat(el.dataset.count) || 0;
+      /* Match the target's precision for every frame. Rounding mid-animation
+         and only restoring decimals on the last frame makes the number look
+         like it gains a decimal point out of nowhere as it settles. */
+      var decimals = (String(el.dataset.count).split(".")[1] || "").length;
+      /* 122511 makes the reader count digits; 122,511 does not. The prose in
+         the same section already writes it with separators, so without this
+         the same figure appears two ways on one page. */
+      function fmt(n) {
+        return n.toLocaleString(state.lang === "zh" ? "zh-Hant" : "en-US", {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        });
+      }
       var dur = 1100, start = null;
       function step(ts) {
         if (start === null) start = ts;
         var p = Math.min(1, (ts - start) / dur);
         var eased = 1 - Math.pow(1 - p, 3);              // easeOutCubic
-        el.textContent = String(Math.round(target * eased));
+        el.textContent = fmt(target * eased);
         if (p < 1) requestAnimationFrame(step);
-        else el.textContent = String(target);
+        else el.textContent = fmt(target);
       }
       requestAnimationFrame(step);
     }
