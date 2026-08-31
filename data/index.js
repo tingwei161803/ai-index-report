@@ -46,27 +46,27 @@ window.SITE_SECTIONS = [
 
   /* -------------------------------------------------------- EDITION CARDS */
   {
-    type: "cards",
+    type: "navcards",
     id: "editions",
     title:    { en: "Pick an edition", zh: "選擇版本" },
     subtitle: { en: "Each edition is a complete site of its own — an overview page plus one deep dive per chapter, in English and Traditional Chinese.",
                 zh: "每個版本都是一個完整的網站 — 一個總覽頁,加上每章一頁的詳解,中英文皆備。" },
     items: [
       {
-        slug: "2026",
+        href: "2026/index.html",
         title:   { en: "2026 edition · 9th", zh: "2026 版 · 第 9 版" },
         summary: { en: "Reports on 2025. Nine chapters — Science and Medicine are split apart. Investment more than doubles, adoption reaches 88% of organizations, and the labor-market signal appears first in the youngest workers.",
                    zh: "衡量 2025 年。九大章節 — 科學與醫療分列為兩章。投資翻倍有餘,組織採用率達 88%,而勞動市場的訊號最先出現在最年輕的工作者身上。" },
         tags: ["2025 data", "9 chapters"],
-        overview: { en: "Open the 2026 edition", zh: "開啟 2026 版" }
+        cta: { en: "Open the 2026 edition", zh: "開啟 2026 版" }
       },
       {
-        slug: "2025",
+        href: "2025/index.html",
         title:   { en: "2025 edition · 8th", zh: "2025 版 · 第 8 版" },
         summary: { en: "Reports on 2024. Eight chapters, with Science and Medicine combined. Benchmarks fall fast, inference costs collapse more than 280-fold, and two Nobel Prizes go to AI-driven work.",
                    zh: "衡量 2024 年。八大章節,科學與醫療合併為一章。基準測試迅速被攻克,推論成本崩跌逾 280 倍,兩座諾貝爾獎頒給 AI 驅動的研究。" },
         tags: ["2024 data", "8 chapters"],
-        overview: { en: "Open the 2025 edition", zh: "開啟 2025 版" }
+        cta: { en: "Open the 2025 edition", zh: "開啟 2025 版" }
       }
     ]
   },

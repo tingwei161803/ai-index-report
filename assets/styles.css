@@ -426,6 +426,48 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--outline);
   outline: none;
 }
+
+/* Link cards (the year index) ------------------------------------------
+   Everything else on this site is a white card on an off-white page, so the
+   two doorways into the editions have to break that pattern to read as
+   clickable. They take the theme's single accent — pale clay fill, a solid
+   accent rail down the left, and a filled CTA button — which makes them the
+   only coloured blocks on the page and therefore the obvious place to click. */
+.card--nav {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: var(--primary-container);
+  border-color: transparent;
+  border-left: 4px solid var(--primary);
+  padding-left: 24px;
+}
+.card--nav .card__title { color: var(--on-primary-container); font-size: 1.28rem; }
+.card--nav .card__summary { flex: 1; color: var(--on-primary-container); opacity: .82; }
+/* Tags default to a near-white fill that disappears on the clay ground. */
+.card--nav .tag { background: var(--surface); color: var(--on-primary-container); border-color: transparent; }
+.card__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 700;
+  font-size: .88rem;
+}
+.card__cta .material-symbols-rounded { font-size: 1.05rem; transition: transform .15s; }
+.card--nav:hover,
+.card--nav:focus-visible {
+  border-left-color: var(--primary);
+  box-shadow: var(--elev-3);
+  transform: translateY(-3px);
+}
+.card--nav:hover .card__cta .material-symbols-rounded,
+.card--nav:focus-visible .card__cta .material-symbols-rounded { transform: translateX(4px); }
 .card__title {
   margin: 0;
   font-size: 1.06rem;
