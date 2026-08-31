@@ -609,12 +609,19 @@
      adding a page never means coming back here to edit a list. */
   function altLangHref() {
     var p = location.pathname;
-    return p.indexOf("/en/") === 0 ? (p.slice(3) || "/") : "/en" + (p === "/" ? "/" : p);
+    /* One URL per language: English lives at the root, Traditional Chinese
+       mirrors the whole tree under /zh-Hant/. Toggling is therefore just
+       adding or removing that one prefix — year folders and chapter files
+       keep their position on both sides. */
+    var ZH = "/zh-Hant";
+    if (p === ZH) return "/";
+    if (p.indexOf(ZH + "/") === 0) return p.slice(ZH.length) || "/";
+    return ZH + (p === "/" ? "/" : p);
   }
   function applyLangChrome() {
     var label = $("langLabel");
     if (label) label.textContent = state.lang === "en" ? "EN" : "中";
-    var a = $("langToggle");
+    var a = $("langLink");
     if (!a) return;
     var to = state.lang === "en" ? "zh" : "en";
     a.setAttribute("href", altLangHref());
@@ -632,7 +639,7 @@
       applyTheme();
     });
 
-    /* No language handler here any more: #langToggle is an <a> that navigates
+    /* No language handler here any more: #langLink is an <a> that navigates
        to the other language's copy of this page. */
 
     $("dialogClose").addEventListener("click", closeDialog);
