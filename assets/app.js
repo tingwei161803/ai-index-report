@@ -87,6 +87,7 @@
      Chinese label and a number looks like the sentence broke — Traditional
      Chinese wants the fullwidth form, which carries its own spacing. */
   var LBLSEP = state.lang === "zh" ? "：" : ": ";
+  var LISTSEP = state.lang === "zh" ? "、" : ", ";
 
   /* ---------- dom refs ---------- */
   var $ = function (id) { return document.getElementById(id); };
@@ -219,9 +220,22 @@
         );
       }).join("");
 
+      /* role="img" hides everything inside the SVG from assistive tech, so the
+         values printed on the bars are invisible to a screen reader — the
+         accessible name is the whole chart. Spell the series out in it, or the
+         only thing announced is the headline and none of the data. */
+      var a11y = escapeHtml(
+        t(sec.title) +
+        (series.length
+          ? LBLSEP.replace(/\s+$/, "") + " " + series.map(function (d) {
+              return t(d.label) + LBLSEP + d.value;
+            }).join(LISTSEP)
+          : "")
+      );
+
       var svg =
         '<svg viewBox="0 0 ' + W + " " + H + '" role="img" ' +
-          'preserveAspectRatio="xMidYMid meet" aria-label="' + title + '">' +
+          'preserveAspectRatio="xMidYMid meet" aria-label="' + a11y + '">' +
           "<title>" + title + "</title>" +
           '<line class="axis-line" x1="' + padL + '" y1="' + r(baseY) +
             '" x2="' + r(W - padR) + '" y2="' + r(baseY) + '" />' +
