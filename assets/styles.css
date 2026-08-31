@@ -659,10 +659,25 @@ a { color: inherit; text-decoration: none; }
 .chart-wrap svg { width: 100%; height: auto; display: block; }
 /* Hovering a bar used to move opacity .9 -> 1 — an 11% change nobody can see.
    Dim the siblings instead: relative contrast reads at a glance, and it also
-   tells you which label and value belong together on a crowded axis. */
+   tells you which label and value belong together on a crowded axis.
+
+   Two guards, both learned the hard way:
+
+   `:has(.bar-rect:hover)` rather than plain `svg:hover`, because the <svg> box
+   is the whole 520x260 viewBox — the empty space above short bars, the gaps
+   between them, the label strip. Keying off the box washed every bar out to
+   2.12:1 against the card whenever the pointer merely crossed the chart, with
+   no bar picked out in return. The bars are the data; they do not get to drop
+   below the 3:1 floor for a hover that highlights nothing.
+
+   And the hover query, because :hover latches after a tap. Without it the
+   first touch anywhere near a chart leaves it dimmed for the rest of the
+   visit — with no pointer to move away. */
 .bar-rect { fill: var(--primary); transition: opacity .15s; opacity: .9; }
-.chart-wrap svg:hover .bar-rect { opacity: .35; }
-.chart-wrap svg:hover .bar-rect:hover { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .chart-wrap svg:has(.bar-rect:hover) .bar-rect { opacity: .35; }
+  .chart-wrap svg:has(.bar-rect:hover) .bar-rect:hover { opacity: 1; }
+}
 .bar-value {
   fill: var(--on-surface); font-size: 13px; font-weight: 700;
   font-family: var(--font-mono); font-variant-numeric: tabular-nums;
