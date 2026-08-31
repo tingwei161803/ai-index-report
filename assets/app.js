@@ -658,7 +658,21 @@
         requestAnimationFrame(function () { ticking = false; sync(); });
       }
       rail.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onScroll, { passive: true });
+
+      /* Whether the rail overflows is a *measurement*, and the measurement
+         moves after first paint. The icon font arrives late, so the pills are
+         first laid out in a fallback face with different metrics — a rail that
+         ends up fitting exactly can measure as overflowing until then, and
+         neither a font swap nor a container resize fires a scroll event, so
+         the wrong state would simply stick. Re-measure on both. */
+      if (window.ResizeObserver) {
+        new ResizeObserver(onScroll).observe(rail);
+      } else {
+        window.addEventListener("resize", onScroll, { passive: true });
+      }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(sync).catch(function () { /* ignore */ });
+      }
     }
     sync();
   }
