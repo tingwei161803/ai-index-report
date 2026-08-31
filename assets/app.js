@@ -328,10 +328,14 @@
       a.className = "navpill";
       a.href = "#" + sec.id;
       a.dataset.target = sec.id;
+      /* `nav` is a short, scannable label; `title` is an editorial headline that
+         runs to 80 characters and would make a pill wider than a phone screen.
+         Falling back to the headline keeps a label-less section navigable —
+         .navpill__txt caps and ellipsises whatever ends up here. */
       a.innerHTML =
         '<span class="material-symbols-rounded" aria-hidden="true">' +
           (NAV_ICONS[sec.type] || "label") + "</span>" +
-        "<span>" + escapeHtml(t(sec.title)) + "</span>";
+        '<span class="navpill__txt">' + escapeHtml(t(sec.nav) || t(sec.title)) + "</span>";
       a.addEventListener("click", function (e) {
         e.preventDefault();
         var target = document.getElementById(sec.id);

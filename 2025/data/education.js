@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Teachers want to teach AI. Almost nobody trained them.",
                 zh: "老師想教 AI，但幾乎沒人訓練過他們" },
     subtitle: { en: "Chapter 7 of the AI Index 2025 — prepared with the Kapor Foundation, CSTA, and PIT-UN — looks at who actually gets to learn how AI works. Access to computer science has widened, master's degrees in AI have surged, and the gaps that have always defined computing education have not closed. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "k12-us",
+    nav:      { en: "7.2 US K–12", zh: "7.2 美國中小學" },
     title:    { en: "7.2 — Access is up. Enrollment barely moved.",
                 zh: "7.2 — 課開出來了，但選課的人幾乎沒變多" },
     subtitle: { en: "Since 'Computer Science for All' launched in 2016, the share of US high schools offering computer science has risen from about a third to three in five. The share of students actually taking it is 6.4%.",
@@ -78,6 +80,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "ap-exams",
+    nav:      { en: "AP CS exams", zh: "AP 資訊考試" },
     title:    { en: "AP computer science exams taken, 2007–23",
                 zh: "AP 資訊科學考卷應考數，2007–23" },
     subtitle: { en: "In thousands. The count grew more than twelvefold in sixteen years, with the steepest climb between 2016 and 2019 — the years AP CS Principles scaled up.",
@@ -96,6 +99,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "teachers",
+    nav:      { en: "Teachers", zh: "教師" },
     title:    { en: "The willingness is there. The preparation is not.",
                 zh: "意願有了，準備沒有" },
     subtitle: { en: "The Computer Science Teacher Landscape Survey collected data from 2,901 pre-K through 12 CS teachers nationally. It found a workforce that has already started teaching AI without being trained to.",
@@ -132,6 +136,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "cs-global",
+    nav:      { en: "CS worldwide", zh: "全球資訊教育" },
     title:    { en: "Share of countries offering CS education, by continent, 2024",
                 zh: "各洲提供資訊科學教育的國家比例，2024" },
     subtitle: { en: "Every region gained ground since 2019, when the figures were Europe 63.5%, Latin America and the Caribbean 29.5%, Asia 24.5%, and Africa 9.4%. Latin America added the most (+40.9 points), Africa close behind (+39.7).",
@@ -148,6 +153,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "postsecondary",
+    nav:      { en: "7.3 Higher ed", zh: "7.3 高等教育" },
     title:    { en: "7.3 — The master's degree is where AI showed up first",
                 zh: "7.3 — AI 最先出現在碩士學位上" },
     subtitle: { en: "Bachelor's degrees move on a four-year cycle, so they lag. Master's degrees respond within a year — and between 2022 and 2023 the number of AI master's graduates in the US nearly doubled.",
@@ -186,6 +192,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "questions",
+    nav:      { en: "Questions", zh: "問答" },
     title:    { en: "Six questions about AI in the classroom",
                 zh: "關於 AI 進教室的六個問題" },
     subtitle: { en: "What the chapter distinguishes, measures, and admits it cannot measure.",
@@ -222,6 +229,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 7 · Education.",
                 zh: "第 7 章「教育」的頭條發現。" },
@@ -248,6 +256,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Education chapter", zh: "閱讀完整的教育章節" },
     text:  { en: "Chapter 7 (sections 7.1–7.4) with every figure and citation is free from Stanford HAI. Or head back to the report highlights and eight-chapter overview.",
              zh: "第 7 章(7.1–7.4 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與八大章節總覽。" },

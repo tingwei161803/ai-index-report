@@ -300,6 +300,14 @@ a { color: inherit; text-decoration: none; }
   transition: background .15s, color .15s, border-color .15s;
 }
 .navpill .material-symbols-rounded { font-size: 17px; }
+/* Hard cap so a pill can never outgrow its rail. Section data supplies a short
+   `nav` label, but a section that forgets one falls back to an 80-character
+   editorial headline — this keeps that a truncation, not a broken layout. */
+.navpill__txt {
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .navpill:hover { color: var(--on-surface); border-color: var(--outline); }
 .navpill--active {
   background: var(--primary-container);

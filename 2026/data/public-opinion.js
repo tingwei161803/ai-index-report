@@ -24,6 +24,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Optimism is rising — and so is anxiety",
                 zh: "樂觀正在上升，焦慮也是" },
     subtitle: { en: "Chapter 9 of the AI Index 2026 reads the public mood across three layers — global sentiment, the expert-versus-public divide in the US, and trust in who should regulate AI. People increasingly see the benefits, yet nervousness keeps climbing and experts live in a very different world from everyone else. The numbers:",
@@ -42,6 +43,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "sentiment",
+    nav:      { en: "9.1 Sentiment", zh: "9.1 全球情緒" },
     title:    { en: "9.1 — Global sentiment: warmer and warier at once",
                 zh: "9.1 — 全球情緒：同時更溫暖，也更警戒" },
     subtitle: { en: "Since 2022, Ipsos's annual AI Monitor has tracked attitudes worldwide. The 2025 wave covered 30 countries and 23,216 adults — and found optimism and anxiety rising together.",
@@ -73,6 +75,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "global-sentiment-trend",
+    nav:      { en: "Sentiment shift", zh: "情緒變化" },
     title:    { en: "Global sentiment toward AI, 2024 → 2025",
                 zh: "全球對 AI 的情緒，2024 → 2025" },
     subtitle: { en: "Share of respondents who 'agree', Ipsos AI Monitor, 30 countries. Optimism is up four points; nervousness is up two. Unit: % of respondents.",
@@ -89,6 +92,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "expert-gap",
+    nav:      { en: "9.2 Expert gap", zh: "9.2 專家落差" },
     title:    { en: "9.2 — Experts and the public barely agree",
                 zh: "9.2 — 專家與大眾幾乎談不攏" },
     subtitle: { en: "Drawing on Pew Research Center's surveys of US adults and AI experts, plus expert-forecasting panels, Chapter 9 maps one of the report's widest divides — between those who build AI and everyone else.",
@@ -115,6 +119,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "expert-vs-public",
+    nav:      { en: "Experts vs public", zh: "專家 vs 大眾" },
     title:    { en: "Who's optimistic? Experts vs the US public",
                 zh: "誰更樂觀？專家 vs 美國大眾" },
     subtitle: { en: "Share expecting a positive impact, by domain. Experts (left of each pair) outpace the public across work, economy, and medicine. Unit: % expecting positive impact.",
@@ -133,6 +138,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "trust",
+    nav:      { en: "9.3 Trust", zh: "9.3 信任" },
     title:    { en: "9.3 — Trust, transparency, and who should regulate",
                 zh: "9.3 — 信任、透明，與「誰該監管」" },
     subtitle: { en: "As AI embeds in daily life, the mechanisms of trust become more visible. Chapter 9 closes on who people trust to govern AI — and the answer rarely points to one's own government.",
@@ -153,6 +159,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "trust-by-country",
+    nav:      { en: "Trust by country", zh: "各國信任度" },
     title:    { en: "Trust in your own government to regulate AI, 2025",
                 zh: "對自家政府監管 AI 的信任，2025" },
     subtitle: { en: "Southeast Asia trusts its governments most; the US trusts least, well below the global average. Ipsos AI Monitor. Unit: % who trust their government to regulate AI responsibly.",
@@ -171,6 +178,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "divides",
+    nav:      { en: "The divides", zh: "分歧面向" },
     title:    { en: "The divides beneath the mood", zh: "情緒底下的分歧" },
     subtitle: { en: "Public opinion on AI isn't one number — it splits by region, expertise, age, and topic. Tap any card for the full trend and its numbers.",
                 zh: "對 AI 的民意不是單一數字 — 它依地區、專業、年齡與主題而分裂。點任一張卡片看完整趨勢與數字。" },
@@ -245,6 +253,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 9 · Public Opinion.",
                 zh: "第 9 章「民意」的頭條發現。" },
@@ -271,6 +280,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Public Opinion chapter", zh: "閱讀完整的民意章節" },
     text:  { en: "Chapter 9 (sections 9.1–9.3) with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 9 章(9.1–9.3 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

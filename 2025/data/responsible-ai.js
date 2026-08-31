@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Everyone agrees AI should be safe. Almost nobody measures it the same way",
                 zh: "所有人都同意 AI 應該安全。但幾乎沒有人用同一套方式衡量它" },
     subtitle: { en: "Chapter 3 of the AI Index 2025 finds a responsible AI ecosystem that is evolving unevenly. Incidents are at a record high, academic attention is rising fast, and governments are moving — but model developers still have no shared safety benchmark, and organizations recognize far more risks than they mitigate. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "measurement",
+    nav:      { en: "3.2 Measurement", zh: "3.2 評測標準" },
     title:    { en: "3.2 — Everyone reports MMLU. Nobody agrees on a safety test",
                 zh: "3.2 — 每個人都回報 MMLU，卻沒有人對安全測試有共識" },
     subtitle: { en: "Major developers consistently test flagship models on the same general capability benchmarks — MMLU, GPQA, AIME. There is no equivalent consensus for safety and responsibility, which makes models genuinely hard to compare on the dimensions that matter most to regulators and buyers.",
@@ -73,6 +75,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "risks",
+    nav:      { en: "Risks", zh: "風險認知" },
     title:    { en: "The risks organizations see — and the ones they act on",
                 zh: "組織看見的風險 — 以及他們真正動手處理的風險" },
     subtitle: { en: "Share of surveyed organizations naming each AI risk as relevant, 2024 (%). In every category, fewer organizations actively mitigate than recognize: intellectual property runs 57% relevant against 38% mitigated, reputation 45% against 29%, explainability 40% against 31%, fairness 34% against 26%.",
@@ -92,6 +95,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "organizations",
+    nav:      { en: "3.3 Inside companies", zh: "3.3 企業內部" },
     title:    { en: "3.3 — Inside companies, responsible AI has no home and no consensus",
                 zh: "3.3 — 在企業內部，負責任 AI 既沒有歸屬，也沒有共識" },
     subtitle: { en: "Two surveys — one run with McKinsey across 30-plus countries, one run by Stanford researchers with Accenture across 1,500 large organizations — paint the same picture. Leaders believe in responsible AI. Almost nothing about how to do it is settled.",
@@ -137,6 +141,7 @@ window.SITE_SECTIONS = [
   {
     type: "timeline",
     id: "policy",
+    nav:      { en: "3.5 Governance", zh: "3.5 治理" },
     title:    { en: "3.5 — The year governance went multilateral",
                 zh: "3.5 — 治理走向多邊的一年" },
     subtitle: { en: "Where 2023 was a year of national AI strategies, 2024 was a year of coordination. Every major international body published a responsible AI framework, and the first cross-border safety network was formalized.",
@@ -181,6 +186,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "data-bias",
+    nav:      { en: "3.6–3.8 Data & bias", zh: "3.6–3.8 資料與偏誤" },
     title:    { en: "3.6–3.8 — The data commons is closing, and bias went underground",
                 zh: "3.6–3.8 — 資料公共財正在關閉，而偏見轉入地下" },
     subtitle: { en: "Two of the chapter's most consequential findings sit far from the safety headlines: the open web is being fenced off from AI training, and models that pass explicit bias tests keep failing implicit ones.",
@@ -229,6 +235,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "safety",
+    nav:      { en: "3.9–3.10 Safety", zh: "3.9–3.10 安全" },
     title:    { en: "3.9–3.10 — Five uncomfortable findings", zh: "3.9–3.10 — 五個令人不安的發現" },
     subtitle: { en: "The security and special-topics sections are where the chapter is least reassuring, and most specific.",
                 zh: "安全與特別主題這幾節，是本章最不讓人安心、也最具體的部分。" },
@@ -255,6 +262,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 3 · Responsible AI.",
                 zh: "第 3 章「負責任 AI」的頭條發現。" },
@@ -281,6 +289,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Responsible AI chapter", zh: "閱讀完整的負責任 AI 章節" },
     text:  { en: "Chapter 3 (sections 3.1–3.10) — incidents, benchmarks, organizations, academia, policymaking, privacy, fairness, transparency, security and agents — with every figure and citation is free from Stanford HAI.",
              zh: "第 3 章(3.1–3.10 各節) — 事故、基準、組織、學界、政策制定、隱私、公平性、透明度、資安與代理 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。" },

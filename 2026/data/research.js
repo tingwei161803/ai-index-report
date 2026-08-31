@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "The inputs to AI keep scaling — but they're concentrating in fewer hands",
                 zh: "AI 的投入持續放大，卻越來越集中在少數人手中" },
     subtitle: { en: "Chapter 1 of the AI Index 2026 follows the R&D pipeline — from the models themselves through compute, data centers, energy, and open source, out to publications, patents, and talent. Resources are growing; transparency, geographic balance, and gender balance are not. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "models",
+    nav:      { en: "1.1 Notable models", zh: "1.1 重要模型" },
     title:    { en: "1.1 — Notable models: fewer, more closed, more concentrated",
                 zh: "1.1 — 重要模型：更少、更封閉、更集中" },
     subtitle: { en: "Using Epoch AI's curated dataset, the chapter maps where frontier models come from. In 2025, fewer notable models were released than the year before — and the most capable ones are now the least transparent.",
@@ -71,6 +73,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "models-by-country",
+    nav:      { en: "Models by country", zh: "各國模型數" },
     title:    { en: "Notable AI models in 2025, by country",
                 zh: "2025 年重要 AI 模型：依國家" },
     subtitle: { en: "Number of notable AI models released in 2025. The U.S. leads model development while China leads in research output — but new releases fell year over year almost everywhere.",
@@ -89,6 +92,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "compute",
+    nav:      { en: "1.2 Compute", zh: "1.2 算力" },
     title:    { en: "1.2 — Compute is up 3.3× a year — and it runs through one island",
                 zh: "1.2 — 算力每年成長 3.3 倍 — 卻全靠一座島嶼" },
     subtitle: { en: "Training compute would be impossible without ever-faster hardware. Aggregate capacity is soaring, but the supply chain has become a single point of failure.",
@@ -118,6 +122,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "compute-capacity",
+    nav:      { en: "Compute capacity", zh: "算力總量" },
     title:    { en: "Global AI compute capacity is compounding",
                 zh: "全球 AI 算力正在複利成長" },
     subtitle: { en: "Cumulative compute capacity from AI chips across major designers, in millions of H100-equivalents (year-end). Growth has averaged about 3.3× per year since 2022.",
@@ -134,6 +139,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "data-centers",
+    nav:      { en: "Data centers", zh: "資料中心" },
     title:    { en: "Data centers, by country (2025)",
                 zh: "資料中心數量：依國家(2025)" },
     subtitle: { en: "Number of data centers in 2025. The U.S. leads with 5,427 — more than ten times any other country — though counts don't capture facility size or computing capacity.",
@@ -152,6 +158,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "landscape",
+    nav:      { en: "R&D landscape", zh: "研發版圖" },
     title:    { en: "The R&D landscape, in seven moves", zh: "研發版圖的七個切面" },
     subtitle: { en: "From energy and open source through publications, patents, and talent. Tap any card for the full trend and its numbers.",
                 zh: "從能源、開源，到論文、專利與人才。點任一張卡片看完整趨勢與數字。" },
@@ -226,6 +233,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "patents-share",
+    nav:      { en: "Patents", zh: "AI 專利" },
     title:    { en: "Granted AI patents, by geographic area (2024)",
                 zh: "核准的 AI 專利：依地理區域(2024)" },
     subtitle: { en: "% of the world total of granted AI patents in 2024. China dominates volume at 74.2%, but the U.S. (12.1%) earns over half of all forward citations.",
@@ -242,6 +250,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "female-share",
+    nav:      { en: "Gender balance", zh: "性別比例" },
     title:    { en: "Female share of AI authors & inventors (2025)",
                 zh: "AI 作者與發明人中的女性佔比(2025)" },
     subtitle: { en: "% female among identified AI talent, leading countries. No country approaches parity, and the ratio has stayed flat since 2010.",
@@ -260,6 +269,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 1 · Research & Development.",
                 zh: "第 1 章「研發」的頭條發現。" },
@@ -286,6 +296,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Research & Development chapter", zh: "閱讀完整的研發章節" },
     text:  { en: "Chapter 1 (sections 1.1–1.8) with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 1 章(1.1–1.8 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

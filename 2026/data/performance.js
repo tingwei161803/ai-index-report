@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "AI capability is outpacing the benchmarks built to measure it",
                 zh: "AI 能力正在跑贏用來衡量它的基準" },
     subtitle: { en: "Chapter 2 of the AI Index 2026 tracks AI across language, reasoning, coding, math, agents, and robotics. Scores are rising fast, the gap between top models is shrinking, and evaluations are saturating in months. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "trends",
+    nav:      { en: "2.1 The frontier", zh: "2.1 前沿收斂" },
     title:    { en: "2.1 — The gap between top models is closing",
                 zh: "2.1 — 頂尖模型之間的差距正在收斂" },
     subtitle: { en: "AI improved rapidly in 2025 across language, reasoning, coding, and math — but progress is outpacing the evaluations built to measure it, and a clear pattern emerges: the frontier is converging.",
@@ -70,6 +72,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "reasoning-scores",
+    nav:      { en: "Benchmark scores", zh: "基準分數" },
     title:    { en: "Reasoning benchmarks are clearing the human bar",
                 zh: "推理基準正在跨過人類門檻" },
     subtitle: { en: "Top model accuracy on frontier reasoning benchmarks (%), early 2026. MMMU and GPQA Diamond now meet or beat expert humans; ARC-AGI-2 and Humanity's Last Exam stay deliberately hard.",
@@ -86,6 +89,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "reasoning",
+    nav:      { en: "2.4 Reasoning", zh: "2.4 推理能力" },
     title:    { en: "2.4 — Gold medals, but it still can't tell time",
                 zh: "2.4 — 拿得到金牌，卻還看不懂時鐘" },
     subtitle: { en: "Reasoning surged across science, math, and abstraction — yet the same models stumble on tasks most humans find trivial. Researchers call it jagged intelligence.",
@@ -112,6 +116,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "agents-bench",
+    nav:      { en: "Agent benchmarks", zh: "代理基準" },
     title:    { en: "AI agents went from answering to doing",
                 zh: "AI 代理從「回答」走向「完成任務」" },
     subtitle: { en: "Top agent success rate (%) on real-task benchmarks, early 2026 vs. their 2024–25 starting points. Agents improved fast but still fail roughly one in three attempts.",
@@ -130,6 +135,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "agents-robots",
+    nav:      { en: "2.6 & 2.7 Robots", zh: "2.6 與 2.7 機器人" },
     title:    { en: "2.6 & 2.7 — Agents rising, robots stuck at the front door",
                 zh: "2.6 與 2.7 — 代理崛起，機器人卻卡在家門口" },
     subtitle: { en: "Software agents are closing in on humans on structured tasks. Physical robots still falter outside the lab — with autonomous vehicles as the standout exception.",
@@ -161,6 +167,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "domains",
+    nav:      { en: "2.5 Domains", zh: "2.5 專業領域" },
     title:    { en: "2.5 — Inside the professional domains", zh: "2.5 — 走進專業領域" },
     subtitle: { en: "Where AI is being pushed into expert work — coding, math, video, time, and country-level competition. Tap any card for the full trend and its numbers.",
                 zh: "AI 被推進專家工作的地方 — 程式、數學、影片、時間，以及國家層級的競賽。點任一張卡片看完整趨勢與數字。" },
@@ -226,6 +233,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "agent-leaps",
+    nav:      { en: "Two-year leaps", zh: "兩年躍進" },
     title:    { en: "From near-zero to near-human in two years",
                 zh: "兩年間從近乎零到接近人類" },
     subtitle: { en: "Best success rate (%) at each benchmark's earlier start vs. early 2026 — the pace of improvement on once-hard tasks.",
@@ -244,6 +252,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 2 · Technical Performance.",
                 zh: "第 2 章「技術表現」的頭條發現。" },
@@ -270,6 +279,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Technical Performance chapter", zh: "閱讀完整的技術表現章節" },
     text:  { en: "Chapter 2 (sections 2.1–2.7) with every benchmark, figure, and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 2 章(2.1–2.7 各節)連同所有基準、圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

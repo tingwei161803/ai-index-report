@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "2024: the year the benchmarks stopped holding",
                 zh: "2024 年：基準測試再也擋不住的一年" },
     subtitle: { en: "The 2025 AI Index covers calendar year 2024 across eight chapters — research, technical performance, responsible AI, the economy, science and medicine, policy, education, and public opinion. Benchmarks introduced barely a year earlier were largely solved, costs collapsed, and investment reached a record. A few numbers that set the scene:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "takeaways",
+    nav:      { en: "12 Takeaways", zh: "12 條重點" },
     title:    { en: "The 12 Top Takeaways", zh: "12 條重點摘要" },
     subtitle: { en: "The report's own summary of the year, in its own order. Click any card for the full text.",
                 zh: "報告自身對這一年的總結，依其原本順序排列。點任一張卡片可看完整內容。" },
@@ -134,6 +136,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "investment",
+    nav:      { en: "Investment", zh: "投資" },
     title:    { en: "Private AI investment in 2024, by country",
                 zh: "2024 年各國私人 AI 投資" },
     subtitle: { en: "The United States pulled further ahead: its private AI investment was nearly 12 times China's and 24 times the United Kingdom's. Figures in billions of US dollars.",
@@ -149,6 +152,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "benchmarks",
+    nav:      { en: "Benchmarks", zh: "基準測試" },
     title:    { en: "One year of progress on benchmarks built to be hard",
                 zh: "為了「夠難」而生的基準，一年之間的進展" },
     subtitle: { en: "Percentage-point gains during 2024 on the three benchmarks introduced in 2023 to stretch the most capable systems.",
@@ -164,6 +168,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "chapters",
+    nav:      { en: "Eight chapters", zh: "八大章節" },
     title:    { en: "Eight chapters, in brief", zh: "八大章節速覽" },
     subtitle: { en: "Each chapter's headline numbers. Expand one to read the summary, then follow the link for the full deep dive.",
                 zh: "每一章的關鍵數字。展開可看摘要，再由連結進入完整章節。" },
@@ -207,6 +212,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the report", zh: "讀原始報告" },
     title: { en: "Read the full 2025 report", zh: "閱讀 2025 年完整報告" },
     text:  { en: "457 pages, published open access by the Stanford Institute for Human-Centered AI under CC BY-ND 4.0. The raw data behind every chart is available there too.",
              zh: "全文 457 頁，由史丹佛以人為本人工智慧研究院以 CC BY-ND 4.0 開放取用發行。所有圖表背後的原始資料也可於該處取得。" },

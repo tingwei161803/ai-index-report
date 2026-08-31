@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Business went all in on AI — and, for the first time, started counting the returns",
                 zh: "企業全面押注 AI — 而且第一次開始算起了回報" },
     subtitle: { en: "Chapter 4 of the AI Index 2025 follows the money: record investment concentrated in a handful of countries, the fastest jump in corporate adoption the survey has ever recorded, and the first large body of evidence that AI genuinely raises productivity. What it does not yet show is large-scale job loss. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "investment",
+    nav:      { en: "4.3 Investment", zh: "4.3 投資" },
     title:    { en: "4.3 — Record money, and an ever-narrower map",
                 zh: "4.3 — 破紀錄的資金，以及愈來愈窄的地圖" },
     subtitle: { en: "Global corporate AI investment reached $252.3 billion in 2024, up 25.5% on the year and more than thirteen times its 2014 level. Private investment climbed 44.5% — its first year-over-year growth since 2021 — while mergers and acquisitions rose 12.1%.",
@@ -84,6 +86,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "invest-geo",
+    nav:      { en: "By country", zh: "各國投資" },
     title:    { en: "Private AI investment is concentrated in one country",
                 zh: "私人 AI 投資集中在單一國家" },
     subtitle: { en: "Total private AI investment in 2024, in US$ billions. The United States invested 11.7 times more than China and 24.1 times more than the United Kingdom.",
@@ -101,6 +104,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "adoption",
+    nav:      { en: "4.4 Adoption", zh: "4.4 企業採用" },
     title:    { en: "4.4 — Adoption jumped 23 points in a year, and the value is real but small",
                 zh: "4.4 — 採用率一年跳升 23 個百分點，而創造的價值真實但不大" },
     subtitle: { en: "After stagnating between 2017 and 2023, business use of AI moved sharply. 78% of surveyed organizations now use AI in at least one business function, up from 55% a year earlier, and generative AI use more than doubled to 71%.",
@@ -136,6 +140,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "jobs",
+    nav:      { en: "4.2 Jobs", zh: "4.2 就業" },
     title:    { en: "4.2 — The labor market is shifting, but not shrinking",
                 zh: "4.2 — 勞動市場正在位移，但沒有萎縮" },
     subtitle: { en: "Demand for AI skills rose across almost every US sector, generative AI became the fastest-growing skill cluster on record, and a substantial body of research established that AI raises productivity — most of all for the workers who were furthest behind.",
@@ -196,6 +201,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "robots",
+    nav:      { en: "Robots", zh: "機器人" },
     title:    { en: "China installs more industrial robots than the rest of the world combined",
                 zh: "中國安裝的工業機器人多於全世界其餘國家總和" },
     subtitle: { en: "Industrial robots installed in 2023, in thousands. China's share of global installations reached 51.1%, up from 20.8% in 2013 — though the margin over the rest of the world narrowed slightly for the first time since 2021.",
@@ -213,6 +219,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "questions",
+    nav:      { en: "Questions", zh: "問答" },
     title:    { en: "Five questions the numbers answer", zh: "數字回答的五個問題" },
     subtitle: { en: "What the chapter can and cannot tell you about AI's economic effects.",
                 zh: "關於 AI 的經濟效應，這一章能告訴你什麼、又不能告訴你什麼。" },
@@ -239,6 +246,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 4 · Economy.",
                 zh: "第 4 章「經濟」的頭條發現。" },
@@ -265,6 +273,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Economy chapter", zh: "閱讀完整的經濟章節" },
     text:  { en: "Chapter 4 (sections 4.1–4.5) — the 2024 timeline, jobs, investment, corporate activity and robot deployments — with every figure and citation is free from Stanford HAI.",
              zh: "第 4 章(4.1–4.5 各節) — 2024 年大事紀、就業、投資、企業活動與機器人部署 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。" },

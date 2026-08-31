@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "AI is rewriting medicine — but the evidence is still catching up",
                 zh: "AI 正在改寫醫療，但證據還在追趕" },
     subtitle: { en: "Chapter 6 of the AI Index 2026 traces AI across four layers of medicine — from molecular biology models, through the clinic, to patients and ethics. Capability is racing ahead; rigorous validation is not. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "dogma",
+    nav:      { en: "6.1 Molecular bio", zh: "6.1 分子生物" },
     title:    { en: "6.1 — Molecular biology: smaller models are winning",
                 zh: "6.1 — 分子生物學：小模型正在贏" },
     subtitle: { en: "AI models for biology span the central dogma — gene sequence → protein structure → therapeutic design. In 2025 the field pivoted from scaling size to efficiency and specialization.",
@@ -76,6 +78,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "multimodal",
+    nav:      { en: "Multimodal AI", zh: "多模態生醫" },
     title:    { en: "Multimodal biomedical AI is exploding",
                 zh: "多模態生醫 AI 正在爆發" },
     subtitle: { en: "Publications on multimodal foundation models for biomedical discovery, by year. Vision–language models (image + text) and vision–omics models (imaging + genomics) led the surge.",
@@ -93,6 +96,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "clinical",
+    nav:      { en: "6.2 The clinic", zh: "6.2 臨床現場" },
     title:    { en: "6.2 — Inside the clinic", zh: "6.2 — 走進臨床現場" },
     subtitle: { en: "Where molecular models meet patients. Tap any card for the full trend and its numbers.",
                 zh: "分子模型在這裡遇上病人。點任一張卡片看完整趨勢與數字。" },
@@ -167,6 +171,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "fda-specialty",
+    nav:      { en: "FDA devices", zh: "FDA 醫材" },
     title:    { en: "FDA-authorized AI devices, by specialty",
                 zh: "FDA 核准的 AI 醫材：依專科(累計)" },
     subtitle: { en: "Cumulative authorized AI/ML devices. Radiology dominates at 1,039 of 1,357 (76.6%), but cardiology, neurology, and others have accelerated since 2020 — AI is spreading beyond imaging.",
@@ -182,6 +187,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "trials",
+    nav:      { en: "Clinical trials", zh: "臨床試驗" },
     title:    { en: "Prospective imaging-AI trials are rising",
                 zh: "影像 AI 前瞻臨床試驗正在增加" },
     subtitle: { en: "Prospective trials validating medical-imaging AI grew 28.5% year over year — a sign the field is starting to test in the real world, not just on benchmarks.",
@@ -196,6 +202,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "patients",
+    nav:      { en: "6.3 Patients", zh: "6.3 病人觀點" },
     title:    { en: "6.3 — What patients actually want", zh: "6.3 — 病人真正想要什麼" },
     subtitle: { en: "As AI reaches patients through clinics and consumer platforms, research on how they perceive it grew tenfold (9 → 102 papers, 2020–2025).",
                 zh: "當 AI 透過診間與消費性平台觸及病人，研究他們如何看待 AI 的論文成長了十倍(9 → 102 篇，2020–2025)。" },
@@ -223,6 +230,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "ethics",
+    nav:      { en: "6.4 Ethics", zh: "6.4 倫理" },
     title:    { en: "6.4 — The ethics conversation is growing, but lopsided",
                 zh: "6.4 — 倫理討論在成長，但失衡" },
     subtitle: { en: "A bibliometric analysis of PubMed Central (Jan 2021 – Dec 2025) tracked ethical disclosure in medical-AI papers.",
@@ -248,6 +256,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 6 · Medicine.",
                 zh: "第 6 章「醫療」的頭條發現。" },
@@ -274,6 +283,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Medicine chapter", zh: "閱讀完整的醫療章節" },
     text:  { en: "Chapter 6 (sections 6.1–6.4) with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 6 章(6.1–6.4 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

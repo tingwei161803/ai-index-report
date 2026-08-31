@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Responsible AI infrastructure is growing — but it can't keep pace with deployment",
                 zh: "負責任 AI 的基礎建設在成長，卻追不上部署的速度" },
     subtitle: { en: "Chapter 3 of the AI Index 2026 tracks responsible AI (RAI) across its many dimensions — safety, fairness, transparency, privacy, and factuality. Safety benchmarks have expanded and more organizations have adopted RAI policies, yet frontier models rarely report RAI results, transparency declined in 2025, and progress in one dimension often costs another. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "incidents",
+    nav:      { en: "3.2 Incidents", zh: "3.2 事件增加" },
     title:    { en: "3.2 — Incidents are rising, and models can't tell knowledge from belief",
                 zh: "3.2 — 事件在增加，而模型分不清「知道」與「相信」" },
     subtitle: { en: "Two signals from assessing RAI: real-world harms keep climbing, and even where evaluation is maturing — factuality — the failure modes are getting stranger.",
@@ -71,6 +73,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "governance",
+    nav:      { en: "3.3 Governance", zh: "3.3 治理制度" },
     title:    { en: "3.3 — Organizations are formalizing RAI, but gaps slow adoption",
                 zh: "3.3 — 組織正在制度化 RAI，但缺口拖慢了採用" },
     subtitle: { en: "Drawing on a second-year AI Index × McKinsey survey of business leaders (excluding China), RAI maturity, governance ownership, and barriers all shifted between 2024 and 2025.",
@@ -97,6 +100,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "incident-trend",
+    nav:      { en: "Incident trend", zh: "事件趨勢" },
     title:    { en: "Documented AI incidents keep climbing",
                 zh: "有記錄的 AI 事件持續攀升" },
     subtitle: { en: "Annual AI incidents recorded by the AI Incident Database (AIID). Counts stayed under 100 until 2022, then accelerated as AI deployment spread. Unit: number of incidents.",
@@ -111,6 +115,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "regulations",
+    nav:      { en: "Regulations", zh: "法規影響" },
     title:    { en: "Which regulations shape RAI practices (2025)",
                 zh: "哪些法規在形塑 RAI 實務(2025)" },
     subtitle: { en: "Share of organizations naming each regulation as an influence on responsible-AI decisions. GDPR leads but slipped from 65% to 60%; ISO/IEC 42001 and NIST AI RMF are new 2025 entries. Unit: % of organizations.",
@@ -128,6 +133,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "research",
+    nav:      { en: "RAI research", zh: "RAI 研究" },
     title:    { en: "RAI research, by subtopic (2025)",
                 zh: "RAI 研究：依子主題(2025)" },
     subtitle: { en: "Responsible-AI papers accepted at six leading conferences (AAAI, AIES, FAccT, ICML, ICLR, NeurIPS), up 19% overall to 1,521. Security and safety is now the largest and fastest-growing area. Unit: accepted papers.",
@@ -144,6 +150,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "dimensions",
+    nav:      { en: "Dimensions", zh: "各個面向" },
     title:    { en: "The dimensions of responsible AI", zh: "負責任 AI 的各個面向" },
     subtitle: { en: "Chapter 3 tracks RAI across many dimensions, each with its own measurement challenge. Tap any card for the full picture and its numbers.",
                 zh: "第 3 章橫跨負責任 AI 的多個面向，每一個都有自己的量測難題。點任一張卡片看完整樣貌與數字。" },
@@ -218,6 +225,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 3 · Responsible AI.",
                 zh: "第 3 章「負責任 AI」的頭條發現。" },
@@ -244,6 +252,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Responsible AI chapter", zh: "閱讀完整的負責任 AI 章節" },
     text:  { en: "Chapter 3 (sections 3.1–3.10) with every figure and citation is free from Stanford HAI — covering incidents, factuality, governance, fairness, transparency, safety, and the trade-offs between them. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 3 章(3.1–3.10 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供 — 涵蓋事件、真實性、治理、公平、透明、安全，以及它們之間的取捨。或回到 15 條重點與九大章節總覽。" },
