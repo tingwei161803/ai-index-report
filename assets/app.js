@@ -619,6 +619,8 @@
       b.innerHTML = '<span class="material-symbols-rounded">' +
         (dir === "left" ? "chevron_left" : "chevron_right") + "</span>";
       b.addEventListener("click", function () {
+        /* 80% of a screenful, not 100%: the overlap keeps a couple of pills
+           in view across the step so you can tell where you landed. */
         rail.scrollBy({
           left: (dir === "left" ? -1 : 1) * Math.round(rail.clientWidth * 0.8),
           behavior: prefersReducedMotion() ? "auto" : "smooth"
