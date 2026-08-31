@@ -377,6 +377,7 @@
     renderYearsLink();
     renderChaptersMenu();
     paintNav();
+    setupNavScroll();
     paintSections();
     renderChapterNav();
     setupScrollSpy();
@@ -588,6 +589,94 @@
   /* =======================================================================
      SCROLLSPY — highlight the active section's nav pill
      ===================================================================== */
+  /* =======================================================================
+     SECTION-NAV SCROLL AFFORDANCE — the pill rail scrolls horizontally but
+     its scrollbar is hidden, so nothing tells you the rail continues past
+     the edge. Fade the pills out at whichever end still has content, and
+     give pointer users arrows to page along it.
+
+     The fade is a mask on the rail, not a gradient painted over it: the bar
+     is a translucent backdrop-filter, so an opaque overlay would show as a
+     seam against it in dark mode.
+
+     The arrows are aria-hidden and unfocusable on purpose. Tab already walks
+     the pills and the browser scrolls each focused one into view, so keyboard
+     users can reach every section without them — exposing the arrows too
+     would only add two redundant tab stops in front of the real navigation.
+     ===================================================================== */
+  var navScrollWired = false;
+  function setupNavScroll() {
+    var rail = navInner;
+    var bar  = $("sectionNav");
+    if (!rail || !bar) return;
+
+    function arrow(dir) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "navscroll navscroll--" + dir;
+      b.tabIndex = -1;
+      b.setAttribute("aria-hidden", "true");
+      b.innerHTML = '<span class="material-symbols-rounded">' +
+        (dir === "left" ? "chevron_left" : "chevron_right") + "</span>";
+      b.addEventListener("click", function () {
+        /* 80% of a screenful, not 100%: the overlap keeps a couple of pills
+           in view across the step so you can tell where you landed. */
+        rail.scrollBy({
+          left: (dir === "left" ? -1 : 1) * Math.round(rail.clientWidth * 0.8),
+          behavior: prefersReducedMotion() ? "auto" : "smooth"
+        });
+      });
+      return b;
+    }
+
+    var left  = $("navScrollL") || arrow("left");
+    var right = $("navScrollR") || arrow("right");
+    left.id = "navScrollL";
+    right.id = "navScrollR";
+    if (!left.parentNode)  bar.appendChild(left);
+    if (!right.parentNode) bar.appendChild(right);
+
+    function sync() {
+      /* 1px of slack absorbs sub-pixel rounding at fractional zoom levels,
+         which would otherwise leave the end arrow enabled forever. */
+      var max = rail.scrollWidth - rail.clientWidth;
+      var atStart = rail.scrollLeft <= 1;
+      var atEnd   = rail.scrollLeft >= max - 1;
+      var scrollable = max > 1;
+      bar.classList.toggle("sectionnav--fade-l", scrollable && !atStart);
+      bar.classList.toggle("sectionnav--fade-r", scrollable && !atEnd);
+      left.disabled  = !scrollable || atStart;
+      right.disabled = !scrollable || atEnd;
+    }
+
+    if (!navScrollWired) {
+      navScrollWired = true;
+      var ticking = false;
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; sync(); });
+      }
+      rail.addEventListener("scroll", onScroll, { passive: true });
+
+      /* Whether the rail overflows is a *measurement*, and the measurement
+         moves after first paint. The icon font arrives late, so the pills are
+         first laid out in a fallback face with different metrics — a rail that
+         ends up fitting exactly can measure as overflowing until then, and
+         neither a font swap nor a container resize fires a scroll event, so
+         the wrong state would simply stick. Re-measure on both. */
+      if (window.ResizeObserver) {
+        new ResizeObserver(onScroll).observe(rail);
+      } else {
+        window.addEventListener("resize", onScroll, { passive: true });
+      }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(sync).catch(function () { /* ignore */ });
+      }
+    }
+    sync();
+  }
+
   var spyObserver = null;
   function setupScrollSpy() {
     if (spyObserver) { spyObserver.disconnect(); spyObserver = null; }
