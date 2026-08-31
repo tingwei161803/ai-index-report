@@ -35,6 +35,9 @@
      missing — they are not a place to record a real year's chapters.
      --------------------------------------------------------------------- */
   var YEAR     = window.SITE_YEAR || "";
+  /* The year index spans every edition, so it declares no single year — the
+     chrome must read correctly with YEAR empty, not leave a dangling space. */
+  var YR       = YEAR ? " " + YEAR : "";
   var REPO     = window.SITE_REPO || "tingwei161803/ai-index-report";
   var CHAPTERS = Array.isArray(window.SITE_CHAPTERS) ? window.SITE_CHAPTERS : [];
   var NCH      = CHAPTERS.length;
@@ -45,19 +48,19 @@
 
   /* ---------- i18n strings (UI chrome only) ---------- */
   var I18N = {
-    en: { footer: "Unofficial educational digest · Source: Stanford HAI Artificial Intelligence Index Report " + YEAR + " (CC BY-ND 4.0) · Built as a zero-build static site.",
+    en: { footer: "Unofficial educational digest · Source: Stanford HAI Artificial Intelligence Index Report" + YR + " (CC BY-ND 4.0) · Built as a zero-build static site.",
           close: "Close", menu: "On this page",
           srcLink: "Open the official report at Stanford HAI", srcLinkTxt: "Stanford HAI",
           navChapters: "Chapters", navChaptersTitle: "Jump to the " + NCH + " chapter deep dives",
-          navHome: "Overview", navHomeTitle: "Back to the AI Index " + YEAR + " overview",
+          navHome: "Overview", navHomeTitle: "Back to the AI Index" + YR + " overview",
           navYears: "All years", navYearsTitle: "Back to the year index",
           allChapters: "All chapters", prevCh: "Previous", nextCh: "Next",
           ghStar: "Star this project on GitHub" },
-    zh: { footer: "非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 " + YEAR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
+    zh: { footer: "非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告" + YR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
           close: "關閉", menu: "本頁導覽",
           srcLink: "前往史丹佛 HAI 官方報告", srcLinkTxt: "Stanford HAI",
           navChapters: "章節", navChaptersTitle: "跳到" + nchZh + "大章節詳解",
-          navHome: "總覽", navHomeTitle: "回到 AI 指數 " + YEAR + " 總覽",
+          navHome: "總覽", navHomeTitle: "回到 AI 指數" + YR + " 總覽",
           navYears: "所有年度", navYearsTitle: "回到年度總覽",
           allChapters: "所有章節", prevCh: "上一章", nextCh: "下一章",
           ghStar: "到 GitHub 給這個專案一顆星" }
