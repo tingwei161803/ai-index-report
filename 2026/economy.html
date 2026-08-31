@@ -13,6 +13,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { /* private mode / storage blocked: keep the markup default */ }
+    })();
+  </script>
+
   <!-- ==== Primary meta ==== -->
   <title data-zh="經濟 · AI 指數報告 2026">Economy · AI Index Report 2026</title>
   <meta name="description" data-zh="史丹佛 HAI《AI 指數報告 2026》第 4 章「經濟」完整詳解。Detailed bilingual deep dive on the Economy chapter of Stanford HAI&#x27;s AI Index Report 2026." content="Detailed bilingual deep dive on the Economy chapter of Stanford HAI's AI Index Report 2026." />

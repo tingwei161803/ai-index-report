@@ -78,9 +78,18 @@
   var PAGE_LANG = (document.documentElement.getAttribute("lang") || "en")
     .toLowerCase().indexOf("zh") === 0 ? "zh" : "en";
 
+  /* Only a click on the toggle counts as a theme choice. Anything else —
+     including the very first page load — leaves storage untouched and lets
+     the system preference decide, so we never mistake our own default for
+     something the reader asked for. */
+  function systemTheme() {
+    return window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
   var state = {
     lang:  PAGE_LANG,
-    theme: lsGet("theme") || "light"
+    theme: lsGet("theme") || systemTheme()
   };
 
   /* Chart tooltips read "label: value". A halfwidth colon wedged between a
@@ -853,7 +862,6 @@
     document.documentElement.setAttribute("data-theme", state.theme);
     var icon = $("themeIcon");
     if (icon) icon.textContent = state.theme === "dark" ? "light_mode" : "dark_mode";
-    lsSet("theme", state.theme);
   }
   /* The language switch is a real link to THIS page in the other language
      (English lives under /en/). The href is derived from location.pathname, so
@@ -887,8 +895,23 @@
   function wire() {
     $("themeToggle").addEventListener("click", function () {
       state.theme = state.theme === "dark" ? "light" : "dark";
+      lsSet("theme", state.theme);          // an actual choice — remember it
       applyTheme();
     });
+
+    /* Track the system while the reader has expressed no preference of their
+       own. Once they have, their choice outranks the OS and we stop listening
+       to it. */
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var onScheme = function () {
+        if (lsGet("theme")) return;
+        state.theme = systemTheme();
+        applyTheme();
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onScheme);
+      else if (mq.addListener) mq.addListener(onScheme);
+    }
 
     /* No language handler here any more: #langLink is an <a> that navigates
        to the other language's copy of this page. */

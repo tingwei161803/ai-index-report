@@ -7,6 +7,12 @@
    are remapped to the editorial palette.
    ========================================================================= */
 
+/* Tell the browser which scheme the page is actually in, so its own UI —
+   scrollbars, form controls, the flash before CSS applies — matches instead
+   of staying stubbornly light under a dark page. */
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"]  { color-scheme: dark; }
+
 /* ---- Tokens : LIGHT (warm bone + clay accent) ---- */
 :root,
 [data-theme="light"] {

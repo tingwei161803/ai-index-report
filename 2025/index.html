@@ -13,6 +13,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { /* private mode / storage blocked: keep the markup default */ }
+    })();
+  </script>
+
   <!-- ==== Primary meta ==== -->
   <title data-zh="AI 指數報告 2025 · 12 條重點、8 大章節">AI Index Report 2025 · 12 takeaways, 8 chapters</title>
   <meta name="description" data-zh="史丹佛 HAI 第八版的互動重點整理:12 條重點摘要、8 大章節,以及 2024 年的關鍵數字,中英文皆備。" content="Stanford HAI&#x27;s eighth edition, read as data — 12 top takeaways, 8 chapters, and the key numbers from 2024 in English and Traditional Chinese." />
