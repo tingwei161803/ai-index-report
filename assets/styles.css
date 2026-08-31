@@ -212,6 +212,20 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 .ch-menu__item:hover .ch-menu__num { color: var(--primary); }
+
+/* "All years" row — sits above the chapter list, visually demoted so it reads
+   as an escape hatch rather than another chapter. */
+.ch-menu__item--years { color: var(--on-surface-variant); }
+.ch-menu__item--years .material-symbols-rounded {
+  font-size: 1.15rem;
+  min-width: 1.3em;
+  text-align: center;
+}
+.ch-menu__sep {
+  height: 1px;
+  margin: 6px 4px;
+  background: var(--outline-variant);
+}
 .ch-menu__item--active .ch-menu__num { color: var(--on-primary-container); }
 
 /* GitHub star button (injected by app.js) */

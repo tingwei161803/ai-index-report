@@ -382,7 +382,16 @@
         '<span class="ch-menu__num">' + escapeHtml(String(num)) + "</span>" +
         "<span>" + escapeHtml(name) + "</span></a>";
     }
-    var items = row(0, ui("navHome"), "index.html", !cur);
+    /* Year pages live one level down (/2026/…), so the index of editions is
+       always ../index.html. Without this row the only way back is the browser
+       button or hand-editing the URL. */
+    var items =
+      '<a class="ch-menu__item ch-menu__item--years" href="../index.html" role="menuitem" ' +
+        'title="' + escapeHtml(ui("navYearsTitle")) + '">' +
+        '<span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>' +
+        "<span>" + escapeHtml(ui("navYears")) + "</span></a>" +
+      '<div class="ch-menu__sep" role="separator"></div>';
+    items += row(0, ui("navHome"), "index.html", !cur);
     CHAPTERS.forEach(function (c) {
       items += row(c.num, state.lang === "zh" ? c.zh : c.en, c.file, c.slug === cur);
     });
