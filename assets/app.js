@@ -134,6 +134,28 @@
     },
 
     /* ---- cards: responsive grid; click a card -> detail dialog ---- */
+    /* ---- navcards: cards that ARE links ------------------------------
+       `cards` opens a dialog on click — right for encyclopedia-style entries
+       whose detail has nowhere else to live, wrong for navigation. A card
+       that says "Open the 2026 edition" must BE the link, not describe one.
+       ---------------------------------------------------------------- */
+    navcards: function (sec) {
+      var cards = (sec.items || []).map(function (item) {
+        var tags = (item.tags || []).map(function (tg) {
+          return '<span class="tag">' + escapeHtml(tg) + "</span>";
+        }).join("");
+        return '<a class="card card--nav" data-item href="' + escapeHtml(item.href) + '">' +
+          '<h3 class="card__title">' + escapeHtml(t(item.title)) + "</h3>" +
+          '<p class="card__summary">' + escapeHtml(t(item.summary)) + "</p>" +
+          (tags ? '<div class="card__tags">' + tags + "</div>" : "") +
+          '<span class="card__cta">' + escapeHtml(t(item.cta)) +
+            '<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>' +
+          "</span>" +
+        "</a>";
+      }).join("");
+      return sectionHead(sec) + '<div class="grid">' + cards + "</div>";
+    },
+
     cards: function (sec) {
       var cards = (sec.items || []).map(function (item) {
         var tags = (item.tags || []).map(function (tg) {
@@ -271,7 +293,7 @@
 
   /* icon shown in the section nav pill, keyed by type */
   var NAV_ICONS = {
-    hero: "auto_awesome", cards: "grid_view", timeline: "timeline",
+    hero: "auto_awesome", cards: "grid_view", navcards: "library_books", timeline: "timeline",
     bars: "bar_chart", accordion: "quiz", quotes: "format_quote",
     prose: "article", cta: "campaign"
   };
