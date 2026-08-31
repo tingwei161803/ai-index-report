@@ -27,39 +27,41 @@
   var META = window.SITE_META || { title: {}, subtitle: {} };
   var SECTIONS = Array.isArray(window.SITE_SECTIONS) ? window.SITE_SECTIONS : [];
 
+  /* ---------- per-year configuration -------------------------------------
+     This engine serves every year of the report from one shared copy, so
+     nothing year-specific may be hard-coded here. Each year supplies its own
+     `data/site.js` (loaded before this file) declaring SITE_YEAR / SITE_REPO /
+     SITE_CHAPTERS. The fallbacks below only keep a page alive if that file is
+     missing — they are not a place to record a real year's chapters.
+     --------------------------------------------------------------------- */
+  var YEAR     = window.SITE_YEAR || "";
+  var REPO     = window.SITE_REPO || "tingwei161803/ai-index-report";
+  var CHAPTERS = Array.isArray(window.SITE_CHAPTERS) ? window.SITE_CHAPTERS : [];
+  var NCH      = CHAPTERS.length;
+
+  /* Chinese numerals read better than digits in "跳到九大章節詳解". */
+  var CH_NUM_ZH = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+  var nchZh = CH_NUM_ZH[NCH] || String(NCH);
+
   /* ---------- i18n strings (UI chrome only) ---------- */
   var I18N = {
-    en: { footer: "Unofficial educational digest · Source: Stanford HAI Artificial Intelligence Index Report 2026 (CC BY-ND 4.0) · Built as a zero-build static site.",
+    en: { footer: "Unofficial educational digest · Source: Stanford HAI Artificial Intelligence Index Report " + YEAR + " (CC BY-ND 4.0) · Built as a zero-build static site.",
           close: "Close", menu: "On this page",
           srcLink: "Open the official report at Stanford HAI", srcLinkTxt: "Stanford HAI",
-          navChapters: "Chapters", navChaptersTitle: "Jump to the nine chapter deep dives",
-          navHome: "Overview", navHomeTitle: "Back to the AI Index 2026 overview",
+          navChapters: "Chapters", navChaptersTitle: "Jump to the " + NCH + " chapter deep dives",
+          navHome: "Overview", navHomeTitle: "Back to the AI Index " + YEAR + " overview",
+          navYears: "All years", navYearsTitle: "Back to the year index",
           allChapters: "All chapters", prevCh: "Previous", nextCh: "Next",
           ghStar: "Star this project on GitHub" },
-    zh: { footer: "非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2026》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
+    zh: { footer: "非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 " + YEAR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
           close: "關閉", menu: "本頁導覽",
           srcLink: "前往史丹佛 HAI 官方報告", srcLinkTxt: "Stanford HAI",
-          navChapters: "章節", navChaptersTitle: "跳到九大章節詳解",
-          navHome: "總覽", navHomeTitle: "回到 AI 指數 2026 總覽",
+          navChapters: "章節", navChaptersTitle: "跳到" + nchZh + "大章節詳解",
+          navHome: "總覽", navHomeTitle: "回到 AI 指數 " + YEAR + " 總覽",
+          navYears: "所有年度", navYearsTitle: "回到年度總覽",
           allChapters: "所有章節", prevCh: "上一章", nextCh: "下一章",
           ghStar: "到 GitHub 給這個專案一顆星" }
   };
-
-  /* ---------- repo (for the GitHub star button) ---------- */
-  var REPO = "tingwei161803/ai-index-report-2026";
-
-  /* ---------- chapter registry (for cross-page prev/next nav) ---------- */
-  var CHAPTERS = [
-    { slug: "research",       file: "research.html",       num: 1, en: "Research & Development", zh: "研發" },
-    { slug: "performance",    file: "performance.html",    num: 2, en: "Technical Performance",  zh: "技術表現" },
-    { slug: "responsible-ai", file: "responsible-ai.html", num: 3, en: "Responsible AI",         zh: "負責任 AI" },
-    { slug: "economy",        file: "economy.html",        num: 4, en: "Economy",                zh: "經濟" },
-    { slug: "science",        file: "science.html",        num: 5, en: "Science",                zh: "科學" },
-    { slug: "medicine",       file: "medicine.html",       num: 6, en: "Medicine",               zh: "醫療" },
-    { slug: "education",      file: "education.html",       num: 7, en: "Education",              zh: "教育" },
-    { slug: "policy",         file: "policy.html",          num: 8, en: "Policy & Governance",    zh: "政策與治理" },
-    { slug: "public-opinion", file: "public-opinion.html",  num: 9, en: "Public Opinion",         zh: "民意" }
-  ];
 
   /* ---------- safe localStorage (sandbox / file:// may throw) ---------- */
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
