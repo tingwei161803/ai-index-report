@@ -344,8 +344,12 @@
 
   function paintChrome() {
     var titleStr = t(META.title);
-    var subStr = t(META.subtitle);
-    document.title = subStr ? titleStr + " · " + subStr : titleStr;
+    /* document.title is deliberately NOT set here. It used to be, back when a
+       runtime toggle switched languages and the tab had to follow. Now each
+       language has its own URL and build_i18n.py writes the Chinese title into
+       the static <head> from data-zh, so the markup is already correct and
+       per-page tuned. Rebuilding it from SITE_META here only overwrote that
+       with a longer, less specific string. */
     var brand = $("brandName");
     if (brand) brand.textContent = titleStr;
     var foot = $("footerText");
