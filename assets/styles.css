@@ -618,8 +618,12 @@ a { color: inherit; text-decoration: none; }
 }
 .chart-wrap { width: 100%; max-width: 600px; margin: 0 auto; }
 .chart-wrap svg { width: 100%; height: auto; display: block; }
-.bar-rect { fill: var(--primary); transition: fill .15s, opacity .15s; opacity: .9; }
-.bar-rect:hover { opacity: 1; }
+/* Hovering a bar used to move opacity .9 -> 1 — an 11% change nobody can see.
+   Dim the siblings instead: relative contrast reads at a glance, and it also
+   tells you which label and value belong together on a crowded axis. */
+.bar-rect { fill: var(--primary); transition: opacity .15s; opacity: .9; }
+.chart-wrap svg:hover .bar-rect { opacity: .35; }
+.chart-wrap svg:hover .bar-rect:hover { opacity: 1; }
 .bar-value {
   fill: var(--on-surface); font-size: 13px; font-weight: 700;
   font-family: var(--font-mono); font-variant-numeric: tabular-nums;
