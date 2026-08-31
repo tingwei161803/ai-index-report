@@ -213,18 +213,16 @@ a { color: inherit; text-decoration: none; }
 }
 .ch-menu__item:hover .ch-menu__num { color: var(--primary); }
 
-/* "All years" row — sits above the chapter list, visually demoted so it reads
-   as an escape hatch rather than another chapter. */
-.ch-menu__item--years { color: var(--on-surface-variant); }
-.ch-menu__item--years .material-symbols-rounded {
-  font-size: 1.15rem;
-  min-width: 1.3em;
-  text-align: center;
+/* "All years" — the way up a level. Given its own appbar control and the
+   theme accent so it does not read as just another chapter link. */
+.nav-link--years {
+  color: var(--primary);
+  border-color: color-mix(in srgb, var(--primary) 35%, transparent);
 }
-.ch-menu__sep {
-  height: 1px;
-  margin: 6px 4px;
-  background: var(--outline-variant);
+.nav-link--years:hover,
+.nav-link--years:focus-visible {
+  background: var(--primary-container);
+  border-color: var(--primary);
 }
 .ch-menu__item--active .ch-menu__num { color: var(--on-primary-container); }
 
