@@ -56,7 +56,7 @@
           navYears: "All years", navYearsTitle: "Back to the year index",
           allChapters: "All chapters", prevCh: "Previous", nextCh: "Next",
           ghStar: "Star this project on GitHub" },
-    zh: { footer: "非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告" + YR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
+    zh: { footer: "非官方教育性整理 · 資料來源：史丹佛 HAI《人工智慧指數報告" + YR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
           close: "關閉", menu: "本頁導覽",
           srcLink: "前往史丹佛 HAI 官方報告", srcLinkTxt: "Stanford HAI",
           navChapters: "章節", navChaptersTitle: "跳到" + nchZh + "大章節詳解",
@@ -82,6 +82,11 @@
     lang:  PAGE_LANG,
     theme: lsGet("theme") || "light"
   };
+
+  /* Chart tooltips read "label: value". A halfwidth colon wedged between a
+     Chinese label and a number looks like the sentence broke — Traditional
+     Chinese wants the fullwidth form, which carries its own spacing. */
+  var LBLSEP = state.lang === "zh" ? "：" : ": ";
 
   /* ---------- dom refs ---------- */
   var $ = function (id) { return document.getElementById(id); };
@@ -206,7 +211,7 @@
         var val = escapeHtml(String(d.value));
         return (
           '<rect class="bar-rect" x="' + r(x) + '" y="' + r(y) + '" width="' + r(bw) +
-            '" height="' + r(h) + '" rx="5"><title>' + label + ": " + val + "</title></rect>" +
+            '" height="' + r(h) + '" rx="5"><title>' + label + LBLSEP + val + "</title></rect>" +
           '<text class="bar-value" x="' + r(x + bw / 2) + '" y="' + r(y - 6) +
             '" text-anchor="middle">' + val + "</text>" +
           '<text class="bar-label" x="' + r(x + bw / 2) + '" y="' + r(baseY + 20) +
