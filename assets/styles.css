@@ -856,6 +856,57 @@ a { color: inherit; text-decoration: none; }
   .chapter-nav__all { grid-column: 1 / -1; order: -1; flex-direction: row; }
 }
 
+/* ---- Reading position: progress hairline + back-to-top ---- */
+.readprogress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 40;              /* above both sticky bars (30 / 25) */
+  pointer-events: none;
+  display: none;
+}
+.readprogress--on { display: block; }
+.readprogress__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  /* Scaling a single element beats animating width: it stays on the compositor,
+     so dragging the scrollbar never forces a layout pass per frame. */
+  will-change: transform;
+}
+.totop {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--outline-variant);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--on-surface-variant);
+  box-shadow: 0 2px 10px rgb(0 0 0 / .12);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .2s, transform .2s, visibility .2s, color .15s, border-color .15s;
+}
+.totop--on { opacity: 1; visibility: visible; transform: none; }
+.totop:hover { color: var(--on-surface); border-color: var(--primary); }
+.totop .material-symbols-rounded { font-size: 22px; }
+@media (max-width: 420px) {
+  .totop { right: 14px; width: 40px; height: 40px; }
+}
+
 /* ---- Scroll reveal (first paint only; see app.js revealOnScroll) ---- */
 .reveal {
   opacity: 0;

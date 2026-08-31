@@ -55,7 +55,7 @@
           navHome: "Overview", navHomeTitle: "Back to the AI Index" + YR + " overview",
           navYears: "All years", navYearsTitle: "Back to the year index",
           allChapters: "All chapters", prevCh: "Previous", nextCh: "Next",
-          ghStar: "Star this project on GitHub" },
+          ghStar: "Star this project on GitHub", toTop: "Back to top" },
     zh: { footer: "非官方教育性整理 · 資料來源：史丹佛 HAI《人工智慧指數報告" + YR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
           close: "關閉", menu: "本頁導覽",
           srcLink: "前往史丹佛 HAI 官方報告", srcLinkTxt: "Stanford HAI",
@@ -63,7 +63,7 @@
           navHome: "總覽", navHomeTitle: "回到 AI 指數" + YR + " 總覽",
           navYears: "所有年度", navYearsTitle: "回到年度總覽",
           allChapters: "所有章節", prevCh: "上一章", nextCh: "下一章",
-          ghStar: "到 GitHub 給這個專案一顆星" }
+          ghStar: "到 GitHub 給這個專案一顆星", toTop: "回到頂端" }
   };
 
   /* ---------- safe localStorage (sandbox / file:// may throw) ---------- */
@@ -378,6 +378,7 @@
     renderChaptersMenu();
     paintNav();
     setupNavScroll();
+    setupReadingAids();
     paintSections();
     renderChapterNav();
     setupScrollSpy();
@@ -673,6 +674,77 @@
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(sync).catch(function () { /* ignore */ });
       }
+    }
+    sync();
+  }
+
+  /* =======================================================================
+     READING POSITION — chapter pages run to ~9000px across 9-11 sections, so
+     the reader gets no sense of how far in they are or how much is left.
+
+     Two controls, both driven off one throttled scroll handler:
+       · a hairline progress bar pinned to the top of the viewport
+       · a back-to-top button that appears once you are a screenful down
+
+     The progress bar is aria-hidden: it restates scroll position, which
+     assistive tech already reports, so announcing it would only add noise.
+     The button is a real, focusable control — Home key aside, pointer users
+     have no other quick way back.
+     ===================================================================== */
+  var readingWired = false;
+  function setupReadingAids() {
+    var bar = $("readProgress");
+    if (!bar) {
+      bar = document.createElement("div");
+      bar.id = "readProgress";
+      bar.className = "readprogress";
+      bar.setAttribute("aria-hidden", "true");
+      bar.innerHTML = '<span class="readprogress__fill"></span>';
+      document.body.appendChild(bar);
+    }
+    var fill = bar.firstChild;
+
+    var btn = $("toTop");
+    if (!btn) {
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.id = "toTop";
+      btn.className = "totop";
+      btn.innerHTML =
+        '<span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>';
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+      });
+      document.body.appendChild(btn);
+    }
+    btn.setAttribute("aria-label", ui("toTop"));
+    btn.title = ui("toTop");
+
+    function sync() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var y = window.pageYOffset || doc.scrollTop || 0;
+      /* A page shorter than the viewport has nothing to indicate; showing a
+         bar stuck at 0% (or worse, dividing by zero) would just be noise. */
+      var pct = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+      bar.classList.toggle("readprogress--on", max > 0);
+      fill.style.transform = "scaleX(" + pct + ")";
+      btn.classList.toggle("totop--on", max > 0 && y > doc.clientHeight);
+    }
+
+    if (!readingWired) {
+      readingWired = true;
+      var ticking = false;
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; sync(); });
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      /* Page height changes as sections reveal and images settle, so the
+         denominator moves after load — re-measure rather than trust it once. */
+      if (window.ResizeObserver) new ResizeObserver(onScroll).observe(document.body);
+      else window.addEventListener("resize", onScroll, { passive: true });
     }
     sync();
   }
