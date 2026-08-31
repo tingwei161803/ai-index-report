@@ -7,6 +7,13 @@
    are remapped to the editorial palette.
    ========================================================================= */
 
+:root {
+  /* One section-nav pill: a 17px icon line box, 6px padding top and bottom,
+     and a 1px border top and bottom. Declared once so the height reserved for
+     the rail and the pills that land in it stay the same number. */
+  --navpill-h: 34px;
+}
+
 /* Tell the browser which scheme the page is actually in, so its own UI —
    scrollbars, form controls, the flash before CSS applies — matches instead
    of staying stubbornly light under a dark page. */
@@ -304,6 +311,14 @@ a { color: inherit; text-decoration: none; }
   gap: 6px;
   overflow-x: auto;
   scrollbar-width: none;
+  /* The rail ships EMPTY: prerender.py only writes <main>, and this sits
+     outside it. So the bar is 19px of bare padding until paintNav() fills it,
+     then jumps to 52px and shoves the entire page down 34px — measured as a
+     single 0.15 layout shift, the largest on the site. Hold the height from
+     the first paint instead. The 18px is this rule's own 9px of vertical
+     padding; --navpill-h is also applied to .navpill below, so the space
+     reserved and the thing that fills it can never drift apart. */
+  min-height: calc(var(--navpill-h) + 18px);
   /* Fade the pills out at whichever end still has content. This masks the
      rail rather than painting a gradient over it — the bar is a translucent
      backdrop-filter, so an opaque overlay would seam against it. Both fades
@@ -356,6 +371,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 6px;
   flex: 0 0 auto;
+  min-height: var(--navpill-h);
   padding: 6px 13px;
   border-radius: 999px;
   font-size: .8rem;
