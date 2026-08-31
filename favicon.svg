@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI Index Report">
+  <rect width="64" height="64" rx="14" fill="#8C3A2E"/>
+  <g fill="#FFFFFF">
+    <rect x="13" y="37" width="9" height="15" rx="2.5"/>
+    <rect x="27.5" y="27" width="9" height="25" rx="2.5"/>
+    <rect x="42" y="13" width="9" height="39" rx="2.5"/>
+  </g>
+</svg>
