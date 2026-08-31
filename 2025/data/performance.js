@@ -139,7 +139,7 @@ window.SITE_SECTIONS = [
         body:  { en: "Previewed in February and publicly accessible in December, Sora generates 20-second videos at resolutions up to 1080p. It arrived in a crowded year: Stable Video 3D in March, Meta's Movie Gen in October (16-second 1080p clips with sound), and Google's Veo 2, whose output was consistently preferred over Movie Gen, Kling v1.5 and Sora Turbo in user comparisons.",
                  zh: "2 月先行預覽、12 月正式開放,Sora 可生成長達 20 秒、解析度最高 1080p 的影片。它出現在一個相當擁擠的年份:3 月有 Stable Video 3D,10 月有 Meta 的 Movie Gen(16 秒、1080p、含聲音),還有 Google 的 Veo 2 — 在使用者比較中,Veo 2 的產出一貫勝過 Movie Gen、Kling v1.5 與 Sora Turbo。" } },
       { date:  { en: "Dec 20 & 27, 2024", zh: "2024 年 12 月 20 日與 27 日" },
-        title: { en: "o3 (beta) · OpenAI, then DeepSeek-V3", zh: "o3(beta)· OpenAI,接著是 DeepSeek-V3" },
+        title: { en: "o3 (beta) · OpenAI, then DeepSeek-V3", zh: "o3(beta) · OpenAI,接著是 DeepSeek-V3" },
         body:  { en: "o3 posted 75.7% on ARC-AGI — 87.5% when given a compute budget above the benchmark's $10,000 limit — plus 87.7% on GPQA Diamond and 71.7% on SWE-bench Verified. A week later DeepSeek released V3, an open-source model whose performance rivaled the frontier at a reported fraction of the training cost.",
                  zh: "o3 在 ARC-AGI 上拿下 75.7% — 若給予超過該基準 10,000 美元上限的運算預算則可達 87.5% — 另有 GPQA Diamond 87.7%、SWE-bench Verified 71.7%。一週後 DeepSeek 釋出開源的 V3,效能直逼前沿,而據報訓練成本只是一小部分。" } }
     ]
