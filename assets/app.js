@@ -367,6 +367,10 @@
       var el = $(id);
       if (el && el.parentNode) el.parentNode.removeChild(el);
     });
+    // The year index has no chapters of its own — a dropdown holding a single
+    // "Overview" row pointing at the page you are already on is worse than no
+    // dropdown, so bail out entirely rather than render an empty shell.
+    if (!CHAPTERS.length) return;
 
     var cur = window.SITE_CHAPTER || null;
     function row(num, name, href, active) {
