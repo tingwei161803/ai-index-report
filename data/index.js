@@ -30,6 +30,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Two editions, one trend line",
                 zh: "兩個版本，一條趨勢線" },
     subtitle: { en: "The AI Index is an independent Stanford HAI initiative that has tracked artificial intelligence since 2017 — across research, technical performance, responsible AI, the economy, science and medicine, policy, education, and public opinion. Reading two editions side by side shows something no single edition can: the rate of change. These figures compare the 2026 edition (measuring 2025) against the 2025 edition (measuring 2024).",
@@ -48,6 +49,7 @@ window.SITE_SECTIONS = [
   {
     type: "navcards",
     id: "editions",
+    nav:      { en: "Editions", zh: "各年版本" },
     title:    { en: "Pick an edition", zh: "選擇版本" },
     subtitle: { en: "Each edition is a complete site of its own — an overview page plus one deep dive per chapter, in English and Traditional Chinese.",
                 zh: "每個版本都是一個完整的網站 — 一個總覽頁，加上每章一頁的詳解，中英文皆備。" },
@@ -75,6 +77,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "investment",
+    nav:      { en: "Investment", zh: "投資" },
     title:    { en: "The money roughly doubled in a single year",
                 zh: "資金在一年內大致翻倍" },
     subtitle: { en: "Global corporate AI investment — the broadest measure, covering private investment, mergers and acquisitions, and public offerings. Figures in billions of US dollars, by the calendar year measured.",
@@ -89,6 +92,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "adoption",
+    nav:      { en: "Adoption", zh: "企業採用" },
     title:    { en: "Adoption kept climbing from an already high base",
                 zh: "採用率在已經很高的基礎上繼續攀升" },
     subtitle: { en: "Share of surveyed organizations reporting AI use. The jump from 55% to 78% between 2023 and 2024 was the steepest; 2025 adds ten more points on top of it.",
@@ -104,6 +108,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "incidents",
+    nav:      { en: "Incidents", zh: "風險事件" },
     title:    { en: "Reported incidents rose alongside deployment",
                 zh: "通報的事故隨部署一同上升" },
     subtitle: { en: "AI-related incidents logged in the AI Incidents Database. Rising counts reflect both more real-world failures and better reporting — the database itself notes that coverage improves each year.",
@@ -118,6 +123,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "how-to-read",
+    nav:      { en: "How to read", zh: "閱讀說明" },
     title:    { en: "How to read this site", zh: "怎麼讀這個站" },
     subtitle: { en: "A few things worth knowing before you dive into an edition.",
                 zh: "在讀進某個版本之前，有幾件事值得先知道。" },
@@ -144,6 +150,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:      { en: "Source", zh: "原始報告" },
     title: { en: "Read the original reports", zh: "閱讀原始報告" },
     text:  { en: "The AI Index is published open access by the Stanford Institute for Human-Centered AI under CC BY-ND 4.0. Full PDFs, the underlying raw data, and the Global AI Vibrancy tool are all available there.",
              zh: "AI 指數由史丹佛以人為本人工智慧研究院(HAI)以 CC BY-ND 4.0 開放取用發行。完整 PDF、底層原始資料與 Global AI Vibrancy 工具皆可於該處取得。" },
