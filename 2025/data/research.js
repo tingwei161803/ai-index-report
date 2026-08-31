@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "In 2024, AI research got bigger, costlier — and almost entirely corporate",
                 zh: "2024 年，AI 研究變得更龐大、更昂貴 — 而且幾乎全由企業主導" },
     subtitle: { en: "Chapter 1 of the AI Index 2025 follows where AI knowledge is made: papers, patents, notable models, the chips underneath them, and the energy they burn. The pattern is consistent — output keeps climbing, but the frontier is moving into a smaller number of very well-funded hands. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "publications",
+    nav:      { en: "1.1 Publications", zh: "1.1 論文發表" },
     title:    { en: "1.1 — More AI papers than ever, and China writes the most of them",
                 zh: "1.1 — AI 論文比以往任何時候都多，而中國寫得最多" },
     subtitle: { en: "Between 2013 and 2023, AI publications in computer science venues more than doubled, from roughly 102,000 to over 242,000 — a 19.7% rise in the last year alone. AI now accounts for 41.8% of all computer science publications, up from 21.6% a decade earlier.",
@@ -74,6 +76,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "pubs-region",
+    nav:      { en: "Papers by region", zh: "各區域論文" },
     title:    { en: "East Asia and the Pacific now produce a third of the world's AI research",
                 zh: "東亞與太平洋地區如今產出全球三分之一的 AI 研究" },
     subtitle: { en: "AI publications in computer science as a share of the world total, 2023 (%). East Asia and the Pacific also took 37.1% of all AI publication citations that year.",
@@ -90,6 +93,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "patents-models",
+    nav:      { en: "1.2 & 1.3 Patents", zh: "1.2 & 1.3 專利與模型" },
     title:    { en: "1.2 & 1.3 — China owns the patents, the US ships the models",
                 zh: "1.2 與 1.3 — 中國掌握專利，美國推出模型" },
     subtitle: { en: "Two very different maps of AI capability. On granted patents, China holds 69.7% of the world total. On notable models — the systems that actually move the frontier — the United States produced 40 in 2024, against China's 15 and Europe's combined three.",
@@ -134,6 +138,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "model-orgs",
+    nav:      { en: "Model builders", zh: "模型開發者" },
     title:    { en: "A decade of notable models, and who built them",
                 zh: "十年的重要模型，以及誰造了它們" },
     subtitle: { en: "Cumulative number of notable AI models by organization, 2014–24. Google alone accounts for more than twice as many as the next contributor; the leading universities sit an order of magnitude behind.",
@@ -152,6 +157,7 @@ window.SITE_SECTIONS = [
   {
     type: "timeline",
     id: "scaling",
+    nav:      { en: "Training costs", zh: "訓練成本" },
     title:    { en: "What a frontier model costs, from AlexNet to DeepSeek-V3",
                 zh: "從 AlexNet 到 DeepSeek-V3，一個前沿模型要花多少" },
     subtitle: { en: "Training compute for notable models doubles roughly every five months, LLM dataset sizes every eight months, and training power annually. Here is what that compounding looks like in dollars, watts and carbon.",
@@ -199,6 +205,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "hardware",
+    nav:      { en: "1.4–1.6 Hardware", zh: "1.4–1.6 硬體" },
     title:    { en: "1.4–1.6 — The chips get more efficient, the models eat the gains",
                 zh: "1.4–1.6 — 晶片效率提升，模型卻把紅利全吃光" },
     subtitle: { en: "Machine learning hardware has improved on every axis that matters: 43% more performance a year, 30% cheaper a year, 40% more energy efficient a year. And yet the power required to train a frontier model is doubling annually.",
@@ -242,6 +249,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "questions",
+    nav:      { en: "Questions", zh: "問答" },
     title:    { en: "Five questions the chapter actually answers", zh: "這一章真正回答的五個問題" },
     subtitle: { en: "The open arguments in AI research, with what the 2025 data says about each.",
                 zh: "AI 研究中還在爭論的幾件事，以及 2025 年的數據怎麼說。" },
@@ -268,6 +276,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Research and Development chapter", zh: "閱讀完整的研發章節" },
     text:  { en: "Chapter 1 (sections 1.1–1.6) — publications, patents, notable models, hardware, conferences and open-source software — with every figure and citation is free from Stanford HAI.",
              zh: "第 1 章(1.1–1.6 各節) — 論文、專利、重要模型、硬體、研討會與開源軟體 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。" },

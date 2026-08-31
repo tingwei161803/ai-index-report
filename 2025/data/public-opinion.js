@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Warmer on AI. Colder on the companies building it.",
                 zh: "對 AI 變熱情，對做 AI 的公司變冷淡" },
     subtitle: { en: "Chapter 8 of the AI Index 2025 draws on Ipsos surveys of 23,685 adults across 32 countries, AAA's annual self-driving survey, and the first comprehensive study of local US policymakers' views. The headline is a split: optimism about the technology is rising, trust in the institutions delivering it is falling. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "global-sentiment",
+    nav:      { en: "8.1 Global mood", zh: "8.1 全球情緒" },
     title:    { en: "8.1 — The world warmed up, and got more nervous at the same time",
                 zh: "8.1 — 世界變熱情了，同時也更緊張了" },
     subtitle: { en: "Ipsos ran the same questions in 2022, 2023, and 2024. Awareness plateaued, optimism edged up, and every question about trust moved the wrong way.",
@@ -84,6 +86,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "optimism",
+    nav:      { en: "Optimism", zh: "樂觀程度" },
     title:    { en: "Do AI products and services have more benefits than drawbacks?",
                 zh: "AI 產品與服務是利大於弊嗎？" },
     subtitle: { en: "% of respondents who agree, 2024. The 47-point spread between China and the Netherlands is the single widest gap in the chapter — and it has barely narrowed since the 2023 AI Index first reported it.",
@@ -102,6 +105,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "jobs-and-life",
+    nav:      { en: "Jobs and life", zh: "工作與生活" },
     title:    { en: "People expect AI to change their work, not take it",
                 zh: "人們預期 AI 會改變工作，而不是奪走工作" },
     subtitle: { en: "60% think AI will change how they do their job in the next five years. 36% think it will replace their job. The gap between those two numbers is the shape of public expectation right now.",
@@ -140,6 +144,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "self-driving",
+    nav:      { en: "Self-driving fear", zh: "自駕車" },
     title:    { en: "% of US drivers afraid of self-driving vehicles",
                 zh: "% 害怕自駕車的美國駕駛" },
     subtitle: { en: "AAA's annual survey, most recently conducted in January 2025 and designed to represent about 97% of US households. Fear spiked in 2023 and has eased since, but it remains above its 2021 level. Trust tells the same story from the other side: 14% in 2021, 15% in 2022, then a collapse to 9% in 2023 and 2024, recovering only to 13% in 2025 — after years of visible Waymo and Zoox deployment.",
@@ -157,6 +162,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "policymakers",
+    nav:      { en: "8.2 Policymakers", zh: "8.2 地方官員" },
     title:    { en: "8.2 — Local officials want regulation and feel unqualified to write it",
                 zh: "8.2 — 地方官員想要監管，卻覺得自己沒資格來寫" },
     subtitle: { en: "Researchers from Uppsala, Oxford, Harvard, and Syracuse surveyed roughly 1,000 township, municipal, and county policymakers in two waves — 2022 and 2023 — bracketing the launch of ChatGPT.",
@@ -191,6 +197,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "policy-support",
+    nav:      { en: "Policy support", zh: "政策支持度" },
     title:    { en: "What local US policymakers actually support",
                 zh: "美國地方決策者實際支持什麼" },
     subtitle: { en: "% agreeing each policy would be beneficial for 2025–50. Rules and retraining clear 70%; every redistributive measure falls below 35%.",
@@ -209,6 +216,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 8 · Public Opinion.",
                 zh: "第 8 章「民意」的頭條發現。" },
@@ -235,6 +243,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Public Opinion chapter", zh: "閱讀完整的民意章節" },
     text:  { en: "Chapter 8 (sections 8.1–8.2) with every figure and citation is free from Stanford HAI. Or head back to the report highlights and eight-chapter overview.",
              zh: "第 8 章(8.1–8.2 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與八大章節總覽。" },

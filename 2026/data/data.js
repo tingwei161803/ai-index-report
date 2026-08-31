@@ -19,6 +19,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "AI scaled faster than the systems around it could adapt",
                 zh: "AI 擴張的速度，快過周遭體系能調適的速度" },
     subtitle: { en: "The 2026 AI Index — an independent Stanford HAI initiative — tracks AI across research, performance, responsibility, economy, science, medicine, education, policy, and public opinion. A few numbers that set the scene:",
@@ -37,6 +38,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "takeaways",
+    nav:      { en: "15 Takeaways", zh: "15 條重點" },
     title:    { en: "The 15 Top Takeaways", zh: "15 條重點摘要" },
     subtitle: { en: "The report's own headline findings. Tap any card for the full finding and its numbers.",
                 zh: "報告自己挑出的頭條發現。點任一張卡片看完整結論與數字。" },
@@ -198,6 +200,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "chapters",
+    nav:      { en: "Nine Chapters", zh: "九大章節" },
     title:    { en: "Nine chapters, in brief", zh: "九大章節速覽" },
     subtitle: { en: "Each chapter's headline highlights. Expand to read the key numbers.",
                 zh: "每一章的重點亮點。展開可看關鍵數字。" },
@@ -245,6 +248,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "us-china",
+    nav:      { en: "US vs China", zh: "美中對比" },
     title:    { en: "U.S. vs. China — the investment gap, in one chart",
                 zh: "美中對比 — 一張圖看投資落差" },
     subtitle: { en: "2025 private AI investment, US$ billions. The capability gap has effectively closed (top U.S. model leads by 2.7%), yet the investment gap remains ~23×. Note: China's figure likely understates state guidance funds.",
@@ -259,6 +263,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "adoption",
+    nav:      { en: "Adoption", zh: "採用率" },
     title:    { en: "Who's actually using generative AI",
                 zh: "誰真的在用生成式 AI" },
     subtitle: { en: "Generative-AI population adoption rate (%). Adoption correlates with GDP per capita — but some countries outpace what income predicts, while the U.S., despite leading investment, ranks 24th.",
@@ -275,6 +280,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "incidents",
+    nav:      { en: "Incidents", zh: "安全事故" },
     title:    { en: "The safety gap is widening",
                 zh: "安全落差正在擴大" },
     subtitle: { en: "Documented AI incidents logged by the AI Incident Database, by year. Capability reporting is near-universal; responsible-AI reporting stays spotty.",
@@ -289,6 +295,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In their words", zh: "報告原話" },
     title:    { en: "In the report's own words", zh: "報告的原話" },
     subtitle: { en: "Lines that capture the year, from the co-chairs' message and the top takeaways.",
                 zh: "幾句概括這一年的話，來自共同主席的訊息與重點摘要。" },
@@ -315,6 +322,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "about",
+    nav:      { en: "About", zh: "關於本頁" },
     title:    { en: "About this page", zh: "關於這個頁面" },
     subtitle: { en: "What it is, where the numbers come from, and how to read them.",
                 zh: "這是什麼、數字從哪來、該怎麼讀。" },
@@ -345,6 +353,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the report", zh: "讀原始報告" },
     title: { en: "Read the full report", zh: "閱讀完整報告" },
     text:  { en: "425 pages, nine chapters, hundreds of charts — all free from Stanford HAI, with raw data and an interactive Global AI Vibrancy tool.",
              zh: "425 頁、九大章節、數百張圖表 — 全部由史丹佛 HAI 免費提供，並附原始資料與互動式全球 AI 活力工具。" },

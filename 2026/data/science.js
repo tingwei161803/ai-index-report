@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "AI is racing to replace whole scientific workflows — reliability is still the gap",
                 zh: "AI 正衝刺取代整套科學工作流，可靠性仍是缺口" },
     subtitle: { en: "Chapter 5 of the AI Index 2026 traces AI across the sciences — from physics, chemistry, and astronomy to biology and Earth science, and into autonomous research agents. In 2025 AI moved beyond improving single pipeline steps toward replacing entire workflows, yet rigorous benchmarks still expose large gaps between plausible output and reliable science. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "publications",
+    nav:      { en: "5.1 Workflows", zh: "5.1 工作流" },
     title:    { en: "5.1 — AI for science: from single steps to whole workflows",
                 zh: "5.1 — 科學 AI：從單一步驟到整套工作流" },
     subtitle: { en: "AI's role in science falls into three coexisting layers — predictive models over data, assistants that help scientists work, and autonomous systems that generate discoveries. In 2025 the most visible action shifted to the second and third.",
@@ -66,6 +68,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "pubs-by-field",
+    nav:      { en: "Publications", zh: "各領域論文" },
     title:    { en: "AI publications in the natural sciences, 2025",
                 zh: "自然科學的 AI 論文(2025 年)" },
     subtitle: { en: "AI-related publications by field in 2025 (a single paper can fall in more than one domain, so the natural-sciences total is de-duplicated and not the simple sum). Unit: publications.",
@@ -82,6 +85,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "frontiers",
+    nav:      { en: "5.2 Reliability", zh: "5.2 可靠性" },
     title:    { en: "5.2 — Across the domains: capable, but not yet reliable",
                 zh: "5.2 — 跨越各領域：能力很強，卻還不可靠" },
     subtitle: { en: "Section 5.2 tracks the datasets, benchmarks, foundation models, and agents of three scientific groupings. A consistent finding: most scientific AI models come from academic and government institutions collaborating across countries — the opposite of the industry-dominated, general-purpose AI landscape.",
@@ -113,6 +117,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "benchmarks",
+    nav:      { en: "Agent benchmarks", zh: "代理基準" },
     title:    { en: "Frontier agents fall well short of expert-level science",
                 zh: "前沿代理離專家級科學還很遠" },
     subtitle: { en: "Selected 2025 benchmark scores for frontier models and agents on full scientific tasks, versus the PhD-expert baseline on PaperArena. Unit: % accuracy.",
@@ -130,6 +135,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "penetration",
+    nav:      { en: "AI's share", zh: "AI 佔比" },
     title:    { en: "AI's share of scientific output is climbing fast",
                 zh: "AI 在科學產出中的佔比正快速攀升" },
     subtitle: { en: "AI-related work as a share of total publications by field in 2025 (all four sat below 1% in 2010). Unit: % of total output (rounded).",
@@ -146,6 +152,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "fields",
+    nav:      { en: "Six fields", zh: "六個領域" },
     title:    { en: "Six fields, six frontiers", zh: "六個領域，六道前沿" },
     subtitle: { en: "How AI is reshaping each scientific domain in 2025. Tap any card for the full trend and its numbers.",
                 zh: "2025 年 AI 如何重塑各個科學領域。點任一張卡片看完整趨勢與數字。" },
@@ -220,6 +227,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 5 · Science.",
                 zh: "第 5 章「科學」的頭條發現。" },
@@ -246,6 +254,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Science chapter", zh: "閱讀完整的科學章節" },
     text:  { en: "Chapter 5 (sections 5.1–5.3) with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 5 章(5.1–5.3 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

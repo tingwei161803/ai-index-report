@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "AI policy is no longer just about regulation — it's about capacity",
                 zh: "AI 政策不再只是監管 — 而是國家能力" },
     subtitle: { en: "Chapter 8 of the AI Index 2026 shows governments racing to build and control the infrastructure, data, talent, and models behind AI. National strategies are spreading to lower-income economies, legislative activity is climbing at every level, and compute remains concentrated in a handful of countries. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "strategies",
+    nav:      { en: "8.2 Strategies", zh: "8.2 國家戰略" },
     title:    { en: "8.2 — National AI strategies are spreading to the periphery",
                 zh: "8.2 — 國家 AI 戰略正擴散到邊陲" },
     subtitle: { en: "More countries adopted national AI strategies in 2024–2025, with the fastest growth among economies that had no formal AI policy five years ago. The data tracks policy intent, not implementation.",
@@ -68,6 +70,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "sovereignty",
+    nav:      { en: "8.3 Sovereignty", zh: "8.3 AI 主權" },
     title:    { en: "8.3 — AI sovereignty, unevenly distributed",
                 zh: "8.3 — AI 主權，分布不均" },
     subtitle: { en: "AI sovereignty — a state's capacity to act and decide independently across the AI stack — is emerging as a central principle of national policy. But the infrastructure underpinning it is concentrated in a few regions.",
@@ -99,6 +102,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "witnesses",
+    nav:      { en: "Hearing witnesses", zh: "聽證會證人" },
     title:    { en: "AI witnesses in US congressional hearings grew twentyfold",
                 zh: "美國國會聽證會的 AI 證人成長了二十倍" },
     subtitle: { en: "Number of witnesses in US congressional AI-related hearings, by year. The count rose from 5 in 2017 to 102 in 2025, with the sharpest jump after generative AI emerged in late 2022.",
@@ -115,6 +119,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "supercompute",
+    nav:      { en: "Supercomputers", zh: "國家超算" },
     title:    { en: "State-backed AI supercomputing, by region",
                 zh: "國家支持的 AI 超算，依區域" },
     subtitle: { en: "Cumulative number of public or public-private AI supercomputers by 2025. Europe & Central Asia (44) and North America (41) lead among non-China regions; South Asia trails at just 2. (China leads overall at 85.)",
@@ -133,6 +138,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "legislation",
+    nav:      { en: "8.4 Legislation", zh: "8.4 立法動向" },
     title:    { en: "8.4 — Federal deregulation, state-level acceleration",
                 zh: "8.4 — 聯邦鬆綁，州級加速" },
     subtitle: { en: "In 2025, US federal policy shifted toward deregulation even as state legislatures passed a record number of AI bills — a tension that defines the year's policymaking.",
@@ -158,6 +164,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "statebills",
+    nav:      { en: "US state bills", zh: "各州法案" },
     title:    { en: "AI bills enacted by US state, 2016–2025",
                 zh: "美國各州立法的 AI 法案數，2016–2025" },
     subtitle: { en: "Number of AI-related bills passed into law, cumulative sum 2016–2025, for the most active states. California leads with 62 — more than double any other state.",
@@ -176,6 +183,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "moves",
+    nav:      { en: "8.1 Policy moves", zh: "8.1 政策動作" },
     title:    { en: "8.1 — The year's defining policy moves", zh: "8.1 — 定義這一年的政策動作" },
     subtitle: { en: "From state chatbot laws to global governance summits. Tap any card for the full context and its numbers.",
                 zh: "從州級聊天機器人法律到全球治理高峰會。點任一張卡片看完整脈絡與數字。" },
@@ -241,6 +249,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 8 · Policy & Governance.",
                 zh: "第 8 章「政策與治理」的頭條發現。" },
@@ -267,6 +276,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Policy & Governance chapter", zh: "閱讀完整的政策與治理章節" },
     text:  { en: "Chapter 8 (sections 8.1–8.5) with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 8 章(8.1–8.5 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

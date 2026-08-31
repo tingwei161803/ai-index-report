@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Demand for AI education is racing ahead of the systems meant to deliver it",
                 zh: "對 AI 教育的需求，正跑在能傳遞它的體系前面" },
     subtitle: { en: "Chapter 7 of the AI Index 2026 surveys AI and computer-science education from PhD to kindergarten, and into the workforce. Students are already using AI in large numbers; coursework, teacher training, and policy are still catching up. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "students",
+    nav:      { en: "7.2 College", zh: "7.2 大學" },
     title:    { en: "7.2 — College: CS enrollment cools, AI specialization heats up",
                 zh: "7.2 — 大學：資訊科學招生轉冷，AI 專精轉熱" },
     subtitle: { en: "Generative AI and a softer entry-level coding market are reshaping the value of a CS degree — even as AI-specific majors and PhDs keep growing.",
@@ -76,6 +78,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "phds",
+    nav:      { en: "AI PhDs", zh: "AI 博士" },
     title:    { en: "New AI PhDs flowing into academia",
                 zh: "流向學界的新 AI 博士" },
     subtitle: { en: "New AI PhD graduates in the U.S. and Canada who took academic jobs, by year. After a long dip, the academic track has rebounded — absorbing all of the recent growth in new AI doctorates.",
@@ -93,6 +96,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "genai-use",
+    nav:      { en: "Student GenAI use", zh: "學生用 AI" },
     title:    { en: "University GenAI use has doubled",
                 zh: "大學生使用生成式 AI 翻倍" },
     subtitle: { en: "% of university students who have used generative AI to support their studies. Globally the share doubled from 2023 to 2025; adoption is highest in Indonesia and lowest in the U.S. and U.K.",
@@ -109,6 +113,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "schools",
+    nav:      { en: "7.3 K–12", zh: "7.3 中小學" },
     title:    { en: "7.3 — K–12: students adopt AI faster than schools can govern it",
                 zh: "7.3 — K–12：學生採用 AI 的速度，快過學校能治理它" },
     subtitle: { en: "Foundational CS access has more than doubled since 2017, but AI-specific instruction, standards, and teacher support lag well behind student demand.",
@@ -146,6 +151,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "cs-access",
+    nav:      { en: "CS in high schools", zh: "高中資訊課" },
     title:    { en: "U.S. high schools teaching foundational CS",
                 zh: "教基礎資訊科學的美國高中" },
     subtitle: { en: "% of U.S. public high schools offering foundational computer science. Access climbed from 35% in 2017–18 to 60%, where it has now plateaued for two straight years.",
@@ -163,6 +169,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "skills",
+    nav:      { en: "7.4 Skills", zh: "7.4 技能養成" },
     title:    { en: "7.4 — Most AI skills are now learned outside the classroom",
                 zh: "7.4 — 多數 AI 技能如今在教室之外習得" },
     subtitle: { en: "As AI reshapes jobs, upskilling and reskilling have moved to the center of lifelong learning — through certificates, online courses, and on-the-job experience.",
@@ -183,6 +190,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "skill-penetration",
+    nav:      { en: "Skills by country", zh: "各國技能滲透" },
     title:    { en: "Relative AI skill penetration, by country",
                 zh: "相對 AI 技能滲透率：依國家" },
     subtitle: { en: "How prominently AI skills feature in LinkedIn member profiles versus the global average (1.0 = global average). India leads at nearly 3×, ahead of the U.S. and Germany.",
@@ -200,6 +208,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "shifts",
+    nav:      { en: "Six shifts", zh: "六個轉變" },
     title:    { en: "Six shifts defining AI education in 2025–26",
                 zh: "定義 2025–26 年 AI 教育的六個轉變" },
     subtitle: { en: "From the lecture hall to the workforce. Tap any card for the full trend and its numbers.",
@@ -275,6 +284,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 7 · Education.",
                 zh: "第 7 章「教育」的頭條發現。" },
@@ -301,6 +311,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Education chapter", zh: "閱讀完整的教育章節" },
     text:  { en: "Chapter 7 (sections 7.1–7.4) with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 7 章(7.1–7.4 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

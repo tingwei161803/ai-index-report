@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "Washington stalled. Everyone else legislated.",
                 zh: "華府卡住了，其他所有人都在立法" },
     subtitle: { en: "Chapter 6 of the AI Index 2025 tracks a year in which US federal lawmaking barely moved while state legislatures, regulatory agencies, and governments worldwide accelerated. Legislative attention rose everywhere, spending rose everywhere, and the gap between proposing and passing a law got wider. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "timeline",
     id: "year-in-policy",
+    nav:      { en: "6.1 Year in policy", zh: "6.1 政策大事記" },
     title:    { en: "6.1 — The year in global AI policy",
                 zh: "6.1 — 全球 AI 政策的這一年" },
     subtitle: { en: "The AI Index Steering Committee's selection of 2024's most consequential policy events. Money, law, and safety infrastructure, arriving roughly in that order.",
@@ -108,6 +110,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "legislation",
+    nav:      { en: "6.2 Legislation", zh: "6.2 立法" },
     title:    { en: "6.2 — Proposing is easy. Passing is not.",
                 zh: "6.2 — 提案很容易，通過很難" },
     subtitle: { en: "The AI Index tracked legislation containing the term 'artificial intelligence' across 114 countries from 2016 to 2024. The picture is one of enormous legislative attention converting into a modest number of actual laws — except in US state capitols.",
@@ -149,6 +152,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "state-laws",
+    nav:      { en: "US state laws", zh: "美國州級法規" },
     title:    { en: "AI laws enacted by US state, 2016–24",
                 zh: "美國各州通過的 AI 法律數，2016–24" },
     subtitle: { en: "Cumulative AI-related bills passed into law by state. California's 42 is more than double the next state — and its 22 in 2024 alone exceed most states' entire nine-year total.",
@@ -167,6 +171,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "country-laws",
+    nav:      { en: "Laws by country", zh: "各國立法" },
     title:    { en: "AI-related laws passed by country, 2016–24",
                 zh: "各國通過的 AI 相關法律數，2016–24" },
     subtitle: { en: "Of 114 countries analyzed, only 39 have enacted a single AI-related law. These six account for well over half of the global total of 204.",
@@ -185,6 +190,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "investment",
+    nav:      { en: "6.3 Public money", zh: "6.3 公共投資" },
     title:    { en: "6.3 — Where public AI money actually goes",
                 zh: "6.3 — AI 公共資金實際流向哪裡" },
     subtitle: { en: "The AI Index used NLP to identify AI-related government contracts and grants. What emerges is not a spending race so much as two entirely different theories of what public AI money is for.",
@@ -221,6 +227,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "spending-2023",
+    nav:      { en: "Contract spending", zh: "採購支出" },
     title:    { en: "Public spending on AI-related contracts, 2023",
                 zh: "AI 相關契約的公共支出，2023 年" },
     subtitle: { en: "In millions of US dollars. The US leads at $831 million, but the notable movement is lower down the table — Greece and Romania outspending France and Italy marks a real redistribution of European AI funding.",
@@ -239,6 +246,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 6 · Policy and Governance.",
                 zh: "第 6 章「政策與治理」的頭條發現。" },
@@ -265,6 +273,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Policy and Governance chapter", zh: "閱讀完整的政策與治理章節" },
     text:  { en: "Chapter 6 (sections 6.1–6.3) with every figure and citation is free from Stanford HAI. Or head back to the report highlights and eight-chapter overview.",
              zh: "第 6 章(6.1–6.3 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與八大章節總覽。" },

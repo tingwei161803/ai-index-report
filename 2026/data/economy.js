@@ -21,6 +21,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "In 2025, more money flowed into AI than ever before — and faster",
                 zh: "2025 年，流入 AI 的資金前所未有地多 — 而且更快" },
     subtitle: { en: "Chapter 4 of the AI Index 2026 follows the money: record investment, the fastest mass-market adoption of any modern technology, and the first uneven ripples in the labor market. The AI economy is scaling quickly — how widely and how fairly that growth becomes real value is still an open question. The numbers:",
@@ -39,6 +40,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "investment",
+    nav:      { en: "4.2 Investment", zh: "4.2 投資" },
     title:    { en: "4.2 — Investment: bigger, faster, and more concentrated",
                 zh: "4.2 — 投資：更大、更快、更集中" },
     subtitle: { en: "Global corporate AI investment more than doubled in 2025, to roughly $582 billion. But the surge is concentrated in a handful of countries, companies, and deals.",
@@ -67,6 +69,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "value",
+    nav:      { en: "Value to users", zh: "使用者價值" },
     title:    { en: "What is generative AI worth to the people using it?",
                 zh: "生成式 AI 對使用它的人值多少？" },
     subtitle: { en: "Investment, revenue, and compute costs measure AI's value to the companies building it — not its value to users. Because most tools are free or nearly so, that value is easy to undercount.",
@@ -82,6 +85,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "labor",
+    nav:      { en: "4.4 Labor", zh: "4.4 勞動市場" },
     title:    { en: "4.4 — The labor signal is uneven, and youngest workers feel it first",
                 zh: "4.4 — 勞動市場的訊號並不均勻，年輕工作者最先感受到" },
     subtitle: { en: "Demand for AI skills is rising across every sector, but large-scale job losses have not shown up in aggregate employment data. The early effects are concentrated in hiring pipelines and in the youngest workers in AI-exposed jobs.",
@@ -105,6 +109,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "invest-geo",
+    nav:      { en: "Money by country", zh: "各國投資額" },
     title:    { en: "Private AI investment is concentrated in a few countries",
                 zh: "私人 AI 投資集中於少數國家" },
     subtitle: { en: "Total private AI investment in 2025, in US$ billions. The United States invested 23 times more than China and 48 times more than the United Kingdom.",
@@ -122,6 +127,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "adoption-geo",
+    nav:      { en: "Adoption by country", zh: "各國採用率" },
     title:    { en: "AI diffusion leaders — and where the US sits",
                 zh: "AI 普及領先者 — 以及美國的位置" },
     subtitle: { en: "Population-level AI adoption rate, second half of 2025 (%). Some economies outpace what income predicts; despite leading on investment, the US ranks 24th.",
@@ -139,6 +145,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "robots",
+    nav:      { en: "Robots", zh: "工業機器人" },
     title:    { en: "China installs more industrial robots than the rest of the world combined",
                 zh: "中國安裝的工業機器人多於全世界其餘國家總和" },
     subtitle: { en: "Industrial robots installed in 2024, in thousands. China accounted for 54% of global installations (up from 51.1% in 2023); Taiwan recorded the highest year-over-year growth, at 33%.",
@@ -156,6 +163,7 @@ window.SITE_SECTIONS = [
   {
     type: "cards",
     id: "forces",
+    nav:      { en: "Six forces", zh: "六股力量" },
     title:    { en: "Six forces shaping the AI economy", zh: "形塑 AI 經濟的六股力量" },
     subtitle: { en: "From record capital to robots on the factory floor. Tap any card for the full trend and its numbers.",
                 zh: "從破紀錄的資本，到工廠地板上的機器人。點任一張卡片看完整趨勢與數字。" },
@@ -221,6 +229,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 4 · Economy.",
                 zh: "第 4 章「經濟」的頭條發現。" },
@@ -247,6 +256,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav:   { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Economy chapter", zh: "閱讀完整的經濟章節" },
     text:  { en: "Chapter 4 (sections 4.1–4.5) — investment, adoption, jobs, and robots — with every figure and citation is free from Stanford HAI. Or head back to the 15 takeaways and nine-chapter overview.",
              zh: "第 4 章(4.1–4.5 各節) — 投資、採用、就業與機器人 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到 15 條重點與九大章節總覽。" },

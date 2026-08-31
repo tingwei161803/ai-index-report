@@ -22,6 +22,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "AI cleared the benchmarks built to stop it — in a single year",
                 zh: "AI 一年之內，就跨過了為攔住它而設的基準" },
     subtitle: { en: "Chapter 2 of the AI Index 2025 tracks language, coding, math, reasoning, vision, speech, agents and robotics. Benchmarks designed in 2023 to be hard for years were largely solved by the end of 2024, the open-weight gap nearly vanished, and Chinese models drew almost level with American ones. The numbers:",
@@ -40,6 +41,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "year-in-review",
+    nav:      { en: "2.1 Year in review", zh: "2.1 年度回顧" },
     title:    { en: "2.1 — Four gaps closed at once",
                 zh: "2.1 — 四道差距同時被填平" },
     subtitle: { en: "The story of 2024 is convergence. The gap between AI and human baselines, between closed and open weights, between American and Chinese models, and between the first- and tenth-ranked systems all narrowed sharply in twelve months.",
@@ -88,6 +90,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "hard-benchmarks",
+    nav:      { en: "Hard benchmarks", zh: "高難度基準" },
     title:    { en: "Where AI actually stands on the hardest tests",
                 zh: "在最難的測驗上，AI 到底站在哪裡" },
     subtitle: { en: "Best reported score on each benchmark as of early 2025 (%). The 2023-vintage tests are largely solved; the 2024-vintage ones are not — the top system answers 8.8% of Humanity's Last Exam and 2% of FrontierMath.",
@@ -106,6 +109,7 @@ window.SITE_SECTIONS = [
   {
     type: "timeline",
     id: "releases",
+    nav:      { en: "Launches", zh: "發表大事記" },
     title:    { en: "The year in launches", zh: "這一年的發表大事記" },
     subtitle: { en: "A selection of the model and capability releases that shaped 2024, drawn from the chapter's own timeline.",
                 zh: "從本章時間軸中挑出的幾個模型與能力發表，它們形塑了 2024 年。" },
@@ -149,6 +153,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "code-math-reason",
+    nav:      { en: "2.5–2.7 Code & math", zh: "2.5–2.7 程式與數學" },
     title:    { en: "2.5–2.7 — Code and math fell first, reasoning is following",
                 zh: "2.5–2.7 — 程式與數學先被攻克，推理正在跟上" },
     subtitle: { en: "The benchmarks that defined AI coding and mathematics two years ago are now saturated or solved. The harder replacements built in 2024 show how much room is left.",
@@ -192,6 +197,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "us-china",
+    nav:      { en: "US vs China", zh: "美中差距" },
     title:    { en: "The US–China performance gap at the end of 2024",
                 zh: "2024 年底的美中效能差距" },
     subtitle: { en: "Percentage-point lead of the top US model over the top Chinese model. A year earlier the same four gaps were 17.5, 13.5, 24.3 and 31.6 points — multimodal reasoning is the only one still meaningfully open.",
@@ -208,6 +214,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "physical",
+    nav:      { en: "2.9 Physical AI", zh: "2.9 實體世界" },
     title:    { en: "2.9 — Out of the browser and onto the road",
                 zh: "2.9 — 走出瀏覽器，開上馬路" },
     subtitle: { en: "New this year, the chapter expands its coverage of robotics and self-driving cars. Autonomous taxis are now a commercial service in four US cities and sixteen Chinese ones, with safety data that is starting to look convincing.",
@@ -251,6 +258,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "limits",
+    nav:      { en: "Limits", zh: "侷限" },
     title:    { en: "What AI still gets wrong", zh: "AI 仍然做不好的事" },
     subtitle: { en: "The chapter is candid about the limits — and about how much we can trust the scores in the first place.",
                 zh: "本章對限制相當坦率 — 也對這些分數本身有多可信，說得很直白。" },
@@ -277,6 +285,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Technical Performance chapter", zh: "閱讀完整的技術表現章節" },
     text:  { en: "Chapter 2 (sections 2.1–2.9) — language, image and video, speech, coding, math, reasoning, agents, robotics and autonomous vehicles — with every figure and citation is free from Stanford HAI.",
              zh: "第 2 章(2.1–2.9 各節) — 語言、影像與影片、語音、程式、數學、推理、代理、機器人與自駕車 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。" },

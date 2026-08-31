@@ -23,6 +23,7 @@ window.SITE_SECTIONS = [
   {
     type: "hero",
     id: "overview",
+    nav:      { en: "Overview", zh: "總覽" },
     title:    { en: "The year AI stopped being a lab curiosity in medicine",
                 zh: "AI 在醫學裡不再只是實驗室好奇心的一年" },
     subtitle: { en: "Chapter 5 of the AI Index 2025 — written with RAISE Health, a Stanford Medicine and HAI collaboration — tracks AI moving from benchmark scores into hospitals, protein databases, and the Nobel Prize citations. Clinical knowledge benchmarks are nearing saturation, FDA authorizations have gone vertical, and the ethics literature is racing to keep up. The numbers:",
@@ -41,6 +42,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "breakthroughs",
+    nav:      { en: "5.1 & 5.2 Biology", zh: "5.1 & 5.2 生物學" },
     title:    { en: "5.1 & 5.2 — Biology got a new instrument",
                 zh: "5.1 與 5.2 — 生物學拿到了一件新儀器" },
     subtitle: { en: "2022 and 2023 were the early stages of AI-driven scientific breakthroughs. 2024 was the year the tools got big enough, and open enough, to change how protein science is actually done.",
@@ -82,6 +84,7 @@ window.SITE_SECTIONS = [
   {
     type: "timeline",
     id: "science-models",
+    nav:      { en: "5.6 Science models", zh: "5.6 科學模型" },
     title:    { en: "5.6 — Foundation models arrive in the rest of science",
                 zh: "5.6 — 基礎模型進入其他科學領域" },
     subtitle: { en: "Dozens of scientific foundation models shipped in 2024, some fine-tuned language models, some trained from scratch on weather or atomistic data. A year of notable releases, in order.",
@@ -134,6 +137,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "fda",
+    nav:      { en: "FDA devices", zh: "FDA 醫材" },
     title:    { en: "FDA-authorized AI-enabled medical devices, by year",
                 zh: "FDA 核准的 AI 醫療器材件數，逐年" },
     subtitle: { en: "The FDA authorized its first AI-enabled medical device in 1995, and for two decades annual approvals stayed in the single digits. Then the curve went vertical: 6 in 2015, 223 in 2023.",
@@ -152,6 +156,7 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "clinical",
+    nav:      { en: "5.3–5.5 Clinical AI", zh: "5.3–5.5 臨床應用" },
     title:    { en: "5.3–5.5 — Better than doctors, worse at teamwork",
                 zh: "5.3–5.5 — 比醫師強，但不擅長團隊合作" },
     subtitle: { en: "On clinical knowledge benchmarks AI has essentially caught up. On the harder questions — whether handing a doctor an LLM makes the doctor better, and whether the data and ethics infrastructure can keep up — the 2024 evidence is uncomfortable.",
@@ -218,6 +223,7 @@ window.SITE_SECTIONS = [
   {
     type: "bars",
     id: "ethics-pubs",
+    nav:      { en: "Ethics papers", zh: "倫理論文" },
     title:    { en: "Medical AI ethics publications, 2020–24",
                 zh: "醫學 AI 倫理論文數，2020–24" },
     subtitle: { en: "Attention to ethical issues in medical AI has risen every year for five years, quadrupling from 288 publications in 2020 to 1,031 in 2024. In 2024 bias and privacy were the most cited concerns, followed by equity — a reversal from 2020, when privacy outranked bias.",
@@ -235,6 +241,7 @@ window.SITE_SECTIONS = [
   {
     type: "accordion",
     id: "questions",
+    nav:      { en: "Questions", zh: "問答" },
     title:    { en: "Six questions the chapter answers",
                 zh: "這一章回答的六個問題" },
     subtitle: { en: "The findings that are easy to misread, with the numbers attached.",
@@ -271,6 +278,7 @@ window.SITE_SECTIONS = [
   {
     type: "quotes",
     id: "voices",
+    nav:      { en: "In five lines", zh: "五句話" },
     title:    { en: "The chapter in five lines", zh: "用五句話看這一章" },
     subtitle: { en: "Headline findings from Chapter 5 · Science and Medicine.",
                 zh: "第 5 章「科學與醫學」的頭條發現。" },
@@ -297,6 +305,7 @@ window.SITE_SECTIONS = [
   {
     type: "cta",
     id: "source",
+    nav: { en: "Read the chapter", zh: "讀原始章節" },
     title: { en: "Read the full Science and Medicine chapter", zh: "閱讀完整的科學與醫學章節" },
     text:  { en: "Chapter 5 (sections 5.1–5.6) with every figure and citation is free from Stanford HAI. Or head back to the report highlights and eight-chapter overview.",
              zh: "第 5 章(5.1–5.6 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與八大章節總覽。" },
