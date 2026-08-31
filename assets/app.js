@@ -88,6 +88,11 @@
      Chinese wants the fullwidth form, which carries its own spacing. */
   var LBLSEP = state.lang === "zh" ? "：" : ": ";
   var LISTSEP = state.lang === "zh" ? "、" : ", ";
+  /* Separates a chart's headline from its data in the accessible name.
+     English takes a dash so the sentence does not end up with two colons
+     in a row; Chinese takes a fullwidth colon, which carries its own
+     spacing and must not be followed by a space. */
+  var TITLESEP = state.lang === "zh" ? "：" : " — ";
 
   /* ---------- dom refs ---------- */
   var $ = function (id) { return document.getElementById(id); };
@@ -227,7 +232,7 @@
       var a11y = escapeHtml(
         t(sec.title) +
         (series.length
-          ? LBLSEP.replace(/\s+$/, "") + " " + series.map(function (d) {
+          ? TITLESEP + series.map(function (d) {
               return t(d.label) + LBLSEP + d.value;
             }).join(LISTSEP)
           : "")
