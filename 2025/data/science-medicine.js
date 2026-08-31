@@ -152,10 +152,10 @@ window.SITE_SECTIONS = [
   {
     type: "prose",
     id: "clinical",
-    title:    { en: "5.3 & 5.4 — Better than doctors, worse at teamwork",
-                zh: "5.3 與 5.4 — 比醫師強,但不擅長團隊合作" },
-    subtitle: { en: "On clinical knowledge benchmarks AI has essentially caught up. On the harder question — whether handing a doctor an LLM makes the doctor better — the 2024 evidence is uncomfortable.",
-                zh: "在臨床知識基準上,AI 基本上已經追上。但在更難的問題上 — 把大型語言模型交給醫師,醫師會不會變強 — 2024 年的證據讓人不太自在。" },
+    title:    { en: "5.3–5.5 — Better than doctors, worse at teamwork",
+                zh: "5.3–5.5 — 比醫師強,但不擅長團隊合作" },
+    subtitle: { en: "On clinical knowledge benchmarks AI has essentially caught up. On the harder questions — whether handing a doctor an LLM makes the doctor better, and whether the data and ethics infrastructure can keep up — the 2024 evidence is uncomfortable.",
+                zh: "在臨床知識基準上,AI 基本上已經追上。但在更難的問題上 — 把大型語言模型交給醫師,醫師會不會變強;資料與倫理的基礎建設跟不跟得上 — 2024 年的證據讓人不太自在。" },
     blocks: [
       { type: "p",
         text: { en: "MedQA, introduced in 2020, draws over 60,000 clinical questions from professional medical board exams. OpenAI's o1 set a new state of the art at 96.0%, a 5.8 percentage point gain over the best score posted in 2023 and 28.4 points above where the benchmark stood in late 2022. Like other general-knowledge benchmarks, MedQA now looks close to saturation — the report treats that as a signal to build harder evaluations, not as proof of clinical competence.",
@@ -186,39 +186,12 @@ window.SITE_SECTIONS = [
                 zh: "超過 80% 通過 FDA 認證的機器學習軟體是用來分析醫學影像的,但訓練資料集其實很小。癌症基因體圖譜(TCGA)是最完整的公開組織病理資料集之一,收錄 11,125 份病人樣本、涵蓋 32 種癌症;而當研究需要基因體或蛋白質體標註時,組織病理模型往往只能用不到 1,000 份樣本訓練。地理分布也很窄:用來訓練臨床機器學習演算法的美國世代研究,大多來自加州(22)、麻州(15)與紐約州(14),多數州則掛零。" } },
       { type: "p",
         text: { en: "The scale gap against general-purpose AI is stark. GatorTron, a large clinical LLM built to extract patient information from unstructured records, was trained on 82 billion tokens; Llama 3 was trained on 15 trillion — nearly 182 times more. On the imaging side, RadImageNet contains 16 million image-equivalent tokens against roughly 6 billion for DALL-E, about 375 times more. MIMIC-CXR (377,000 images) and CheXpert Plus (around 226,000 radiographs) are important resources but still small beside ImageNet's roughly 14 million images.",
-                zh: "跟通用 AI 相比,規模落差非常刺眼。GatorTron 是一個從非結構化病歷中擷取病人資訊的大型臨床語言模型,訓練用了 820 億個 token;Llama 3 則用了 15 兆個 — 將近 182 倍。影像端,RadImageNet 含有 1,600 萬個影像等值 token,DALL-E 約有 60 億個,約為 375 倍。MIMIC-CXR(377,000 張影像)與 CheXpert Plus(約 226,000 張 X 光片)都是重要資源,但跟 ImageNet 約 1,400 萬張影像相比仍然很小。" } }
-    ]
-  },
-
-  /* ------------------------------------------------- ETHICS PUBS CHART */
-  {
-    type: "bars",
-    id: "ethics-pubs",
-    title:    { en: "Medical AI ethics publications, 2020–24",
-                zh: "醫學 AI 倫理論文數,2020–24" },
-    subtitle: { en: "Attention to ethical issues in medical AI has risen every year for five years, quadrupling from 288 publications in 2020 to 1,031 in 2024. In 2024 bias and privacy were the most cited concerns, followed by equity — a reversal from 2020, when privacy outranked bias.",
-                zh: "醫學 AI 的倫理議題已連續五年逐年升溫,從 2020 年的 288 篇論文成長四倍到 2024 年的 1,031 篇。2024 年被引用最多的疑慮是偏誤與隱私,其次是公平性 — 這跟 2020 年隱私排在偏誤之前的順序恰好相反。" },
-    series: [
-      { label: { en: "2020", zh: "2020" }, value: 288 },
-      { label: { en: "2021", zh: "2021" }, value: 397 },
-      { label: { en: "2022", zh: "2022" }, value: 523 },
-      { label: { en: "2023", zh: "2023" }, value: 674 },
-      { label: { en: "2024", zh: "2024" }, value: 1031 }
-    ]
-  },
-
-  /* ----------------------------------------------- 5.5 ETHICS + FUNDING */
-  {
-    type: "prose",
-    id: "ethics",
-    title:    { en: "5.5 — The ethics field got funded, suddenly",
-                zh: "5.5 — 倫理研究忽然拿到錢了" },
-    subtitle: { en: "The AI Index meta-reviewed thousands of medical ethics studies. The literature is growing fast, the money behind it grew faster, and the questions being asked have shifted.",
-                zh: "AI 指數團隊對數千篇醫學倫理研究做了統合回顧。文獻成長很快,背後的經費成長更快,而被問的問題也變了。" },
-    blocks: [
+                zh: "跟通用 AI 相比,規模落差非常刺眼。GatorTron 是一個從非結構化病歷中擷取病人資訊的大型臨床語言模型,訓練用了 820 億個 token;Llama 3 則用了 15 兆個 — 將近 182 倍。影像端,RadImageNet 含有 1,600 萬個影像等值 token,DALL-E 約有 60 億個,約為 375 倍。MIMIC-CXR(377,000 張影像)與 CheXpert Plus(約 226,000 張 X 光片)都是重要資源,但跟 ImageNet 約 1,400 萬張影像相比仍然很小。" } },
+      { type: "h3",
+        text: { en: "5.5 — And then the ethics field got funded", zh: "5.5 — 接著,倫理研究拿到錢了" } },
       { type: "p",
-        text: { en: "NIH grants for medical AI ethics projects went from 25 in fiscal 2023 to 337 in fiscal 2024 — after just 2, 3, and 7 grants in the three preceding years. Total funding followed the same shape, jumping from $16.3 million in 2023 to $276 million in 2024, an almost 17-fold increase in a single year. Whatever else 2024 was, it was the year the ethics of medical AI stopped being an unfunded side conversation.",
-                zh: "美國國衛院(NIH)給醫學 AI 倫理計畫的補助案,從 2023 財年的 25 件跳到 2024 財年的 337 件 — 而前三年分別只有 2、3、7 件。總經費是同樣的形狀,從 2023 年的 1,630 萬美元躍升到 2024 年的 2.76 億美元,一年之內成長近 17 倍。無論 2024 年還發生了什麼,這一年醫學 AI 倫理不再是沒錢的旁支話題。" } },
+        text: { en: "The AI Index meta-reviewed thousands of medical ethics studies for this chapter. NIH grants for medical AI ethics projects went from 25 in fiscal 2023 to 337 in fiscal 2024 — after just 2, 3, and 7 grants in the three preceding years. Total funding followed the same shape, jumping from $16.3 million in 2023 to $276 million in 2024, an almost 17-fold increase in a single year. Whatever else 2024 was, it was the year the ethics of medical AI stopped being an unfunded side conversation.",
+                zh: "AI 指數團隊為這一章對數千篇醫學倫理研究做了統合回顧。美國國衛院(NIH)給醫學 AI 倫理計畫的補助案,從 2023 財年的 25 件跳到 2024 財年的 337 件 — 而前三年分別只有 2、3、7 件。總經費是同樣的形狀,從 2023 年的 1,630 萬美元躍升到 2024 年的 2.76 億美元,一年之內成長近 17 倍。無論 2024 年還發生了什麼,這一年醫學 AI 倫理不再是沒錢的旁支話題。" } },
       { type: "h3",
         text: { en: "What the literature is actually about", zh: "這些文獻實際在談什麼" } },
       { type: "ul",
@@ -238,6 +211,23 @@ window.SITE_SECTIONS = [
       { type: "p",
         text: { en: "Deployment still runs through a handful of vendors. EHR adoption reached roughly 90% for any system and 80% for certified systems as of 2021, and a 2023 American Hospital Association survey found predictive-model use concentrated in Epic, Cerner, and Meditech networks — with Epic, Cerner, and CPSI hospitals mostly running vendor-developed models. Whether AI-enabled health IT reaches rural and underserved settings, which face broadband and infrastructure limits, remains an open question.",
                 zh: "實際部署仍要走過少數幾家廠商。截至 2021 年,電子病歷的採用率約為 90%(任一系統)與 80%(認證系統);2023 年美國醫院協會的調查發現,預測模型的使用集中在 Epic、Cerner 與 Meditech 的體系 — 其中 Epic、Cerner 與 CPSI 的醫院多半使用廠商自建的模型。AI 化的醫療資訊系統能否觸及受限於寬頻與基礎設施的偏鄉與弱勢地區,仍是未解的問題。" } }
+    ]
+  },
+
+  /* ------------------------------------------------- ETHICS PUBS CHART */
+  {
+    type: "bars",
+    id: "ethics-pubs",
+    title:    { en: "Medical AI ethics publications, 2020–24",
+                zh: "醫學 AI 倫理論文數,2020–24" },
+    subtitle: { en: "Attention to ethical issues in medical AI has risen every year for five years, quadrupling from 288 publications in 2020 to 1,031 in 2024. In 2024 bias and privacy were the most cited concerns, followed by equity — a reversal from 2020, when privacy outranked bias.",
+                zh: "醫學 AI 的倫理議題已連續五年逐年升溫,從 2020 年的 288 篇論文成長四倍到 2024 年的 1,031 篇。2024 年被引用最多的疑慮是偏誤與隱私,其次是公平性 — 這跟 2020 年隱私排在偏誤之前的順序恰好相反。" },
+    series: [
+      { label: { en: "2020", zh: "2020" }, value: 288 },
+      { label: { en: "2021", zh: "2021" }, value: 397 },
+      { label: { en: "2022", zh: "2022" }, value: 523 },
+      { label: { en: "2023", zh: "2023" }, value: 674 },
+      { label: { en: "2024", zh: "2024" }, value: 1031 }
     ]
   },
 
