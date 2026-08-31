@@ -132,9 +132,12 @@
       </div>
   </footer>
 
-  <!-- ==== Scripts (order matters: data first) ==== -->
-  <script src="data/site.js"></script>
-  <script src="data/science.js"></script>
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2026/data/site.js"></script>
+  <script src="../2026/data/science.js"></script>
   <script src="../assets/app.js"></script>
 <p class="lang-alt-link" style="text-align:center;padding:12px;"><a id="langAlt" href="../zh-Hant/2026/science.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
 </body>
