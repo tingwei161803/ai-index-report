@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title data-zh="AI 指數報告 2024 · 10 條重點、9 大章節">AI Index Report 2024 · 10 takeaways, 9 chapters</title>
+  <meta name="description" data-zh="史丹佛 HAI 第七版的互動重點整理:10 條重點摘要、9 大章節,以及 2023 年的關鍵數字,中英文皆備。" content="Stanford HAI&#x27;s seventh edition, read as data — 10 top takeaways, 9 chapters, and the key numbers from 2023 in English and Traditional Chinese." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://ai-index-report.peteraim.com/2024/" />
+  <link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2024/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2024/" />
+  <link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2024/" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Index Report 2024 · 10 takeaways, 9 chapters" />
+  <meta property="og:description" content="Stanford HAI&#x27;s seventh edition, read as data — 10 top takeaways, 9 chapters, and the key numbers from 2023 in English and Traditional Chinese." />
+  <meta property="og:url" content="https://ai-index-report.peteraim.com/2024/" />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Index Report 2024 · 10 takeaways, 9 chapters" />
+  <meta name="twitter:description" content="Stanford HAI&#x27;s seventh edition, read as data — 10 top takeaways, 9 chapters, and the key numbers from 2023 in English and Traditional Chinese." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI Index Report 2024 · 10 takeaways, 9 chapters",
+    "description": "Stanford HAI's seventh edition, read as data — 10 top takeaways, 9 chapters, and the key numbers from 2023 in English and Traditional Chinese.",
+    "url": "https://ai-index-report.peteraim.com/2024/",
+    "inLanguage": ["en"],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2024-ai-index-report"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="#top">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2024</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navChapters" href="#chapters"
+           data-i18n="navChaptersTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+          <span class="nav-link__txt" data-i18n="navChapters">Chapters</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2024-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../zh-Hant/2024/index.html"
+           hreflang="zh-Hant" lang="zh-Hant" rel="alternate"
+           title="中文版" aria-label="切換到中文版">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">中</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">2023: money left the room, and generative AI took it anyway</h1><p class="section-head__sub">The 2024 AI Index covers calendar year 2023 across nine chapters — research, technical performance, responsible AI, the economy, science and medicine, education, policy, diversity, and public opinion. Overall private AI investment fell for a second straight year, yet generative AI funding nearly octupled, models got dramatically more expensive to train, and the public grew markedly more nervous. A few numbers that set the scene:</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="149">149</b><span class="hero__stat-label">foundation models released in 2023, over double 2022</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="25.2">25.2</b><span class="hero__stat-label">generative AI private investment (US$ bn), ~8× 2022</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="61">61</b><span class="hero__stat-label">notable AI models from US institutions (EU 21, China 15)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="191">191</b><span class="hero__stat-label">US$ millions of compute to train Gemini Ultra</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="123">123</b><span class="hero__stat-label">AI incidents reported in 2023, up 32.3%</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="25">25</b><span class="hero__stat-label">AI-related US regulations in 2023 (one in 2016)</span></div></div></section><section class="section section--cards" id="takeaways" aria-labelledby="takeaways-heading"><header class="section-head reveal is-visible"><h2 id="takeaways-heading">The 10 Top Takeaways</h2><p class="section-head__sub">The report's own summary of the year, in its own order. Click any card for the full text.</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="beats-humans" aria-label="1 · AI beats humans on some tasks, but not on all"><h3 class="card__title">1 · AI beats humans on some tasks, but not on all</h3><p class="card__summary">AI has passed human baselines on image classification, visual reasoning and English understanding — and still trails on competition mathematics, visual commonsense reasoning and planning.</p><div class="card__tags"><span class="tag">benchmarks</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="industry-dominates" aria-label="2 · Industry continues to dominate frontier AI research"><h3 class="card__title">2 · Industry continues to dominate frontier AI research</h3><p class="card__summary">In 2023 industry produced 51 notable machine learning models to academia's 15, plus 21 from industry–academia collaborations — a new high.</p><div class="card__tags"><span class="tag">research</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="expensive" aria-label="3 · Frontier models get way more expensive"><h3 class="card__title">3 · Frontier models get way more expensive</h3><p class="card__summary">By AI Index estimates, OpenAI's GPT-4 used about $78 million of compute to train; Google's Gemini Ultra cost roughly $191 million.</p><div class="card__tags"><span class="tag">cost</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="us-leads" aria-label="4 · The US leads China, the EU and the UK on top models"><h3 class="card__title">4 · The US leads China, the EU and the UK on top models</h3><p class="card__summary">61 notable AI models originated from US-based institutions in 2023, far outpacing the European Union's 21 and China's 15.</p><div class="card__tags"><span class="tag">geopolitics</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="rai-standards" aria-label="5 · Standardized evaluations for LLM responsibility are seriously lacking"><h3 class="card__title">5 · Standardized evaluations for LLM responsibility are seriously lacking</h3><p class="card__summary">OpenAI, Google and Anthropic each test their models against largely different responsible-AI benchmarks, which makes their risks impossible to compare systematically.</p><div class="card__tags"><span class="tag">responsible AI</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="genai-investment" aria-label="6 · Generative AI investment skyrockets"><h3 class="card__title">6 · Generative AI investment skyrockets</h3><p class="card__summary">Despite a decline in overall AI private investment, generative AI funding nearly octupled from 2022 to reach $25.2 billion.</p><div class="card__tags"><span class="tag">economy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="productivity" aria-label="7 · The data is in: AI makes workers more productive"><h3 class="card__title">7 · The data is in: AI makes workers more productive</h3><p class="card__summary">Several 2023 studies found AI helps workers finish tasks faster and produce better output, and can narrow the gap between low- and high-skilled workers.</p><div class="card__tags"><span class="tag">labor</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="science" aria-label="8 · Scientific progress accelerates even further, thanks to AI"><h3 class="card__title">8 · Scientific progress accelerates even further, thanks to AI</h3><p class="card__summary">2023 brought AlphaDev, which makes algorithmic sorting more efficient, and GNoME, which accelerates materials discovery — a step up from 2022's first applications.</p><div class="card__tags"><span class="tag">science</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="regulations" aria-label="9 · The number of AI regulations in the United States sharply increases"><h3 class="card__title">9 · The number of AI regulations in the United States sharply increases</h3><p class="card__summary">There were 25 AI-related US regulations in 2023, up from just one in 2016 — a 56.3% increase in a single year.</p><div class="card__tags"><span class="tag">policy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="nervous" aria-label="10 · People are more cognizant of AI's impact — and more nervous"><h3 class="card__title">10 · People are more cognizant of AI's impact — and more nervous</h3><p class="card__summary">Ipsos finds those expecting AI to dramatically affect their lives within three to five years rose from 60% to 66%, while 52% now express nervousness — up 13 points from 2022.</p><div class="card__tags"><span class="tag">public opinion</span></div></article></div></section><section class="section section--bars" id="investment" aria-labelledby="investment-heading"><header class="section-head reveal is-visible"><h2 id="investment-heading">Where the private money went in 2023</h2><p class="section-head__sub">Private AI investment by geographic area, US$ billions. US investment rose 22.1% while China fell 44.2% and the EU-plus-UK fell 14.1%.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Where the private money went in 2023. United States: 67.2, China: 7.8, United Kingdom: 3.8"><title>Where the private money went in 2023</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="152" height="198" rx="5"><title>United States: 67.2</title></rect><text class="bar-value" x="92" y="10" text-anchor="middle">67.2</text><text class="bar-label" x="92" y="234" text-anchor="middle">United States</text><rect class="bar-rect" x="184" y="191.02" width="152" height="22.98" rx="5"><title>China: 7.8</title></rect><text class="bar-value" x="260" y="185.02" text-anchor="middle">7.8</text><text class="bar-label" x="260" y="234" text-anchor="middle">China</text><rect class="bar-rect" x="352" y="202.8" width="152" height="11.2" rx="5"><title>United Kingdom: 3.8</title></rect><text class="bar-value" x="428" y="196.8" text-anchor="middle">3.8</text><text class="bar-label" x="428" y="234" text-anchor="middle">United Kingdom</text></svg></div></figure></section><section class="section section--bars" id="models" aria-labelledby="models-heading"><header class="section-head reveal is-visible"><h2 id="models-heading">Who built the notable models of 2023</h2><p class="section-head__sub">Notable AI models by originating region. The US lead here sits alongside China's 61.1% share of global AI patent origins — two different measures of the same race.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Who built the notable models of 2023. United States: 61, European Union: 21, China: 15"><title>Who built the notable models of 2023</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="152" height="198" rx="5"><title>United States: 61</title></rect><text class="bar-value" x="92" y="10" text-anchor="middle">61</text><text class="bar-label" x="92" y="234" text-anchor="middle">United States</text><rect class="bar-rect" x="184" y="145.84" width="152" height="68.16" rx="5"><title>European Union: 21</title></rect><text class="bar-value" x="260" y="139.84" text-anchor="middle">21</text><text class="bar-label" x="260" y="234" text-anchor="middle">European Union</text><rect class="bar-rect" x="352" y="165.31" width="152" height="48.69" rx="5"><title>China: 15</title></rect><text class="bar-value" x="428" y="159.31" text-anchor="middle">15</text><text class="bar-label" x="428" y="234" text-anchor="middle">China</text></svg></div></figure></section><section class="section section--accordion" id="chapters" aria-labelledby="chapters-heading"><header class="section-head reveal is-visible"><h2 id="chapters-heading">Nine chapters, in brief</h2><p class="section-head__sub">Each chapter's headline highlights. Expand to read the key numbers.</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>1 · Research &amp; Development</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Industry produced 51 notable models against academia's 15, with a record 21 from collaborations. 149 foundation models were released, 65.7% of them open-source, up from 44.4% in 2022. Training costs reached an estimated $78M for GPT-4 and $191M for Gemini Ultra. The US led on notable models (61 vs the EU's 21 and China's 15), while China led AI patent origins at 61.1%. GitHub AI projects reached roughly 1.8 million.<a class="acc-link" href="research.html">Full deep dive: Research &amp; Development →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>2 · Technical Performance</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">AI passed human baselines on image classification, visual reasoning and English understanding but not on competition mathematics, visual commonsense reasoning or planning. Saturation on ImageNet, SQuAD and SuperGLUE prompted harder benchmarks — SWE-bench, HEIM, MMMU, MoCa, AgentBench and HaluEval all launched in 2023. Closed models beat open ones by a median 24.2% across ten benchmarks.<a class="acc-link" href="performance.html">Full deep dive: Technical Performance →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>3 · Responsible AI</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">The headline finding is a measurement gap: leading developers each test against different responsible-AI benchmarks, so their risks cannot be compared. AI incidents rose to 123 in 2023, up 32.3 percentage points and more than twentyfold since 2013. Political deepfakes proved easy to make and hard to detect, LLMs were shown to output copyrighted material, and the new Foundation Model Transparency Index found disclosure especially thin on training data.<a class="acc-link" href="responsible-ai.html">Full deep dive: Responsible AI →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>4 · Economy</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Global corporate AI investment — the broadest measure, including mergers and acquisitions — fell about 20% to $189.2 billion, and private investment fell for a second year to $96.0 billion. Yet generative AI funding nearly octupled to $25.2 billion. US investment reached $67.2 billion, about 8.7× China's. AI job postings in the US fell from 2.0% to 1.6% of all listings. 55% of organizations now use AI, up from 50%. China installed 52.4% of the world's industrial robots. AI was mentioned on 394 Fortune 500 earnings calls.<a class="acc-link" href="economy.html">Full deep dive: Economy →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>5 · Science &amp; Medicine</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">AlphaDev improved algorithmic sorting and GNoME accelerated materials discovery; EVEscape improved pandemic prediction and AlphaMissense assisted mutation classification. GPT-4 Medprompt scored 90.2% on MedQA, 22.6 points above the best 2022 result, roughly tripling performance since the benchmark launched in 2019. The FDA approved 139 AI-related medical devices in 2022, up 12.1% and more than 45-fold since 2012.<a class="acc-link" href="science-medicine.html">Full deep dive: Science &amp; Medicine →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>6 · Education</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">US and Canadian CS bachelor's graduates kept rising while master's and PhD numbers flattened. The migration of new AI PhDs into industry accelerated: 70.7% went to industry in 2022 against 20.0% to academia, from a near-even split in 2011. Movement the other way thinned — new AI faculty coming from industry fell from 13% in 2019 to 7% in 2022. 201,000 AP CS exams were taken in 2022, more than ten times the 2007 figure.<a class="acc-link" href="education.html">Full deep dive: Education →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>7 · Policy &amp; Governance</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">US AI-related regulations reached 25 in 2023, up from one in 2016 and growing 56.3% in a year, issued by 21 agencies rather than 17. Federal AI bills proposed more than doubled, from 88 to 181. Globally, mentions of AI in legislative proceedings nearly doubled from 1,247 to 2,175, across 49 countries and every continent. The EU agreed the terms of the AI Act and President Biden signed an Executive Order on AI.<a class="acc-link" href="policy.html">Full deep dive: Policy &amp; Governance →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>8 · Diversity</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">US and Canadian CS students grew more ethnically diverse at all three degree levels — the Asian share of CS bachelor's graduates rose 19.8 percentage points since 2011 and the Hispanic share 5.2 points. Every surveyed European country still produced more male than female informatics and CS graduates at every level, narrowing only slowly. In US K–12, the female share of AP CS exams rose from 16.8% in 2007 to 30.5% in 2022.<a class="acc-link" href="diversity.html">Full deep dive: Diversity →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>9 · Public Opinion</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Ipsos found the share expecting AI to dramatically affect their lives within three to five years rose from 60% to 66%, and 52% now express nervousness, up 13 points. In the US, Pew found 52% more concerned than excited, up from 38%. The public is pessimistic about the economics: only 37% think AI will improve their job, 34% the economy and 32% the job market. 63% are aware of ChatGPT, and about half of those use it weekly.<a class="acc-link" href="public-opinion.html">Full deep dive: Public Opinion →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">In the report's own words</h2><p class="section-head__sub">Lines that capture the year, from the Top 10 Takeaways and the chapter highlights.</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>AI has surpassed human performance on several benchmarks, including some in image classification, visual reasoning and English understanding. Yet it trails behind on more complex tasks.</blockquote><figcaption class="quote-by">— Top 10 Takeaways</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Despite a decline in overall AI private investment last year, funding for generative AI surged, nearly octupling from 2022 to reach $25.2 billion.</blockquote><figcaption class="quote-by">— Top 10 Takeaways</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Leading developers primarily test their models against different responsible AI benchmarks. This practice complicates efforts to systematically compare the risks and limitations of top AI models.</blockquote><figcaption class="quote-by">— Chapter 3 · Responsible AI</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2011, roughly equal percentages of new AI PhDs took jobs in industry and academia. By 2022, 70.7% joined industry compared with 20.0% entering academia.</blockquote><figcaption class="quote-by">— Chapter 6 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>52% express nervousness toward AI products and services, marking a 13 percentage point rise from 2022.</blockquote><figcaption class="quote-by">— Chapter 9 · Public Opinion</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>Read the full report</h2><p>502 pages, nine chapters, hundreds of charts — free from Stanford HAI, with the underlying public data.</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener">Open the AI Index 2024 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2024》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../zh-Hant/2024/index.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2024/data/site.js"></script>
+  <script src="../2024/data/index.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

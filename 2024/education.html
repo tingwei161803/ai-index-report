@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title data-zh="教育 · AI 指數報告 2024">Education · AI Index Report 2024</title>
+  <meta name="description" data-zh="史丹佛 HAI《人工智慧指數報告 2024》教育章節的雙語重點整理。" content="A bilingual deep dive into the Education chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://ai-index-report.peteraim.com/2024/education.html" />
+  <link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2024/education.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2024/education.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2024/education.html" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Education · AI Index Report 2024" />
+  <meta property="og:description" content="A bilingual deep dive into the Education chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta property="og:url" content="https://ai-index-report.peteraim.com/2024/education.html" />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Education · AI Index Report 2024" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Education chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Education — Trends from the AI Index 2024",
+    "description": "A bilingual deep dive into the Education chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024.",
+    "url": "https://ai-index-report.peteraim.com/2024/education.html",
+    "inLanguage": ["en"],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2024-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2024/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2024</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2024-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../zh-Hant/2024/education.html"
+           hreflang="zh-Hant" lang="zh-Hant" rel="alternate"
+           title="中文版" aria-label="切換到中文版">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">中</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">More people than ever are studying computer science. Fewer and fewer of them stay to teach it.</h1><p class="section-head__sub">Chapter 6 of the AI Index 2024 asks who is learning AI, where, and how that has shifted. Undergraduate computer science in North America hit a record in 2022. Graduate computer science stopped growing. And the flow of talent now runs almost entirely one way — out of the university and into industry. The numbers:</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="35666">35,666</b><span class="hero__stat-label">new CS bachelor’s graduates in the US and Canada in 2022 (2010: 9,008)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="2105">2,105</b><span class="hero__stat-label">new CS PhD graduates in 2022 — the highest count since 2010</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="70.7">70.7</b><span class="hero__stat-label">% of new AI PhDs who took industry jobs in 2022 (2011: 40.9%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="7">7</b><span class="hero__stat-label">% of new CS, CE, and information faculty hired out of industry in 2022 (2019: 13%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="2520">2,520</b><span class="hero__stat-label">English-language AI study programs worldwide in 2023 (2017: 880)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="63">63</b><span class="hero__stat-label">% of US K–12 teachers who had used ChatGPT by July 2023 (March: 51%)</span></div></div></section><section class="section section--prose" id="degrees" aria-labelledby="degrees-heading"><header class="section-head reveal is-visible"><h2 id="degrees-heading">6.1 — Undergraduate CS keeps climbing. Graduate CS stopped in 2018.</h2><p class="section-head__sub">The CRA Taulbee Survey targets 297 PhD-granting CS departments in the United States and Canada; 182 responded, a 61% response rate. It shows a bachelor’s pipeline that has more than tripled in a decade and a graduate pipeline that has been flat for five years.</p></header><div class="prose reveal is-visible" data-item=""><p>New CS bachelor’s graduates in North America reached 35,666 in 2022, a 7.9% rise over 2021 and more than three times the 9,008 of 2010. Master’s degrees tell a different story: the total more than doubled over the decade, but it has levelled out since 2018 and slipped 2.5% last year to 14,696. PhDs moved for the first time in a decade — 2,105 new CS doctorates in 2022, the highest count since 2010, after eleven years hovering between roughly 1,770 and 2,000.</p><h3>The international share fell at every level</h3><ul><li>Bachelor’s: the international share fell from 16.3% in 2021 to 15.2% in 2022 — the first decline in almost eight years. The chapter attributes it partly to study-visa difficulties from the early Trump administration only now showing up in the data, and partly to pandemic travel restrictions.</li><li>Master’s: the sharpest move in the chapter. The international share dropped 14.8 percentage points in a single year, to 50.40%. International and domestic CS master’s graduates are now split roughly evenly.</li><li>PhD: down from 68.6% in 2021 to 65.9% in 2022, a slight dip against a decade in which the international share had been rising.</li><li>This matters because the flat master’s line and the falling international line are the same line. The chapter reads the graduate plateau as a direct reflection of the decline in international master’s students.</li></ul><h3>Where the new AI PhDs went</h3><p>In 2011 industry (40.9%) and academia (41.6%) hired new AI doctorates at almost exactly the same rate. By 2022 industry took 70.7% and academia 20.0%. The industry share rose 5.3 percentage points over the past year alone, which the chapter describes as an intensifying brain drain from universities into industry. Government has stayed low and steady at around 0.7% for five years. The three shares do not add to 100 because new AI PhDs who become self-employed, unemployed, or report an “other” status are excluded from the chart.</p></div></section><section class="section section--bars" id="phd-jobs" aria-labelledby="phd-jobs-heading"><header class="section-head reveal is-visible"><h2 id="phd-jobs-heading">Where new AI PhDs went in 2022</h2><p class="section-head__sub">Share of new AI PhD graduates in the United States and Canada, by sector. Eleven years earlier the first two bars were within a single point of each other, at 40.9% and 41.6%.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Where new AI PhDs went in 2022. Industry: 70.71, Academia: 19.95, Government: 0.76"><title>Where new AI PhDs went in 2022</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="152" height="198" rx="5"><title>Industry: 70.71</title></rect><text class="bar-value" x="92" y="10" text-anchor="middle">70.71</text><text class="bar-label" x="92" y="234" text-anchor="middle">Industry</text><rect class="bar-rect" x="184" y="158.14" width="152" height="55.86" rx="5"><title>Academia: 19.95</title></rect><text class="bar-value" x="260" y="152.14" text-anchor="middle">19.95</text><text class="bar-label" x="260" y="234" text-anchor="middle">Academia</text><rect class="bar-rect" x="352" y="211.87" width="152" height="2.13" rx="5"><title>Government: 0.76</title></rect><text class="bar-value" x="428" y="205.87" text-anchor="middle">0.76</text><text class="bar-label" x="428" y="234" text-anchor="middle">Government</text></svg></div></figure></section><section class="section section--prose" id="faculty" aria-labelledby="faculty-heading"><header class="section-head reveal is-visible"><h2 id="faculty-heading">Departments are hiring at a decade high — mostly from each other</h2><p class="section-head__sub">North American CS, CE, and information departments held 8,738 faculty in 2022, up 7.2% in a year and 42.4% since 2011. They made 915 new hires, the most in a decade. Almost none of them came from industry.</p></header><div class="prose reveal is-visible" data-item=""><p>In the United States alone there were 7,084 CS faculty members in 2022, 65.7% of them on the tenure track. That total is 4.4% higher than 2021 and 45.0% higher than 2011. Across the United States and Canada, 915 new faculty were hired in CS, CE, and information disciplines last year, a decade high, and 455 of those positions were tenure track.</p><h3>Churn, not inflow</h3><ul><li>43% of 2022’s new faculty appointments came from other academic positions. Because those people vacated posts elsewhere, the vacancy simply moves — the chapter calls it churn within the academic workforce.</li><li>The share arriving from industry fell to 7%, down from 11% in 2021 and 13% in 2019. The traffic between industry and academia has become close to one-directional.</li><li>Departures rose sharply, to 405 in 2022 from 303 in 2021. Of those losses, 38.5% left for another academic position and 16.3% for a nonacademic role.</li><li>International hires among new tenure-track faculty jumped to 19.3% from 13.2% the previous year — the second-highest share of the past decade, behind only 2013.</li></ul><h3>Failed searches look different than they used to</h3><p>In 2011, 37% of failed faculty searches ended with no offer being made and 34% with the offer declined. In 2022 only 15% ended with no offer, while 55% involved offers that were turned down. Departments are finding candidates they want and losing them. Pay is part of the backdrop: the median nine-month salary for a full professor in the United States reached 181,610 dollars in 2022, 3.2% above 2021 — below that year’s 7% inflation rate — and 16.4% above 2015, against a 19% rise in prices over the same period.</p></div></section><section class="section section--prose" id="europe" aria-labelledby="europe-heading"><header class="section-head reveal is-visible"><h2 id="europe-heading">6.1 — Britain and Germany produce the most graduates. The Nordics produce the most per person.</h2><p class="section-head__sub">Informatics Europe collects graduate counts from national statistical offices across informatics, CS, CE, computing, and IT. Rank the countries by headcount and you get one league table; rank them per 100,000 inhabitants and you get a different one.</p></header><div class="prose reveal is-visible" data-item=""><p>At bachelor’s level in 2022, the United Kingdom led with roughly 25,040 new graduates, followed by Germany (19,920) and Turkey (13,826), then Poland (9,241) and Italy (8,508). Per 100,000 inhabitants the ordering inverts entirely: Finland leads at 53.38, then Norway (42.63), the Netherlands (38.61), Ireland (38.41), and the United Kingdom (37.36). Growth over the decade was widespread but not universal — Norway added 153%, Turkey 118%, and Switzerland 117%, while Poland, Spain, and the Czech Republic all produced fewer bachelor’s graduates than ten years earlier.</p><ul><li>Master’s: the United Kingdom again leads with roughly 19,965 graduates, then Germany (11,092), Poland (4,271), and Italy (3,883). Over the decade Germany grew fastest (+259%), then Turkey (+197%) and Spain (+194%).</li><li>Master’s per capita: Ireland tops the table at 31.19 per 100,000 inhabitants, ahead of the United Kingdom (29.79), Estonia (27.38), and Finland (26.20).</li><li>PhD: the United Kingdom (1,060) and Germany (910) produced the most, followed by Italy (581) and Spain (479). Turkey saw the sharpest decade growth at +173%.</li><li>PhD per capita: Finland leads with 2.05 doctorates per 100,000 inhabitants, then Estonia (1.90) and the United Kingdom (1.58). On this measure the past decade went backwards in Germany (-4%), Latvia (-8%), and Ireland (-15%).</li></ul><p>One caution the chapter raises about all of this: there is no single term for computer science education across Europe. The same field appears as informatics, CS, CE, computing, IT, ICT, or information science and technology depending on the country, and the European data comes from national statistical offices with broader coverage than the North American survey — so the two datasets should not be compared per capita against each other.</p></div></section><section class="section section--bars" id="ai-programs" aria-labelledby="ai-programs-heading"><header class="section-head reveal is-visible"><h2 id="ai-programs-heading">English-language AI study programs worldwide, 2017–23</h2><p class="section-head__sub">Studyportals tracks over 200,000 courses at more than 3,750 institutions across 110 countries. The AI count has tripled in six years and rose in every one of them. In 2023 the United Kingdom hosted the most (744), ahead of the United States (667) and Canada (89).</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="English-language AI study programs worldwide, 2017–23. 2017: 880, 2019: 1450, 2021: 2160, 2022: 2320, 2023: 2520"><title>English-language AI study programs worldwide, 2017–23</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="144.86" width="84.8" height="69.14" rx="5"><title>2017: 880</title></rect><text class="bar-value" x="58.4" y="138.86" text-anchor="middle">880</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">2017</text><rect class="bar-rect" x="116.8" y="100.07" width="84.8" height="113.93" rx="5"><title>2019: 1450</title></rect><text class="bar-value" x="159.2" y="94.07" text-anchor="middle">1450</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">2019</text><rect class="bar-rect" x="217.6" y="44.29" width="84.8" height="169.71" rx="5"><title>2021: 2160</title></rect><text class="bar-value" x="260" y="38.29" text-anchor="middle">2160</text><text class="bar-label" x="260" y="234" text-anchor="middle">2021</text><rect class="bar-rect" x="318.4" y="31.71" width="84.8" height="182.29" rx="5"><title>2022: 2320</title></rect><text class="bar-value" x="360.8" y="25.71" text-anchor="middle">2320</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">2022</text><rect class="bar-rect" x="419.2" y="16" width="84.8" height="198" rx="5"><title>2023: 2520</title></rect><text class="bar-value" x="461.6" y="10" text-anchor="middle">2520</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">2023</text></svg></div></figure></section><section class="section section--prose" id="k12" aria-labelledby="k12-heading"><header class="section-head reveal is-visible"><h2 id="k12-heading">6.2 — Whether an American teenager can take CS still depends on which building they walk into</h2><p class="section-head__sub">Code.org data on US high schools. The chapter uses it, explicitly, as a representation of K–12 AI education — there is no separate national count of who learns AI before college.</p></header><div class="prose reveal is-visible" data-item=""><p>In 2023, 30 American states required that all high schools offer a foundational course in computer science. Tracked over time, the same Code.org data shows how recent that is: in 2017 only a handful of states supported high school CS at all, and by 2023 36 states allocate funding for it, 30 have adopted a state plan, and 29 require a CS course — roughly two-thirds of states on each measure.</p><p>Requiring it and having it are different things. The share of public high schools actually teaching foundational CS ranges from 99% in Maryland and Arkansas and 96% in Nevada down to 28% in Minnesota, 34% in Montana, and 35% in Louisiana. Maryland has more than three times Minnesota’s share of high schools teaching the subject.</p><h3>AP computer science, tenfold in fifteen years</h3><p>Approximately 201,000 AP computer science exams were administered in 2022, an 11.1% increase over 2021 and more than a tenfold increase since 2007, when the figure was 19,390. The count covers both AP CS A and AP CS Principles; the latter was first offered in 2017, and the steepest part of the curve starts right around it. Geography again decides the picture: California (33,262), Texas (20,901), and Florida (16,248) led the states, while Montana (39), South Dakota (40), and North Dakota (100) sat at the bottom. Adjusted for population the ranking changes hands entirely — Maryland (126.5 exams per 100,000 inhabitants), New Jersey (112.7), and Massachusetts (92.7) come out on top.</p></div></section><section class="section section--bars" id="ap-exams" aria-labelledby="ap-exams-heading"><header class="section-head reveal is-visible"><h2 id="ap-exams-heading">AP computer science exams taken, 2007–22</h2><p class="section-head__sub">In thousands. The count barely moved for the first five years — 19.39 in 2007 and 19.39 again in 2010 — then rose every single year after 2011.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="AP computer science exams taken, 2007–22. 2007: 19.39, 2013: 37.33, 2017: 99.87, 2020: 179.19, 2022: 201.61"><title>AP computer science exams taken, 2007–22</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="194.96" width="84.8" height="19.04" rx="5"><title>2007: 19.39</title></rect><text class="bar-value" x="58.4" y="188.96" text-anchor="middle">19.39</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">2007</text><rect class="bar-rect" x="116.8" y="177.34" width="84.8" height="36.66" rx="5"><title>2013: 37.33</title></rect><text class="bar-value" x="159.2" y="171.34" text-anchor="middle">37.33</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">2013</text><rect class="bar-rect" x="217.6" y="115.92" width="84.8" height="98.08" rx="5"><title>2017: 99.87</title></rect><text class="bar-value" x="260" y="109.92" text-anchor="middle">99.87</text><text class="bar-label" x="260" y="234" text-anchor="middle">2017</text><rect class="bar-rect" x="318.4" y="38.02" width="84.8" height="175.98" rx="5"><title>2020: 179.19</title></rect><text class="bar-value" x="360.8" y="32.02" text-anchor="middle">179.19</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">2020</text><rect class="bar-rect" x="419.2" y="16" width="84.8" height="198" rx="5"><title>2022: 201.61</title></rect><text class="bar-value" x="461.6" y="10" text-anchor="middle">201.61</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">2022</text></svg></div></figure></section><section class="section section--cards" id="highlights" aria-labelledby="highlights-heading"><header class="section-head reveal is-visible"><h2 id="highlights-heading">Five things section 6.2 stops to look at</h2><p class="section-head__sub">Two highlight boxes sit inside the K–12 section — one on who can reach a computer science classroom at all, one on what American teachers actually started doing with ChatGPT in 2023.</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="school-size" aria-label="Big schools, small schools"><h3 class="card__title">Big schools, small schools</h3><p class="card__summary">90% of large US high schools offer foundational computer science. 41% of small ones do.</p><div class="card__tags"><span class="tag">k12</span><span class="tag">access</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="where-you-live" aria-label="Suburban schools, and everyone else"><h3 class="card__title">Suburban schools, and everyone else</h3><p class="card__summary">67.21% of suburban schools offer foundational CS, against 54.73% urban and 54.62% rural.</p><div class="card__tags"><span class="tag">k12</span><span class="tag">access</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="ap-map" aria-label="From 33,262 exams down to 39"><h3 class="card__title">From 33,262 exams down to 39</h3><p class="card__summary">California administered 33,262 AP CS exams in 2022. Montana administered 39.</p><div class="card__tags"><span class="tag">k12</span><span class="tag">exams</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="chatgpt-teachers" aria-label="Teachers picked it up in months"><h3 class="card__title">Teachers picked it up in months</h3><p class="card__summary">51% of US K–12 teachers had used ChatGPT by March 2023. By July it was 63%.</p><div class="card__tags"><span class="tag">chatgpt</span><span class="tag">teachers</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="chatgpt-attitudes" aria-label="And they liked it more than students did"><h3 class="card__title">And they liked it more than students did</h3><p class="card__summary">88% of teachers said ChatGPT has had a positive impact. 79% of students agreed.</p><div class="card__tags"><span class="tag">chatgpt</span><span class="tag">opinion</span></div></article></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">The chapter in five lines</h2><p class="section-head__sub">Headline findings from Chapter 6 · Education.</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2011 roughly equal shares of new AI PhDs took jobs in industry (40.9%) and academia (41.6%). By 2022, 70.7% joined industry against 20.0% entering academia.</blockquote><figcaption class="quote-by">— Chapter 6 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>The proportion of new faculty transitioning from industry fell to 7% in 2022, from 11% in 2021 and 13% in 2019 — a progressively lower migration of high-level AI talent back into academia.</blockquote><figcaption class="quote-by">— Chapter 6 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Proportionally fewer international CS bachelor’s, master’s, and PhD students graduated in 2022 than in 2021. The drop in the master’s category was especially pronounced, at 14.8 percentage points.</blockquote><figcaption class="quote-by">— Chapter 6 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2022, 201,000 AP CS exams were administered. Since 2007 the number of students taking these exams has increased more than tenfold.</blockquote><figcaption class="quote-by">— Chapter 6 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>The number of English-language, AI-related postsecondary degree programs has tripled since 2017, showing a steady annual increase over the past five years.</blockquote><figcaption class="quote-by">— Chapter 6 · Education</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>Read Chapter 6 in full</h2><p>Chapter 6 (sections 6.1–6.2) with every figure, state map, and citation is free from Stanford HAI. Or head back to the report highlights and the full chapter overview.</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener">Open the AI Index 2024 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2024》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../zh-Hant/2024/education.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2024/data/site.js"></script>
+  <script src="../2024/data/education.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

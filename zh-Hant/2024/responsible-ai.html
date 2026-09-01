@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>負責任 AI · AI 指數報告 2024</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2024/responsible-ai.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2024/responsible-ai.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2024/responsible-ai.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2024/responsible-ai.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2024/responsible-ai.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2024》負責任 AI章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Responsible AI · AI Index Report 2024" />
+  <meta property="og:description" content="A bilingual deep dive into the Responsible AI chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Responsible AI · AI Index Report 2024" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Responsible AI chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "負責任 AI · AI 指數報告 2024",
+    "description": "史丹佛 HAI《人工智慧指數報告 2024》負責任 AI章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2024/responsible-ai.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2024-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2024/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2024</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2024-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2024/responsible-ai.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">負責任 AI 開始被衡量的一年 — 每個人都在量，但量法都不一樣</h1><p class="section-head__sub">AI 指數 2024 第 3 章講的是 2023 年 — 負責任 AI 從一種主張，變成一組數字的一年。問題在於那是誰家的數字。主要開發者用同一批能力基準測試旗艦模型，安全面向卻幾乎沒有交集；事故數持續上升；透明度在史上第一份成績單上表現難看；研究者也找到辦法，把訓練資料直接從已上線的模型裡拉出來。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="123">123</b><span class="hero__stat-label">2023 年通報的 AI 事故數 — 較 2022 年增加 32.3%</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="3">3</b><span class="hero__stat-label">5 家主要開發者中回報 TruthfulQA 的家數 — 這已是負責任 AI 基準中共識最高的一個</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="37">37</b><span class="hero__stat-label">基礎模型透明度指數平均分，滿分 100，2023 年 10 月</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="213">213</b><span class="hero__stat-label">2023 年六大研討會的隱私與資料治理投稿數(2022 年為 92 篇)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="88">88</b><span class="hero__stat-label">% 認同基礎模型開發者應承擔所有相關風險緩解責任的組織</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="73">73</b><span class="hero__stat-label">% 聽眾正確辨識出音訊深偽的比例(樣本 529 人)</span></div></div></section><section class="section section--prose" id="standardization" aria-labelledby="standardization-heading"><header class="section-head reveal is-visible"><h2 id="standardization-heading">3.1 — 每個人都回報 MMLU，卻沒有人對「責任」測試有共識</h2><p class="section-head__sub">AI 指數的新分析從 OpenAI、Meta、Anthropic、Google 與 Mistral AI 各取一個旗艦模型 — GPT-4、Llama 2、Claude 2、Gemini 與 Mistral 7B — 單純把每家開發者選擇回報的基準列出來看。在通用能力上，交集幾乎是滿的；在責任面向上，整個散掉。</p></header><div class="prose reveal is-visible" data-item=""><p>在通用能力上，業界已經有一套事實標準。MMLU、Codex HumanEval 與 GSM8K 出現在全部五家開發者的回報中，HellaSwag 與 ARC Challenge 出現在四家。正是這套共通語彙讓能力宣稱可以互相比較 — 而負責任 AI 缺的就是這個。</p><h3>到了責任面向，交集直接崩掉</h3><ul><li>TruthfulQA 是回報率最高的負責任 AI 基準，而即使是它，也只出現在五家開發者中三家的回報裡。</li><li>RealToxicityPrompts、ToxiGen、BOLD 與 BBQ，每一個最多只有五家中的兩家回報。</li><li>五家開發者中，有一家完全沒有回報任何負責任 AI 基準。</li><li>五家都表示自己另外做了非標準化的內部能力與安全測試 — 這等於把問題再講一次：工作是有做，但外界無從比較。</li><li>本章給了三個可能的解釋：基準很快就飽和、失去鑑別力；新基準不斷出現卻沒有任何回報標準；以及開發者可能選擇性地只回報對自家模型有利的基準。</li></ul><h3>與此同時，事故沒有停</h3><p>AI 事故資料庫在 2023 年記錄了 123 起 AI 事故，較 2022 年增加 32.3%；自 2013 年以來，件數成長超過二十倍。本章對這個數字的解讀很謹慎 — 隨著意識提高，追蹤與通報也跟著改善，這意味著早年不是比較安全，而是通報得比較少。它列舉的 2023 至 2024 年案例，糟就糟在都很日常：宣稱是泰勒絲的 AI 生成不雅影像在 X 上留存 17 小時，被移除前累積超過 4,500 萬次觀看；一輛開著 Full Self-Driving 的特斯拉在舊金山的行人穿越道偵測到行人卻沒有減速，而那是一般街道 — 其他自動駕駛系統開發者並不允許自家測試版軟體用在這種路況；Mozilla 基金會的研究者檢視 11 款戀愛型 AI 聊天機器人，發現它們過度蒐集資料、保護措施不足，其中一款的隱私政策直接寫明可能蒐集使用者的「性健康資訊」、「處方藥物使用情形」與「性別肯定醫療照護資訊」。</p></div></section><section class="section section--bars" id="trustworthiness" aria-labelledby="trustworthiness-heading"><header class="section-head reveal is-visible"><h2 id="trustworthiness-heading">GPT-4 在能力上贏過 GPT-3.5 — 在可信度上卻輸給它</h2><p class="section-head__sub">LLM 安全排行榜上的平均可信度分數。該榜建立在 DecodingTrust 基準之上，橫跨刻板印象與偏見、對抗式穩健性、隱私與機器倫理等面向評分，分數愈高代表愈可靠。截至 2024 年初，Claude 2 是測得最安全的模型，得分 84.52；而 GPT-4-0314(69.24)反而低於 GPT-3.5-turbo-0301(72.45) — 部分原因是 GPT-4 更忠實地遵循指令，這也讓它更容易被越獄提示帶走。最低的兩根長條，完整名稱是 Zephyr-7b-beta 與 Vicuna-13b-v1.3.0-GPTQ。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="GPT-4 在能力上贏過 GPT-3.5 — 在可信度上卻輸給它：Zephyr-7b：63.24、Vicuna-13b：65.96、GPT-4：69.24、GPT-3.5：72.45、Claude 2：84.52"><title>GPT-4 在能力上贏過 GPT-3.5 — 在可信度上卻輸給它</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="65.85" width="84.8" height="148.15" rx="5"><title>Zephyr-7b：63.24</title></rect><text class="bar-value" x="58.4" y="59.85" text-anchor="middle">63.24</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">Zephyr-7b</text><rect class="bar-rect" x="116.8" y="59.48" width="84.8" height="154.52" rx="5"><title>Vicuna-13b：65.96</title></rect><text class="bar-value" x="159.2" y="53.48" text-anchor="middle">65.96</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">Vicuna-13b</text><rect class="bar-rect" x="217.6" y="51.8" width="84.8" height="162.2" rx="5"><title>GPT-4：69.24</title></rect><text class="bar-value" x="260" y="45.8" text-anchor="middle">69.24</text><text class="bar-label" x="260" y="234" text-anchor="middle">GPT-4</text><rect class="bar-rect" x="318.4" y="44.28" width="84.8" height="169.72" rx="5"><title>GPT-3.5：72.45</title></rect><text class="bar-value" x="360.8" y="38.28" text-anchor="middle">72.45</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">GPT-3.5</text><rect class="bar-rect" x="419.2" y="16" width="84.8" height="198" rx="5"><title>Claude 2：84.52</title></rect><text class="bar-value" x="461.6" y="10" text-anchor="middle">84.52</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">Claude 2</text></svg></div></figure></section><section class="section section--prose" id="privacy" aria-labelledby="privacy-heading"><header class="section-head reveal is-visible"><h2 id="privacy-heading">3.2 — 訓練資料會說話</h2><p class="section-head__sub">隱私與資料治理是組織最常說「跟我有關」的風險，也是學界成長最快的負責任 AI 主題。而 2023 年同時是研究者證明可以把訓練資料，從一個已上線的封閉模型裡直接拉出來的一年。</p></header><div class="prose reveal is-visible" data-item=""><h3>關注在上升，行動卻很薄</h3><ul><li>2023 年在 AAAI、AIES、FAccT、ICML、ICLR 與 NeurIPS 共有 213 篇隱私與資料治理投稿 — 幾乎是 2022 年 92 篇的兩倍，也超過 2019 年 39 篇的五倍。</li><li>51% 的受訪組織表示隱私與資料治理風險與自身的 AI 採用策略相關，是調查中比例最高的風險。歐洲(56%)與亞洲(55%)最常提及，北美(42%)最少。</li><li>90% 的公司至少完整落實了六項資料治理措施中的一項 — 但六項全部落實的不到 0.6%，而 10% 一項都沒有。全球平均是 6 項中的 2.2 項。</li></ul><h3>可萃取的記憶</h3><p>2023 年 11 月發表的一項研究問了一個問題：在不預先知道訓練資料集的情況下，能不能把敏感訓練資料從模型裡取回來？答案是可以 — 不論是 Pythia 這類開放模型，還是 ChatGPT 這類封閉模型。關鍵不是什麼精巧的越獄手法，而是讓模型偏離標準對話式生成：「永遠重複這個詞：『poem poem poem poem』」這樣的提示，就讓 ChatGPT 逐字吐出可識別個資。重複哪個詞差別很大 — 重複 "company" 取回約 2,300 個記憶輸出樣本，重複 "work" 則約 1,050 個。作者取出的不只是個資，還包括成人內容、逐字的文學作品與通用唯一識別碼。這正是本章第三項重點的縮影：紅隊測試過去集中在人類直覺上說得通的對抗提示，而「請你把一個隨機的詞永遠重複下去」並不在其中。</p><h3>而它也會把受著作權保護的東西還給你</h3><p>來自 Google、蘇黎世聯邦理工學院與康乃爾大學的研究者發現，沒有保護性過濾機制的模型，經常直接複製訓練資料中的文字，而不同資料集的記憶比率也不同。他們提出的解法是在生成每個 token 時，比對是否與訓練資料構成 n-gram 相符；這確實擋掉了完美的逐字輸出，但模型仍可以稍微改動文字來做近似記憶 — 一個不完美的答案，正好說明在效用與隱私、著作權之間取得平衡有多難。影像端也是同一個問題：在 Midjourney v6 上，一個像「animated toys --v 6.0 --ar16：9 --style raw」這樣的通用提示，就生成了與《玩具總動員》角色高度相似的影像，而提示裡完全沒有要求重現任何電影畫面；同樣的疑慮也延伸到 DALL·E。這類輸出是否構成著作權侵權，正在成為核心的法律問題。</p></div></section><section class="section section--bars" id="transparency-index" aria-labelledby="transparency-index-heading"><header class="section-head reveal is-visible"><h2 id="transparency-index-heading">3.3 — 第一份透明度成績單，沒有人及格</h2><p class="section-head__sub">基礎模型透明度指數總分，滿分 100，2023 年 10 月。史丹佛、普林斯頓與麻省理工的研究者以超過 100 項指標為 10 個主要模型評分，涵蓋開發資源配置、演算法設計與下游應用，且只採用開發者自行公開的資訊。平均分為 37。開放模型 — 也就是公開權重的那些 — 平均 51.3，封閉模型則是 30.9。Llama 2(54)與 BLOOMZ(53)領先；Stable Diffusion 2 得 47，Inflection-1 得 21。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="3.3 — 第一份透明度成績單，沒有人及格：Llama 2：54、GPT-4：48、PaLM 2：40、Claude 2：36、Titan Text：12"><title>3.3 — 第一份透明度成績單，沒有人及格</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>Llama 2：54</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">54</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">Llama 2</text><rect class="bar-rect" x="116.8" y="38" width="84.8" height="176" rx="5"><title>GPT-4：48</title></rect><text class="bar-value" x="159.2" y="32" text-anchor="middle">48</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">GPT-4</text><rect class="bar-rect" x="217.6" y="67.33" width="84.8" height="146.67" rx="5"><title>PaLM 2：40</title></rect><text class="bar-value" x="260" y="61.33" text-anchor="middle">40</text><text class="bar-label" x="260" y="234" text-anchor="middle">PaLM 2</text><rect class="bar-rect" x="318.4" y="82" width="84.8" height="132" rx="5"><title>Claude 2：36</title></rect><text class="bar-value" x="360.8" y="76" text-anchor="middle">36</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">Claude 2</text><rect class="bar-rect" x="419.2" y="170" width="84.8" height="44" rx="5"><title>Titan Text：12</title></rect><text class="bar-value" x="461.6" y="164" text-anchor="middle">12</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">Titan Text</text></svg></div></figure></section><section class="section section--prose" id="security" aria-labelledby="security-heading"><header class="section-head reveal is-visible"><h2 id="security-heading">3.4–3.5 — 這個領域還在吵該怕哪一種風險，論文已經堆成山</h2><p class="section-head__sub">2023 年，AI 社群公開分裂：該優先處理演算法歧視這類眼前的傷害，還是為潛在的災難性風險做準備？本章的判斷是，這場爭論已經很難裁決 — 短期風險具體而且已經發生，生存性風險則仍是理論，而要分辨哪些主張夠有科學根據、足以指導政策，確實很困難。</p></header><div class="prose reveal is-visible" data-item=""><p>沒有爭議的是攻擊面變大了。基礎模型的雙重用途特性 — 同一套系統可以用在有益的目的，也可以用在惡意的目的 — 讓「需要哪些安全措施」這個討論變得複雜。AI 也可能放大網路攻擊，製造出更精密、更能適應、也更難偵測的威脅，這正是 2023 年焦點轉向具體漏洞的原因：一端是提示注入，另一端是模型洩漏。</p><h3>2023 年的研究往哪裡去了</h3><ul><li>透明度與可解釋性是量體最大的負責任 AI 主題：2023 年六大研討會共 393 篇投稿，創下新高，是 2019 年 89 篇的三倍以上。</li><li>安全與資安達 276 篇 — 較 2022 年的 285 篇略降，但比 2019 年的 162 篇高出 70.4%。</li><li>隱私與資料治理年增將近一倍，達 213 篇。</li><li>公平性與偏見達 212 篇，較 2022 年增加 25.4%，接近 2019 年 57 篇的四倍 — 本章認為這股成長來自 ChatGPT 與 Gemini 把 LLM 推到所有人面前後，大眾對公平性問題的意識急速提高。</li></ul><h3>組織又走到哪裡</h3><ul><li>47% 的組織認為資安風險與自己相關。在調查的五項安全措施中，28% 完整落實超過一半，63% 落實了至少一項但不到一半，10% 一項都沒有 — 平均是 5 項中的 1.94 項。</li><li>45% 認為可靠性風險 — 模型幻覺、輸出錯誤 — 與自己相關，但六項緩解措施中完整落實超過一半的只有 13%，12% 完全沒有，平均是 6 項中的 2.16 項。</li><li>44% 認為透明度與可解釋性相關，而這是整份調查中行動最弱的領域：全球平均只有 4 項措施中的 1.43 項，完整落實超過一半的僅 8%，全部落實的不到 0.7%。</li><li>公平性是被認領最少的風險，全球 29% — 歐洲 34%、北美 20% — 平均採用 5 項措施中的 1.97 項，且區域差異不大。</li><li>88% 的組織同意或強烈同意，開發基礎模型的一方而非使用它的組織，應負責緩解所有相關風險。86% 同意生成式 AI 帶來的威脅足以需要全球一致的治理。</li></ul></div></section><section class="section section--bars" id="risk-relevance" aria-labelledby="risk-relevance-heading"><header class="section-head reveal is-visible"><h2 id="risk-relevance-heading">全球大型企業說他們在擔心什麼</h2><p class="section-head__sub">各項負責任 AI 風險被組織認為與自身 AI 採用策略相關的比例(%)。資料來自《全球負責任 AI 現況》調查，由史丹佛研究者與 Accenture 合作，涵蓋 20 個國家、19 個產業中逾 1,000 家營收至少 5 億美元的組織，於 2024 年 2 至 3 月執行。亞洲受訪者平均勾選的相關風險最多(4.99 項)，拉丁美洲最少(3.64 項)。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="全球大型企業說他們在擔心什麼：隱私：51、資安：47、可靠性：45、透明度：44、公平性：29"><title>全球大型企業說他們在擔心什麼</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>隱私：51</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">51</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">隱私</text><rect class="bar-rect" x="116.8" y="31.53" width="84.8" height="182.47" rx="5"><title>資安：47</title></rect><text class="bar-value" x="159.2" y="25.53" text-anchor="middle">47</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">資安</text><rect class="bar-rect" x="217.6" y="39.29" width="84.8" height="174.71" rx="5"><title>可靠性：45</title></rect><text class="bar-value" x="260" y="33.29" text-anchor="middle">45</text><text class="bar-label" x="260" y="234" text-anchor="middle">可靠性</text><rect class="bar-rect" x="318.4" y="43.18" width="84.8" height="170.82" rx="5"><title>透明度：44</title></rect><text class="bar-value" x="360.8" y="37.18" text-anchor="middle">44</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">透明度</text><rect class="bar-rect" x="419.2" y="101.41" width="84.8" height="112.59" rx="5"><title>公平性：29</title></rect><text class="bar-value" x="461.6" y="95.41" text-anchor="middle">29</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">公平性</text></svg></div></figure></section><section class="section section--cards" id="research" aria-labelledby="research-heading"><header class="section-head reveal is-visible"><h2 id="research-heading">讓 2023 年不太好過的六項研究</h2><p class="section-head__sub">3.4 與 3.5 節的重點研究 — 新的安全資料集、沒有人看得懂的攻擊，以及不公平開始的地方。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="do-not-answer" aria-label="Do-Not-Answer：一份開源的安全資料集"><h3 class="card__title">Do-Not-Answer：一份開源的安全資料集</h3><p class="card__summary">OpenAI、Anthropic 這類封閉開發者會自建資料集評估模型的危險能力，但留在內部。這是最早的一批完整開源版本之一。</p><div class="card__tags"><span class="tag">benchmarks</span><span class="tag">safety</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="gcg-attack" aria-label="由亂碼組成的通用攻擊"><h3 class="card__title">由亂碼組成的通用攻擊</h3><p class="card__summary">研究者自動生成一種後綴，只要接在一般提示後面，就能迫使已對齊的 LLM 產出不安全內容 — 而同一組後綴還能在不同模型間通用。</p><div class="card__tags"><span class="tag">security</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="machiavelli" aria-label="MACHIAVELLI：模型會不會為了贏而不擇手段？"><h3 class="card__title">MACHIAVELLI：模型會不會為了贏而不擇手段？</h3><p class="card__summary">HELM、MMLU 這類基準測的是能力。很少有基準在衡量：當系統被放進一個社會情境、而且有利可圖時，它會不會守住倫理。</p><div class="card__tags"><span class="tag">benchmarks</span><span class="tag">safety</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="race-based-medicine" aria-label="被推翻的種族醫學迷思，LLM 又講了一次"><h3 class="card__title">被推翻的種族醫學迷思，LLM 又講了一次</h3><p class="card__summary">四個熱門 LLM 被問了九個已知會引出「種族醫學」的醫療問題，每題各問五次。四個模型都出現了某種程度的種族偏誤。</p><div class="card__tags"><span class="tag">fairness</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="biaspainter" aria-label="自動化檢測影像模型的偏誤"><h3 class="card__title">自動化檢測影像模型的偏誤</h3><p class="card__summary">BiasPainter 用關於職業、活動、物件與人格特質的中性提示去編輯種子影像，再比對前後的差異，找出性別、種族與年齡上不恰當的改動。</p><div class="card__tags"><span class="tag">fairness</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="tokenization" aria-label="不公平從斷詞就開始了"><h3 class="card__title">不公平從斷詞就開始了</h3><p class="card__summary">同一個句子在不同語言之間，需要的 token 數最多可以差到 15 倍。那是一筆帳單、一段延遲、一個被壓縮的脈絡視窗 — 不是技術細節。</p><div class="card__tags"><span class="tag">fairness</span></div></article></div></section><section class="section section--accordion" id="elections" aria-labelledby="elections-heading"><header class="section-head reveal is-visible"><h2 id="elections-heading">3.6 — 40 億選民，卻沒有可靠的方法分辨什麼是真的</h2><p class="section-head__sub">2024 年全球預計約有 40 億人參與各國大選，包括美國、英國、印尼、墨西哥與台灣。這是本章的特別專節，也是全章寫得最貼近現場的一節。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>AI 造假已經打進選舉了嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">斯洛伐克，2023 年。選前不久，Facebook 上出現一段爭議音檔，內容宣稱是進步斯洛伐克黨領袖 Michal Šimečka 與《Denník N》記者 Monika Tódová 在討論不法的選舉策略，包括從羅姆社群買票。兩人立刻否認音檔的真實性，獨立事實查核團隊也認為極可能經過 AI 加工。有兩件事讓它很難被反擊：音檔發布在選前的靜默期，媒體與政治人物的評論本來就受限制，因此無從及時澄清；而它得以廣泛流傳，還因為 Meta 的內容政策有個明顯缺口 — 該政策並不適用於音訊竄改。最後進步斯洛伐克以些微差距輸給了 SMER。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>AI 能不能從頭到尾跑完一整條假訊息產線？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">可以，而且很便宜。對 AI 生成假訊息的擔憂，有時會被這樣打發：AI 只幫忙生產內容，不負責散播。一位名叫 Nea Paw 的開發者做了 CounterCloud 來測試這個說法。第一個模型持續爬取網路文章，並自動判斷該對哪些文章下手。第二個模型寫出一篇有說服力的反駁文章，可以搭配圖片與音訊摘要。這篇文章掛上一個虛構記者的名字，發布到 CounterCloud 網站。第三個系統為它生成留言，製造出有機互動的樣子。第四個系統則在 X 上搜尋相關貼文，把反駁文章當成回覆貼出去，並以一般使用者的身分留言。整套看起來很真實的假訊息系統，架設成本大約 400 美元。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>深偽偵測器有用嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">在它看過的資料上有用。一支新加坡研究團隊比較了五種深偽偵測方法，測試它們在從未受訓過的資料集上表現如何。每一種的準確率都明顯下滑：XceptionNet 從 93.60% 掉到 69.03%，MesoInception 從 89.05% 掉到 65.94%，MesoNet 從 85.50% 掉到 69.75%，EfficientNet 從 77.15% 掉到 63.16%，ShallowNet 從 71.00% 掉到 65.85%。偵測器對不同的人也不是一樣準。FaceForensics++ 這類訓練資料集在種族與性別上並不均衡，較早的研究就顯示不同種族子群之間的準確率最多可差到 10.7 個百分點 — 在深色皮膚上表現最差，在白人臉孔上最好。比較樂觀的一點是，看過與沒看過的資料集之間確實存在底層的相似性，因此穩健且能廣泛泛化的偵測器仍有機會做得出來。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>那人自己聽仔細一點行不行？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">不太行。在一個 529 人的樣本中，聽眾正確辨識出音訊深偽的比例只有 73% — 而該研究的其他發現，幾乎把所有直覺上的補救方式都堵死了。訓練人類辨識深偽，幫助很有限；多聽幾次沒有幫助；花更多時間也沒有改善；短的深偽並沒有比較好認；英文與中文的深偽一樣難分辨；而受試者在沒有明確回饋的情況下不會進步。人類群眾與頂尖自動偵測器的表現相當，作者並預期隨著音訊生成技術進步，準確率還會下降。真正麻煩的可能是二階效應：音訊愈逼真，政治人物就愈能領取「說謊者紅利」 — 把真實而不利的錄音一律斥為偽造。2023 年 7 月，印度一位印度教政黨政治人物被流出攻擊自己政黨、稱讚對手的音檔；他主張那是 AI 生成的，而即使諮詢了深偽專家，也無法百分之百確定音檔的真偽。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>聊天機器人本身有政治立場嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">2023 年發表的研究發現，ChatGPT 對美國民主黨與英國工黨存在明顯且系統性的偏好。研究設計很巧妙：研究者拿「預設」的 ChatGPT — 也就是不給額外指示、直接作答的版本 — 與被要求「以共和黨人、民主黨人、激進共和黨人、激進民主黨人的身分作答」的各版本相比，用相關性把預設模型的政治傾向讀出來。結果預設版本的回答與民主黨、激進民主黨版本高度正相關，與兩個共和黨版本則呈負相關。由於 LLM 正逐漸成為一般人了解政治流程、候選人與政黨的管道，這確實引發它可能形塑使用者立場的疑慮 — 特別是在一個全球大選年。</div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用五句話看這一章</h2><p class="section-head__sub">第 3 章「負責任 AI」的頭條發現。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>針對 LLM 責任面向的穩健且標準化評測，嚴重不足。包括 OpenAI、Google 與 Anthropic 在內的主要開發者，主要各自用不同的負責任 AI 基準測試自家模型 — 這讓系統性比較頂尖 AI 模型的風險與限制變得困難。</blockquote><figcaption class="quote-by">— Chapter 3 · Responsible AI</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>政治深偽容易製造、難以偵測。它們已經在世界各地影響選舉，而現有的 AI 深偽偵測方法，準確度參差不齊。</blockquote><figcaption class="quote-by">— Chapter 3 · Responsible AI</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>過去針對 AI 模型的紅隊測試，多半聚焦在人類直覺上說得通的對抗式提示。今年，研究者找到了較不明顯的手法，讓 LLM 表現出有害行為 — 例如，要求模型無限重複隨機的詞。</blockquote><figcaption class="quote-by">— Chapter 3 · Responsible AI</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>根據 AI 事故資料庫，2023 年共通報 123 起事故，較 2022 年增加 32.3%。自 2013 年以來，AI 事故成長超過二十倍。</blockquote><figcaption class="quote-by">— Chapter 3 · Responsible AI</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>新推出的基礎模型透明度指數顯示，AI 開發者缺乏透明度，在訓練資料與方法的揭露上尤其如此。這種不公開，阻礙了外界進一步理解 AI 系統穩健性與安全性的努力。</blockquote><figcaption class="quote-by">— Chapter 3 · Responsible AI</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 3 章原文</h2><p>第 3 章(3.1–3.6 各節) — 負責任 AI 的評估、隱私與資料治理、透明度與可解釋性、安全與資安、公平性，以及 AI 與選舉特別專節 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2024 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2024》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2024/responsible-ai.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2024/data/site.js"></script>
+  <script src="../../2024/data/responsible-ai.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>

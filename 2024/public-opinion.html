@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title data-zh="民意 · AI 指數報告 2024">Public Opinion · AI Index Report 2024</title>
+  <meta name="description" data-zh="史丹佛 HAI《人工智慧指數報告 2024》民意章節的雙語重點整理。" content="A bilingual deep dive into the Public Opinion chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://ai-index-report.peteraim.com/2024/public-opinion.html" />
+  <link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2024/public-opinion.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2024/public-opinion.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2024/public-opinion.html" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Public Opinion · AI Index Report 2024" />
+  <meta property="og:description" content="A bilingual deep dive into the Public Opinion chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta property="og:url" content="https://ai-index-report.peteraim.com/2024/public-opinion.html" />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Public Opinion · AI Index Report 2024" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Public Opinion chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Public Opinion — Trends from the AI Index 2024",
+    "description": "A bilingual deep dive into the Public Opinion chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024.",
+    "url": "https://ai-index-report.peteraim.com/2024/public-opinion.html",
+    "inLanguage": ["en"],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2024-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2024/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2024</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2024-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../zh-Hant/2024/public-opinion.html"
+           hreflang="zh-Hant" lang="zh-Hant" rel="alternate"
+           title="中文版" aria-label="切換到中文版">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">中</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">The year the world noticed AI — and started worrying about it</h1><p class="section-head__sub">Chapter 9 of the AI Index 2024 reads public opinion in 2023 through four instruments: Ipsos's 31-country survey of 22,816 adults, the University of Toronto's 21-country GPO-AI study, Pew's 11,000-response US survey, and Quid's analysis of over 7 million social media posts. They disagree about very little. Awareness rose everywhere, and anxiety rose faster. The numbers:</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="66">66</b><span class="hero__stat-label">% who expect AI to profoundly change their daily life within 3–5 years (60% in 2022)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="54">54</b><span class="hero__stat-label">% who say AI products and services have more benefits than drawbacks (52% in 2022)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="13">13</b><span class="hero__stat-label">percentage-point rise since 2022 in those who say AI makes them nervous (39% → 52%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="52">52</b><span class="hero__stat-label">% of Americans more concerned than excited about AI (37% in 2021, 38% in 2022)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="32">32</b><span class="hero__stat-label">% who think AI will improve the job market — lowest of six livelihood questions</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="63">63</b><span class="hero__stat-label">% worldwide aware of ChatGPT; about half of them use it weekly or more</span></div></div></section><section class="section section--prose" id="global-mood" aria-labelledby="global-mood-heading"><header class="section-head reveal is-visible"><h2 id="global-mood-heading">9.1 — Awareness went up. Nervousness went up more than twice as fast.</h2><p class="section-head__sub">Ipsos interviewed 22,816 adults aged 16 to 74 across 31 countries in May and June 2023 — the first full survey year after ChatGPT. Almost every reading moved up. The one that moved most was fear.</p></header><div class="prose reveal is-visible" data-item=""><p>In 2023, 67% of respondents said they had a good understanding of what AI is, up from 64% a year earlier. 66% expected AI products and services to profoundly change their daily life in the next three to five years, up from 60%. 54% said those products have more benefits than drawbacks, up from 52%. And 52% said AI products and services make them nervous — up from 39%. That 13-point jump is more than twice the size of any other movement in the survey.</p><p>The most revealing pair of numbers is the one about time. 49% said AI products and services have already profoundly changed their daily life over the past three to five years — exactly the figure recorded in 2022 — against the 66% who expect that change in the next three to five. Nothing changed in the answer about the past; everything changed in the answer about the future. Only 51% say they know which products and services actually use AI, one point up on the year. Trust sat flat: 52% trust companies that use AI as much as they trust other companies (50% in 2022), 56% trust AI not to discriminate or show bias toward any group, and 50% trust that companies using AI will protect their personal data.</p><h3>Nervousness rose in every single country</h3><p>Of the 24 countries surveyed in both 2022 and 2023, every one reported an increase in the share saying AI products make them nervous — not one exception. The sharpest rises were Italy (24 points), France (19), Chile (18) and Australia (18); the mildest were South Africa (1), Japan (3) and Spain (3). Belief that AI will significantly change daily life within three to five years rose almost as broadly, with South Africa the only country to fall (down 2 points) and gains of 12 points each in Japan, Great Britain, Germany and Australia.</p><h3>Where sentiment was lowest, it improved the most</h3><p>In 2022 a cluster of developed Western nations — Germany, the Netherlands, Australia, Belgium, Canada and the United States — sat among the least positive about AI products and services. By 2023 every one of them had risen, and the Netherlands moved furthest: 43% of Dutch respondents saw AI as net beneficial, up from 33% a year earlier. Japan matched that 10-point gain to reach 52%. The direction was not universal, though. Chile fell 4 points, Peru and Spain 3 each, and Hungary, Poland and Sweden 1 each.</p><h3>Two countries mark the ends of the range</h3><p>Indonesia is the outlier at the optimistic end: 84% claim a solid understanding of AI, 79% expect it to significantly change their lives within three to five years, 78% see more benefits than drawbacks, and 75% say AI products make them excited. Japan is the outlier in the other direction and in an unexpected way — it reports the lowest understanding of AI of any country surveyed (43%) and, at the same time, by far the lowest nervousness (23%), against 63% in the United States. Thai respondents showed the highest trust in AI's impartiality, with 83% believing it will not discriminate or show bias toward any group. Among the 31 countries, the United States and France were the most skeptical about AI's benefits, both at 37%.</p></div></section><section class="section section--bars" id="optimism" aria-labelledby="optimism-heading"><header class="section-head reveal is-visible"><h2 id="optimism-heading">Do AI products and services have more benefits than drawbacks?</h2><p class="section-head__sub">% who agree, 2023, from the Ipsos survey of 31 countries. The 41-point spread between Indonesia and the two most skeptical countries is the widest gap in the chapter — and it maps almost exactly onto how rich the country is.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Do AI products and services have more benefits than drawbacks?. Indonesia: 78, Thailand: 74, Mexico: 73, Netherlands: 43, United States: 37, France: 37"><title>Do AI products and services have more benefits than drawbacks?</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="68" height="198" rx="5"><title>Indonesia: 78</title></rect><text class="bar-value" x="50" y="10" text-anchor="middle">78</text><text class="bar-label" x="50" y="234" text-anchor="middle">Indonesia</text><rect class="bar-rect" x="100" y="26.15" width="68" height="187.85" rx="5"><title>Thailand: 74</title></rect><text class="bar-value" x="134" y="20.15" text-anchor="middle">74</text><text class="bar-label" x="134" y="234" text-anchor="middle">Thailand</text><rect class="bar-rect" x="184" y="28.69" width="68" height="185.31" rx="5"><title>Mexico: 73</title></rect><text class="bar-value" x="218" y="22.69" text-anchor="middle">73</text><text class="bar-label" x="218" y="234" text-anchor="middle">Mexico</text><rect class="bar-rect" x="268" y="104.85" width="68" height="109.15" rx="5"><title>Netherlands: 43</title></rect><text class="bar-value" x="302" y="98.85" text-anchor="middle">43</text><text class="bar-label" x="302" y="234" text-anchor="middle">Netherlands</text><rect class="bar-rect" x="352" y="120.08" width="68" height="93.92" rx="5"><title>United States: 37</title></rect><text class="bar-value" x="386" y="114.08" text-anchor="middle">37</text><text class="bar-label" x="386" y="234" text-anchor="middle">United States</text><rect class="bar-rect" x="436" y="120.08" width="68" height="93.92" rx="5"><title>France: 37</title></rect><text class="bar-value" x="470" y="114.08" text-anchor="middle">37</text><text class="bar-label" x="470" y="234" text-anchor="middle">France</text></svg></div></figure></section><section class="section section--prose" id="jobs-and-life" aria-labelledby="jobs-and-life-heading"><header class="section-head reveal is-visible"><h2 id="jobs-and-life-heading">People expect AI to reshape their work, and to do nothing for their wallet</h2><p class="section-head__sub">57% think AI will change how they do their current job within five years. Only 32% think it will improve the job market. On anything that touches money, the global public is a pessimist.</p></header><div class="prose reveal is-visible" data-item=""><p>The 2023 Ipsos survey added questions about work. 57% said it is likely that AI will change how they perform their current job within the next five years, against 35% who said it is not likely and 8% who did not know. On outright replacement the answer inverts: 36% said it is likely AI will replace their current job in the same window, 56% said it is not, and 8% did not know. The public expects to keep the job and do it differently.</p><p>Who expects the change depends heavily on who you ask. 66% of Gen Z respondents agreed AI will likely affect how they do their current job, against 61% of millennials, 53% of Gen X and 46% of baby boomers — a 20-point generational spread. The other splits point the same way: 68% of those in decision-making roles agreed against 51% of those who are not, 61% of the highest-educated group against 52% of the lowest, and 60% of upper-income respondents against 56% of both middle- and lower-income respondents. Gender barely registers, at 58% for men and 55% for women.</p><h3>Convenience, yes. Prosperity, no.</h3><ul><li>54% of global respondents agree AI will reduce the time it takes to get things done, and 51% expect better entertainment options — television, video, music and books. Those are the only two majorities in the whole set.</li><li>Every question that touches livelihood falls below half: 39% think AI will improve their health, 37% their own job, 34% their national economy, and 32% the job market.</li><li>The country pattern from the products-and-services questions repeats almost exactly. Japanese, Swedish and American respondents are consistently pessimistic about AI improving their lives; Brazilians, Indonesians and Mexicans are consistently optimistic.</li><li>On health, Mexico leads at 61% against a global average of 39%, while Japan comes last at 16%. On whether AI will improve their own job, Thailand tops the table at 66% and Japan again sits at the bottom, at 19%.</li><li>The job market draws the bleakest readings anywhere in the survey: 17% in South Korea, 18% in Belgium and 19% in Canada, against 54% in Mexico and Peru.</li><li>Optimism tracks age, income and education together. 59% of Gen Z believe AI will improve their entertainment options against 40% of baby boomers, and on all six questions Gen Z, higher earners and the more educated score highest while boomers, lower earners and the less educated score lowest.</li></ul></div></section><section class="section section--bars" id="livelihood" aria-labelledby="livelihood-heading"><header class="section-head reveal is-visible"><h2 id="livelihood-heading">Will AI improve this part of your life?</h2><p class="section-head__sub">% of global respondents who agree, Ipsos 2023. Only the two questions that cost nobody anything clear 50%. Every question about earning a living sits in the thirties.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Will AI improve this part of your life?. Time saved: 54, Entertainment: 51, Health: 39, My job: 37, Economy: 34, Job market: 32"><title>Will AI improve this part of your life?</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="68" height="198" rx="5"><title>Time saved: 54</title></rect><text class="bar-value" x="50" y="10" text-anchor="middle">54</text><text class="bar-label" x="50" y="234" text-anchor="middle">Time saved</text><rect class="bar-rect" x="100" y="27" width="68" height="187" rx="5"><title>Entertainment: 51</title></rect><text class="bar-value" x="134" y="21" text-anchor="middle">51</text><text class="bar-label" x="134" y="234" text-anchor="middle">Entertainment</text><rect class="bar-rect" x="184" y="71" width="68" height="143" rx="5"><title>Health: 39</title></rect><text class="bar-value" x="218" y="65" text-anchor="middle">39</text><text class="bar-label" x="218" y="234" text-anchor="middle">Health</text><rect class="bar-rect" x="268" y="78.33" width="68" height="135.67" rx="5"><title>My job: 37</title></rect><text class="bar-value" x="302" y="72.33" text-anchor="middle">37</text><text class="bar-label" x="302" y="234" text-anchor="middle">My job</text><rect class="bar-rect" x="352" y="89.33" width="68" height="124.67" rx="5"><title>Economy: 34</title></rect><text class="bar-value" x="386" y="83.33" text-anchor="middle">34</text><text class="bar-label" x="386" y="234" text-anchor="middle">Economy</text><rect class="bar-rect" x="436" y="96.67" width="68" height="117.33" rx="5"><title>Job market: 32</title></rect><text class="bar-value" x="470" y="90.67" text-anchor="middle">32</text><text class="bar-label" x="470" y="234" text-anchor="middle">Job market</text></svg></div></figure></section><section class="section section--cards" id="chatgpt" aria-labelledby="chatgpt-heading"><header class="section-head reveal is-visible"><h2 id="chatgpt-heading">ChatGPT is the front door — and privacy is what people find behind it</h2><p class="section-head__sub">The Schwartz Reisman Institute and the PEARL lab at the University of Toronto surveyed 21 countries in October and November 2023 for the Global Public Opinion on Artificial Intelligence report. It asked two things Ipsos did not: does the public actually know ChatGPT, and what exactly are they afraid of?</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="chatgpt-awareness" aria-label="63% have heard of ChatGPT"><h3 class="card__title">63% have heard of ChatGPT</h3><p class="card__summary">Awareness roughly one year after launch, across 21 countries. India leads at 82%, Poland trails at 43%, and the United States sits below the global average at 55%.</p><div class="card__tags"><span class="tag">chatgpt</span><span class="tag">awareness</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="chatgpt-usage" aria-label="Half of those who know it use it weekly"><h3 class="card__title">Half of those who know it use it weekly</h3><p class="card__summary">Among respondents familiar with ChatGPT, 17% use it daily and 36% weekly. Another 16% use it monthly, and 30% say they rarely use it at all.</p><div class="card__tags"><span class="tag">chatgpt</span><span class="tag">usage</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="top-fears" aria-label="Misuse and jobs top the worry list"><h3 class="card__title">Misuse and jobs top the worry list</h3><p class="card__summary">Asked about 11 possible impacts of AI over the next few years, respondents most often named misuse for nefarious purposes (49%) and the impact on jobs (49%), followed by violation of citizens' privacy (45%).</p><div class="card__tags"><span class="tag">concerns</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="fairness-last" aria-label="Fairness ranks last"><h3 class="card__title">Fairness ranks last</h3><p class="card__summary">The concerns the AI research community writes most about sit at the bottom of the public's list: uneven access to AI (26%), potential for bias and discrimination (24%), and one's own ability to use AI (22%).</p><div class="card__tags"><span class="tag">concerns</span><span class="tag">bias</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="fear-geography" aria-label="The same fears, very different intensities"><h3 class="card__title">The same fears, very different intensities</h3><p class="card__summary">68% in South Africa worry about AI's impact on jobs against 36% in Japan. 66% in Indonesia worry about misuse against 31% in Pakistan.</p><div class="card__tags"><span class="tag">concerns</span></div></article></div></section><section class="section section--prose" id="america" aria-labelledby="america-heading"><header class="section-head reveal is-visible"><h2 id="america-heading">In the United States, concern became the majority position</h2><p class="section-head__sub">Pew Research Center has tracked American sentiment toward AI since 2021 and collected 11,000 responses for its 2023 survey. In one year the share more concerned than excited went from roughly a third to a clear majority.</p></header><div class="prose reveal is-visible" data-item=""><p>In 2021, 37% of Americans said they felt more concerned than excited about the increased use of AI in daily life. In 2022, 38%. By 2023, 52%. The move did not come out of the enthusiastic camp, which was already small and shrinking: those more excited than concerned fell from 18% to 15% to 10%. It came out of the middle. The share reporting themselves equally concerned and excited held at 45% and 46% before dropping to 36% in a single year.</p><h3>Americans separate what AI does from what it knows about them</h3><p>Pew also asked whether AI helps or hurts in eight specific settings. Only one drew a clear positive: helping people find products and services they are interested in online, at 49% helps against 15% hurts. Doctors providing quality care to patients and companies making safe cars and trucks both drew 37% helps. Two settings came out negative — companies providing quality customer service (28% helps against 34% hurts) and police maintaining public safety (24% against 26%). And one was not close at all: on people keeping their personal information private, 53% said AI hurts more than it helps against just 10% who said it helps. Uncertainty runs through the whole set, with 35% to 49% answering 'not sure' on every question.</p><h3>Education changes the answer more than anything else</h3><ul><li>On AI helping people find products and services online, 60% of Americans with a college degree or more said it helps, against 44% of those with some college or less.</li><li>On doctors providing quality care, 46% of college graduates said AI helps against 32% of the less-educated group; on companies making safe cars and trucks, 45% against 33%; on people taking care of their health, 41% against 29%.</li><li>The gap holds on customer service (34% against 25%) and on finding accurate information online (36% against 31%).</li><li>It nearly disappears on policing. 27% of college graduates say AI helps police maintain public safety against 23% of everyone else — and 49% of both groups answer 'not sure'.</li><li>Privacy is the exception that runs the other way: the more educated group is more negative, not less. 59% of college graduates said AI hurts people keeping their personal information private, against 50% of those with some college or less.</li></ul></div></section><section class="section section--bars" id="us-mood" aria-labelledby="us-mood-heading"><header class="section-head reveal is-visible"><h2 id="us-mood-heading">% of Americans more concerned than excited about AI in daily life</h2><p class="section-head__sub">Pew Research Center, 2021–23. The line was flat for a year, then moved 14 points in the twelve months that took generative AI into the mainstream.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="% of Americans more concerned than excited about AI in daily life. 2021: 37, 2022: 38, 2023: 52"><title>% of Americans more concerned than excited about AI in daily life</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="73.12" width="152" height="140.88" rx="5"><title>2021: 37</title></rect><text class="bar-value" x="92" y="67.12" text-anchor="middle">37</text><text class="bar-label" x="92" y="234" text-anchor="middle">2021</text><rect class="bar-rect" x="184" y="69.31" width="152" height="144.69" rx="5"><title>2022: 38</title></rect><text class="bar-value" x="260" y="63.31" text-anchor="middle">38</text><text class="bar-label" x="260" y="234" text-anchor="middle">2022</text><rect class="bar-rect" x="352" y="16" width="152" height="198" rx="5"><title>2023: 52</title></rect><text class="bar-value" x="428" y="10" text-anchor="middle">52</text><text class="bar-label" x="428" y="234" text-anchor="middle">2023</text></svg></div></figure></section><section class="section section--prose" id="social-media" aria-labelledby="social-media-heading"><header class="section-head reveal is-visible"><h2 id="social-media-heading">9.2 — One model owned the conversation for the entire year</h2><p class="section-head__sub">Quid read more than 7 million social media posts published between January and December 2023, scoring each model's net sentiment from -100 (all negative) to +100 (all positive) and measuring its share of all AI-related conversation.</p></header><div class="prose reveal is-visible" data-item=""><p>GPT-4 took 53% of all AI-related social media conversation in the first quarter of 2023, 71% in the second after its March 14 launch, 62% in the third and 45% in the fourth. That last figure is the striking one. Q4 2023 brought Gemini, Grok, GPT-4 Turbo, Claude 2.1, Whisper V3, GraphCast, Orca 2, Inflection-2, Midjourney v6 and Stable Video Diffusion — and nearly half of everything said about AI online was still about a model released in March. Of the models that launched in that quarter, only Grok (16%) and Gemini (11%) registered at all; every other one came in at 2% or below.</p><p>Stable Diffusion is the only other model that ever held a large share, and its arc runs the other way: 46% of conversation in Q1, then 21%, 24% and 12%. Copilot never exceeded 1% of AI conversation in any quarter of the year.</p><h3>The best-liked models were the ones nobody was arguing about</h3><p>Attention and approval moved in opposite directions all year. The highest net sentiment score of 2023 went to GraphCast, DeepMind's weather forecasting system, at 94 in Q4 — with a rounded 0% share of conversation. Claude 2.1 scored 87 on a 2% share; Whisper V3 and Orca 2 both scored 83, Inflection-2 81. GPT-4, the model everyone was talking about, never scored above 51 and dipped to 42 in Q1 and 44 in Q4. Gemini, launched into the most crowded quarter of the year, scored 36 — the lowest net sentiment on the chart.</p><h3>What people actually argued about</h3><ul><li>GPT-4's positive sentiment came from faster processing, better accuracy, and productivity gains in coding, corporate collaboration and content creation. The negative side came from ChatGPT outages and from the open letter led by Elon Musk and supported by more than 1,300 AI experts urging labs to pause training of powerful systems — a letter that was itself widely disputed, including by Andrew Ng.</li><li>GPT-4 Turbo drew praise in Q4 for longer conversations, improved contextual understanding and image generation, and complaints about its April 2023 knowledge cutoff and slower loading than GPT-4.</li><li>Stable Diffusion discussion concentrated in the first half of the year, and posts mentioned the XL models around 16 times more often than Stable Diffusion 2.0. Enthusiasm ran to creativity, resolution and accuracy; the negative half was copyright, ownership of AI-generated work, and the displacement of human artists.</li><li>Gemini's Q4 conversation praised its accuracy, multilingual ability and potential inside Google Search and Ads, while criticism centred on inaccurate results, the delayed release, and skepticism toward the launch demo.</li></ul></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">The chapter in five lines</h2><p class="section-head__sub">Headline findings from Chapter 9 · Public Opinion.</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Over the last year, the proportion of those who think AI will dramatically affect their lives in the next three to five years has increased from 60% to 66%.</blockquote><figcaption class="quote-by">— Chapter 9 · Public Opinion</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>52% express nervousness toward AI products and services, marking a 13 percentage point rise from 2022.</blockquote><figcaption class="quote-by">— Chapter 9 · Public Opinion</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2022, several developed Western nations were among the least positive about AI products and services. Since then, each of these countries has seen a rise in the proportion of respondents acknowledging the benefits of AI, with the Netherlands experiencing the most significant shift.</blockquote><figcaption class="quote-by">— Chapter 9 · Public Opinion</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Only 37% of respondents feel AI will improve their job. Only 34% anticipate AI will boost the economy, and 32% believe it will enhance the job market.</blockquote><figcaption class="quote-by">— Chapter 9 · Public Opinion</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>63% of respondents are aware of ChatGPT. Of those aware, around half report using ChatGPT at least once weekly.</blockquote><figcaption class="quote-by">— Chapter 9 · Public Opinion</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>Read Chapter 9 in full</h2><p>Chapter 9 (9.1 Survey Data and 9.2 Social Media Data), with every figure and the full survey methodology, is free from Stanford HAI. Or head back to the 2024 report overview and its nine chapters.</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener">Open the AI Index 2024 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2024》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../zh-Hant/2024/public-opinion.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2024/data/site.js"></script>
+  <script src="../2024/data/public-opinion.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
