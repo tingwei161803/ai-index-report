@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title data-zh="AI 政策與治理 · AI 指數報告 2022">AI Policy and Governance · AI Index Report 2022</title>
+  <meta name="description" data-zh="史丹佛 HAI《人工智慧指數報告 2022》AI 政策與治理章節的雙語重點整理。" content="A bilingual deep dive into the AI Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://ai-index-report.peteraim.com/2022/policy.html" />
+  <link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2022/policy.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2022/policy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2022/policy.html" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI Policy and Governance · AI Index Report 2022" />
+  <meta property="og:description" content="A bilingual deep dive into the AI Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <meta property="og:url" content="https://ai-index-report.peteraim.com/2022/policy.html" />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Policy and Governance · AI Index Report 2022" />
+  <meta name="twitter:description" content="A bilingual deep dive into the AI Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Policy and Governance — Trends from the AI Index 2022",
+    "description": "A bilingual deep dive into the AI Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022.",
+    "url": "https://ai-index-report.peteraim.com/2022/policy.html",
+    "inLanguage": ["en"],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2022-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2022/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2022</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2022-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../zh-Hant/2022/policy.html"
+           hreflang="zh-Hant" lang="zh-Hant" rel="alternate"
+           title="中文版" aria-label="切換到中文版">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">中</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">Legislatures learned to talk about AI. They have not learned to pass laws about it.</h1><p class="section-head__sub">Chapter 5 of the AI Index 2022 reads the legislative record of 25 countries, every US state, and the US Congress for the year 2021. Mentions of AI are multiplying everywhere. Bills are multiplying almost as fast. Laws are not — 130 AI-related bills were proposed in Congress and three passed. The second half of the chapter follows the money instead, and finds that American public AI spending is, overwhelmingly, defense spending. The numbers:</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="18">18</b><span class="hero__stat-label">AI-related bills passed into law across 25 countries in 2021 (1 in 2016)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="2">2</b><span class="hero__stat-label">% of US federal AI-related bills that became law in 2021 (130 proposed, 3 passed)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="131">131</b><span class="hero__stat-label">AI-related bills proposed in US state legislatures in 2021 (2 in 2012); 26 passed</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="1323">1,323</b><span class="hero__stat-label">AI mentions in the legislative proceedings of 25 countries in 2021, 7.7× the 2016 level</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="9.26">9.26</b><span class="hero__stat-label">US$ billions the US Department of Defense allocated to AI R&amp;D in FY2021, across 500 programs</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="1.79">1.79</b><span class="hero__stat-label">US$ billions of US federal AI-related contract spending in 2021 (2020 peak: 1.97)</span></div></div></section><section class="section section--prose" id="global-laws" aria-labelledby="global-laws-heading"><header class="section-head reveal is-visible"><h2 id="global-laws-heading">5.1 — Six years, 25 countries, 55 laws</h2><p class="section-head__sub">The AI Index searched the legislative records of 25 countries for bills containing the words “artificial intelligence,” in various languages, from 2016 to 2021. The entire six-year harvest is 55 laws — and close to a third of them arrived in the final year.</p></header><div class="prose reveal is-visible" data-item=""><p>The annual count rose from just 1 law in 2016 to 18 in 2021. No country dominates. Spain, the United Kingdom, and the United States each passed three in 2021 — the joint highest — followed by Belgium and Russia with two each, and France, Germany, Italy, Japan, and South Korea with one each. The 2021 chart lists ten countries in total, which means the other 15 in the sample passed nothing that year.</p><h3>The cumulative picture is thinner than the headlines</h3><p>Summed across 2016–21, the United States leads with 13 laws, its first coming in 2017. Russia follows with six; Belgium, Spain, and the United Kingdom have five each; France, Italy, and South Korea four each; Japan three; China two; and Brazil, Canada, Germany, and India one apiece. That is the whole list. Fourteen countries out of 25 have passed at least one AI-related law in six years.</p><h3>Two caveats worth carrying forward</h3><ul><li>The count includes only laws passed by national legislative bodies — congresses and parliaments — with “artificial intelligence” in the title or body of the bill text. Regulations, executive orders, and subnational law fall outside it entirely.</li><li>The 25 countries are Australia, Belgium, Brazil, Canada, China, Denmark, Finland, France, Germany, India, Ireland, Italy, Japan, the Netherlands, New Zealand, Norway, Russia, Singapore, South Africa, South Korea, Spain, Sweden, Switzerland, the United Kingdom, and the United States.</li><li>Passing a law is not the same as regulating AI. Several of the 55 are appropriations acts that happen to fund an AI program — Canada’s Budget Implementation Act 2017, which authorized a $125 million payment to the Canadian Institute for Advanced Research for a pan-Canadian AI strategy, is one of them.</li></ul></div></section><section class="section section--bars" id="laws-by-country" aria-labelledby="laws-by-country-heading"><header class="section-head reveal is-visible"><h2 id="laws-by-country-heading">AI-related bills passed into law by country, 2016–21</h2><p class="section-head__sub">Cumulative over six years, across the 25 countries analyzed. The global total is 55 laws; these five account for 34 of them.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="AI-related bills passed into law by country, 2016–21. United States: 13, Russia: 6, Belgium: 5, Spain: 5, United Kingdom: 5"><title>AI-related bills passed into law by country, 2016–21</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>United States: 13</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">13</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">United States</text><rect class="bar-rect" x="116.8" y="122.62" width="84.8" height="91.38" rx="5"><title>Russia: 6</title></rect><text class="bar-value" x="159.2" y="116.62" text-anchor="middle">6</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">Russia</text><rect class="bar-rect" x="217.6" y="137.85" width="84.8" height="76.15" rx="5"><title>Belgium: 5</title></rect><text class="bar-value" x="260" y="131.85" text-anchor="middle">5</text><text class="bar-label" x="260" y="234" text-anchor="middle">Belgium</text><rect class="bar-rect" x="318.4" y="137.85" width="84.8" height="76.15" rx="5"><title>Spain: 5</title></rect><text class="bar-value" x="360.8" y="131.85" text-anchor="middle">5</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">Spain</text><rect class="bar-rect" x="419.2" y="137.85" width="84.8" height="76.15" rx="5"><title>United Kingdom: 5</title></rect><text class="bar-value" x="461.6" y="131.85" text-anchor="middle">5</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">United Kingdom</text></svg></div></figure></section><section class="section section--cards" id="inside-the-laws" aria-labelledby="inside-the-laws-heading"><header class="section-head reveal is-visible"><h2 id="inside-the-laws-heading">What an “AI law” actually says</h2><p class="section-head__sub">Seven of the 55, singled out by the AI Index and spanning 2017 to 2021. Read together they show how little the category holds in common: a research grant, a health-data mandate, a regulatory sandbox, an exam-marking pilot, a deepfake research program, an ethics committee, and an environmental monitor.</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="canada-2017-cifar" aria-label="Canada, 2017 — Budget Implementation Act"><h3 class="card__title">Canada, 2017 — Budget Implementation Act</h3><p class="card__summary">An AI law that is really a line in a budget: $125 million to a research institute.</p><div class="card__tags"><span class="tag">funding</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="china-2019-health" aria-label="China, 2019 — Basic Medical and Health Care Law"><h3 class="card__title">China, 2019 — Basic Medical and Health Care Law</h3><p class="card__summary">AI written into health policy: promote its use, and build the data standards it needs.</p><div class="card__tags"><span class="tag">health</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="russia-2020-moscow" aria-label="Russia, 2020 — Federal Law 123-FZ"><h3 class="card__title">Russia, 2020 — Federal Law 123-FZ</h3><p class="card__summary">A five-year AI regulatory experiment confined to one city, starting July 2020.</p><div class="card__tags"><span class="tag">regulation</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="uk-2020-ofqual" aria-label="United Kingdom, 2020 — Supply and Appropriation Act"><h3 class="card__title">United Kingdom, 2020 — Supply and Appropriation Act</h3><p class="card__summary">Authorizing the exams regulator to explore AI for marking high-stakes qualifications.</p><div class="card__tags"><span class="tag">education</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="us-2020-iogan" aria-label="United States, 2020 — IOGAN Act"><h3 class="card__title">United States, 2020 — IOGAN Act</h3><p class="card__summary">Directing the National Science Foundation to fund research into deepfake outputs.</p><div class="card__tags"><span class="tag">deepfakes</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="belgium-2021-ethics" aria-label="Belgium, 2021 — Decree on support for job seekers"><h3 class="card__title">Belgium, 2021 — Decree on support for job seekers</h3><p class="card__summary">If AI tools are used in digitization, an Ethics Committee must advise first.</p><div class="card__tags"><span class="tag">ethics</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="france-2021-footprint" aria-label="France, 2021 — Law 2021-1485"><h3 class="card__title">France, 2021 — Law 2021-1485</h3><p class="card__summary">A monitoring system for the environmental impact of emerging digital technology, AI named explicitly.</p><div class="card__tags"><span class="tag">environment</span></div></article></div></section><section class="section section--prose" id="us-legislation" aria-labelledby="us-legislation-heading"><header class="section-head reveal is-visible"><h2 id="us-legislation-heading">5.1 — In Washington, 2%. In the state capitols, 20%.</h2><p class="section-head__sub">The distance between proposing an AI bill and passing one is the cleanest number in the chapter. It is ten times wider at the federal level than at the state level, and the states are where nearly all the actual lawmaking happens.</p></header><div class="prose reveal is-visible" data-item=""><p>In 2015 exactly one AI-related bill was proposed in the US Congress. In 2021 there were 130. Three passed. That is 2% of the year’s federal AI bills becoming law, and it describes the whole period: proposals climb steeply, enactments barely move. The gap was at its widest in 2021, the year the proposals peaked.</p><h3>The states pass a fifth of what they propose</h3><p>Bloomberg Government has tracked state-level bills containing AI keywords — artificial intelligence, machine learning, algorithmic bias — since 2012. That year there were two, both from New Jersey assembly member Annette Quijano, directing the state Motor Vehicle Commission to establish driver’s license endorsements for autonomous vehicles. In 2021 there were 131, of which 26 became law: 20%, or one in five, against one in fifty federally.</p><h3>Where the bills come from</h3><ul><li>As of 2021, 41 of the 50 states had proposed at least one AI-related bill. Massachusetts leads the decade with 40 since 2012, ahead of Hawaii (35), New Jersey (32), New York (31), California (29), and Illinois (28).</li><li>In 2021 alone the order changes completely: Massachusetts 20, Illinois 15, Alabama 12. Volume in any single year says more about one legislature’s session than about a state’s long-run posture.</li><li>AI lawmaking has a partisan slope. In 2018 Democratic state legislators sponsored just two more AI bills than Republicans; in 2021 they sponsored 39 more — 79 against 40.</li></ul></div></section><section class="section section--bars" id="bills-by-state" aria-labelledby="bills-by-state-heading"><header class="section-head reveal is-visible"><h2 id="bills-by-state-heading">State-level AI-related bills proposed, 2012–21</h2><p class="section-head__sub">Cumulative proposals, not passages, over ten years. Massachusetts accounts for 40 — and exactly half of those were filed in 2021 alone.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="State-level AI-related bills proposed, 2012–21. Massachusetts: 40, Hawaii: 35, New Jersey: 32, New York: 31, California: 29"><title>State-level AI-related bills proposed, 2012–21</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>Massachusetts: 40</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">40</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">Massachusetts</text><rect class="bar-rect" x="116.8" y="40.75" width="84.8" height="173.25" rx="5"><title>Hawaii: 35</title></rect><text class="bar-value" x="159.2" y="34.75" text-anchor="middle">35</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">Hawaii</text><rect class="bar-rect" x="217.6" y="55.6" width="84.8" height="158.4" rx="5"><title>New Jersey: 32</title></rect><text class="bar-value" x="260" y="49.6" text-anchor="middle">32</text><text class="bar-label" x="260" y="234" text-anchor="middle">New Jersey</text><rect class="bar-rect" x="318.4" y="60.55" width="84.8" height="153.45" rx="5"><title>New York: 31</title></rect><text class="bar-value" x="360.8" y="54.55" text-anchor="middle">31</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">New York</text><rect class="bar-rect" x="419.2" y="70.45" width="84.8" height="143.55" rx="5"><title>California: 29</title></rect><text class="bar-value" x="461.6" y="64.45" text-anchor="middle">29</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">California</text></svg></div></figure></section><section class="section section--prose" id="attention" aria-labelledby="attention-heading"><header class="section-head reveal is-visible"><h2 id="attention-heading">5.1 — Talk is the fastest-growing indicator</h2><p class="section-head__sub">If laws are the lagging measure of political interest in AI, mentions are the leading one. Every mention series in the chapter grows faster than the legislation that accompanies it — and so does the output of the organizations advising the legislators.</p></header><div class="prose reveal is-visible" data-item=""><p>Bloomberg Government counts AI keyword mentions in US congressional records, split across legislation, committee reports, and Congressional Research Service reports. The 116th session (2019–20) logged 506 mentions — nearly 3.4 times the 115th session’s 149 (2017–18), and about 30 times the 114th session’s 17 (2015–16). The 117th had already recorded 295 by the end of 2021, halfway through its term, putting it on course for the highest count since tracking began in 2001.</p><h3>Parliaments elsewhere are louder still</h3><p>Across the same 25 countries, AI mentions in legislative proceedings reached 1,323 in 2021 — 7.7 times the 2016 level. Spain led the year with 269, ahead of the United Kingdom (185), the United States (132), Australia (122), and Japan (95). Over the full six years the ordering is different: the United Kingdom dominates with 939 mentions, followed by Spain (559), Japan (466), the United States (422), Australia (410), and Singapore (282).</p><h3>And the people advising them</h3><ul><li>The AI Index tracks 55 US-based organizations that published AI policy papers over the past four years: 19 think tanks and policy institutes, 14 university institutes and research programs, nine civil society organizations and consortiums, nine industry and consultancy organizations, and four government agencies.</li><li>Their combined output tripled between 2018 and 2020, peaking at 273 papers, then eased slightly to 210 in 2021.</li><li>The 2021 agenda was led by privacy, safety, and security (62 papers as a primary topic), innovation and technology (62), and ethics (59). Democracy was the primary topic of only two papers, but a secondary topic of 29. Energy and the environment, the humanities, the physical sciences, and the social and behavioral sciences drew almost no attention at all.</li></ul></div></section><section class="section section--accordion" id="public-money" aria-labelledby="public-money-heading"><header class="section-head reveal is-visible"><h2 id="public-money-heading">5.2 — Where American public AI money actually goes</h2><p class="section-head__sub">The chapter’s second half narrows to one country: the United States, one of the world’s largest public-sector investors in AI. Six questions, and a running theme — almost every dollar has a defense label on it.</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>How much does the US spend on nondefense AI R&amp;D?</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">In fiscal year 2021, nondefense federal agencies allocated $1.53 billion to AI R&amp;D — roughly 2.7 times the $0.56 billion of FY2018, with $1.11 billion in FY2019 and $1.43 billion in FY2020 in between. The FY2022 request rises 8.8% to $1.67 billion. The figures come from a December 2021 National Science and Technology Council report covering agencies in the NITRD program and the National AI Initiative, and they exclude classified AI R&amp;D by the defense and intelligence agencies.</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>And with defense included?</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">The scale changes entirely. For FY2021 the Department of Defense allocated $9.26 billion across 500 AI-related R&amp;D programs, 6.68% above the $8.68 billion of FY2020, and it has requested $10.00 billion for FY2022 — a figure likely to grow once further requests and congressional appropriations are counted. Within the department the Navy was the top spender in FY2021 and asks for the most again in FY2022 ($1.86 billion), ahead of the Army ($1.77 billion), the Office of the Secretary of Defense ($1.1 billion), and the Air Force ($883 million).</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>Can that $10 billion be trusted?</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">The chapter flags it as a caveat rather than a finding. Bloomberg Government’s keyword search of DOD budget lines produces $10.0 billion for FY2022 AI-specific R&amp;D; the DOD’s own measurement of the same year produces $874 million. The discrepancy is definitional: a research project that uses AI for cyber defense may count its people, hardware, and operations costs inside an AI-related budget request even though the AI software component is much smaller.</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>What about contracts, rather than budget requests?</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">In 2021 federal departments and agencies spent $1.79 billion on AI-related contracts — nearly double the roughly $920 million of 2018, but a slight decrease from the 2020 peak of $1.97 billion. The dip arrived while every legislative indicator in the chapter was still climbing. Bloomberg Government classifies a contract as AI-related by adding up transactions whose titles or descriptions contain any of more than 100 AI-specific keywords, so some projects counted here have a relatively small AI component.</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>Which departments get the contract money?</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">One, mostly. The Department of Defense spent $1.14 billion on AI contracts in 2021, roughly five times the next department, Health and Human Services ($234 million), followed by NASA ($159 million), Homeland Security ($81 million), and Commerce ($49 million). Cumulatively from 2000 to 2021 the DOD has spent $5.20 billion, against NASA’s $1.41 billion, HHS’s $0.70 billion, Homeland Security’s $0.45 billion, and the Treasury’s $0.32 billion.</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>What do those contracts actually buy?</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">The largest AI-related contract signed in 2021 by each of the five top-spending departments: $70 million (DOD) for prototypes in automotive cybersecurity, vehicle safety technologies, autonomous vehicles and intelligent systems; $37 million (Homeland Security) for towers capable of autonomous surveillance; $20 million (HHS, through BARDA) for optical imaging devices and machine learning algorithms to help classify and heal wounds and burns; $14 million (NASA) for lunar robots able to navigate the moon’s south pole; and $13 million (Commerce) for an AI prototype to improve patent search.</div></details></div></section><section class="section section--bars" id="contract-spending" aria-labelledby="contract-spending-heading"><header class="section-head reveal is-visible"><h2 id="contract-spending-heading">US federal AI contract spending by department, 2021</h2><p class="section-head__sub">In millions of US dollars. The Department of Defense spent roughly five times the next department on the list — and the shape of the chart barely changes from year to year.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="US federal AI contract spending by department, 2021. Defense (DOD): 1138, HHS: 234, NASA: 159, Homeland Sec.: 81, Commerce: 49"><title>US federal AI contract spending by department, 2021</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>Defense (DOD): 1138</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">1138</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">Defense (DOD)</text><rect class="bar-rect" x="116.8" y="173.29" width="84.8" height="40.71" rx="5"><title>HHS: 234</title></rect><text class="bar-value" x="159.2" y="167.29" text-anchor="middle">234</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">HHS</text><rect class="bar-rect" x="217.6" y="186.34" width="84.8" height="27.66" rx="5"><title>NASA: 159</title></rect><text class="bar-value" x="260" y="180.34" text-anchor="middle">159</text><text class="bar-label" x="260" y="234" text-anchor="middle">NASA</text><rect class="bar-rect" x="318.4" y="199.91" width="84.8" height="14.09" rx="5"><title>Homeland Sec.: 81</title></rect><text class="bar-value" x="360.8" y="193.91" text-anchor="middle">81</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">Homeland Sec.</text><rect class="bar-rect" x="419.2" y="205.47" width="84.8" height="8.53" rx="5"><title>Commerce: 49</title></rect><text class="bar-value" x="461.6" y="199.47" text-anchor="middle">49</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">Commerce</text></svg></div></figure></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">The chapter in five lines</h2><p class="section-head__sub">Headline findings from Chapter 5 · AI Policy and Governance, reporting on 2021.</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>An AI Index analysis of legislative records on AI in 25 countries shows that the number of bills containing “artificial intelligence” that were passed into law grew from just 1 in 2016 to 18 in 2021.</blockquote><figcaption class="quote-by">— Chapter 5 · AI Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>The federal legislative record in the United States shows a sharp increase in the total number of proposed bills that relate to AI from 2015 to 2021, while the number of bills passed remains low, with only 2% ultimately becoming law.</blockquote><figcaption class="quote-by">— Chapter 5 · AI Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2021, of the 131 proposed state bills, 26 were passed into law — 1 out of 5 proposed bills, significantly higher than the federal level, where 1 out of every 50 proposed bills became law.</blockquote><figcaption class="quote-by">— Chapter 5 · AI Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>The current congressional session, the 117th, is on track to record the greatest number of AI-related mentions since 2001, with 295 mentions by the end of 2021, halfway through the session, compared to 506 in the previous, 116th session.</blockquote><figcaption class="quote-by">— Chapter 5 · AI Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Bloomberg Government’s analysis shows the department is requesting $10.0 billion for AI-specific R&amp;D in FY 2022. However, DOD’s own measurement produces a smaller number of $874 million.</blockquote><figcaption class="quote-by">— Chapter 5 · AI Policy and Governance</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>Read Chapter 5 in full</h2><p>Chapter 5 (sections 5.1–5.2) with every figure, table, and methodological note is free from Stanford HAI. Or head back to the report highlights and the full chapter overview.</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2022-ai-index-report" target="_blank" rel="noopener">Open the AI Index 2022 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2022》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../zh-Hant/2022/policy.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2022/data/site.js"></script>
+  <script src="../2022/data/policy.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

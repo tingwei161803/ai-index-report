@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>研發 · AI 指數報告 2022</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2022/research.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2022/research.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2022/research.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2022/research.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2022/research.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2022》研發章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Research and Development · AI Index Report 2022" />
+  <meta property="og:description" content="A bilingual deep dive into the Research and Development chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Research and Development · AI Index Report 2022" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Research and Development chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "研發 · AI 指數報告 2022",
+    "description": "史丹佛 HAI《人工智慧指數報告 2022》研發章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2022/research.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2022-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2022/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2022</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2022-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2022/research.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">十年之間 AI 研究翻倍 — 而 2021 年發表最多的是中國</h1><p class="section-head__sub">AI 指數 2022 第 1 章描繪 2021 年 AI 知識的產地：期刊論文、研討會論文、預印本、專利、研討會與開源程式庫。有兩件事特別明顯。產出持續複利成長 — AI 論文總數在 2010 至 2021 年間翻倍，專利申請的成長還遠比這更快。而「誰在產出」這張地圖裂成了兩半：中國贏在數量，美國贏在引用。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="334497">334,497</b><span class="hero__stat-label">2021 年全球 AI 論文總數(2010 年為 162,444 篇)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="63.2">63.2</b><span class="hero__stat-label">% 2021 年中國期刊、研討會與預印本論文合計超出美國的幅度</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="76.9">76.9</b><span class="hero__stat-label">% 2015 至 2021 年 AI 專利申請的年均複合成長率</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="9660">9,660</b><span class="hero__stat-label">2021 年美中共同發表的 AI 論文篇數(為 2010 年的五倍)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="88760">88,760</b><span class="hero__stat-label">2021 年 16 場受追蹤 AI 研討會的參與人數(與 2020 年持平)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="160700">160,700</b><span class="hero__stat-label">2021 年 TensorFlow 累計的 GitHub 星數(約為 OpenCV 的三倍)</span></div></div></section><section class="section section--prose" id="publications" aria-labelledby="publications-heading"><header class="section-head reveal is-visible"><h2 id="publications-heading">1.1 — 期刊悄悄成了 AI 最主要的發表場域</h2><p class="section-head__sub">AI 論文總數從 2010 年的 162,444 篇翻倍到 2021 年的 334,497 篇。但這波成長底下的組成變了：2021 年期刊論文佔全部發表的 51.5%，研討會論文佔 21.5%，預印本佔 17.0% — 而研討會論文自 2018 年起就一直在減少。</p></header><div class="prose reveal is-visible" data-item=""><p>過去 12 年間，期刊論文成長約 2.5 倍、預印本成長約 30 倍；研討會論文則在 2019 年見頂，2021 年比高峰低了約 19.4%。書籍、書籍章節、學位論文與無法分類的文件合計佔剩下的 10.1%。從佔比來看是同一個故事的另一面：2021 年 AI 論文佔所有期刊論文的 2.5%(2010 年為 1.5%)、佔所有研討會論文的 17.8%，並佔所有預印本的 15.3%。</p><h3>這個領域實際在做什麼</h3><ul><li>2021 年最大的單一研究領域是模式識別，共 51,690 篇，其次是機器學習的 39,930 篇。兩者自 2015 年以來都成長超過一倍。</li><li>電腦視覺(24,800 篇)、演算法(18,300 篇)、資料探勘(15,270 篇)與自然語言處理(13,430 篇)的成長幅度都比較小，儘管它們才是被深度學習改造得最明顯的領域。</li><li>人機互動(9,700 篇)、控制理論(8,450 篇)與語言學(5,780 篇)則落在後段。</li><li>這份統計不含「其他 AI」這個很大的殘餘類別，因此它描述的是這個領域的形狀，而不是它的完整規模。</li></ul><h3>做事的主要還是大學</h3><p>以全球來看，2021 年有 59.6% 的 AI 論文出自教育部門，非營利組織佔 11.3%、企業佔 5.2%、政府佔 3.2%；另有 20.8% 完全無法歸類。企業參與度最高的是美國，佔 9.8%，其次是歐盟加英國的 5.7%，中國最低，只有 3.9%。中國也是唯一教育部門佔比還在上升的地區 — 2021 年達到 60.2%，高於美國的 57.6% 與歐盟加英國的 54.8%。</p></div></section><section class="section section--bars" id="pub-types" aria-labelledby="pub-types-heading"><header class="section-head reveal is-visible"><h2 id="pub-types-heading">如今有一半的 AI 發表發生在期刊上</h2><p class="section-head__sub">2021 年 AI 論文依文件類型的數量(千篇)。12 年來期刊論文成長約 2.5 倍、預印本約 30 倍；研討會論文則自 2018 年起持續下滑。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="如今有一半的 AI 發表發生在期刊上：期刊：172.11、研討會：71.92、預印本：56.73、書籍章節：20.6、未分類：10.84"><title>如今有一半的 AI 發表發生在期刊上</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>期刊：172.11</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">172.11</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">期刊</text><rect class="bar-rect" x="116.8" y="131.26" width="84.8" height="82.74" rx="5"><title>研討會：71.92</title></rect><text class="bar-value" x="159.2" y="125.26" text-anchor="middle">71.92</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">研討會</text><rect class="bar-rect" x="217.6" y="148.74" width="84.8" height="65.26" rx="5"><title>預印本：56.73</title></rect><text class="bar-value" x="260" y="142.74" text-anchor="middle">56.73</text><text class="bar-label" x="260" y="234" text-anchor="middle">預印本</text><rect class="bar-rect" x="318.4" y="190.3" width="84.8" height="23.7" rx="5"><title>書籍章節：20.6</title></rect><text class="bar-value" x="360.8" y="184.3" text-anchor="middle">20.6</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">書籍章節</text><rect class="bar-rect" x="419.2" y="201.53" width="84.8" height="12.47" rx="5"><title>未分類：10.84</title></rect><text class="bar-value" x="461.6" y="195.53" text-anchor="middle">10.84</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">未分類</text></svg></div></figure></section><section class="section section--prose" id="geography" aria-labelledby="geography-heading"><header class="section-head reveal is-visible"><h2 id="geography-heading">中國贏在數量，美國贏在引用</h2><p class="section-head__sub">2021 年，中國在期刊、研討會與預印本論文合計數量上領先全球，比美國高出 63.2%。但如果看的是真正被人引用的論文，三個場域裡有兩個排名整個翻了過來。</p></header><div class="prose reveal is-visible" data-item=""><h3>期刊：中國最強的一塊</h3><ul><li>2021 年中國產出全球 31.0% 的 AI 期刊論文，高於歐盟加英國的 19.1% 與美國的 13.7%。</li><li>中國在期刊引用上同樣領先，拿下 27.8%，高於歐盟加英國的 21.1% 與美國的 17.5%。這三個地區合計佔了全球 AI 期刊引用的 66% 以上。</li><li>以區域來看，東亞與太平洋地區拿下 42.9% 的期刊論文，歐洲與中亞佔 22.7%，北美佔 15.6%。成長最快的是南亞與中東北非，12 年間分別成長約 12 倍與 7 倍。</li></ul><h3>研討會與預印本：排名倒過來</h3><ul><li>2021 年中國產出 27.6% 的 AI 研討會論文，高於歐盟加英國的 19.0% 與美國的 16.9% — 但研討會引用有 29.5% 屬於美國，歐盟加英國佔 23.3%，中國只有 15.3%。</li><li>預印本則是美國全面領先：論文佔 32.5%、引用佔 38.6%，歐盟加英國分別為 23.9% 與 20.1%，中國分別為 16.6% 與 16.4%。</li><li>以區域來看，北美仍握有 35.9% 的預印本論文，高於歐洲與中亞的 27.3% 與東亞太平洋的 26.4% — 這是北美自 2014 年以來唯一還保住領先的論文類型。</li><li>研討會上動得最快的區域是南亞：它在 AI 研討會論文的佔比從 2010 年的 4.0% 上升到 2021 年的 10.4%。</li></ul></div></section><section class="section section--cards" id="collaboration" aria-labelledby="collaboration-heading"><header class="section-head reveal is-visible"><h2 id="collaboration-heading">地緣政治升溫，美中共同掛名的論文也在升溫</h2><p class="section-head__sub">CSET 把跨國合作定義成同一篇論文作者所屬國家的不重複配對 — 一篇論文上有四位美國作者與四位中國作者，只算一次。2010 至 2021 年間，規模遙遙領先的組合是美國與中國；而跨部門合作裡最大的一組，並不是企業與大學。點卡片看細節。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="us-china" aria-label="美國與中國，十年五倍"><h3 class="card__title">美國與中國，十年五倍</h3><p class="card__summary">2021 年共同發表 9,660 篇 AI 論文 — 是 2010 年的五倍，也是名單上第二名的 2.7 倍。</p><div class="card__tags"><span class="tag">collaboration</span><span class="tag">geopolitics</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="everyone-else" aria-label="世界其他地方的組合"><h3 class="card__title">世界其他地方的組合</h3><p class="card__summary">把美中那一組拿掉之後，英國就站在所有事情的中間：2021 年英中 3,560 篇、美英 3,340 篇。</p><div class="card__tags"><span class="tag">collaboration</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="edu-nonprofit" aria-label="大學配非營利，而不是大學配企業"><h3 class="card__title">大學配非營利，而不是大學配企業</h3><p class="card__summary">2021 年教育與非營利組織合作 29,839 次，是教育與企業合作的 2.5 倍。</p><div class="card__tags"><span class="tag">collaboration</span><span class="tag">sectors</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="small-pairings" aria-label="幾乎不發生的組合"><h3 class="card__title">幾乎不發生的組合</h3><p class="card__summary">2021 年企業與政府只共同產出 660 篇 AI 論文，是這一章追蹤的組合裡最小的一組。</p><div class="card__tags"><span class="tag">collaboration</span><span class="tag">sectors</span></div></article></div></section><section class="section section--prose" id="patents" aria-labelledby="patents-heading"><header class="section-head reveal is-visible"><h2 id="patents-heading">專利申請六年成長 30 倍以上 — 而中國幾乎一件也沒拿到</h2><p class="section-head__sub">2021 年共有 141,240 件 AI 專利申請，是 2015 年的 30 倍以上，年均複合成長率 76.9%。其中 51.7% 來自中國。而中國拿到的，是全球 5.9% 的核准專利。</p></header><div class="prose reveal is-visible" data-item=""><h3>申請：東亞在 2014 年起飛</h3><ul><li>2021 年東亞與太平洋地區佔了全部 AI 專利申請的 62.1%，高於北美的 17.1% 與歐洲中亞的 4.2%。</li><li>以地理區塊來看，2021 年中國提出全球 51.7% 的 AI 專利申請，美國 16.9%，歐盟加英國 3.9%。</li><li>北美的 AI 專利申請幾乎全部來自美國 — 而美國的申請速度只有中國的三分之一。</li></ul><h3>核准：地圖翻轉</h3><ul><li>核准專利上由北美領先，佔 57.0%，高於東亞太平洋的 31.1% 與歐洲中亞的 11.3%。其餘所有區域加起來，大約只佔全球核准 AI 專利的 1%。</li><li>以地理區塊來看，美國握有 39.6% 的核准量，歐盟加英國 7.6%，中國 5.9%。</li><li>原始數字讓這道落差變得具體。2021 年中國提出 87,343 件 AI 專利申請，獲准 1,407 件；美國提出 19,610 件、獲准 9,450 件；歐盟加英國提出 4,880 件、獲准 1,810 件。</li></ul><p>報告把申請與核准兩條線並排呈現，並沒有把它們湊成一個數字；讀任何 AI 專利排行榜時，也值得把這兩件事分開看。用申請量算，中國掌握了世界的一半以上；用核准量算，中國比歐盟加英國還少。同一份資料可以支撐兩個完全相反的標題。</p></div></section><section class="section section--bars" id="patent-gap" aria-labelledby="patent-gap-heading"><header class="section-head reveal is-visible"><h2 id="patent-gap-heading">中國申請最多 AI 專利，核准卻最少</h2><p class="section-head__sub">2021 年三大 AI 地理區塊的 AI 專利申請與核准件數(千件)。歐盟加英國該年獲准 1,810 件，比中國的 1,407 件還多，而申請量只有中國的四分之一。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="中國申請最多 AI 專利，核准卻最少：中國申請：87.34、美國申請：19.61、美國核准：9.45、歐盟英國申請：4.88、中國核准：1.41"><title>中國申請最多 AI 專利，核准卻最少</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>中國申請：87.34</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">87.34</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">中國申請</text><rect class="bar-rect" x="116.8" y="169.54" width="84.8" height="44.46" rx="5"><title>美國申請：19.61</title></rect><text class="bar-value" x="159.2" y="163.54" text-anchor="middle">19.61</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">美國申請</text><rect class="bar-rect" x="217.6" y="192.58" width="84.8" height="21.42" rx="5"><title>美國核准：9.45</title></rect><text class="bar-value" x="260" y="186.58" text-anchor="middle">9.45</text><text class="bar-label" x="260" y="234" text-anchor="middle">美國核准</text><rect class="bar-rect" x="318.4" y="202.94" width="84.8" height="11.06" rx="5"><title>歐盟英國申請：4.88</title></rect><text class="bar-value" x="360.8" y="196.94" text-anchor="middle">4.88</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">歐盟英國申請</text><rect class="bar-rect" x="419.2" y="210.8" width="84.8" height="3.2" rx="5"><title>中國核准：1.41</title></rect><text class="bar-value" x="461.6" y="204.8" text-anchor="middle">1.41</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">中國核准</text></svg></div></figure></section><section class="section section--bars" id="conf-size" aria-labelledby="conf-size-heading"><header class="section-head reveal is-visible"><h2 id="conf-size-heading">第二個線上舉辦的年度，仍有 88,760 人參加</h2><p class="section-head__sub">2021 年規模最大的幾場 AI 研討會的參與人數(千人)。指數追蹤的 16 場研討會加總後，與 2020 年大致持平。ICML 統計的是議程造訪人次而非註冊人數，這也是它的數字特別高的原因。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="第二個線上舉辦的年度，仍有 88,760 人參加：ICML：29.54、NeurIPS：17.09、CVPR：8.24、ICLR：6.31、ICCV：5.01"><title>第二個線上舉辦的年度，仍有 88,760 人參加</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>ICML：29.54</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">29.54</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">ICML</text><rect class="bar-rect" x="116.8" y="99.45" width="84.8" height="114.55" rx="5"><title>NeurIPS：17.09</title></rect><text class="bar-value" x="159.2" y="93.45" text-anchor="middle">17.09</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">NeurIPS</text><rect class="bar-rect" x="217.6" y="158.77" width="84.8" height="55.23" rx="5"><title>CVPR：8.24</title></rect><text class="bar-value" x="260" y="152.77" text-anchor="middle">8.24</text><text class="bar-label" x="260" y="234" text-anchor="middle">CVPR</text><rect class="bar-rect" x="318.4" y="171.71" width="84.8" height="42.29" rx="5"><title>ICLR：6.31</title></rect><text class="bar-value" x="360.8" y="165.71" text-anchor="middle">6.31</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">ICLR</text><rect class="bar-rect" x="419.2" y="180.42" width="84.8" height="33.58" rx="5"><title>ICCV：5.01</title></rect><text class="bar-value" x="461.6" y="174.42" text-anchor="middle">5.01</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">ICCV</text></svg></div></figure></section><section class="section section--accordion" id="questions" aria-labelledby="questions-heading"><header class="section-head reveal is-visible"><h2 id="questions-heading">這一章對 2021 年回答的五件事</h2><p class="section-head__sub">研討會、Women in Machine Learning 工作坊、開源程式庫，以及論文數字證明了什麼、又沒有證明什麼。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>第二年線上舉辦，改變了誰會出席嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">2021 年頂尖 AI 研討會的參與人數與 2020 年大致持平，指數追蹤的 16 場研討會合計超過 88,000 人 — 這也是歷來涵蓋最多場次的一版。幾乎全部改為線上舉行，只有 ICRA 與 EMNLP 採混合形式。主辦單位告訴 AI 指數團隊，線上會議很難精確計算出席人數，而線上形式也讓世界各地的研究者能大量參與。個別數字都帶著註腳：ICML 用議程造訪人次代替出席人數，這就是它 29,540 這個數字的來源；IROS 在 2020 年開放使用者最長三個月內回看；AAMAS 2020 年報的是現場使用者數，2021 年報的則是總報名人數。規模較小的場次裡，UAI 有 2,100 人、IJCAI 1,900 人、FAccT 1,350 人、AAMAS 1,080 人、ICRA 1,000 人。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>Women in Machine Learning 工作坊有多大？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">2021 年與 NeurIPS 併同舉辦的 WiML 工作坊，估計有 1,486 人參加，計算方式是登入 neurips.cc 線上平台的不重複人數。自 2006 年首度舉辦以來，這個數字一路穩定成長。2021 年改成三天多場次的形式(和 2020 年不同)，並因疫情再次以線上進行。在同意彙整資料的問卷填答者中，53.4% 住在北美、19.9% 在歐洲、16.2% 在亞洲、7.3% 在非洲。博士生佔 49.4%、碩士生 16.5%、研究科學家或工程師 14.2%、大學部學生 10.2%，而大學教職員只佔約 1.2%。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>開發者實際上在用哪些開源 AI 程式庫？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">以 2021 年累計 GitHub 星數來看，TensorFlow 仍遙遙領先，約有 160,700 顆 — 大約是第二名 OpenCV(58,600 顆)的三倍，而且比它自己 2020 年的數字只增加一點點。Keras(53,200)、PyTorch(52,700)與 Scikit-learn(48,000)彼此相當接近地跟在後面，再來是 DeepLearning-500-questions(46,700)與 TensorFlow-Examples(41,500)。星數 4 萬以下的榜單其實已經不太是程式庫的榜單：faceswap 以 39,880 顆居首，接著是 100-Days-Of-ML-Code(33,580)、AiLearning(32,270)、BVLC/caffe(32,140)、Real-Time-Voice-Cloning(32,020)、deeplearningbook-chinese(32,000)、Deep Learning Papers Reading Roadmap(31,280)與 DeepFaceLab(30,260) — 多半是教學、書單與換臉專案。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>論文領先等於 AI 領先嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">這一章自己的數字就不支持這種讀法。2021 年中國在期刊、研討會與預印本論文合計數量上領先全球，比美國高 63.2%，期刊引用也以 27.8% 居首。但美國在研討會引用上以 29.5% 對中國的 15.3% 取得壓倒性領先，預印本引用是 38.6% 對 16.4%，而且預印本論文佔比是 32.5% 對中國的 16.6%。看的場域不同，數量和影響力就指向不同方向；報告選擇把兩邊都呈現出來，而不是替讀者做結論。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>這些論文數字有多可靠？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">報告對自己的限制講得很清楚。論文資料來自 CSET 整併的學術文獻庫 — 包含 Dimensions、Web of Science、Microsoft Academic Graph、中國知網、arXiv 與 Papers with Code — 再用分類器挑出 2010 年以來與 AI 及機器學習開發或應用相關的英文論文。也就是說，非英文的研究不在範圍內。2021 年的數字也可能低於實際值，因為這些資料庫收集論文中繼資料本身有時間落差。此外，這一版換了資料來源與分類方法，因此趨勢無法直接和過去幾版的 AI 指數報告對照。就算在資料之內，2021 年也有 20.8% 的論文根本無法歸到任何部門。</div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用四句話看這一章</h2><p class="section-head__sub">第 1 章「研發」的頭條發現。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>儘管地緣政治緊張升高，2010 至 2021 年間跨國 AI 論文合作最多的仍是美國與中國，自 2010 年以來成長五倍。兩國合作產出的論文，是名單上第二名的英國與中國的 2.7 倍。</blockquote><figcaption class="quote-by">— Chapter 1 · Research and Development</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年，中國在 AI 期刊、研討會與預印本論文的數量上繼續領先全球 — 三種類型合計比美國高 63.2%。與此同時，美國在 AI 研討會與預印本的引用數上，於主要 AI 強權中取得壓倒性領先。</blockquote><figcaption class="quote-by">— Chapter 1 · Research and Development</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2010 至 2021 年間，發表最多 AI 論文的是教育機構與非營利組織之間的合作，其次是民間企業與教育機構之間、以及教育機構與政府機構之間的合作。</blockquote><figcaption class="quote-by">— Chapter 1 · Research and Development</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年提出的 AI 專利申請件數是 2015 年的 30 倍以上，年均複合成長率達 76.9%。</blockquote><figcaption class="quote-by">— Chapter 1 · Research and Development</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 1 章原文</h2><p>第 1 章(1.1 至 1.3 各節) — 論文、專利、研討會與開源軟體程式庫 — 連同所有圖表、註腳與引用，皆由史丹佛 HAI 免費提供。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2022-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2022 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2022》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2022/research.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2022/data/site.js"></script>
+  <script src="../../2022/data/research.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
