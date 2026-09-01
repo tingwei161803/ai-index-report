@@ -254,8 +254,9 @@
         var label = escapeHtml(t(d.label));
         var val = escapeHtml(String(d.value));
         return (
-          '<rect class="bar-rect" x="' + r(x) + '" y="' + r(y) + '" width="' + r(bw) +
-            '" height="' + r(h) + '" rx="5"><title>' + label + LBLSEP + val + "</title></rect>" +
+          '<rect class="bar-rect" aria-hidden="true" x="' + r(x) + '" y="' + r(y) +
+            '" width="' + r(bw) + '" height="' + r(h) + '" rx="5">' +
+            "<title>" + label + LBLSEP + val + "</title></rect>" +
           '<text class="bar-value" x="' + r(x + bw / 2) + '" y="' + r(y - 6) +
             '" text-anchor="middle">' + val + "</text>" +
           '<text class="bar-label" x="' + r(x + bw / 2) + '" y="' + r(baseY + 20) +
@@ -461,8 +462,9 @@
           if (typeof v !== "number" || !isFinite(v)) return;   /* see the note on `all` */
           var x = xAt(i), y = yAt(v);
           pts.push(r(x) + "," + r(y));
-          dots += '<circle class="ln-dot ' + cls + '" cx="' + r(x) + '" cy="' + r(y) +
-                  '" r="3.5"><title>' + escapeHtml(t(d.label) + LBLSEP + t(xs[i]) + " " + v) +
+          dots += '<circle class="ln-dot ' + cls + '" aria-hidden="true" cx="' + r(x) +
+                  '" cy="' + r(y) + '" r="3.5"><title>' +
+                  escapeHtml(t(d.label) + LBLSEP + t(xs[i]) + " " + v) +
                   "</title></circle>";
           lastX = x; lastY = y; lastV = v;
         });
@@ -474,8 +476,16 @@
                dots + end;
       }).join("");
 
-      /* role="img" seals the SVG off from assistive tech, so every number a
-         sighted reader can see has to be spelled out here or it is gone. */
+      /* Every number a sighted reader can see has to be spelled out here or it
+         is gone — the shapes are aria-hidden, so this name is the only route
+         to the data.
+
+         The original note here said role="img" already sealed the SVG off.
+         Measured against the Chromium accessibility tree that was not true:
+         31 graphics-symbol nodes on this page were exposed, none ignored, so
+         every value existed twice — once in this name, once in a per-point
+         <title>. The <title> elements stay, because they are the pointer
+         tooltip; aria-hidden on the shape is what removes the duplicate. */
       var a11y = escapeHtml(
         t(sec.title) + TITLESEP +
         (t(sec.unit) ? t(sec.unit) + TITLESEP : "") +
