@@ -932,6 +932,23 @@ a { color: inherit; text-decoration: none; }
   .chapter-nav__all { grid-column: 1 / -1; order: -1; flex-direction: row; }
 }
 
+/* The other language's copy of this page, repeated at the end of the document
+   for readers who got here without seeing the app bar. It used to sit after
+   </footer> and after the scripts, which put it outside every landmark — so a
+   screen-reader user navigating by region skipped it entirely. The padding is
+   not decoration: the link was 48x22, under the 24px minimum target height. */
+.lang-alt-link {
+  margin: 14px 0 0;
+  text-align: center;
+}
+.lang-alt-link a {
+  display: inline-block;
+  padding: 6px 10px;
+  color: var(--on-surface-variant);
+  font-size: .85rem;
+}
+.lang-alt-link a:hover { color: var(--primary); }
+
 /* ---- Reading position: progress hairline + back-to-top ---- */
 .readprogress {
   position: fixed;
