@@ -33,7 +33,7 @@
 - 📍 **區段導覽** — 長頁面右側跟隨捲動高亮目前區段
 - 🔗 **深連結** — 每個區段都有專屬 `#<id>`,可直接分享到特定段落
 - 📱 **響應式設計** — 手機、平板、桌機皆適配
-- ⚡ **純靜態** — 零建置、無後端、載入快
+- ⚡ **純靜態** — 瀏覽器拿到的就是 repo 裡的檔案,沒有打包、沒有轉譯、無後端
 
 ---
 
@@ -55,6 +55,7 @@ ai-index-report/
 │   └── data/           #   每章一個資料檔 + site.js(章節註冊表)
 ├── 2025/               # 2025 版(8 章),結構同上
 ├── 2026/               # 2026 版(9 章),結構同上
+├── scripts/            # 產生與檢查網站的腳本(見 scripts/README.md)
 ├── zh-Hant/            # 中文雙生頁(自英文頁產生,勿手動編輯)
 └── pdf/                # 原始報告 PDF(不進版控,見下)
 ```
@@ -114,7 +115,37 @@ uv run python -m http.server 4173
 # 然後瀏覽 http://localhost:4173
 ```
 
-> 純靜態網站,不需安裝任何依賴。Python 相關操作一律使用 `uv`。
+> 瀏覽網站不需安裝任何依賴。Python 相關操作一律使用 `uv`。
+
+### 改了內容之後要重新產生
+
+`zh-Hant/` 的中文雙生頁、`sitemap.xml`、`og-image.png`,以及每一頁 `<main>`
+裡的靜態內容,都是由 `scripts/` 底下的腳本產生的。改了 `data/**/*.js`、
+`assets/app.js` 或任何英文 `.html` 之後,要照順序重跑:
+
+```bash
+uv run playwright install chromium          # 首次
+
+uv run python scripts/build_i18n.py --dir .
+uv run python scripts/fix_twin_langlink.py --dir .
+uv run python scripts/build_seo.py  --dir .
+uv run --with pillow python scripts/build_og.py --dir .
+uv run python scripts/prerender.py  --dir .
+uv run python scripts/verify.py     --dir .
+```
+
+順序不能調換,每一步的理由見 [`scripts/README.md`](scripts/README.md)。
+
+> 這些腳本**不是**前端建置 —— 它們產生的是內容與 SEO 標記,產出物直接進版控。
+> 網站本身仍然是零建置的靜態檔案。
+>
+> `zh-Hant/` 底下的檔案是產生物,**不要手動編輯**,下次重跑就會被覆蓋。
+
+想確認靜態內容有沒有跟資料脫節:
+
+```bash
+uv run python scripts/prerender.py --dir . --check    # 有頁面過期就 exit 1
+```
 
 ---
 
