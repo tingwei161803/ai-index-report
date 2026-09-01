@@ -311,6 +311,10 @@ a { color: inherit; text-decoration: none; }
   gap: 6px;
   overflow-x: auto;
   scrollbar-width: none;
+  /* Keep scroll-into-view clear of the two things that sit over the rail's
+     ends: the 36px fade, and the 28px arrow inset 6px from the edge. A
+     focused pill landing inside this keeps its whole focus ring. */
+  scroll-padding-inline: 44px;
   /* The rail ships EMPTY: prerender.py only writes <main>, and this sits
      outside it. So the bar is 19px of bare padding until paintNav() fills it,
      then jumps to 52px and shoves the entire page down 34px — measured as a
