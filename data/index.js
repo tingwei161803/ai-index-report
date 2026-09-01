@@ -41,7 +41,7 @@ window.SITE_SECTIONS = [
       { label: { en: "AI incidents logged in 2025 (233 in 2024)", zh: "2025 年 AI 事故通報件數(2024 年為 233)" }, value: 362 },
       { label: { en: "US private AI investment in 2025 (US$ bn; 109.1 in 2024)", zh: "2025 年美國私人 AI 投資(十億美元；2024 年為 109.1)" }, value: 286 },
       { label: { en: "% of notable models coming from industry, both years", zh: "% 重要模型來自產業界，兩年皆然" }, value: 90 },
-      { label: { en: "editions covered on this site", zh: "本站收錄的版本數" }, value: 2 }
+      { label: { en: "editions covered on this site", zh: "本站收錄的版本數" }, value: 3 }
     ]
   },
 
@@ -61,6 +61,14 @@ window.SITE_SECTIONS = [
                    zh: "衡量 2025 年。九大章節 — 科學與醫療分列為兩章。投資翻倍有餘，組織採用率達 88%，而勞動市場的訊號最先出現在最年輕的工作者身上。" },
         tags: ["2025 data", "9 chapters"],
         cta: { en: "Open the 2026 edition", zh: "開啟 2026 版" }
+      },
+      {
+        href: "2024/index.html",
+        title:   { en: "2024 edition · 7th", zh: "2024 版 · 第 7 版" },
+        summary: { en: "Reports on 2023. Nine chapters, and the last edition to give Diversity one of its own. Overall private investment falls for a second year while generative AI funding nearly octuples, and the compute bill for a frontier model passes $100 million.",
+                   zh: "衡量 2023 年。九大章節，也是最後一個把多元性獨立成章的版本。整體私人投資連續第二年下滑，生成式 AI 募資卻近乎成長八倍，而訓練一個前沿模型的算力帳單跨過一億美元。" },
+        tags: ["2023 data", "9 chapters"],
+        cta: { en: "Open the 2024 edition", zh: "開啟 2024 版" }
       },
       {
         href: "2025/index.html",
