@@ -367,7 +367,12 @@
       a.addEventListener("click", function (e) {
         e.preventDefault();
         var target = document.getElementById(sec.id);
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        /* CSS `scroll-behavior: auto` under reduced motion cannot override a
+           behavior passed in JS — the argument wins. Ask explicitly. */
+        if (target) target.scrollIntoView({
+          behavior: prefersReducedMotion() ? "auto" : "smooth",
+          block: "start"
+        });
         history.replaceState(null, "", "#" + sec.id);
       });
       navInner.appendChild(a);
@@ -807,7 +812,10 @@
           pill.setAttribute("aria-current", "true");
           // keep the active pill in view within the horizontal nav
           if (pill.scrollIntoView) {
-            pill.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+            pill.scrollIntoView({
+              block: "nearest", inline: "center",
+              behavior: prefersReducedMotion() ? "auto" : "smooth"
+            });
           }
         }
       });
