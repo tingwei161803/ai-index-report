@@ -426,11 +426,19 @@
          figure for two of its lines — so isFinite alone would plot those gaps
          at zero. isFinite("") and isFinite("5") are true as well.
 
-         Two limits this does NOT cover, because the axis is anchored at zero:
-         a negative value plots below the baseline and escapes the viewBox, and
-         a series whose whole range sits under about 0.05 collapses to "0"
-         ticks, since fmtNum rounds to two decimals. No series on the site hits
-         either. Tracked separately rather than widened here. */
+         The axis used to be anchored at zero unconditionally, so a negative
+         value plotted below the baseline and escaped the viewBox with nothing
+         to show for it. That is handled below.
+
+         The other limit once noted here — that a range under about 0.05
+         collapses every tick to "0" — does not actually occur: `rawMax` is
+         floored at 1 by the concat below, so the smallest axis this can build
+         is 0..1 and its ticks are 0, 0.25, 0.5, 0.75, 1. Checked rather than
+         assumed; no label code was added for it.
+
+         No series on the site is negative, so the arithmetic is written to
+         reduce exactly to the old behaviour when every value is >= 0 — see
+         the note on `step`. */
       var all = [];
       series.forEach(function (d) {
         (d.values || []).forEach(function (v) {
@@ -438,20 +446,36 @@
         });
       });
       var rawMax = Math.max.apply(null, all.concat([1]));
-      /* Round the axis up to something a reader can divide by four in their
-         head; a top gridline of 581.69 is a number, not a scale. */
-      var mag = Math.pow(10, Math.floor(Math.log(rawMax) / Math.LN10));
-      var yMax = Math.ceil(rawMax / (mag / 2)) * (mag / 2);
-      if (!isFinite(yMax) || yMax <= 0) yMax = 1;
+      /* Zero stays in the range unless the data goes below it: a bar-like line
+         chart that does not start at zero exaggerates its own slope. */
+      var rawMin = Math.min.apply(null, all.concat([0]));
+
+      /* Round the axis to something a reader can divide by four in their head;
+         a top gridline of 581.69 is a number, not a scale. `step` is derived
+         from the full span so that a series sitting entirely below zero gets
+         the same treatment as one above it.
+
+         When rawMin is 0 — every series on this site — span is rawMax, so step
+         is the same (mag / 2) as before and yMin is 0: identical output. */
+      var span = rawMax - rawMin;
+      if (!isFinite(span) || span <= 0) span = 1;
+      var step = Math.pow(10, Math.floor(Math.log10(span))) / 2;
+      if (!isFinite(step) || step <= 0) step = 1;
+      var yMax = Math.ceil(rawMax / step) * step;
+      var yMin = rawMin < 0 ? Math.floor(rawMin / step) * step : 0;
+      if (!isFinite(yMax) || yMax <= yMin) yMax = yMin + 1;
 
       var xAt = function (i) {
         return xs.length < 2 ? padL + plotW / 2 : padL + (plotW * i) / (xs.length - 1);
       };
-      var yAt = function (v) { return padT + plotH - (v / yMax) * plotH; };
+      var GRID = 4;
+      var yAt = function (v) {
+        return padT + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+      };
 
-      var grid = "", GRID = 4, gi;
+      var grid = "", gi;
       for (gi = 0; gi <= GRID; gi++) {
-        var gv = (yMax * gi) / GRID, gy = yAt(gv);
+        var gv = yMin + ((yMax - yMin) * gi) / GRID, gy = yAt(gv);
         grid += '<line class="ln-grid" x1="' + padL + '" y1="' + r(gy) +
                 '" x2="' + r(padL + plotW) + '" y2="' + r(gy) + '" />' +
                 '<text class="ln-axis" x="' + (padL - 8) + '" y="' + r(gy + 4) +
