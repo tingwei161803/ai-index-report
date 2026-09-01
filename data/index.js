@@ -310,13 +310,13 @@ window.SITE_SECTIONS = [
     subtitle: { en: "Counts. Both lines measure things that are counted rather than estimated, which makes them unusually comparable — but they are not the same kind of count, and the gap between them is the point.",
                 zh: "單位為件數。兩條線量的都是「數出來的」而非「估出來的」東西，因此難得地可以並排 — 但它們不是同一種計數，而兩者之間的落差正是重點。" },
     unit: { en: "count", zh: "件" },
-    x: ["2022", "2023", "2024", "2025"],
+    x: ["2023", "2024", "2025"],
     series: [
-      { label: { en: "AI incidents logged", zh: "登錄的 AI 事故" }, values: [93, 149, 233, 362] },
-      { label: { en: "New US federal AI regulations", zh: "美國新增聯邦 AI 法規" }, values: [16, 25, 59, 58], dash: "6 4" }
+      { label: { en: "AI incidents logged", zh: "登錄的 AI 事故" }, values: [149, 233, 362] },
+      { label: { en: "New US federal AI regulations", zh: "美國新增聯邦 AI 法規" }, values: [25, 59, 58], dash: "6 4" }
     ],
-    foot: { en: "Incident counts come from the AI Incident Database, on the basis used from the 2025 edition onward. The 2024 edition put 2023 at 123; the 2025 edition's own arithmetic puts it at 149, and the later figure is used here. Editions before 2024 counted incidents from a different database (AIAAIC) whose numbers are not comparable to these at all. The regulation count is the one metric here whose definition never changed — a Federal Register keyword search across 436 agencies, identical in every edition that reports it.",
-            zh: "事故件數取自 AI Incident Database，採 2025 版起的基準。2024 版把 2023 年記為 123，但 2025 版自己的算術推得 149，此處採用後者。2024 版之前的版本用的是另一個資料庫(AIAAIC)，其數字與這裡完全不可比。法規件數則是這頁唯一定義從未改過的指標 — 對 436 個機關做聯邦公報關鍵字檢索，每一個報導它的版本作法都相同。" }
+    foot: { en: "Every value here is one the reports print. Incidents: 233 for 2024 appears in both the 2025 and 2026 editions, and that agreement is what licenses joining them; 149 for 2023 follows from the 2025 edition's own \u201c56.4% increase over 2023\u201d applied to that 233; 362 is the 2026 edition's. The line starts at 2023 rather than 2022 because the only source for 2022 is the 2024 edition \u2014 and that edition puts 2023 at 123, which the 2025 edition contradicts with 149. An edition that disagrees at the overlap cannot be chained here. The 2026 edition says as much itself: AIID totals are \u201ccontinually updated, including for previous years.\u201d Regulations: 25 and 59 are the 2025 edition's chart labels, 58 the 2026 edition's. Both editions describe the identical method \u2014 a keyword search for \u201cartificial intelligence\u201d on the Federal Register, over 436 agencies \u2014 which is why this is the one line here whose definition never moved.",
+            zh: "這裡每一個數字都是報告印出來的。事故：2024 年的 233 件同時出現在 2025 版與 2026 版，正是這個一致讓兩版可以接起來；2023 年的 149 件由 2025 版自己寫的「較 2023 年成長 56.4%」回推那個 233 得出；362 件出自 2026 版。這條線從 2023 年而非 2022 年開始，是因為 2022 年唯一的來源是 2024 版 — 而該版把 2023 年記為 123 件，與 2025 版的 149 件相互矛盾。在重疊年份上對不起來的版本，就不能接到這條線上。2026 版自己也這麼說：AIID 的總數「會持續更新，包含過往年份」。法規：25 與 59 是 2025 版的圖表標值，58 出自 2026 版。兩版描述的方法完全相同 — 在聯邦公報對「artificial intelligence」做關鍵字檢索、涵蓋逾 436 個機關 — 這也是本頁唯一定義從未變動過的一條線。" }
   },
 
   /* -------------------------------------------------- COST OF THE FRONTIER */
