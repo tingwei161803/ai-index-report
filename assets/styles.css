@@ -420,6 +420,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 2px;
   margin-bottom: 20px;
 }
+.section-head h1,
 .section-head h2 {
   margin: 0 0 10px;
   font-family: var(--font-serif);
@@ -455,6 +456,7 @@ a { color: inherit; text-decoration: none; }
 }
 .section--hero > * { position: relative; z-index: 1; }
 .section--hero .section-head { max-width: none; }
+.section--hero .section-head h1,
 .section--hero .section-head h2 {
   max-width: 16em;                  /* measure scales with the heading's own size, not the parent */
   font-size: clamp(2.1rem, 5.6vw, 3.4rem);
@@ -1053,6 +1055,7 @@ a { color: inherit; text-decoration: none; }
   .sectionnav__inner,
   .section { padding-left: 18px; padding-right: 18px; }
   .hero__stats { grid-template-columns: repeat(2, 1fr); }
+  .section-head h1,
   .section-head h2 { font-size: 1.5rem; }
 }
 

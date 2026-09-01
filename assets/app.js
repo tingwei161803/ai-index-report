@@ -129,8 +129,15 @@
     var sub = t(sec.subtitle)
       ? '<p class="section-head__sub">' + escapeHtml(t(sec.subtitle)) + "</p>"
       : "";
+    /* The first section's headline IS the page's headline, so it gets the h1.
+       Every page used to open at h2, leaving screen-reader users with no "jump
+       to h1" landing point and the page's own subject stated only in <title>.
+       Ordering below stays h2 -> h3 as before. */
+    var tag = (SECTIONS.length && sec.id === SECTIONS[0].id) ? "h1" : "h2";
     return '<header class="section-head">' +
-      '<h2 id="' + escapeHtml(sec.id) + '-heading">' + escapeHtml(t(sec.title)) + "</h2>" +
+      "<" + tag + ' id="' + escapeHtml(sec.id) + '-heading">' +
+        escapeHtml(t(sec.title)) +
+      "</" + tag + ">" +
       sub + "</header>";
   }
 
