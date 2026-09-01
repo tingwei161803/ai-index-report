@@ -135,13 +135,14 @@
 
         <a class="icon-btn" id="langLink" href="../../2025/policy.html"
            hreflang="en" lang="en" rel="alternate"
-           title="English" aria-label="English / 切換到英文版">
+           title="English" aria-label="Switch to English">
           <span class="material-symbols-rounded" aria-hidden="true">translate</span>
           <span class="icon-btn__txt" id="langLabel">EN</span>
         </a>
 
         <button class="icon-btn" id="themeToggle" type="button"
-                title="Theme" aria-label="Toggle theme / 切換主題">
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
           <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
         </button>
       </div>
@@ -164,7 +165,7 @@
   <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
     <div class="dialog__bar">
       <span class="dialog__spacer"></span>
-      <button class="icon-btn" id="dialogClose" type="button" aria-label="Close / 關閉">
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
         <span class="material-symbols-rounded" aria-hidden="true">close</span>
       </button>
     </div>
@@ -175,10 +176,10 @@
   <footer class="footer">
     <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2025》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
       <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
-        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" title="Home" aria-label="Back to peteraim.com / 返回首頁">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
           <span class="material-symbols-rounded" aria-hidden="true">home</span>
         </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn (opens in new tab)">
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
         </a>
       </div>
