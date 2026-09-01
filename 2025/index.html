@@ -19,14 +19,20 @@
        blocking round-trip in front of the paint. -->
   <script>
     (function () {
-      try {
-        var t = localStorage.getItem("theme");
-        if (!t) {
-          t = window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.setAttribute("data-theme", t);
-      } catch (e) { /* private mode / storage blocked: keep the markup default */ }
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
     })();
   </script>
 
