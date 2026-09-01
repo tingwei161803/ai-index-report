@@ -691,9 +691,13 @@
           b.setAttribute("aria-pressed", i === idx ? "true" : "false");
         });
         /* Changing an aria-label on an element that already has focus
-           elsewhere announces nothing. A short live region is the only way the
-           switch is audible — scoped to one line, not the whole figure. */
-        if (live) live.textContent = t(view.label) + LBLSEP + t(view.note);
+           elsewhere announces nothing, so the live region is the only way the
+           switch is audible at all. It carries the same string as the chart's
+           accessible name, numbers included: the block exists to show that
+           2021 was restated 104% higher, and a reader who is told only
+           "As the 2026 edition restates it" has been told nothing. The prose
+           note stays where it was, in the visible .cmp-note. */
+        if (live) live.textContent = compareA11y(sec, idx);
       }
 
       btns.forEach(function (b, i) {
