@@ -617,7 +617,12 @@
   function fmtNum(v) {
     var parts = String(Math.round(v * 100) / 100).split(".");
     /* Group the integer part only. Running the usual thousands regex over the
-       whole string puts a comma inside the decimals — 581.69 came out 5,81.69. */
+       whole string can put a comma inside the decimals: "581.6912" comes out
+       as "581.6,912". It takes four decimal places to trigger — the lookahead
+       needs a full group of three digits with a non-digit after it — so the
+       Math.round above, which leaves at most two, already makes it
+       unreachable from here. The split stays as the guard for whoever raises
+       that precision later. */
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
   }
