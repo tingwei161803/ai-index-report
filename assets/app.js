@@ -335,14 +335,247 @@
         (t(sec.text) ? "<p>" + escapeHtml(t(sec.text)) + "</p>" : "") +
         link +
       "</div>";
+    },
+
+    /* ---- table: a comparison matrix -------------------------------------
+       Five editions side by side is a table's job, not a chart's: the cells
+       are a mix of numbers, names and gaps, and the gaps ("this edition had
+       no such chapter") carry as much meaning as the values. A chart cannot
+       show an absence. ------------------------------------------------- */
+    table: function (sec) {
+      var cols = sec.columns || [];
+      var head = "<tr><th scope=\"col\">" + escapeHtml(t(sec.corner)) + "</th>" +
+        cols.map(function (c) {
+          return '<th scope="col"' + (c.num ? ' class="is-num"' : "") + ">" +
+            escapeHtml(t(c.label)) + "</th>";
+        }).join("") + "</tr>";
+
+      var body = (sec.rows || []).map(function (row) {
+        return "<tr>" +
+          '<th scope="row">' + escapeHtml(t(row.head)) + "</th>" +
+          (row.cells || []).map(function (cell, i) {
+            var cls = [];
+            if (cols[i] && cols[i].num) cls.push("is-num");
+            if (cell.tone) cls.push("is-" + cell.tone);
+            /* A cell showing "—" announces as nothing at all. Where the dash
+               means something, the meaning goes in text only AT can reach and
+               the dash itself is hidden from it. */
+            var inner = t(cell.sr)
+              ? '<span aria-hidden="true">' + escapeHtml(t(cell.text)) + "</span>" +
+                '<span class="sr-only">' + escapeHtml(t(cell.sr)) + "</span>"
+              : escapeHtml(t(cell.text));
+            return "<td" + (cls.length ? ' class="' + cls.join(" ") + '"' : "") +
+              ">" + inner + "</td>";
+          }).join("") +
+        "</tr>";
+      }).join("");
+
+      return sectionHead(sec) +
+        '<figure class="table-card" data-item>' +
+          '<div class="table-wrap" data-scroller aria-labelledby="' +
+            escapeHtml(sec.id) + '-heading">' +
+            '<table class="ctable"><thead>' + head + "</thead><tbody>" + body + "</tbody></table>" +
+          "</div>" +
+          (t(sec.foot) ? '<figcaption class="table-note">' + escapeHtml(t(sec.foot)) + "</figcaption>" : "") +
+        "</figure>";
+    },
+
+    /* ---- lines: multi-series line chart ---------------------------------
+       `bars` holds one series. Comparing how two or three measures moved
+       across the same five years needs them on one pair of axes, or the
+       reader is left doing the alignment by memory. --------------------- */
+    lines: function (sec) {
+      var xs = sec.x || [];
+      var series = (sec.series || []).slice(0, 4);
+      var W = 680, H = 320, padL = 46, padR = 66, padT = 18, padB = 42;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+
+      var all = [];
+      series.forEach(function (d) {
+        (d.values || []).forEach(function (v) { if (typeof v === "number") all.push(v); });
+      });
+      var rawMax = Math.max.apply(null, all.concat([1]));
+      /* Round the axis up to something a reader can divide by four in their
+         head; a top gridline of 581.69 is a number, not a scale. */
+      var mag = Math.pow(10, Math.floor(Math.log(rawMax) / Math.LN10));
+      var yMax = Math.ceil(rawMax / (mag / 2)) * (mag / 2);
+      if (!isFinite(yMax) || yMax <= 0) yMax = 1;
+
+      var xAt = function (i) {
+        return xs.length < 2 ? padL + plotW / 2 : padL + (plotW * i) / (xs.length - 1);
+      };
+      var yAt = function (v) { return padT + plotH - (v / yMax) * plotH; };
+
+      var grid = "", GRID = 4, gi;
+      for (gi = 0; gi <= GRID; gi++) {
+        var gv = (yMax * gi) / GRID, gy = yAt(gv);
+        grid += '<line class="ln-grid" x1="' + padL + '" y1="' + r(gy) +
+                '" x2="' + r(padL + plotW) + '" y2="' + r(gy) + '" />' +
+                '<text class="ln-axis" x="' + (padL - 8) + '" y="' + r(gy + 4) +
+                '" text-anchor="end">' + escapeHtml(fmtNum(gv)) + "</text>";
+      }
+      xs.forEach(function (lab, i) {
+        grid += '<text class="ln-axis" x="' + r(xAt(i)) + '" y="' + (padT + plotH + 22) +
+                '" text-anchor="middle">' + escapeHtml(t(lab)) + "</text>";
+      });
+
+      var paths = series.map(function (d, si) {
+        var cls = "ln-s" + (si + 1);
+        var pts = [], dots = "", lastX = 0, lastY = 0, lastV = null;
+        (d.values || []).forEach(function (v, i) {
+          if (typeof v !== "number") return;
+          var x = xAt(i), y = yAt(v);
+          pts.push(r(x) + "," + r(y));
+          dots += '<circle class="ln-dot ' + cls + '" cx="' + r(x) + '" cy="' + r(y) +
+                  '" r="3.5"><title>' + escapeHtml(t(d.label) + LBLSEP + t(xs[i]) + " " + v) +
+                  "</title></circle>";
+          lastX = x; lastY = y; lastV = v;
+        });
+        var end = lastV == null ? "" :
+          '<text class="ln-end ' + cls + '" x="' + r(lastX + 9) + '" y="' + r(lastY + 4) +
+          '">' + escapeHtml(fmtNum(lastV)) + "</text>";
+        return '<polyline class="ln-path ' + cls + '" points="' + pts.join(" ") + '"' +
+               (d.dash ? ' stroke-dasharray="' + escapeHtml(d.dash) + '"' : "") + " />" +
+               dots + end;
+      }).join("");
+
+      /* role="img" seals the SVG off from assistive tech, so every number a
+         sighted reader can see has to be spelled out here or it is gone. */
+      var a11y = escapeHtml(
+        t(sec.title) + TITLESEP +
+        (t(sec.unit) ? t(sec.unit) + TITLESEP : "") +
+        series.map(function (d) {
+          return t(d.label) + LBLSEP + (d.values || []).map(function (v, i) {
+            return t(xs[i]) + " " + (typeof v === "number" ? v : "-");
+          }).join(LISTSEP);
+        }).join(state.lang === "zh" ? "；" : "; ")
+      );
+
+      var legend = '<ul class="ln-legend">' + series.map(function (d, si) {
+        var cls = "ln-s" + (si + 1);
+        return "<li><svg width=\"26\" height=\"10\" aria-hidden=\"true\">" +
+          '<line class="ln-path ' + cls + '" x1="1" y1="5" x2="25" y2="5"' +
+          (d.dash ? ' stroke-dasharray="' + escapeHtml(d.dash) + '"' : "") + " /></svg>" +
+          "<span>" + escapeHtml(t(d.label)) + "</span></li>";
+      }).join("") + "</ul>";
+
+      return sectionHead(sec) +
+        '<figure class="chart-card" data-item><div class="chart-wrap chart-wrap--wide">' +
+          '<svg viewBox="0 0 ' + W + " " + H + '" role="img" ' +
+            'preserveAspectRatio="xMidYMid meet" aria-label="' + a11y + '">' +
+            "<title>" + escapeHtml(t(sec.title)) + "</title>" +
+            grid + paths +
+          "</svg></div>" + legend +
+          (t(sec.foot) ? '<figcaption class="table-note">' + escapeHtml(t(sec.foot)) + "</figcaption>" : "") +
+        "</figure>";
+    },
+
+    /* ---- mermaid: a diagram whose source is text ------------------------
+       Used for the one thing no table or chart says well: how the chapters
+       themselves split, merged and were renamed from edition to edition.
+
+       The prose equivalent is in the DOM from the start and is what ships in
+       the prerendered HTML. The library is fetched only when the diagram is
+       about to come into view, so a reader who never scrolls this far pays
+       nothing for it. ------------------------------------------------- */
+    mermaid: function (sec) {
+      var h = Number(sec.height) > 0 ? Number(sec.height) : 320;
+      return sectionHead(sec) +
+        '<figure class="mmd-card" data-item>' +
+          '<div class="mmd" role="img" aria-label="' + escapeHtml(t(sec.alt)) + '"' +
+            ' style="min-height:' + h + 'px"' +
+            ' data-mermaid="' + escapeHtml(t(sec.code)) + '">' +
+            '<p class="mmd__alt">' + escapeHtml(t(sec.alt)) + "</p>" +
+          "</div>" +
+          (t(sec.foot) ? '<figcaption class="table-note">' + escapeHtml(t(sec.foot)) + "</figcaption>" : "") +
+        "</figure>";
+    },
+
+    /* ---- compare: one chart, two datasets the reader switches ------------
+       Both views share one y-scale on purpose. Rescaling per view would hide
+       the very thing the block exists to show — that the restated figures are
+       bigger — by making every view look the same height. ---------------- */
+    compare: function (sec) {
+      var views = sec.views || [];
+      if (!views.length) return sectionHead(sec);
+      var cats = (views[0].series || []).map(function (d) { return d.label; });
+      var W = 560, H = 250, padL = 16, padR = 16, padT = 22, padB = 46;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var n = cats.length || 1, gap = 18;
+      var bw = (plotW - gap * (n - 1)) / n;
+      var baseY = padT + plotH;
+
+      var max = 1;
+      views.forEach(function (v) {
+        (v.series || []).forEach(function (d) { if (d.value > max) max = d.value; });
+      });
+
+      var bars = cats.map(function (lab, i) {
+        var x = padL + i * (bw + gap);
+        var v = views[0].series[i].value;
+        return '<rect class="cmp-bar bar-rect" data-i="' + i + '" x="' + r(x) + '" y="' + padT +
+                 '" width="' + r(bw) + '" height="' + r(plotH) + '" rx="5" ' +
+                 'style="transform:scaleY(' + r(v / max) + ')"></rect>' +
+               '<text class="bar-label" x="' + r(x + bw / 2) + '" y="' + (baseY + 19) +
+                 '" text-anchor="middle">' + escapeHtml(t(lab)) + "</text>" +
+               '<text class="bar-value cmp-val" data-i="' + i + '" x="' + r(x + bw / 2) +
+                 '" y="' + (baseY + 37) + '" text-anchor="middle">' +
+                 escapeHtml(fmtNum(v)) + "</text>";
+      }).join("");
+
+      var buttons = views.map(function (v, i) {
+        return '<button type="button" class="cmp-btn" data-view="' + i + '" ' +
+          'aria-pressed="' + (i === 0 ? "true" : "false") + '">' +
+          escapeHtml(t(v.label)) + "</button>";
+      }).join("");
+
+      return sectionHead(sec) +
+        '<figure class="chart-card" data-item data-compare>' +
+          '<div class="cmp-switch" role="group" aria-label="' +
+            escapeHtml(t(sec.switchLabel) || t(sec.title)) + '">' + buttons + "</div>" +
+          '<div class="chart-wrap">' +
+            '<svg viewBox="0 0 ' + W + " " + H + '" role="img" ' +
+              'preserveAspectRatio="xMidYMid meet" aria-label="' +
+              escapeHtml(compareA11y(sec, 0)) + '">' +
+              "<title>" + escapeHtml(t(sec.title)) + "</title>" +
+              '<line class="axis-line" x1="' + padL + '" y1="' + r(baseY) +
+                '" x2="' + r(W - padR) + '" y2="' + r(baseY) + '" />' +
+              bars +
+            "</svg>" +
+          "</div>" +
+          '<p class="cmp-note">' + escapeHtml(t(views[0].note)) + "</p>" +
+          '<p class="sr-only" aria-live="polite"></p>' +
+        "</figure>";
     }
   };
+
+  /* Thousands separators for axis and end labels; the raw numbers run to five
+     digits and read as noise without them. */
+  function fmtNum(v) {
+    var parts = String(Math.round(v * 100) / 100).split(".");
+    /* Group the integer part only. Running the usual thousands regex over the
+       whole string puts a comma inside the decimals — 581.69 came out 5,81.69. */
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+  /* The accessible name for one view of a `compare` chart. */
+  function compareA11y(sec, idx) {
+    var v = (sec.views || [])[idx];
+    if (!v) return t(sec.title);
+    return t(sec.title) + TITLESEP + t(v.label) + LBLSEP +
+      (v.series || []).map(function (d) {
+        return t(d.label) + LBLSEP + d.value;
+      }).join(LISTSEP);
+  }
 
   /* icon shown in the section nav pill, keyed by type */
   var NAV_ICONS = {
     hero: "auto_awesome", cards: "grid_view", navcards: "library_books", timeline: "timeline",
     bars: "bar_chart", accordion: "quiz", quotes: "format_quote",
-    prose: "article", cta: "campaign"
+    prose: "article", cta: "campaign",
+    table: "table_chart", lines: "show_chart", mermaid: "account_tree",
+    compare: "compare_arrows"
   };
 
   /* =======================================================================
@@ -361,6 +594,163 @@
       sectionsEl.appendChild(el);
     });
     wireCards();
+  }
+
+  /* =======================================================================
+     CROSS-YEAR BLOCK WIRING
+     Each of these runs after paintSections(), because all three operate on
+     nodes the renderers just created.
+     ===================================================================== */
+
+  /* A horizontally scrolling box has to be keyboard-reachable, or its
+     right-hand columns belong to mouse users only. But a tabindex on a box
+     that fits is a stop that focuses nothing and says nothing — the dead Tab
+     stop problem. So the attribute is added from a measurement, not from
+     markup, and re-measured whenever the width changes. */
+  function setupScrollers() {
+    var boxes = [].slice.call(document.querySelectorAll("[data-scroller]"));
+    if (!boxes.length) return;
+
+    function sync() {
+      boxes.forEach(function (box) {
+        var overflows = box.scrollWidth - box.clientWidth > 1;
+        if (overflows) {
+          box.setAttribute("tabindex", "0");
+          box.setAttribute("role", "region");
+        } else {
+          box.removeAttribute("tabindex");
+          box.removeAttribute("role");
+        }
+      });
+    }
+    sync();
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(sync);
+      boxes.forEach(function (b) { ro.observe(b); });
+    } else {
+      window.addEventListener("resize", sync, { passive: true });
+    }
+    /* Table columns are sized by their text, so the fonts arriving can turn a
+       box that fitted into one that scrolls. Nothing fires for that. */
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sync).catch(function () { /* ignore */ });
+    }
+  }
+
+  /* The `compare` block: switch which dataset the bars show. */
+  function setupCompare() {
+    [].forEach.call(document.querySelectorAll("[data-compare]"), function (fig) {
+      var secId = fig.closest(".section") && fig.closest(".section").id;
+      var sec = null;
+      for (var i = 0; i < SECTIONS.length; i++) {
+        if (SECTIONS[i].id === secId) { sec = SECTIONS[i]; break; }
+      }
+      if (!sec || !sec.views) return;
+
+      var max = 1;
+      sec.views.forEach(function (v) {
+        (v.series || []).forEach(function (d) { if (d.value > max) max = d.value; });
+      });
+      var svg   = fig.querySelector("svg");
+      var note  = fig.querySelector(".cmp-note");
+      var live  = fig.querySelector("[aria-live]");
+      var bars  = [].slice.call(fig.querySelectorAll(".cmp-bar"));
+      var vals  = [].slice.call(fig.querySelectorAll(".cmp-val"));
+      var btns  = [].slice.call(fig.querySelectorAll(".cmp-btn"));
+
+      function show(idx) {
+        var view = sec.views[idx];
+        if (!view) return;
+        bars.forEach(function (b, i) {
+          var d = view.series[i];
+          if (d) b.style.transform = "scaleY(" + (Math.round((d.value / max) * 100) / 100) + ")";
+        });
+        vals.forEach(function (el, i) {
+          var d = view.series[i];
+          if (d) el.textContent = fmtNum(d.value);
+        });
+        if (note) note.textContent = t(view.note);
+        if (svg) svg.setAttribute("aria-label", compareA11y(sec, idx));
+        btns.forEach(function (b, i) {
+          b.setAttribute("aria-pressed", i === idx ? "true" : "false");
+        });
+        /* Changing an aria-label on an element that already has focus
+           elsewhere announces nothing. A short live region is the only way the
+           switch is audible — scoped to one line, not the whole figure. */
+        if (live) live.textContent = t(view.label) + LBLSEP + t(view.note);
+      }
+
+      btns.forEach(function (b, i) {
+        b.addEventListener("click", function () { show(i); });
+      });
+    });
+  }
+
+  /* The `mermaid` block. The library is ~300KB over the wire, so it is fetched
+     only when a diagram is about to be seen, and only once per page. Until
+     then — and forever, for a reader with JS off or the CDN blocked — the
+     prose equivalent already in the box is the content. */
+  var mermaidState = { loading: false, ready: false, nodes: [] };
+
+  function renderMermaid(el) {
+    if (!window.mermaid || !el.dataset.mermaid) return;
+    var id = "mmd-" + Math.random().toString(36).slice(2, 9);
+    try {
+      var out = window.mermaid.render(id, el.dataset.mermaid);
+      /* mermaid 10+ returns a promise; 9 returned the svg string directly. */
+      if (out && typeof out.then === "function") {
+        out.then(function (res) { el.innerHTML = res.svg; })
+           .catch(function () { /* keep the prose fallback */ });
+      } else if (typeof out === "string") {
+        el.innerHTML = out;
+      }
+    } catch (e) { /* keep the prose fallback */ }
+  }
+
+  function initMermaid() {
+    if (!window.mermaid) return;
+    window.mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral",
+      fontFamily: "Manrope, system-ui, sans-serif"
+    });
+    mermaidState.ready = true;
+    mermaidState.nodes.forEach(renderMermaid);
+  }
+
+  function setupMermaid() {
+    mermaidState.nodes = [].slice.call(document.querySelectorAll(".mmd[data-mermaid]"));
+    if (!mermaidState.nodes.length) return;
+    if (mermaidState.ready) { mermaidState.nodes.forEach(renderMermaid); return; }
+    if (mermaidState.loading) return;
+
+    function load() {
+      if (mermaidState.loading) return;
+      mermaidState.loading = true;
+      var sc = document.createElement("script");
+      sc.src = "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js";
+      sc.async = true;
+      sc.onload = initMermaid;
+      sc.onerror = function () { mermaidState.loading = false; };
+      document.head.appendChild(sc);
+    }
+
+    if (!window.IntersectionObserver) { load(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { io.disconnect(); load(); }
+      });
+    }, { rootMargin: "300px 0px" });
+    mermaidState.nodes.forEach(function (n) { io.observe(n); });
+  }
+
+  /* Mermaid bakes its palette into the SVG at render time, so a theme switch
+     needs the diagram built again — re-theming the existing nodes is not
+     something the library exposes. */
+  function refreshMermaid() {
+    if (!mermaidState.ready || !mermaidState.nodes.length) return;
+    initMermaid();
   }
 
   function paintNav() {
@@ -435,6 +825,9 @@
     setupNavScroll();
     setupReadingAids();
     paintSections();
+    setupScrollers();
+    setupCompare();
+    setupMermaid();
     renderChapterNav();
     setupScrollSpy();
     animateCounters();
@@ -962,6 +1355,7 @@
     document.documentElement.setAttribute("data-theme", state.theme);
     var icon = $("themeIcon");
     if (icon) icon.textContent = state.theme === "dark" ? "light_mode" : "dark_mode";
+    refreshMermaid();
   }
   /* The language switch is a real link to THIS page in the other language
      (English lives under /en/). The href is derived from location.pathname, so
