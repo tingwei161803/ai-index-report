@@ -372,7 +372,14 @@
           (row.cells || []).map(function (cell, i) {
             var cls = [];
             if (cols[i] && cols[i].num) cls.push("is-num");
-            if (cell.tone) cls.push("is-" + cell.tone);
+            /* Every other data string in this renderer goes through
+               escapeHtml(); tone was the one that did not, and it lands
+               inside a class attribute where a quote would break out of it.
+               Shipping data only ever uses "strong" and "absent", so nothing
+               was exploitable — but the rule this file follows is that data
+               never reaches the DOM unescaped, and one silent exception is
+               how that rule stops being true. */
+            if (cell.tone) cls.push("is-" + escapeHtml(t(cell.tone)));
             /* A cell showing "—" announces as nothing at all. Where the dash
                means something, the meaning goes in text only AT can reach and
                the dash itself is hidden from it. */
