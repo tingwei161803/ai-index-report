@@ -31,17 +31,17 @@ window.SITE_SECTIONS = [
     type: "hero",
     id: "overview",
     nav:      { en: "Overview", zh: "總覽" },
-    title:    { en: "Two editions, one trend line",
-                zh: "兩個版本，一條趨勢線" },
-    subtitle: { en: "The AI Index is an independent Stanford HAI initiative that has tracked artificial intelligence since 2017 — across research, technical performance, responsible AI, the economy, science and medicine, policy, education, and public opinion. Reading two editions side by side shows something no single edition can: the rate of change. These figures compare the 2026 edition (measuring 2025) against the 2025 edition (measuring 2024).",
-                zh: "AI 指數是史丹佛 HAI 自 2017 年起的獨立計畫，橫跨研發、技術表現、負責任 AI、經濟、科學與醫療、政策、教育與民意。把兩個版本並排來看，會顯露出單一版本看不見的東西：變化的速度。以下數字是 2026 版(衡量 2025 年)與 2025 版(衡量 2024 年)的對照。" },
+    title:    { en: "Five editions, five years, one trend line",
+                zh: "五個版本、五年，一條趨勢線" },
+    subtitle: { en: "The AI Index is an independent Stanford HAI initiative that has tracked artificial intelligence since 2017 — across research, technical performance, responsible AI, the economy, science and medicine, policy, education, and public opinion. This site holds five editions, covering calendar years 2021 through 2025. Reading them together shows two things no single edition can: the rate of change, and the places where the Index has since revised what it said. A few numbers that set the scene:",
+                zh: "AI 指數是史丹佛 HAI 自 2017 年起的獨立計畫，橫跨研發、技術表現、負責任 AI、經濟、科學與醫療、政策、教育與民意。本站收錄五個版本，涵蓋 2021 至 2025 年。把它們放在一起看，會顯露出單一版本看不見的兩件事：變化的速度，以及指數後來改口的地方。先看幾個定錨的數字：" },
     stats: [
-      { label: { en: "% growth in global corporate AI investment, 2024 → 2025", zh: "% 全球企業 AI 投資成長，2024 → 2025" }, value: 131 },
-      { label: { en: "% of organizations using AI in 2025 (78% a year earlier)", zh: "% 2025 年使用 AI 的組織(一年前為 78%)" }, value: 88 },
-      { label: { en: "AI incidents logged in 2025 (233 in 2024)", zh: "2025 年 AI 事故通報件數(2024 年為 233)" }, value: 362 },
-      { label: { en: "US private AI investment in 2025 (US$ bn; 109.1 in 2024)", zh: "2025 年美國私人 AI 投資(十億美元；2024 年為 109.1)" }, value: 286 },
-      { label: { en: "% of notable models coming from industry, both years", zh: "% 重要模型來自產業界，兩年皆然" }, value: 90 },
-      { label: { en: "editions covered on this site", zh: "本站收錄的版本數" }, value: 4 }
+      { label: { en: "calendar years covered, 2021 through 2025", zh: "涵蓋的年份，2021 至 2025 年" }, value: 5 },
+      { label: { en: "% of organizations using AI in 2025 (50% in 2022)", zh: "% 2025 年使用 AI 的組織(2022 年為 50%)" }, value: 88 },
+      { label: { en: "% growth in global corporate AI investment, 2024 → 2025", zh: "% 全球企業 AI 投資成長，2024 → 2025" }, value: 129.9 },
+      { label: { en: "AI incidents logged in 2025 (123 in 2023)", zh: "2025 年 AI 事故通報件數(2023 年為 123)" }, value: 362 },
+      { label: { en: "US$ millions of compute to train Gemini Ultra in 2023; GPT-2 cost $50,000 in 2019", zh: "百萬美元 — 2023 年訓練 Gemini Ultra 的算力成本；2019 年 GPT-2 為 5 萬美元" }, value: 191 },
+      { label: { en: "chapters across the five editions — the structure changes every year", zh: "五個版本的章節總數 — 結構每年都在變" }, value: 39 }
     ]
   },
 
@@ -61,6 +61,14 @@ window.SITE_SECTIONS = [
                    zh: "衡量 2025 年。九大章節 — 科學與醫療分列為兩章。投資翻倍有餘，組織採用率達 88%，而勞動市場的訊號最先出現在最年輕的工作者身上。" },
         tags: ["2025 data", "9 chapters"],
         cta: { en: "Open the 2026 edition", zh: "開啟 2026 版" }
+      },
+      {
+        href: "2022/index.html",
+        title:   { en: "2022 edition · 5th", zh: "2022 版 · 第 5 版" },
+        summary: { en: "Reports on 2021. Five chapters — the most compact edition here, with the economy and education sharing one. Investment doubles while the number of companies receiving it falls for a third year, and robotic arms halve in price.",
+                   zh: "衡量 2021 年。五大章節，是本站收錄中結構最精簡的一版，經濟與教育共用一章。投資翻倍，拿到錢的公司卻連續第三年變少，而機器手臂的價格腰斬。" },
+        tags: ["2021 data", "5 chapters"],
+        cta: { en: "Open the 2022 edition", zh: "開啟 2022 版" }
       },
       {
         href: "2023/index.html",
@@ -94,13 +102,16 @@ window.SITE_SECTIONS = [
     type: "bars",
     id: "investment",
     nav:      { en: "Investment", zh: "投資" },
-    title:    { en: "The money roughly doubled in a single year",
-                zh: "資金在一年內大致翻倍" },
-    subtitle: { en: "Global corporate AI investment — the broadest measure, covering private investment, mergers and acquisitions, and public offerings. Figures in billions of US dollars, by the calendar year measured.",
-                zh: "全球企業 AI 投資 — 最廣義的口徑，涵蓋私人投資、併購與公開發行。單位為十億美元，依所衡量的年份標示。" },
+    title:    { en: "A peak, a two-year trough, then a doubling",
+                zh: "一個高點、兩年低谷，然後翻倍" },
+    subtitle: { en: "Global corporate AI investment in billions of US dollars — private investment, mergers and acquisitions, minority stakes and public offerings combined. Every bar is taken from the 2026 edition's own back-series, not from what each edition said at the time: the underlying dataset has been revised, and 2021 in particular is now reported at roughly double its original figure. See 'How to read this site' below.",
+                zh: "全球企業 AI 投資，單位十億美元，涵蓋私人投資、併購、少數股權與公開發行。每一根長條都取自 2026 版自己的回溯序列，而不是各版當年報的數字：底層資料集被修訂過，其中 2021 年現在的數字約是原本的兩倍。詳見下方「怎麼讀這個站」。" },
     series: [
-      { label: { en: "2024", zh: "2024" }, value: 252.3 },
-      { label: { en: "2025", zh: "2025" }, value: 582 }
+      { label: { en: "2021", zh: "2021" }, value: 360.73 },
+      { label: { en: "2022", zh: "2022" }, value: 253.25 },
+      { label: { en: "2023", zh: "2023" }, value: 201 },
+      { label: { en: "2024", zh: "2024" }, value: 253.02 },
+      { label: { en: "2025", zh: "2025" }, value: 581.69 }
     ]
   },
 
@@ -109,11 +120,12 @@ window.SITE_SECTIONS = [
     type: "bars",
     id: "adoption",
     nav:      { en: "Adoption", zh: "企業採用" },
-    title:    { en: "Adoption kept climbing from an already high base",
-                zh: "採用率在已經很高的基礎上繼續攀升" },
-    subtitle: { en: "Share of surveyed organizations reporting AI use. The jump from 55% to 78% between 2023 and 2024 was the steepest; 2025 adds ten more points on top of it.",
-                zh: "受訪組織回報已使用 AI 的比例。2023 至 2024 年由 55% 躍升至 78% 是最陡的一段；2025 年在此之上再加十個百分點。" },
+    title:    { en: "Flat for years, then a step change",
+                zh: "平了好幾年，然後一階跳上去" },
+    subtitle: { en: "Share of surveyed organizations reporting AI use. Adoption sat between 50% and 60% for years — the 2023 edition called it a plateau — and then jumped 23 points in 2024. Unlike the investment series, these figures need no restating: each edition's own back-reference matches the next edition's starting point.",
+                zh: "受訪組織回報已使用 AI 的比例。採用率有好幾年停在 50% 至 60% 之間，2023 版當時稱之為「進入平原」，接著在 2024 年一口氣跳升 23 個百分點。與投資序列不同，這組數字不需要修訂：每一版自己回溯的數字，都與下一版的起點吻合。" },
     series: [
+      { label: { en: "2022", zh: "2022" }, value: 50 },
       { label: { en: "2023", zh: "2023" }, value: 55 },
       { label: { en: "2024", zh: "2024" }, value: 78 },
       { label: { en: "2025", zh: "2025" }, value: 88 }
@@ -127,9 +139,10 @@ window.SITE_SECTIONS = [
     nav:      { en: "Incidents", zh: "風險事件" },
     title:    { en: "Reported incidents rose alongside deployment",
                 zh: "通報的事故隨部署一同上升" },
-    subtitle: { en: "AI-related incidents logged in the AI Incidents Database. Rising counts reflect both more real-world failures and better reporting — the database itself notes that coverage improves each year.",
-                zh: "AI 事故資料庫(AI Incidents Database)登錄的 AI 相關事故件數。數字上升同時反映真實故障增加與通報改善 — 資料庫本身即指出其涵蓋率逐年提高。" },
+    subtitle: { en: "AI-related incidents logged in the AI Incident Database. Rising counts reflect both more real-world failures and better reporting — the database itself notes that coverage improves each year. The line starts at 2023 on purpose: editions before 2024 counted incidents from a different database (AIAAIC), and the two are not comparable.",
+                zh: "AI 事故資料庫(AI Incident Database)登錄的 AI 相關事故件數。數字上升同時反映真實故障增加與通報改善 — 資料庫本身即指出其涵蓋率逐年提高。這條線刻意從 2023 年開始：2024 版之前的版本用的是另一個資料庫(AIAAIC)，兩者不可比。" },
     series: [
+      { label: { en: "2023", zh: "2023" }, value: 123 },
       { label: { en: "2024", zh: "2024" }, value: 233 },
       { label: { en: "2025", zh: "2025" }, value: 362 }
     ]
@@ -149,11 +162,19 @@ window.SITE_SECTIONS = [
       { type: "p",
         text: { en: "The 2025 edition reports on calendar year 2024; the 2026 edition reports on 2025. This trips people up constantly when comparing figures across sources, so every chart on this site labels the measured year rather than the edition.",
                 zh: "2025 版衡量的是 2024 年；2026 版衡量的是 2025 年。跨來源比對數字時這一點極容易搞混，因此本站所有圖表標示的都是「被衡量的年份」，而非版本名稱。" } },
-      { type: "h3", text: { en: "The chapter structure changed between editions",
-                            zh: "章節結構在版本之間改變過" } },
+      { type: "h3", text: { en: "The chapter structure changes almost every year",
+                            zh: "章節結構幾乎每年都在變" } },
       { type: "p",
-        text: { en: "The 2025 edition has eight chapters, treating Science and Medicine as one. The 2026 edition splits them, giving nine. Chapter numbers therefore do not line up across editions — follow the chapter names, not the numbers.",
-                zh: "2025 版為八章，將科學與醫療視為同一章；2026 版把它們拆開，成為九章。因此章節編號在版本之間並不對齊 — 請認章節名稱，不要認編號。" } },
+        text: { en: "The five editions here have five, eight, nine, eight and nine chapters respectively. The 2022 edition puts the economy and education in one chapter and has no chapter for diversity or public opinion at all. Diversity becomes its own chapter in 2023 and 2024, then disappears. Chapter 3 is called Technical AI Ethics until 2024, when it is renamed Responsible AI. Science and Medicine share a chapter until 2026 splits them. Chapter numbers therefore do not line up across editions — follow the names, not the numbers.",
+                zh: "本站的五個版本分別是五章、八章、九章、八章、九章。2022 版把經濟與教育放在同一章，而且完全沒有多元性與民意這兩章；多元性在 2023 與 2024 版獨立成章，之後又消失。第 3 章在 2024 版之前叫「AI 技術倫理」，該版起改名為「負責任 AI」。科學與醫療一直共用一章，到 2026 版才拆開。因此章節編號在版本之間並不對齊 — 請認名稱，不要認編號。" } },
+      { type: "h3", text: { en: "The same year can have two different numbers",
+                            zh: "同一年可能有兩個不同的數字" } },
+      { type: "p",
+        text: { en: "Two things break naive year-to-year comparison, and both are invisible if you only read one edition. First, the underlying datasets get revised: the 2022 edition put global corporate AI investment for 2021 at $176.5 billion, while the 2026 edition restates the same year at $360.7 billion — more than double. The investment chart above is therefore drawn entirely from the 2026 edition's back-series rather than from what each edition said at the time.",
+                zh: "有兩件事會讓「直接把各年數字接起來」失效，而且只讀單一版本時都看不見。第一，底層資料集會被修訂：2022 版把 2021 年的全球企業 AI 投資記為 1,765 億美元，2026 版則把同一年改記為 3,607 億美元 — 兩倍有餘。因此上方的投資圖表整條線都取自 2026 版的回溯序列，而不是各版當年報的數字。" } },
+      { type: "p",
+        text: { en: "Second, a metric can change its source. Incident counts up to the 2023 edition come from the AIAAIC database; from the 2024 edition onward they come from the AI Incident Database. Chaining the two would draw a line that appears to fall from 260 incidents in 2021 to 123 in 2023, which is an artifact of the switch and not something that happened. The incidents chart above starts at 2023 for that reason.",
+                zh: "第二，同一個指標可能換了來源。事故件數在 2023 版之前取自 AIAAIC 資料庫，2024 版起改用 AI Incident Database。把兩者接起來會畫出一條「從 2021 年的 260 件掉到 2023 年的 123 件」的線，那是換資料庫造成的假象，不是真的發生過的事。上方的事故圖表因此從 2023 年起算。" } },
       { type: "h3", text: { en: "This is a reformatting, not the report",
                             zh: "這是重新編排，不是報告本身" } },
       { type: "p",
