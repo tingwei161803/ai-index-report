@@ -133,7 +133,7 @@ window.SITE_SECTIONS = [
     subtitle: { en: "Population-level AI adoption rate, second half of 2025 (%). Some economies outpace what income predicts; despite leading on investment, the US ranks 24th.",
                 zh: "人口層級的 AI 採用率，2025 下半年(%)。部分經濟體的採用率超越其所得所能預測的水準；美國雖在投資上領先，排名卻僅第 24 名。" },
     series: [
-      { label: { en: "UAE", zh: "阿聯酋" },          value: 64 },
+      { label: { en: "UAE", zh: "阿聯" },          value: 64 },
       { label: { en: "Singapore", zh: "新加坡" },     value: 61 },
       { label: { en: "Norway", zh: "挪威" },          value: 46 },
       { label: { en: "France", zh: "法國" },          value: 44 },
@@ -211,7 +211,7 @@ window.SITE_SECTIONS = [
                    zh: "生成式 AI 在三年內達到 53% 採用率 — 比個人電腦或網際網路都快。" },
         tags: ["diffusion"],
         overview: { en: "Measured from the release of each technology's first mass-market product, generative AI reached approximately 53% adoption within three years — well above the early trajectories of the personal computer (about 69%) and the internet (about 76%) over comparable time frames. Adoption varies widely across countries and correlates strongly with GDP per capita, though some economies outpace what income would predict — including Singapore at roughly 61% and the UAE near 64% population-level adoption in the second half of 2025. Despite its lead in AI investment and model development, the United States ranks 24th, at 28.3%, sitting in the lower half of the global adoption ranking.",
-                    zh: "從每項技術的首個大眾市場產品問世起算，生成式 AI 在三年內達到約 53% 的採用率 — 在可比的時間範圍內，遠高於個人電腦(約 69%)與網際網路(約 76%)的早期軌跡。採用率在各國間差異甚大，並與人均 GDP 高度相關，不過部分經濟體超越其所得所能預測的水準 — 包括新加坡 2025 下半年約 61%、阿聯酋接近 64% 的人口層級採用率。儘管美國在 AI 投資與模型開發上領先，其排名卻僅第 24，為 28.3%，落在全球採用排名的後半段。" }
+                    zh: "從每項技術的首個大眾市場產品問世起算，生成式 AI 在三年內達到約 53% 的採用率 — 在可比的時間範圍內，遠高於個人電腦(約 69%)與網際網路(約 76%)的早期軌跡。採用率在各國間差異甚大，並與人均 GDP 高度相關，不過部分經濟體超越其所得所能預測的水準 — 包括新加坡 2025 下半年約 61%、阿聯接近 64% 的人口層級採用率。儘管美國在 AI 投資與模型開發上領先，其排名卻僅第 24，為 28.3%，落在全球採用排名的後半段。" }
       },
       {
         slug: "robots",

@@ -214,7 +214,7 @@ window.SITE_SECTIONS = [
         slug: "workplace-adoption",
         title:   { en: "Workplace AI: the global South leads", zh: "職場 AI：由全球南方領先" },
         summary: { en: "58% globally use AI at work; over 80% in India, China, Nigeria, UAE, and Saudi Arabia.",
-                   zh: "全球 58% 在工作用 AI；印度、中國、奈及利亞、阿聯酋、沙烏地逾 80%。" },
+                   zh: "全球 58% 在工作用 AI；印度、中國、奈及利亞、阿聯、沙烏地逾 80%。" },
         tags: ["workplace"],
         overview: { en: "A University of Melbourne and KPMG survey of 48,340 people across 47 countries found that in 2025, 58% of employees globally reported using AI at work on a semiregular or regular basis, and 53% said they trust AI for work purposes. Emerging economies are the most active: in India, China, Nigeria, the United Arab Emirates, and Saudi Arabia, over 80% of respondents said they regularly use AI at work, with similarly high trust. By contrast, in most North American and European countries about half of employees use AI tools regularly, with trust several points lower (40%–48%). This inverts the population-level diffusion pattern, where AI adoption correlates strongly with GDP per capita.",
                     zh: "墨爾本大學與 KPMG 對 47 個國家、48,340 人的調查發現，2025 年全球 58% 的員工表示在工作中半規律或規律地使用 AI，53% 表示在工作上信任 AI。新興經濟體最為活躍：在印度、中國、奈及利亞、阿拉伯聯合大公國與沙烏地阿拉伯，逾 80% 受訪者表示在工作中規律使用 AI，信任度也同樣高。相對地，北美與歐洲多數國家約半數員工規律使用 AI 工具，信任度則低數個百分點(40%–48%)。這翻轉了人口層級的擴散模式 — 在後者中，AI 採用與人均 GDP 強烈相關。" }

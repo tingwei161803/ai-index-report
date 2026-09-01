@@ -261,9 +261,9 @@ window.SITE_SECTIONS = [
       },
       {
         slug: "global-mandates",
-        title:   { en: "China and the UAE mandate AI", zh: "中國與阿聯酋將 AI 列為必修" },
+        title:   { en: "China and the UAE mandate AI", zh: "中國與阿聯將 AI 列為必修" },
         summary: { en: "China and the UAE both mandated AI education from the 2025–26 school year.",
-                   zh: "中國與阿聯酋都自 2025–26 學年起將 AI 教育列為必修。" },
+                   zh: "中國與阿聯都自 2025–26 學年起將 AI 教育列為必修。" },
         tags: ["global"],
         overview: { en: "More than 90% of countries now offer computer science to primary or secondary students, and about 93% taught CS in 2025 — but only 30% mandate it. AI education itself has been slower to take hold; in 2025, most countries integrated AI technology into teaching rather than teaching about AI. Two countries moved decisively. In China, Beijing, Guangdong, and Hangzhou began requiring AI education in the 2025–26 school year, following national guides released in May 2025, with minimum instructional hours and a grade-progressed curriculum running from AI literacy in elementary school to designing AI systems in high school. The United Arab Emirates similarly mandated AI education for all grade levels from 2025–26, covering foundational concepts, data and algorithms, software use, project design, and ethical awareness. By contrast, South Korea launched primary-school AI textbooks in March 2025 then reversed course after pushback, and Estonia's AI Leap 2025 is piloting AI tools with 20,000 students and 3,000 teachers.",
                     zh: "逾 90% 的國家現在對中小學生開設資訊科學，約 93% 在 2025 年教資訊科學 — 但只有 30% 列為必修。AI 教育本身則更慢扎根；2025 年多數國家把 AI 技術整合進教學，而非教授 AI 本身。兩個國家果斷邁進。在中國，北京、廣東與杭州自 2025–26 學年起要求 AI 教育，依循 2025 年 5 月發布的國家級指南，設有最低教學時數與逐年級進階的課程，從小學的 AI 素養一路到高中的 AI 系統設計。阿拉伯聯合大公國同樣自 2025–26 學年起將所有年級的 AI 教育列為必修，涵蓋基礎概念、資料與演算法、軟體使用、專案設計與倫理意識。相對地，南韓在 2025 年 3 月推出小學 AI 教科書，卻在反彈後撤回；而愛沙尼亞的 AI Leap 2025 正以 2 萬名學生與 3 千名教師試行 AI 工具。" }
@@ -272,7 +272,7 @@ window.SITE_SECTIONS = [
         slug: "skills-outside",
         title:   { en: "Skills learned outside school", zh: "在校外習得的技能" },
         summary: { en: "AI literacy is outpacing engineering skills — except in the UAE, Chile, and South Africa.",
-                   zh: "AI 素養正勝過工程技能 — 但阿聯酋、智利與南非例外。" },
+                   zh: "AI 素養正勝過工程技能 — 但阿聯、智利與南非例外。" },
         tags: ["skills"],
         overview: { en: "As AI reshapes jobs, people increasingly build AI skills through certificates, online courses, and on-the-job experience — pathways that can broaden access for learners without deep CS or math backgrounds. LinkedIn's relative AI skill-penetration rate puts India first at 3.0 (nearly 3× the global average), ahead of the U.S. (2.0) and Germany (1.8), with a persistent gender gap everywhere (in India, 3.1 for men vs. 1.9 for women). LinkedIn's new AI Skills Diffusion Index separates AI literacy from AI engineering and finds literacy growing faster than engineering in most countries, including India and the U.S. The exceptions are the United Arab Emirates, Chile, and South Africa, where engineering-oriented AI skills show steeper growth since 2022. In the U.S., the fastest-growing literacy skills were AI prompting and Microsoft Copilot Studio, while the fastest-growing engineering skills were AI agents, AI productivity, and AI strategy.",
                     zh: "當 AI 重塑各行各業，人們愈來愈透過證書、線上課程與在職經驗建立 AI 技能 — 這些途徑能為沒有深厚資訊科學或數學背景的學習者拓寬入口。LinkedIn 的相對 AI 技能滲透率把印度排第一，為 3.0(近全球平均的 3 倍)，領先美國(2.0)與德國(1.8)，且各地都有持續的性別落差(在印度，男性 3.1、女性 1.9)。LinkedIn 全新的 AI 技能擴散指數，把 AI 素養與 AI 工程分開，發現在多數國家(包括印度與美國)素養成長快過工程。例外是阿拉伯聯合大公國、智利與南非，當地以工程為導向的 AI 技能自 2022 年起成長更陡。在美國，成長最快的素養技能是 AI 提示與 Microsoft Copilot Studio，成長最快的工程技能則是 AI 代理、AI 生產力與 AI 策略。" }
@@ -299,7 +299,7 @@ window.SITE_SECTIONS = [
                 zh: "只有半數中學訂有 AI 政策，而只有 6% 的教師認為這些政策清楚。" },
         by: "Chapter 7 · Education" },
       { text: { en: "More than 90% of countries now offer computer science to students, and China and the UAE mandated AI education starting in 2025–26.",
-                zh: "逾 90% 的國家現在對學生開設資訊科學，中國與阿聯酋自 2025–26 學年起將 AI 教育列為必修。" },
+                zh: "逾 90% 的國家現在對學生開設資訊科學，中國與阿聯自 2025–26 學年起將 AI 教育列為必修。" },
         by: "Chapter 7 · Education" },
       { text: { en: "New AI PhDs in the U.S. and Canada rose 22% from 2022 to 2024 — and all of that growth went to academia.",
                 zh: "美加新 AI 博士在 2022 到 2024 年間增加 22% — 而所有成長都流向學界。" },
