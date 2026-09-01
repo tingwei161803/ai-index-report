@@ -902,7 +902,11 @@ a { color: inherit; text-decoration: none; }
 .cmp-btn {
   font: inherit; font-size: .84rem; font-weight: 600;
   padding: 7px 14px; min-height: 34px;
-  border: 1px solid var(--outline);
+  /* --outline measures 2.06:1 against the white card in light mode, and the
+     background here is transparent, so this border is the only thing marking
+     out where the control is — which is exactly what WCAG 1.4.11 asks to be
+     3:1. --on-surface-variant measures 5.3:1 light and 6.85:1 dark. */
+  border: 1px solid var(--on-surface-variant);
   border-radius: 999px;
   background: transparent; color: var(--on-surface-variant);
   cursor: pointer;
