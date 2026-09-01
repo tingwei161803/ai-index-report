@@ -705,6 +705,15 @@
       var atStart = rail.scrollLeft <= 1;
       var atEnd   = rail.scrollLeft >= max - 1;
       var scrollable = max > 1;
+      /* Size each fade to what is actually hidden behind it, capped at the
+         full 36px. A fixed fade meant 7px of real overflow blurred out 36px of
+         perfectly visible content — the affordance hid five times more than it
+         signalled, making a label that fits look truncated. */
+      var FADE = 36;
+      rail.style.setProperty("--fade-l",
+        (scrollable ? Math.min(FADE, Math.round(rail.scrollLeft)) : 0) + "px");
+      rail.style.setProperty("--fade-r",
+        (scrollable ? Math.min(FADE, Math.round(max - rail.scrollLeft)) : 0) + "px");
       bar.classList.toggle("sectionnav--fade-l", scrollable && !atStart);
       bar.classList.toggle("sectionnav--fade-r", scrollable && !atEnd);
       left.disabled  = !scrollable || atStart;

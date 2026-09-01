@@ -337,8 +337,11 @@ a { color: inherit; text-decoration: none; }
     #000 calc(100% - var(--fade-r)), transparent 100%);
 }
 .sectionnav__inner::-webkit-scrollbar { display: none; }
-.sectionnav--fade-l .sectionnav__inner { --fade-l: 36px; }
-.sectionnav--fade-r .sectionnav__inner { --fade-r: 36px; }
+/* The widths themselves are set inline by sync() in app.js, sized to how much
+   is actually hidden. These classes remain the on/off switch so the mask can
+   never be left on at an end with nothing behind it. */
+.sectionnav:not(.sectionnav--fade-l) .sectionnav__inner { --fade-l: 0px; }
+.sectionnav:not(.sectionnav--fade-r) .sectionnav__inner { --fade-r: 0px; }
 
 /* Arrow controls: a pointer-only affordance. Keyboard users already reach
    every pill with Tab, so these are aria-hidden and unfocusable (see
