@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>多元性 · AI 指數報告 2024</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2024/diversity.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2024/diversity.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2024/diversity.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2024/diversity.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2024/diversity.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2024》多元性章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Diversity · AI Index Report 2024" />
+  <meta property="og:description" content="A bilingual deep dive into the Diversity chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diversity · AI Index Report 2024" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Diversity chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "多元性 · AI 指數報告 2024",
+    "description": "史丹佛 HAI《人工智慧指數報告 2024》多元性章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2024/diversity.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2024-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2024/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2024</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2024-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2024/diversity.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">十年過去，計算領域的每一層仍有約四分之三是男性</h1><p class="section-head__sub">第 8 章是整份報告裡唯一以「人」而不是「模型」為主體的一章：誰在念資訊科學、誰在教它、誰出現在 NeurIPS、誰去考 AP。報告自己的說法是，打造 AI 的人和使用 AI 的人長得不一樣，而這個落差會把偏誤帶進系統裡。把 2022 年的資料橫著看：族裔組成在動，性別沒有。</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="22.2">22.2</b><span class="hero__stat-label">% 2022 年美加新科資訊科學學士中的女性比例</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="22.1">22.1</b><span class="hero__stat-label">% 新科資訊科學博士中的女性比例(碩士為 26.3%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="24.3">24.3</b><span class="hero__stat-label">% 資訊科學、電腦工程與資訊學系教職員中的女性(新聘為 28.0%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="41.1">41.1</b><span class="hero__stat-label">% 2022 年本國資訊科學博士畢業生中非白人的比例</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="30.5">30.5</b><span class="hero__stat-label">% 2022 年由女學生應考的 AP 資訊科學考卷(2007 年為 16.8%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="714">714</b><span class="hero__stat-label">2023 年 NeurIPS WiML 工作坊的參加人數(2010 年為 89 人)</span></div></div></section><section class="section section--prose" id="north-america" aria-labelledby="north-america-heading"><header class="section-head reveal is-visible"><h2 id="north-america-heading">8.1 — 十年下來，性別那條線幾乎沒動</h2><p class="section-head__sub">電腦研究協會(CRA)每年的 Taulbee 調查追蹤美國與加拿大新科資訊科學畢業生與教職員。四個不同的指標，隔了十年，全部落在同一個很窄的區間裡。</p></header><div class="prose reveal is-visible" data-item=""><p>2022 年，女性佔新科資訊科學學士的 22.2%，是十年攀升的高點；另有 0.1% 認同為非二元或其他。碩士班是三個學位裡最不失衡的，女性佔 26.3% — 但這是從 2011 年的 24.6% 一路走上來的，十一年只增加 1.7 個百分點。博士層級在 2022 年反而略降到 22.1%，報告直說長期趨勢並沒有改變。換句話說，這條管道並不是往上走才變窄，它在最底層就已經很窄了。</p><h3>教職是唯一在往上走的地方</h3><p>截至 2022 年，資訊科學、電腦工程與資訊學系的教職員有 75.6% 是男性、24.3% 是女性、0.1% 是非二元 — 比 2011 年高，但幅度很小。真正值得盯的例外是新聘：2022 年新聘教職員有 28.0% 是女性、71.7% 是男性，報告特別點出這個比例明顯高於新科女性博士的佔比。招聘端發生的事，跑在博士班產出的前面。</p><h3>一個與性別、族裔都無關的數字</h3><p>CRA 連續第二年請各系所回報有多少學生取得身心障礙的學習調整。答案既低且平：2022 年學士 4.1%、碩士 1.5%、博士 1.1%，前一年分別是 4.1%、0.8% 與 1.0%。這一章只說這個比例逐年維持穩定 — 並沒有主張這個數字等於身心障礙學生的實際比例。</p></div></section><section class="section section--bars" id="women-by-level" aria-labelledby="women-by-level-heading"><header class="section-head reveal is-visible"><h2 id="women-by-level-heading">女性在美加資訊科學畢業生與教職員中的比例，2022</h2><p class="section-head__sub">單位：%。五個各自獨立的指標，沒有一個超過 28%，而最高的那個講的是去年聘了誰，不是誰畢業了。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="女性在美加資訊科學畢業生與教職員中的比例，2022：學士：22.2、碩士：26.26、博士：22.1、全體教職：24.27、新聘教職：28"><title>女性在美加資訊科學畢業生與教職員中的比例，2022</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="57.01" width="84.8" height="156.99" rx="5"><title>學士：22.2</title></rect><text class="bar-value" x="58.4" y="51.01" text-anchor="middle">22.2</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">學士</text><rect class="bar-rect" x="116.8" y="28.3" width="84.8" height="185.7" rx="5"><title>碩士：26.26</title></rect><text class="bar-value" x="159.2" y="22.3" text-anchor="middle">26.26</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">碩士</text><rect class="bar-rect" x="217.6" y="57.72" width="84.8" height="156.28" rx="5"><title>博士：22.1</title></rect><text class="bar-value" x="260" y="51.72" text-anchor="middle">22.1</text><text class="bar-label" x="260" y="234" text-anchor="middle">博士</text><rect class="bar-rect" x="318.4" y="42.38" width="84.8" height="171.62" rx="5"><title>全體教職：24.27</title></rect><text class="bar-value" x="360.8" y="36.38" text-anchor="middle">24.27</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">全體教職</text><rect class="bar-rect" x="419.2" y="16" width="84.8" height="198" rx="5"><title>新聘教職：28</title></rect><text class="bar-value" x="461.6" y="10" text-anchor="middle">28</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">新聘教職</text></svg></div></figure></section><section class="section section--prose" id="ethnicity" aria-labelledby="ethnicity-heading"><header class="section-head reveal is-visible"><h2 id="ethnicity-heading">教室裡的白人比例在下降 — 但愈往上走，這個效果愈小</h2><p class="section-head__sub">這是本章真正有變化的部分。自 2011 年以來，亞裔在資訊科學學士畢業生中的比例增加 19.8 個百分點、西語裔增加 5.2 個百分點；以絕對人數看，十年間西語裔畢業生成長 4.7 倍，黑人或非裔美國人畢業生成長 2.5 倍。</p></header><div class="prose reveal is-visible" data-item=""><p>2022 年的本國資訊科學學士畢業生中，白人佔 44.6%、亞裔佔 35.7% — 兩者現在只差九個百分點，十年前的差距遠比這個大。任何種族的西語裔佔 11.0%、多種族佔 4.4%、黑人或非裔美國人佔 4.1%。這些比例背後的人數是：白人 10,970 人、亞裔 8,795 人、西語裔 2,708 人、多種族 1,072 人、黑人或非裔美國人 1,004 人、美洲原住民或阿拉斯加原住民 33 人、夏威夷原住民或太平洋島民 28 人。</p><h3>愈往上，人數就愈少</h3><ul><li>2022 年的碩士畢業生中，白人佔 47.9%、亞裔 35.8%、西語裔 8.2%、黑人或非裔美國人 4.2%、多種族 3.5% — 人數分別是 3,050、2,278、522、269 與 222 人。</li><li>博士畢業生中白人佔 58.9%、亞裔 29.6%，黑人或非裔美國人 5.1%、西語裔 4.7%。合計起來，2022 年有 41.1% 的本國資訊科學博士畢業生不是白人，比 2011 年大幅上升。</li><li>但博士層級的人數少到可以一個一個數：白人 327 人、亞裔 164 人、黑人或非裔美國人 28 人、西語裔 26 人、多種族 7 人、美洲原住民或阿拉斯加原住民 2 人、夏威夷原住民或太平洋島民 1 人。</li><li>教職員是最年長的一層，看起來也就是那樣：白人 57.3%、亞裔 30.1%，接著是西語裔 3.0% 與黑人或非裔美國人 2.5%。白人教職員與次大族群的差距在 2011 年是 46.1 個百分點，到 2021 年縮小到 27.2 個百分點 — 有在收斂，但起點很遠。</li></ul><h3>這份調查看不到的東西</h3><p>上面每一個族裔數字都只涵蓋本國或具居留身分的學生與教職員。CRA 會回報各層級有多少非本國籍人士，卻不包含他們的族裔，所以這些教室裡有相當一部分人根本不在圖表上。這份調查本身也是不完整的：在 297 個被調查的博士授予系所中，有 182 個回覆，回覆率 61%。而 AI 指數也提醒，不要把這份北美資料和接下來的歐洲數字拿去做人均比較，因為歐洲的數字來自各國統計機關，涵蓋範圍大得多。</p></div></section><section class="section section--prose" id="europe" aria-labelledby="europe-heading"><header class="section-head reveal is-visible"><h2 id="europe-heading">歐洲：每一個受調查國家、每一個層級，男性都多於女性</h2><p class="section-head__sub">今年這一章新增了 Informatics Europe 的資料，涵蓋資訊學、資訊科學、電腦工程與資訊科技的畢業生。結論是一面倒的，也是本章三個頭條發現之一。</p></header><div class="prose reveal is-visible" data-item=""><p>學士層級在多數受調查國家由男性主導，而且自 2011 年以來差距只稍微縮小。法國(14.8%)、英國(17.8%)與德國(21.5%)是名單上女性比例最低的幾個 — 歐洲三個最大的計算經濟體，位置就在底部或接近底部。女性畢業生比例最高的是保加利亞，35.2%。</p><p>碩士學位是同一個形狀，但落差更大。愛沙尼亞(42.0%)、羅馬尼亞(41.9%)與保加利亞(40.4%)最接近平衡；比利時(13.7%)、義大利(14.1%)與瑞士(15.8%)離平衡最遠。這個排序值得多看一眼：最接近平衡的三個國家都在歐陸東側，離平衡最遠的三個都在西側，而兩端之間大約差三倍。</p><p>博士畢業生在每一個受調查國家都是男性居多，沒有例外。英國、德國與瑞士的差距在過去十年縮小，女性佔比逐漸提高；芬蘭與西班牙則略為擴大。不過這些變動要小心讀 — 群體一小，一年就能把百分比甩來甩去。2022 年保加利亞總共產出 24 位博士、愛沙尼亞 26 位、拉脫維亞 12 位。還有一個標示上的細節：這裡的年份指的是學年結束的那一年，所以 2022 年對應的是 2021/2022 學年。</p></div></section><section class="section section--bars" id="europe-masters" aria-labelledby="europe-masters-heading"><header class="section-head reveal is-visible"><h2 id="europe-masters-heading">女性在資訊學、資訊科學、電腦工程與資訊科技碩士畢業生中的比例，2022</h2><p class="section-head__sub">單位：%，取受調查歐洲國家中最高的三個與最低的兩個。沒有人達到平衡，而兩端之間的差距大約是三倍。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="女性在資訊學、資訊科學、電腦工程與資訊科技碩士畢業生中的比例，2022：愛沙尼亞：42、羅馬尼亞：41.9、保加利亞：40.4、義大利：14.1、比利時：13.7"><title>女性在資訊學、資訊科學、電腦工程與資訊科技碩士畢業生中的比例，2022</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>愛沙尼亞：42</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">42</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">愛沙尼亞</text><rect class="bar-rect" x="116.8" y="16.47" width="84.8" height="197.53" rx="5"><title>羅馬尼亞：41.9</title></rect><text class="bar-value" x="159.2" y="10.47" text-anchor="middle">41.9</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">羅馬尼亞</text><rect class="bar-rect" x="217.6" y="23.54" width="84.8" height="190.46" rx="5"><title>保加利亞：40.4</title></rect><text class="bar-value" x="260" y="17.54" text-anchor="middle">40.4</text><text class="bar-label" x="260" y="234" text-anchor="middle">保加利亞</text><rect class="bar-rect" x="318.4" y="147.53" width="84.8" height="66.47" rx="5"><title>義大利：14.1</title></rect><text class="bar-value" x="360.8" y="141.53" text-anchor="middle">14.1</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">義大利</text><rect class="bar-rect" x="419.2" y="149.41" width="84.8" height="64.59" rx="5"><title>比利時：13.7</title></rect><text class="bar-value" x="461.6" y="143.41" text-anchor="middle">13.7</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">比利時</text></svg></div></figure></section><section class="section section--cards" id="conferences" aria-labelledby="conferences-heading"><header class="section-head reveal is-visible"><h2 id="conferences-heading">8.2 — 2023 年 NeurIPS 的 WiML 工作坊長什麼樣</h2><p class="section-head__sub">Women in Machine Learning 成立於 2006 年，每年在 NeurIPS 舉辦技術工作坊。這是本章唯一一扇看向研討會端的窗 — 四個指標，每一個都附帶它自己的但書。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="wiml-attendance" aria-label="714 人參加，連兩年下滑"><h3 class="card__title">714 人參加，連兩年下滑</h3><p class="card__summary">2023 年的工作坊有 714 人參加 — 幾乎是 2010 年 89 人的八倍，但比前兩年都低。</p><div class="card__tags"><span class="tag">neurips</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="wiml-share" aria-label="佔整場會議的 4.4%"><h3 class="card__title">佔整場會議的 4.4%</h3><p class="card__summary">以 NeurIPS 總參加人數計，2023 年的 WiML 工作坊佔 4.4%。</p><div class="card__tags"><span class="tag">attendance</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="wiml-geography" aria-label="超過一半住在北美"><h3 class="card__title">超過一半住在北美</h3><p class="card__summary">在填答的參加者中，56.4% 住在北美、21.8% 在歐洲、11.4% 在亞洲、8.9% 在非洲。</p><div class="card__tags"><span class="tag">geography</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="wiml-gender" aria-label="84.2% 認同為女性"><h3 class="card__title">84.2% 認同為女性</h3><p class="card__summary">在填答調查的參加者中，84.2% 認同為女性、10.0% 為男性、3.2% 為非二元。</p><div class="card__tags"><span class="tag">gender</span></div></article></div></section><section class="section section--prose" id="k12" aria-labelledby="k12-heading"><header class="section-head reveal is-visible"><h2 id="k12-heading">8.3 — AP 資訊科學考卷中女生的比例幾乎翻倍。但仍不到三分之一。</h2><p class="section-head__sub">Code.org 關於 AP 資訊科學的資料，是本章看向學齡端管道的視角。兩種考試 — Computer Science A 與 Computer Science Principles — 是合併計算的。</p></header><div class="prose reveal is-visible" data-item=""><p>2022 年，男學生應考 68.9% 的 AP 資訊科學考卷，女學生 30.5%，認同為兩者皆非的學生 0.7%。女性比例在 2007 年是 16.8%，十五年來幾乎翻倍 — 這是本章裡跑得最快的性別數字，而它仍然以超過二比一的差距處在少數。</p><h3>各州地圖不照你想的那樣跑</h3><p>2022 年 AP 資訊科學考生中女性比例最高的州是密西西比(41%)、阿拉巴馬(37%)與華盛頓特區(37%)。加州、德州與華盛頓州 — 通常被拿來當資訊科學與 AI 重鎮的那幾個 — 各自落在約 31%，不差，但差得遠。另一端則是堪薩斯(16%)、北達科他(18%)與愛荷華(18%)。不管是什麼造就了一個性別平衡的考生群體，那都不是離產業近。</p><h3>族裔在這裡也在動</h3><p>白人學生仍是 AP 資訊科學考生中最大的一群，佔 38.2%，其次是亞裔 27.8% 與西語裔 17.6%；黑人或非裔美國人學生 6.7%，兩種以上族裔的學生 4.6%。美洲原住民與阿拉斯加原住民學生 0.6%，夏威夷原住民與太平洋島民學生 0.15%。換成考卷數是：白人 77,070 份、亞裔 56,098 份、西語裔 35,528 份、黑人或非裔美國人 13,577 份、兩種以上族裔 9,293 份、美洲原住民與阿拉斯加原住民 1,285 份、夏威夷原住民與太平洋島民 295 份。亞裔、西語裔與黑人或非裔美國人學生的參與逐年上升 — 方向和高等教育的數字一致，這也是本章第三個頭條發現。</p></div></section><section class="section section--bars" id="ap-ethnicity" aria-labelledby="ap-ethnicity-heading"><header class="section-head reveal is-visible"><h2 id="ap-ethnicity-heading">AP 資訊科學考卷的種族與族裔組成，2022</h2><p class="section-head__sub">單位：% 佔填答學生總數。兩個群體拿走三分之二的考卷；接下來三個加起來不到 30%。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="AP 資訊科學考卷的種族與族裔組成，2022：白人：38.23、亞裔：27.82、西語裔：17.62、黑人：6.73、多族裔：4.61"><title>AP 資訊科學考卷的種族與族裔組成，2022</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>白人：38.23</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">38.23</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">白人</text><rect class="bar-rect" x="116.8" y="69.92" width="84.8" height="144.08" rx="5"><title>亞裔：27.82</title></rect><text class="bar-value" x="159.2" y="63.92" text-anchor="middle">27.82</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">亞裔</text><rect class="bar-rect" x="217.6" y="122.74" width="84.8" height="91.26" rx="5"><title>西語裔：17.62</title></rect><text class="bar-value" x="260" y="116.74" text-anchor="middle">17.62</text><text class="bar-label" x="260" y="234" text-anchor="middle">西語裔</text><rect class="bar-rect" x="318.4" y="179.14" width="84.8" height="34.86" rx="5"><title>黑人：6.73</title></rect><text class="bar-value" x="360.8" y="173.14" text-anchor="middle">6.73</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">黑人</text><rect class="bar-rect" x="419.2" y="190.12" width="84.8" height="23.88" rx="5"><title>多族裔：4.61</title></rect><text class="bar-value" x="461.6" y="184.12" text-anchor="middle">4.61</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">多族裔</text></svg></div></figure></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用四句話看這一章</h2><p class="section-head__sub">三個章節重點，加上概述最後承認的那件事。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>美加的資訊科學學士、碩士與博士學生持續變得更具族裔多元性。自 2011 年以來，亞裔資訊科學學士畢業生的比例增加 19.8 個百分點，西語裔則增加 5.2 個百分點。</blockquote><figcaption class="quote-by">— Chapter 8 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>每一個受調查的歐洲國家，在資訊學、資訊科學、電腦工程與資訊科技的學士、碩士與博士學程中，男性畢業生都多於女性。雖然多數國家的性別差距在過去十年有縮小，但縮小的速度很慢。</blockquote><figcaption class="quote-by">— Chapter 8 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>由女學生應考的 AP 資訊科學考卷比例，從 2007 年的 16.8% 上升到 2022 年的 30.5%。</blockquote><figcaption class="quote-by">— Chapter 8 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>關於 AI 趨勢的人口統計資料，尤其在性傾向這類面向上，仍然稀少。AI 指數呼籲 AI 領域的其他利害關係人加大力度，追蹤與 AI 相關的多元性趨勢。</blockquote><figcaption class="quote-by">— Chapter 8 · Diversity</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 8 章原文</h2><p>第 8 章(8.1–8.3 各節)連同所有圖表、註腳與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與九大章節總覽。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2024 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2024》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2024/diversity.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2024/data/site.js"></script>
+  <script src="../../2024/data/diversity.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>

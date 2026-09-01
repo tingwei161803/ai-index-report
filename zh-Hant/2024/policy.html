@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>政策與治理 · AI 指數報告 2024</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2024/policy.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2024/policy.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2024/policy.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2024/policy.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2024/policy.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2024》政策與治理章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Policy and Governance · AI Index Report 2024" />
+  <meta property="og:description" content="A bilingual deep dive into the Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Policy and Governance · AI Index Report 2024" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2024." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "政策與治理 · AI 指數報告 2024",
+    "description": "史丹佛 HAI《人工智慧指數報告 2024》政策與治理章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2024/policy.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2024-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2024/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2024</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2024-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2024/policy.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">所有人都在談 AI，真正把規則寫下來的是監管機關</h1><p class="section-head__sub">AI 指數 2024 第 7 章講的是 2023 年 — AI 政策討論真正全球化的一年。全球立法關注度大約翻倍，美國國會提出 181 件 AI 相關法案、通過 1 件，而真正落地的是行政機關的動作 — 25 項聯邦法規，一年之內成長 56.3%。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="181">181</b><span class="hero__stat-label">2023 年美國國會提出的 AI 相關法案數(2022 年為 88 件)，通過 1 件</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="25">25</b><span class="hero__stat-label">2023 年美國聯邦機關發布的 AI 相關法規數(2016 年僅 1 項)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="56.3">56.3</b><span class="hero__stat-label">美國 AI 相關法規在這一年的成長率(%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="2175">2,175</b><span class="hero__stat-label">2023 年 80 個國家立法程序中提及 AI 的次數(2022 年為 1,247 次)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="21">21</b><span class="hero__stat-label">2023 年發布 AI 法規的美國監管機關數(2022 年為 17 個)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="75">75</b><span class="hero__stat-label">截至 2024 年 1 月全球發布的國家 AI 戰略數(2023 年新增 8 份)</span></div></div></section><section class="section section--timeline" id="year-in-policy" aria-labelledby="year-in-policy-heading"><header class="section-head reveal is-visible"><h2 id="year-in-policy-heading">7.1 — AI 政策變成全球話題的這一年</h2><p class="section-head__sub">AI 指數指導委員會選出的 2023 年最重要 AI 政策事件。中國最早出手監管，美國參議院忙著擬案，白宮下了行政命令，英國辦了高峰會，而布魯塞爾在年底談成了協議。</p></header><ol class="timeline"><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 1 月 10 日</span><h3 class="tl-title">中國規範網路「深度合成」</h3><p class="tl-body">中國推出針對「深度合成」技術的規範，處理擬真虛擬人物與多模態媒體(包含深偽)帶來的安全問題。規範同時適用於提供者與使用者、橫跨各類媒體，要求防止違法內容、驗證使用者身分、生物特徵編輯須取得同意、保障資料安全，並落實內容審核。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 3 月 22 日</span><h3 class="tl-title">美國議員提出《國家安全 AI 法案》</h3><p class="tl-body">這項跨黨派法案釐清並確立國防部採購 AI 端點安全工具的權限，使其能自動偵測並緩解對網路與數位基礎設施的威脅，也讓國防部採用商用技術的速度足以跟上對手。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 6 月 20 日</span><h3 class="tl-title">美國議員提案設立國家 AI 委員會</h3><p class="tl-body">《國家 AI 委員會法案》要求成立一個委員會，負責擬定完整的 AI 監管框架。這項跨黨派提案強調 AI 的變化速度與複雜度需要專家意見，重點在降低風險，同時維持美國在 AI 研發上的領先。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 7 月 21 日</span><h3 class="tl-title">七家 AI 公司簽署白宮自願承諾</h3><p class="tl-body">拜登-賀錦麗政府取得 Google、Microsoft、Meta、Amazon、OpenAI、Anthropic 與 Inflection 七家公司的自願承諾。內容包括模型上線前的內外部安全評估、分享已辨識的風險資訊、開放外界通報問題，以及揭露內容是否由 AI 生成。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 7 月 27 日</span><h3 class="tl-title">美國參議院提出《CREATE AI 法案》</h3><p class="tl-body">這項法案要設立「國家 AI 研究資源」(NAIRR)，一套讓研究者與學生能取得算力、整理過的資料集、教學工具與 AI 測試平台的國家級基礎設施，目標是強化美國測試與評估 AI 系統的能力。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 8 月 15 日</span><h3 class="tl-title">中國放軟生成式 AI 管理辦法</h3><p class="tl-body">更新後的政策改採更有針對性的做法，管的是有公共影響的應用，而不是一律全管。用語也從「確保資料的真實性、準確性、客觀性、多樣性」改成「採取有效措施提高訓練資料品質」，修訂後的規定轉為鼓勵生成式 AI 發展，而非以懲罰為主軸。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 9 月 12 日</span><h3 class="tl-title">美國參議院法案鎖定選舉中的欺騙性 AI</h3><p class="tl-body">跨黨派的《保護選舉免於欺騙性 AI 法案》要禁止以 AI 製作在政治廣告中不實呈現聯邦候選人的實質欺騙性內容，並禁止散布關於聯邦公職候選人的欺騙性 AI 生成影音素材。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 9 月 18 日</span><h3 class="tl-title">英國提出 AI 市場競爭原則</h3><p class="tl-body">英國競爭與市場管理局提出一套原則，要維持 AI 市場的競爭並保護消費者：對 AI 輸出負責、持續取得關鍵投入要素、商業模式多元、企業有選擇權、可彈性在不同模型之間切換，以及以公平做法防止反競爭行為。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 10 月 30 日</span><h3 class="tl-title">拜登總統簽署安全、可靠、值得信任 AI 行政命令</h3><p class="tl-body">這道命令為 AI 安全與資安、隱私保護、平權與公民權利、競爭與創新訂出新標準。它要求提出一份國安備忘錄，規範 AI 在軍事與情報上的使用；責成教育部處理 AI 在教育中的安全使用；鼓勵聯邦通訊委員會評估 AI 對電信的影響；並指示 NIST 制定開發與部署安全、可靠、合乎倫理 AI 的指引與最佳實務。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 10 月 30 日</span><h3 class="tl-title">英國前沿 AI 任務小組發布第二份進度報告</h3><p class="tl-body">任務小組與主要 AI 組織建立新的合作關係，並推進英國的 AI 研究資源建置 — 名為 Isambard-AI 的超級電腦，專為運算密集的安全研究而設。報告也說明它與領先企業的合作，讓小組能提早取用對方的模型。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 11 月 1 日</span><h3 class="tl-title">英國在布萊切利園主辦 AI 安全高峰會</h3><p class="tl-body">高峰會促成《布萊切利宣言》，由包含中國與美國在內的 28 個國家背書，是 AI 安全上一次重要的全球共識。英國同時揭幕全球第一所 AI 安全研究院。外界反應不一，部分專家認為政策力道還可以更大。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 11 月 2 日</span><h3 class="tl-title">英國宣布成立 AI 安全研究院</h3><p class="tl-body">這是第一個由政府支持、以公共利益推進 AI 安全的機構，目標是建立理解與治理先進 AI 風險所需的社會技術框架、進行基礎安全研究，並打造有效 AI 治理所需的技術工具，把英國推成全球安全研究的重鎮。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2023 年 12 月 9 日</span><h3 class="tl-title">歐洲就歐盟 AI 法案達成協議</h3><p class="tl-body">歐洲立法者就 AI 法案達成臨時協議，建立以風險為基礎的監管框架：行為操縱等不可接受風險的系統遭禁止，高風險系統再分為產品類與關鍵領域類，生成式 AI 必須符合透明度標準，深偽等低風險 AI 則負基本透明義務。這部法案在 2024 年正式通過。</p></div></li></ol></section><section class="section section--prose" id="legislation" aria-labelledby="legislation-heading"><header class="section-head reveal is-visible"><h2 id="legislation-heading">7.2 — 國會提出 181 件法案，通過 1 件</h2><p class="section-head__sub">AI 指數追蹤了 128 個國家在 2016 至 2023 年間含有「人工智慧」一詞的立法。關注度幾乎在各地都上升，但真正成為法律的部分沒有跟上同樣的速度 — 華府尤其如此。</p></header><div class="prose reveal is-visible" data-item=""><p>在分析的 128 個國家中，只有 32 個至少通過一部 AI 相關法律，自 2016 年起全球共 148 部。2023 年的年產出其實還下滑了，從前一年的 39 部降到 28 部，但仍遠高於 2016 年的僅僅 1 部。2023 年由比利時以 5 部領先，法國、南韓與英國各 3 部。累計來看，美國以 23 部居首，葡萄牙(15)與比利時(12)次之。而這些立法多數其實不是在談 AI：2023 年通過的 28 部法案裡，只有 2 部被歸為與 AI 高度相關，18 部為中度相關。</p><h3>聯邦的瓶頸</h3><p>在美國國會，提出的 AI 相關法案從 2022 年的 88 件翻倍成長到 2023 年的 181 件。通過的有 1 件。興趣在委員會報告裡更看得出來：到 2023 年底為止，第 118 屆會期已提及 AI 48 次，而這屆會期當時才走了一半左右(會期到 2025 年 1 月)，AI 指數因此判斷它有機會超越 2001 年開始追蹤以來的所有會期。眾議院以撥款委員會與科學、太空與技術委員會各 7 次領先；參議院則是撥款委員會的 9 次最多。</p><h3>各州沒有等</h3><p>各州議會在 2023 年提出 150 件 AI 相關法案，高於 2022 年的 61 件，其中 38 件成為法律 — 通過比例遠高於聯邦層級。加州以 7 部新法領先，維吉尼亞(5)與馬里蘭(3)次之。2016 至 2023 年累計，加州共通過 13 部，領先馬里蘭(10)與華盛頓州(7) — 也就是說，加州八年產出的一半以上是在 2023 這一年出現的。</p><h3>關注度比法律好量</h3><ul><li>立法程序中提及 AI 的次數在分析的 80 個國家中幾乎翻倍，從 2022 年的 1,247 次來到 2023 年的 2,175 次 — 自 2016 年以來成長近十倍。這 80 國中有 48 國至少提到 AI 一次，而且每個大洲都至少有一個國家討論過 AI。</li><li>2023 年由英國以 405 次領先，美國(240)與澳洲(227)次之。若把 2016 至 2023 年加總，排序也差不多：英國以 1,490 次居首，西班牙(886)與美國(868)在後。</li><li>已通過 AI 法律涵蓋的主題明顯變廣。過去它集中在經濟與公共財政，因為 AI 條文常搭著撥款法案一起走；2023 年則在六個不同類別各通過 2 部 — 武裝部隊與國家安全、公民權利與自由、商業、教育、勞動與就業，以及科學、技術與傳播。</li></ul></div></section><section class="section section--bars" id="state-laws" aria-labelledby="state-laws-heading"><header class="section-head reveal is-visible"><h2 id="state-laws-heading">美國各州通過的 AI 法律數，2016–23</h2><p class="section-head__sub">各州累計通過成為法律的 AI 相關法案數。加州的 13 部裡有 7 部是 2023 一年之內通過的 — 而到那一年年底，全美仍有 25 個州一部都沒有。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="美國各州通過的 AI 法律數，2016–23：加州：13、馬里蘭：10、華盛頓州：7、維吉尼亞：6、麻州：6、佛蒙特：4"><title>美國各州通過的 AI 法律數，2016–23</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="68" height="198" rx="5"><title>加州：13</title></rect><text class="bar-value" x="50" y="10" text-anchor="middle">13</text><text class="bar-label" x="50" y="234" text-anchor="middle">加州</text><rect class="bar-rect" x="100" y="61.69" width="68" height="152.31" rx="5"><title>馬里蘭：10</title></rect><text class="bar-value" x="134" y="55.69" text-anchor="middle">10</text><text class="bar-label" x="134" y="234" text-anchor="middle">馬里蘭</text><rect class="bar-rect" x="184" y="107.38" width="68" height="106.62" rx="5"><title>華盛頓州：7</title></rect><text class="bar-value" x="218" y="101.38" text-anchor="middle">7</text><text class="bar-label" x="218" y="234" text-anchor="middle">華盛頓州</text><rect class="bar-rect" x="268" y="122.62" width="68" height="91.38" rx="5"><title>維吉尼亞：6</title></rect><text class="bar-value" x="302" y="116.62" text-anchor="middle">6</text><text class="bar-label" x="302" y="234" text-anchor="middle">維吉尼亞</text><rect class="bar-rect" x="352" y="122.62" width="68" height="91.38" rx="5"><title>麻州：6</title></rect><text class="bar-value" x="386" y="116.62" text-anchor="middle">6</text><text class="bar-label" x="386" y="234" text-anchor="middle">麻州</text><rect class="bar-rect" x="436" y="153.08" width="68" height="60.92" rx="5"><title>佛蒙特：4</title></rect><text class="bar-value" x="470" y="147.08" text-anchor="middle">4</text><text class="bar-label" x="470" y="234" text-anchor="middle">佛蒙特</text></svg></div></figure></section><section class="section section--bars" id="country-laws" aria-labelledby="country-laws-heading"><header class="section-head reveal is-visible"><h2 id="country-laws-heading">各國通過的 AI 相關法律數，2016–23</h2><p class="section-head__sub">在分析的 128 個國家中，只有 32 個曾通過任何一部 AI 相關法律。這六個國家就佔了全球 148 部總數的一半以上。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="各國通過的 AI 相關法律數，2016–23：美國：23、葡萄牙：15、比利時：12、西班牙：11、南韓：11、義大利：10"><title>各國通過的 AI 相關法律數，2016–23</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="68" height="198" rx="5"><title>美國：23</title></rect><text class="bar-value" x="50" y="10" text-anchor="middle">23</text><text class="bar-label" x="50" y="234" text-anchor="middle">美國</text><rect class="bar-rect" x="100" y="84.87" width="68" height="129.13" rx="5"><title>葡萄牙：15</title></rect><text class="bar-value" x="134" y="78.87" text-anchor="middle">15</text><text class="bar-label" x="134" y="234" text-anchor="middle">葡萄牙</text><rect class="bar-rect" x="184" y="110.7" width="68" height="103.3" rx="5"><title>比利時：12</title></rect><text class="bar-value" x="218" y="104.7" text-anchor="middle">12</text><text class="bar-label" x="218" y="234" text-anchor="middle">比利時</text><rect class="bar-rect" x="268" y="119.3" width="68" height="94.7" rx="5"><title>西班牙：11</title></rect><text class="bar-value" x="302" y="113.3" text-anchor="middle">11</text><text class="bar-label" x="302" y="234" text-anchor="middle">西班牙</text><rect class="bar-rect" x="352" y="119.3" width="68" height="94.7" rx="5"><title>南韓：11</title></rect><text class="bar-value" x="386" y="113.3" text-anchor="middle">11</text><text class="bar-label" x="386" y="234" text-anchor="middle">南韓</text><rect class="bar-rect" x="436" y="127.91" width="68" height="86.09" rx="5"><title>義大利：10</title></rect><text class="bar-value" x="470" y="121.91" text-anchor="middle">10</text><text class="bar-label" x="470" y="234" text-anchor="middle">義大利</text></svg></div></figure></section><section class="section section--prose" id="regulation" aria-labelledby="regulation-heading"><header class="section-head reveal is-visible"><h2 id="regulation-heading">7.4 — 美國政策真正在動的地方是法規</h2><p class="section-head__sub">法規是行政機關為執行立法而擬定的細部指令。2023 年美國國會只通過 1 件 AI 法案，行政機關卻發布了 25 項 AI 相關法規，而且明顯偏向限制。</p></header><div class="prose reveal is-visible" data-item=""><p>AI 指數在涵蓋逾 436 個機關的《聯邦公報》上搜尋「人工智慧」，找到 2023 年有 25 項 AI 相關法規，相對於 2016 年的僅僅 1 項，光是這一年就成長了 56.3%。它們來自 21 個不同機關，高於 2022 年的 17 個，而新加入者本身就說明了 AI 擴散得多廣：運輸部、能源部與職業安全衛生署都在 2023 年發布了各自的第一項 AI 相關法規。總統行政辦公室與商務部各以 5 項最多，衛生及公共服務部與工業暨安全局各 4 項次之。</p><h3>偏向限制，而且愈來愈明顯</h3><p>2023 年有 10 項限制型 AI 法規，擴張型只有 3 項 — 與 2020 年恰好相反，那年是 4 項擴張、1 項限制。法規也愈來愈貼近 AI 本身：25 項中有 4 項被歸為與 AI 高度相關，是 2016 年開始追蹤以來最多的一年。高度相關的例子是著作權局與國會圖書館針對含 AI 生成素材作品的登記指引；中度相關的例子則是證券交易委員會的網路安全風險管理與事件揭露規則。以主題來看，對外貿易與國際金融以 3 項居首，健康、商業與科學技術傳播各 2 項次之。</p><h3>布魯塞爾：法規變多，含 AI 量卻更低</h3><ul><li>歐盟的 AI 相關法規從 2022 年的 22 項增加到 2023 年的 32 項，仍未回到 2021 年 46 項的高峰。AI 指數在 EUR-Lex 上搜尋，只計入具有拘束力的法規文件。</li><li>2023 年通過的 32 項中，2 項與 AI 高度相關、13 項中度、17 項低度 — 實質 AI 含量的比例比同一年的美國低。</li><li>主要來源是歐盟理事會(13 項)與歐洲議會(9 項)。最常見的主題是科學、技術與傳播(5 項)以及政府運作與政治(3 項)，後者包括一份關於包容且韌性選舉程序的建議，明確處理 AI 生成的政治不實資訊。</li></ul></div></section><section class="section section--cards" id="landmarks" aria-labelledby="landmarks-heading"><header class="section-head reveal is-visible"><h2 id="landmarks-heading">定義 2023 年的六個動作</h2><p class="section-head__sub">這一年政策制定者用上的工具 — 一部法案、一道行政命令、一場高峰會、一組承諾、兩份中國規範，以及 75 份國家戰略。點開卡片看細節。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="eu-ai-act" aria-label="歐盟 AI 法案協議"><h3 class="card__title">歐盟 AI 法案協議</h3><p class="card__summary">2023 年 12 月 9 日，歐洲立法者就全球第一部全面性 AI 法律達成臨時協議，隔年正式通過。</p><div class="card__tags"><span class="tag">eu</span><span class="tag">regulation</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="biden-executive-order" aria-label="拜登的 AI 行政命令"><h3 class="card__title">拜登的 AI 行政命令</h3><p class="card__summary">2023 年 10 月 30 日簽署，是該年美國最受矚目的 AI 政策動作，也是眾多機關開始訂 AI 規則的原因。</p><div class="card__tags"><span class="tag">us</span><span class="tag">regulation</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="bletchley-declaration" aria-label="布萊切利園與第一所安全研究院"><h3 class="card__title">布萊切利園與第一所安全研究院</h3><p class="card__summary">11 月 1 日的英國 AI 安全高峰會促成一份由 28 國背書的宣言，中國與美國都在其中。</p><div class="card__tags"><span class="tag">safety</span><span class="tag">uk</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="voluntary-commitments" aria-label="七家公司，一份自願承諾"><h3 class="card__title">七家公司，一份自願承諾</h3><p class="card__summary">7 月 21 日，拜登-賀錦麗政府取得七家主要 AI 公司的自願承諾 — 比歐盟達成協議早了五個月。</p><div class="card__tags"><span class="tag">us</span><span class="tag">voluntary</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="china-rulebooks" aria-label="中國兩度出手，其中一次放軟"><h3 class="card__title">中國兩度出手，其中一次放軟</h3><p class="card__summary">1 月的深度合成規範，接著是 8 月修訂的生成式 AI 辦法 — 從全面管制改為針對性管理。</p><div class="card__tags"><span class="tag">china</span><span class="tag">regulation</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="national-strategies" aria-label="75 份國家 AI 戰略，還在增加"><h3 class="card__title">75 份國家 AI 戰略，還在增加</h3><p class="card__summary">加拿大在 2017 年 3 月發布第一份。到 2024 年 1 月共有 75 份，其中 8 份是 2023 年新增的。</p><div class="card__tags"><span class="tag">strategy</span></div></article></div></section><section class="section section--prose" id="investment" aria-labelledby="investment-heading"><header class="section-head reveal is-visible"><h2 id="investment-heading">7.5 — AI 預算緩步前進，晶片預算暴衝</h2><p class="section-head__sub">2023 年美國聯邦的 AI 研發經費與 AI 契約支出都只微幅移動，但支撐 AI 的微電子支出，一年之內成長超過五成。</p></header><div class="prose reveal is-visible" data-item=""><p>國家科學與技術委員會每年公布 NITRD 計畫與國家 AI 倡議底下各機關的公部門 AI 研發預算。2023 會計年度，美國政府機關撥給 AI 研發的總額是 18 億美元，這個數字從 2018 會計年度起逐年上升，相較當年的 5.6 億美元已經增為三倍以上。2024 會計年度的請求則是 19 億美元。就 2024 會計年度的各機關請求金額來看，國家科學基金會以 5.31 億美元最高，DARPA 的 3.221 億美元與國家衛生研究院的 2.845 億美元次之。這些報告不含機密 AI 研發，所以只能當成下限，不是全貌。</p><h3>五角大廈自己那條預算</h3><p>國防部另外會公布它為非機密、AI 專用的研究、開發、測試與評估所請求的金額。2024 會計年度它要求 18 億美元，比 2023 會計年度的 11 億美元大幅增加 — 單一個部會請求的金額，就大約等於整個 NITRD 的 AI 研發預算。</p><h3>契約、補助，以及成長跑到哪去了</h3><ul><li>Govini 追蹤的美國政府 AI 與自主系統總支出只微幅上升，從 2022 年的 32 億美元到 2023 年的 33 億美元 — 不過這已經接近 2018 年水準的 2.4 倍。</li><li>變動比較大的是組成而不是總額。機器學習拿到 15 億美元、年增 72%，電腦視覺 10 億美元、年增 17%；自主系統則下滑 56% 至 5.5 億美元，自然語言處理成長 28% 至 2.3 億美元。</li><li>2023 會計年度，主約契約佔撥出總額的 50.6%、補助佔 47.6% — 16.8 億美元對 15.8 億美元，另有 0.6 億美元屬於其他交易授權(OTA)。這一年契約的佔比下降，補助的佔比上升。</li><li>AI 指數也追蹤微電子支出，因為近年 AI 進展仰賴 GPU；這筆錢從 2022 年的 25 億美元跳到 2023 年的 39 億美元 — 比整條 AI 與自主系統的預算還多，而且絕大多數(33.3 億美元)是以契約形式發出。</li></ul></div></section><section class="section section--bars" id="spending-segments" aria-labelledby="spending-segments-heading"><header class="section-head reveal is-visible"><h2 id="spending-segments-heading">美國政府 AI 支出的分項組成，2023 會計年度</h2><p class="section-head__sub">單位：百萬美元。ML 為機器學習(年增 72%)、CV 為電腦視覺(年增 17%)、NLP 為自然語言處理(年增 28%)；自主系統則下滑 56%。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="美國政府 AI 支出的分項組成，2023 會計年度：機器學習：1510、電腦視覺：1040、自主系統：550、自然語言：230"><title>美國政府 AI 支出的分項組成，2023 會計年度</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="110" height="198" rx="5"><title>機器學習：1510</title></rect><text class="bar-value" x="71" y="10" text-anchor="middle">1510</text><text class="bar-label" x="71" y="234" text-anchor="middle">機器學習</text><rect class="bar-rect" x="142" y="77.63" width="110" height="136.37" rx="5"><title>電腦視覺：1040</title></rect><text class="bar-value" x="197" y="71.63" text-anchor="middle">1040</text><text class="bar-label" x="197" y="234" text-anchor="middle">電腦視覺</text><rect class="bar-rect" x="268" y="141.88" width="110" height="72.12" rx="5"><title>自主系統：550</title></rect><text class="bar-value" x="323" y="135.88" text-anchor="middle">550</text><text class="bar-label" x="323" y="234" text-anchor="middle">自主系統</text><rect class="bar-rect" x="394" y="183.84" width="110" height="30.16" rx="5"><title>自然語言：230</title></rect><text class="bar-value" x="449" y="177.84" text-anchor="middle">230</text><text class="bar-label" x="449" y="234" text-anchor="middle">自然語言</text></svg></div></figure></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用五句話看這一章</h2><p class="section-head__sub">第 7 章「政策與治理」的頭條發現。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2023 年美國有 25 項 AI 相關法規，2016 年只有 1 項。光是這一年，AI 相關法規總數就成長了 56.3%。</blockquote><figcaption class="quote-by">— Chapter 7 · Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2023 年美國聯邦層級的 AI 相關立法大幅增加，提出 181 件法案，是 2022 年 88 件的兩倍以上。</blockquote><figcaption class="quote-by">— Chapter 7 · Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>全球立法程序中提及 AI 的次數幾乎翻倍，從 2022 年的 1,247 次上升到 2023 年的 2,175 次。</blockquote><figcaption class="quote-by">— Chapter 7 · Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>發布 AI 法規的美國監管機關從 2022 年的 17 個增加到 2023 年的 21 個，顯示更廣泛的美國監管單位開始關切 AI 監管問題。</blockquote><figcaption class="quote-by">— Chapter 7 · Policy and Governance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>歐盟就 AI 法案的條款達成協議，這部指標性法律在 2024 年正式通過。同時，拜登總統簽署了 AI 行政命令，是該年美國最受矚目的 AI 政策動作。</blockquote><figcaption class="quote-by">— Chapter 7 · Policy and Governance</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 7 章原文</h2><p>第 7 章(7.1–7.5 各節)連同所有圖表與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與九大章節總覽。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2024 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2024》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2024/policy.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2024/data/site.js"></script>
+  <script src="../../2024/data/policy.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
