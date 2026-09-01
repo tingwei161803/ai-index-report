@@ -55,7 +55,9 @@
           navHome: "Overview", navHomeTitle: "Back to the AI Index" + YR + " overview",
           navYears: "All years", navYearsTitle: "Back to the year index",
           allChapters: "All chapters", prevCh: "Previous", nextCh: "Next",
-          ghStar: "Star this project on GitHub", toTop: "Back to top" },
+          ghStar: "Star this project on GitHub", toTop: "Back to top",
+          theme: "Toggle theme", home: "Back to peteraim.com",
+          linkedin: "LinkedIn (opens in a new tab)" },
     zh: { footer: "非官方教育性整理 · 資料來源：史丹佛 HAI《人工智慧指數報告" + YR + "》(CC BY-ND 4.0)· 以零建置純靜態網站打造。",
           close: "關閉", menu: "本頁導覽",
           srcLink: "前往史丹佛 HAI 官方報告", srcLinkTxt: "Stanford HAI",
@@ -63,7 +65,9 @@
           navHome: "總覽", navHomeTitle: "回到 AI 指數" + YR + " 總覽",
           navYears: "所有年度", navYearsTitle: "回到年度總覽",
           allChapters: "所有章節", prevCh: "上一章", nextCh: "下一章",
-          ghStar: "到 GitHub 給這個專案一顆星", toTop: "回到頂端" }
+          ghStar: "到 GitHub 給這個專案一顆星", toTop: "回到頂端",
+          theme: "切換深淺色主題", home: "回到 peteraim.com",
+          linkedin: "LinkedIn(開新分頁)" }
   };
 
   /* ---------- safe localStorage (sandbox / file:// may throw) ---------- */
@@ -400,14 +404,22 @@
     if (foot) foot.textContent = ui("footer");
     var nav = $("sectionNav");
     if (nav) nav.setAttribute("aria-label", ui("menu"));
-    var dc = $("dialogClose");
-    if (dc) dc.setAttribute("aria-label", ui("close"));
+    /* #dialogClose is handled by the generic [data-i18n] pass below now, so it
+       is not set here as well — two places writing the same attribute is how
+       they end up disagreeing. */
     // generic [data-i18n] chrome (source link text + title, etc.)
     [].slice.call(document.querySelectorAll("[data-i18n]")).forEach(function (el) {
       var val = (I18N[state.lang] || I18N.en)[el.dataset.i18n];
       if (val == null) return;
+      /* Comma-separated so one string can serve both the accessible name and
+         the tooltip — a control whose aria-label is translated but whose title
+         is not just moves the problem from one group of users to another. */
       var attr = el.dataset.i18nAttr;
-      if (attr) el.setAttribute(attr, val); else el.textContent = val;
+      if (attr) {
+        attr.split(",").forEach(function (a) { el.setAttribute(a.trim(), val); });
+      } else {
+        el.textContent = val;
+      }
     });
   }
 
