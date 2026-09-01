@@ -514,7 +514,16 @@ a { color: inherit; text-decoration: none; }
   box-shadow: var(--elev-2);
   transform: translateY(-2px);
   border-color: var(--outline);
-  outline: none;
+}
+/* A .card is role="button" tabindex="0". The lift and the border change it
+   shares with :hover come to 1.63:1 between focused and unfocused in light
+   mode — WCAG 2.2 SC 2.4.11 wants 3:1 — and the rule used to add
+   `outline: none` on top, removing the browser ring that was carrying the
+   whole indicator. Draw one deliberately instead of borrowing the hover
+   styling and hoping it reads as focus. */
+.card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 /* Link cards --------------------------------------------------------------
