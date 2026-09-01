@@ -467,7 +467,14 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -.025em;
   line-height: 1.06;
 }
-.section--hero .section-head__sub { max-width: 62ch; font-size: 1.05rem; }
+/* 62ch would be the natural way to write this, but `ch` is the advance of
+   the "0" glyph, so it resolves against whatever font is active. Before
+   Manrope arrives the fallback gives 578px; after it arrives, 635px. That
+   57px widening is what puts a second, larger LCP candidate on this page —
+   see the note in app.js about paintSections() rebuilding <main>. A rem
+   value is the same measure once the font is there, and does not move.
+   39.7rem = the 62ch this resolved to in Manrope at 1.05rem. */
+.section--hero .section-head__sub { max-width: 39.7rem; font-size: 1.05rem; }
 .hero__stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
