@@ -964,6 +964,18 @@
       applyTheme();
     });
 
+    /* Another tab wrote a choice. applyTheme() deliberately no longer touches
+       storage, so this event is the only way this tab hears about it — without
+       it the two tabs disagree, and the matchMedia guard below (which reads
+       storage, not this tab's state) would then also stop this tab following
+       the system, leaving it inert to both inputs until reloaded.
+       `storage` fires only in OTHER tabs, so there is no self-echo to guard. */
+    window.addEventListener("storage", function (e) {
+      if (e.key !== "theme" || !e.newValue) return;
+      state.theme = e.newValue;
+      applyTheme();
+    });
+
     /* Track the system while the reader has expressed no preference of their
        own. Once they have, their choice outranks the OS and we stop listening
        to it. */
