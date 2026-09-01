@@ -435,9 +435,16 @@
   function closeChMenu() {
     var m = $("chMenu");
     if (!m) return;
+    var wasOpen = m.classList.contains("ch-menu--open");
     m.classList.remove("ch-menu--open");
     var btn = $("chMenuBtn");
     if (btn) btn.setAttribute("aria-expanded", "false");
+    /* The panel becomes display:none, so a focused link inside it would leave
+       focus on <body> — nothing announced, no focus ring, and the next Tab
+       starting from wherever the browser happens to resume. Hand focus back to
+       the control that opened it. Only when focus was actually inside, so a
+       click elsewhere on the page does not get yanked back here. */
+    if (wasOpen && btn && m.contains(document.activeElement)) btn.focus();
   }
 
   /* Going up a level is a different move from moving sideways between
@@ -478,7 +485,7 @@
     var cur = window.SITE_CHAPTER || null;
     function row(num, name, href, active) {
       return '<a class="ch-menu__item' + (active ? " ch-menu__item--active" : "") + '" href="' +
-        escapeHtml(href) + '" role="menuitem"' + (active ? ' aria-current="page"' : "") + ">" +
+        escapeHtml(href) + '"' + (active ? ' aria-current="page"' : "") + ">" +
         '<span class="ch-menu__num">' + escapeHtml(String(num)) + "</span>" +
         "<span>" + escapeHtml(name) + "</span></a>";
     }
@@ -497,7 +504,11 @@
         '<span class="nav-link__txt">' + escapeHtml(ui("navChapters")) + "</span>" +
         '<span class="material-symbols-rounded ch-menu__caret" aria-hidden="true">expand_more</span>' +
       "</button>" +
-      '<div class="ch-menu__panel" id="chMenuPanel" role="menu">' + items + "</div>";
+      /* No role="menu". That role puts screen readers into application mode and
+         hands them the arrow keys, which nothing here implements — so the keys
+         simply did nothing. What this actually is, and always was, is a
+         disclosure: a button with aria-expanded revealing a list of links. */
+      '<div class="ch-menu__panel" id="chMenuPanel">' + items + "</div>";
 
     var star = $("ghStar");
     if (star && star.nextSibling) actions.insertBefore(wrap, star.nextSibling);
