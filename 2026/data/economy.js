@@ -32,7 +32,7 @@ window.SITE_SECTIONS = [
       { label: { en: "US private AI investment in 2025 (US$ billions; 23× China's)", zh: "2025 年美國私人 AI 投資(十億美元；為中國的 23 倍)" }, value: 286 },
       { label: { en: "US consumer surplus from generative AI (US$ billions, up from 112)", zh: "美國生成式 AI 消費者剩餘(十億美元，由 112 上升)" }, value: 172 },
       { label: { en: "% of organizations now using AI (up from prior years)", zh: "% 已使用 AI 的組織(較往年上升)" }, value: 88 },
-      { label: { en: "% generative-AI adoption reached within three years", zh: "% 生成式 AI 在三年內達到的採用率" }, value: 53 }
+      { label: { en: "% generative-AI adoption in three years (US sample)", zh: "% 生成式 AI 三年內達到的採用率(美國樣本)" }, value: 53 }
     ]
   },
 
@@ -133,7 +133,7 @@ window.SITE_SECTIONS = [
     subtitle: { en: "Population-level AI adoption rate, second half of 2025 (%). Some economies outpace what income predicts; despite leading on investment, the US ranks 24th.",
                 zh: "人口層級的 AI 採用率，2025 下半年(%)。部分經濟體的採用率超越其所得所能預測的水準；美國雖在投資上領先，排名卻僅第 24 名。" },
     series: [
-      { label: { en: "UAE", zh: "阿聯酋" },          value: 64 },
+      { label: { en: "UAE", zh: "阿聯" },          value: 64 },
       { label: { en: "Singapore", zh: "新加坡" },     value: 61 },
       { label: { en: "Norway", zh: "挪威" },          value: 46 },
       { label: { en: "France", zh: "法國" },          value: 44 },
@@ -210,8 +210,8 @@ window.SITE_SECTIONS = [
         summary: { en: "Generative AI reached 53% adoption in three years — faster than the PC or the internet.",
                    zh: "生成式 AI 在三年內達到 53% 採用率 — 比個人電腦或網際網路都快。" },
         tags: ["diffusion"],
-        overview: { en: "Measured from the release of each technology's first mass-market product, generative AI reached approximately 53% adoption within three years — well above the early trajectories of the personal computer (about 69%) and the internet (about 76%) over comparable time frames. Adoption varies widely across countries and correlates strongly with GDP per capita, though some economies outpace what income would predict — including Singapore at roughly 61% and the UAE near 64% population-level adoption in the second half of 2025. Despite its lead in AI investment and model development, the United States ranks 24th, at 28.3%, sitting in the lower half of the global adoption ranking.",
-                    zh: "從每項技術的首個大眾市場產品問世起算，生成式 AI 在三年內達到約 53% 的採用率 — 在可比的時間範圍內，遠高於個人電腦(約 69%)與網際網路(約 76%)的早期軌跡。採用率在各國間差異甚大，並與人均 GDP 高度相關，不過部分經濟體超越其所得所能預測的水準 — 包括新加坡 2025 下半年約 61%、阿聯酋接近 64% 的人口層級採用率。儘管美國在 AI 投資與模型開發上領先，其排名卻僅第 24，為 28.3%，落在全球採用排名的後半段。" }
+        overview: { en: "Measured from the release of each technology's first mass-market product, generative AI reached approximately 53% adoption within three years — well above where the personal computer and the internet stood at the same age. The comparison is about speed, not ceiling: on the same chart the internet is labelled at 76% around year 14 and the personal computer at 69% around year 23, both far later in their curves. The 53% itself is a US figure, from the RPS/CPS sample of adults aged 18–64. Adoption varies widely across countries and correlates strongly with GDP per capita, though some economies outpace what income would predict — including Singapore at roughly 61% and the UAE near 64% population-level adoption in the second half of 2025. Despite its lead in AI investment and model development, the United States ranks 24th, at 28.3%, sitting in the lower half of the global adoption ranking.",
+                    zh: "從每項技術的首個大眾市場產品問世起算，生成式 AI 在三年內達到約 53% 的採用率 — 遠高於個人電腦與網際網路在同樣年紀時的水準。這個比較講的是速度而非天花板：同一張圖上，網際網路標在第 14 年左右的 76%、個人電腦標在第 23 年左右的 69%，都在各自曲線上遠更後面的位置。而這個 53% 本身是美國數字，樣本為 RPS/CPS 的 18–64 歲成年人。採用率在各國間差異甚大，並與人均 GDP 高度相關，不過部分經濟體超越其所得所能預測的水準 — 包括新加坡 2025 下半年約 61%、阿聯接近 64% 的人口層級採用率。儘管美國在 AI 投資與模型開發上領先，其排名卻僅第 24，為 28.3%，落在全球採用排名的後半段。" }
       },
       {
         slug: "robots",
