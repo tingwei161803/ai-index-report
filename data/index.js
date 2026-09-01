@@ -190,8 +190,8 @@ window.SITE_SECTIONS = [
       { label: { en: "Private investment only", zh: "僅私人投資" },
         values: [145.4, 113.01, 104.34, 151.48, 344.66], dash: "6 4" }
     ],
-    foot: { en: "Both lines are read from the 2026 edition's own back-series, not assembled from what each edition said at the time. The 2023 total is printed as a whole number in the source; every other year carries two decimals.",
-            zh: "兩條線都取自 2026 版自己的回溯序列，而不是把各版當年的說法接起來。2023 年的總額在原文中就是印成整數，其餘每一年都有兩位小數。" }
+    foot: { en: "Both lines are read from the 2026 edition's own back-series, not assembled from what each edition said at the time. Two values are printed with fewer decimals than the rest, and both are copied exactly as the source has them: the 2023 corporate total is a whole number (201), and the 2021 private figure carries one decimal (145.4).",
+            zh: "兩條線都取自 2026 版自己的回溯序列，而不是把各版當年的說法接起來。有兩個數字的小數位比其餘的少，兩個都是照原文原樣抄錄：2023 年的企業投資總額是整數(201)，2021 年的私人投資則只有一位小數(145.4)。" }
   },
 
   /* ------------------------------------------------------ THE REVISIONS */
