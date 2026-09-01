@@ -422,12 +422,12 @@ window.SITE_SECTIONS = [
       { type: "ul",
         items: {
           en: [
-            "Global AI laws passed: the country coverage changed in every single edition — 25 countries, then 127, then 128. The raw counts are not a time series at all.",
+            "Global AI laws passed: the country coverage changed in every single edition — 25 countries, then 127, then 128, then down to 114, and finally to the G20 alone on a different data source. The 2026 edition states it outright: its numbers “may differ from what was reported in the 2025 AI Index report, as the methodology has changed.” The raw counts are not a time series at all.",
             "Legislative mentions of AI: coverage shrank from 81 countries to about 75, and the 2026 edition dropped the metric entirely, replacing it with a US-only proxy.",
             "US federal AI regulations: the one metric on this page whose definition never moved, which is why it is the one drawn beside incident counts above."
           ],
           zh: [
-            "全球通過的 AI 法案數：涵蓋國家數每一版都不同 — 25 國、127 國、128 國。原始數字根本不構成一條時間序列。",
+            "全球通過的 AI 法案數：涵蓋國家數每一版都不同 — 25 國、127 國、128 國，接著下修到 114 國，最後只剩 G20，而且換了資料來源。2026 版自己講得很明白：其數字「可能與 2025 版 AI 指數報告所載不同，因為方法已經改變」。原始數字根本不構成一條時間序列。",
             "立法程序中提及 AI 的次數：涵蓋範圍從 81 國縮到約 75 國，而 2026 版乾脆把這個指標拿掉，改用一個只涵蓋美國的替代指標。",
             "美國聯邦 AI 法規數：本頁唯一定義從未變動過的指標 — 這也正是上面把它拿來與事故件數並排的原因。"
           ]
