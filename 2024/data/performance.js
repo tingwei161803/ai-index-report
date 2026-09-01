@@ -117,7 +117,7 @@ window.SITE_SECTIONS = [
         text: { en: "Human preference became a metric", zh: "人類偏好變成了指標" } },
       { type: "p",
         text: { en: "Launched in 2023, the Chatbot Arena Leaderboard lets anyone query two anonymous models and vote for the better answer. By early 2024 it had gathered over 200,000 votes, and users ranked OpenAI’s GPT-4 Turbo as the most preferred model, with an Elo rating of 1,252 for the best closed model against 1,149 for the best open one. The AI Index frames this as a shift in kind: with generative models producing high-quality text and images, benchmarking is moving away from computerized rankings such as ImageNet or SQuAD and toward human evaluation. Public feeling about AI is becoming part of how progress gets measured.",
-                zh: "2023 年上線的 Chatbot Arena 排行榜，讓任何人向兩個匿名模型提問，再投票給比較好的答案。到 2024 年初已累積超過 200,000 張投票，使用者把 OpenAI 的 GPT-4 Turbo 評為最受偏好的模型;最佳封閉模型的 Elo 為 1,252，最佳開放模型為 1,149。AI 指數認為這是評測性質的轉向：當生成式模型能產出高品質的文字與影像，評測就從 ImageNet 或 SQuAD 這類電腦化排名，轉向人類評估。大眾對 AI 的感受，正在成為衡量進展的一部分。" } },
+                zh: "2023 年上線的 Chatbot Arena 排行榜，讓任何人向兩個匿名模型提問，再投票給比較好的答案。到 2024 年初已累積超過 200,000 張投票，使用者把 OpenAI 的 GPT-4 Turbo 評為最受偏好的模型；最佳封閉模型的 Elo 為 1,252，最佳開放模型為 1,149。AI 指數認為這是評測性質的轉向：當生成式模型能產出高品質的文字與影像，評測就從 ImageNet 或 SQuAD 這類電腦化排名，轉向人類評估。大眾對 AI 的感受，正在成為衡量進展的一部分。" } },
       { type: "h3",
         text: { en: "Factuality and hallucination", zh: "事實性與幻覺" } },
       { type: "ul",
@@ -128,7 +128,7 @@ window.SITE_SECTIONS = [
                "The report is blunt about why this matters — LLMs are being deployed in law and medicine, and real hallucinations have already surfaced in court cases."],
           zh: ["TruthfulQA 有約 800 道題目、橫跨 38 個類別，許多題目刻意環繞人類自己也會答錯的常見迷思。GPT-4(RLHF)拿下目前最高的 0.6 分，幾乎是 2021 年受測的 GPT-2 系模型的三倍。",
                "2023 年新推出的 HaluEval 收錄超過 35,000 筆幻覺與正常樣本。它最醒目的發現是：ChatGPT 約有 19.5% 的回應會捏造無法查證的資訊，主題從語言、氣候到科技都有。",
-               "而看穿幻覺本身就是另一道難題。在 HaluEval 的分類任務上，ChatGPT 問答類達 62.59%、摘要類 58.53%;Claude 2 問答類 69.78%，摘要類卻只有 57.75%;Llama 2 在對話類掉到 43.99%，一般類更只有 20.46%。",
+               "而看穿幻覺本身就是另一道難題。在 HaluEval 的分類任務上，ChatGPT 問答類達 62.59%、摘要類 58.53%；Claude 2 問答類 69.78%，摘要類卻只有 57.75%；Llama 2 在對話類掉到 43.99%，一般類更只有 20.46%。",
                "報告直說了為什麼這件事要緊 — LLM 正被放進法律與醫療現場，而幻覺已經真的出現在法庭案件裡。"]
         } }
     ]
@@ -148,7 +148,7 @@ window.SITE_SECTIONS = [
         text: { en: "General reasoning: MMMU and GPQA", zh: "通用推理：MMMU 與 GPQA" } },
       { type: "p",
         text: { en: "MMMU, built in 2023 by researchers in the United States and Canada, asks about 11,500 college-level questions across six disciplines, with charts, maps, tables and chemical structures in the question formats. As of January 2024 Gemini Ultra leads every subject category with an overall 59.4%, and the subject-level table shows how far that still is from a medium-level human expert: humanities and social sciences 78.3 against 85, health and medicine 67.3 against 78.8, business 59.3 against 86, science 54.7 against 84.7, art and design 51.4 against 84.2, technology and engineering 47.1 against 79.1. GPQA is harsher still — 448 multiple-choice questions written by subject-matter experts in biology, physics and chemistry, deliberately designed so that Google searching does not help. PhD-level experts score 65% inside their own domains and nonexperts around 34%. The best model, GPT-4, reaches 41.0% on the main set.",
-                zh: "MMMU 由美國與加拿大的研究者在 2023 年建立，涵蓋六大學科約 11,500 道大學程度題目，題型包含圖表、地圖、表格與化學結構式。截至 2024 年 1 月，Gemini Ultra 在每個學科類別都居首，總分 59.4%;而學科層級的表格顯示它離中等程度的人類專家還有多遠：人文與社會科學 78.3 對 85、健康與醫療 67.3 對 78.8、商業 59.3 對 86、科學 54.7 對 84.7、藝術與設計 51.4 對 84.2、科技與工程 47.1 對 79.1。GPQA 更狠 — 448 道由生物、物理、化學領域專家撰寫的選擇題，刻意設計成 Google 搜尋幫不上忙。博士等級專家在自己領域得分 65%，非專家約 34%。最強的模型 GPT-4 在主測試集只拿到 41.0%。" } },
+                zh: "MMMU 由美國與加拿大的研究者在 2023 年建立，涵蓋六大學科約 11,500 道大學程度題目，題型包含圖表、地圖、表格與化學結構式。截至 2024 年 1 月，Gemini Ultra 在每個學科類別都居首，總分 59.4%；而學科層級的表格顯示它離中等程度的人類專家還有多遠：人文與社會科學 78.3 對 85、健康與醫療 67.3 對 78.8、商業 59.3 對 86、科學 54.7 對 84.7、藝術與設計 51.4 對 84.2、科技與工程 47.1 對 79.1。GPQA 更狠 — 448 道由生物、物理、化學領域專家撰寫的選擇題，刻意設計成 Google 搜尋幫不上忙。博士等級專家在自己領域得分 65%，非專家約 34%。最強的模型 GPT-4 在主測試集只拿到 41.0%。" } },
       { type: "h3",
         text: { en: "Mathematics", zh: "數學" } },
       { type: "ul",
@@ -168,7 +168,7 @@ window.SITE_SECTIONS = [
                "On Visual Commonsense Reasoning, where a system must both answer a question about an image and pick the right rationale, the top Q->AR score reached 81.60 in 2023 against a human baseline of 85. AI performance rose 7.93% between 2022 and 2023 without closing the gap.",
                "MoCa, a Stanford dataset of human stories with moral elements, found no model perfectly matching human moral systems, but newer and larger models like GPT-4 and Claude aligning more closely than smaller ones such as GPT-3. GPT-4 showed the greatest agreement of all models surveyed.",
                "BigToM tests theory of mind with 25 controls and 5,000 model-generated evaluations. GPT-4 came out on top, closely matching human accuracy on forward belief and backward belief and slightly surpassing humans on forward action — nearing, but not surpassing, human levels overall."],
-          zh: ["亞利桑那州立大學提出的 PlanBench，以單樣本學習測試 GPT-4 與 I-GPT-3 在 600 道 Blocksworld 題目上的表現。GPT-4 有 34.3% 的機率生成正確計畫、33% 生成成本最佳計畫;I-GPT-3 分別只有 6.8% 與 5.8%。檢查計畫比生成計畫容易 — GPT-4 的計畫驗證正確率 58.6%，I-GPT-3 則是 12%。",
+          zh: ["亞利桑那州立大學提出的 PlanBench，以單樣本學習測試 GPT-4 與 I-GPT-3 在 600 道 Blocksworld 題目上的表現。GPT-4 有 34.3% 的機率生成正確計畫、33% 生成成本最佳計畫；I-GPT-3 分別只有 6.8% 與 5.8%。檢查計畫比生成計畫容易 — GPT-4 的計畫驗證正確率 58.6%，I-GPT-3 則是 12%。",
                "在視覺常識推理上，系統既要回答關於影像的問題，也要挑出正確的理由。2023 年最高的 Q->AR 分數是 81.60，人類基準為 85。AI 表現在 2022 到 2023 年間提升了 7.93%，差距仍未補上。",
                "史丹佛建立的 MoCa 資料集由含道德元素的人類故事組成。結果是沒有任何模型完全吻合人類的道德體系，但 GPT-4、Claude 這類較新較大的模型，比 GPT-3 這類較小的模型更貼近人類。在所有受測模型中，GPT-4 與人類道德判斷的吻合度最高。",
                "BigToM 以 25 個對照組與 5,000 筆模型生成評估來測試心智理論。GPT-4 表現最好，在前向信念與後向信念上非常接近人類準確度，在前向行動上甚至略勝人類 — 整體而言逼近但尚未超越人類水準。"]
@@ -213,14 +213,14 @@ window.SITE_SECTIONS = [
                    zh: "超過 35,000 筆幻覺與正常樣本。ChatGPT 約 19.5% 的回應會捏造無法查證的資訊。" },
         tags: ["factuality"],
         overview: { en: "Most hallucination research has asked why models hallucinate; HaluEval asks how often, and where. Its answer for ChatGPT is roughly 19.5% of responses containing fabricated, unverifiable information, spanning topics from language to climate to technology. It then turns the question around and asks whether LLMs can recognize hallucinations in text — and finds that many struggle, with scores ranging from Claude 2’s 69.78% on question answering down to Llama 2’s 20.46% on the general category.",
-                   zh: "多數幻覺研究問的是模型為什麼會產生幻覺;HaluEval 問的是多常發生、發生在哪裡。對 ChatGPT 的答案是約 19.5% 的回應含有捏造、無法查證的資訊，主題橫跨語言、氣候與科技。接著它把問題反過來，測 LLM 能不能認出文本中的幻覺 — 結果是許多模型都很吃力，分數從 Claude 2 問答類的 69.78% 一路掉到 Llama 2 一般類的 20.46%。" } },
+                   zh: "多數幻覺研究問的是模型為什麼會產生幻覺；HaluEval 問的是多常發生、發生在哪裡。對 ChatGPT 的答案是約 19.5% 的回應含有捏造、無法查證的資訊，主題橫跨語言、氣候與科技。接著它把問題反過來，測 LLM 能不能認出文本中的幻覺 — 結果是許多模型都很吃力，分數從 Claude 2 問答類的 69.78% 一路掉到 Llama 2 一般類的 20.46%。" } },
       { slug: "agentbench",
         title:   { en: "AgentBench · agent behavior", zh: "AgentBench · 代理行為" },
         summary: { en: "Eight interactive settings including web browsing, online shopping, household management and card games. GPT-4 scores 4.01 overall.",
                    zh: "八種互動環境，包含網頁瀏覽、線上購物、家務管理與紙牌遊戲。GPT-4 總分 4.01。" },
         tags: ["agents"],
         overview: { en: "AgentBench evaluates LLM-based agents rather than LLM answers. GPT-4 comes out on top with an overall score of 4.01, well ahead of Claude 2 at 2.49, and models released in 2023 outperform earlier ones in agentic settings. The gap to open models is the widest anywhere in this chapter: the best open model scores 0.96 against the best closed model’s 4.01. The AgentBench team attributes the failures to limited long-term reasoning, decision-making and instruction-following.",
-                   zh: "AgentBench 評的不是 LLM 的答案，而是以 LLM 為核心的代理。GPT-4 以總分 4.01 居首，遠勝 Claude 2 的 2.49;2023 年釋出的模型在代理情境下也勝過更早的版本。這裡的封閉對開放差距是全章最大的：最佳開放模型 0.96，最佳封閉模型 4.01。AgentBench 團隊把失敗歸因於長期推理、決策與指令遵循能力不足。" } },
+                   zh: "AgentBench 評的不是 LLM 的答案，而是以 LLM 為核心的代理。GPT-4 以總分 4.01 居首，遠勝 Claude 2 的 2.49；2023 年釋出的模型在代理情境下也勝過更早的版本。這裡的封閉對開放差距是全章最大的：最佳開放模型 0.96，最佳封閉模型 4.01。AgentBench 團隊把失敗歸因於長期推理、決策與指令遵循能力不足。" } },
       { slug: "heim",
         title:   { en: "HEIM · image generation", zh: "HEIM · 影像生成" },
         summary: { en: "Twelve aspects of text-to-image models, rated by human evaluators. No single model excels on all of them.",
@@ -285,8 +285,8 @@ window.SITE_SECTIONS = [
                "MLAgentBench asks whether agents can run scientific experiments — acting as computer science research assistants. Performance splits violently by task: some agents clear 80% on ogbn-arxiv, improving a baseline paper classification model, while every agent tested scored 0% on BabyLM, training a small language model. GPT-4 was consistently the best of them.",
                "On AgentBench’s eight environments, GPT-4’s overall 4.01 is the ceiling, and the team attributes the failures to limited long-term reasoning, decision-making and instruction-following — not to a missing tool."],
           zh: ["由 Nvidia、加州理工、德州大學奧斯汀分校、史丹佛與威斯康辛大學麥迪遜分校打造的 Voyager，是以 GPT-4 為核心的 Minecraft 代理：它蒐集到的獨特物品是先前系統的 3.3 倍、移動距離 2.3 倍、抵達關鍵科技樹里程碑的速度快 15.3 倍。它之所以重要，是因為它能在開放世界中持續學習，而 AlphaZero 那類系統從來不必面對這件事。",
-               "MLAgentBench 問的是代理能不能跑科學實驗 — 也就是當一名資訊科學研究助理。結果依任務劇烈分裂：在改良既有論文分類模型的 ogbn-arxiv 上，有些代理超過 80%;而在訓練小型語言模型的 BabyLM 上，受測代理全數掛零。GPT-4 在其中一貫表現最好。",
-               "在 AgentBench 的八種環境裡，GPT-4 的總分 4.01 就是天花板;研究團隊把失敗歸因於長期推理、決策與指令遵循能力有限 — 而不是少了哪個工具。"]
+               "MLAgentBench 問的是代理能不能跑科學實驗 — 也就是當一名資訊科學研究助理。結果依任務劇烈分裂：在改良既有論文分類模型的 ogbn-arxiv 上，有些代理超過 80%；而在訓練小型語言模型的 BabyLM 上，受測代理全數掛零。GPT-4 在其中一貫表現最好。",
+               "在 AgentBench 的八種環境裡，GPT-4 的總分 4.01 就是天花板；研究團隊把失敗歸因於長期推理、決策與指令遵循能力有限 — 而不是少了哪個工具。"]
         } },
       { type: "h3",
         text: { en: "Robots that can be talked to", zh: "可以對話的機器人" } },
@@ -306,21 +306,21 @@ window.SITE_SECTIONS = [
     subtitle: { en: "Section 2.11 turns the microscope on the models themselves, and 2.13 on what running them costs. Both are less flattering than the leaderboards.",
                 zh: "2.11 節把顯微鏡轉向模型本身，2.13 節則轉向跑這些模型的代價。兩者都沒有排行榜好看。" },
     qa: [
-      { q: { en: "Can these models actually plan?", zh: "這些模型真的會規劃嗎?" },
+      { q: { en: "Can these models actually plan?", zh: "這些模型真的會規劃嗎？" },
         a: { en: "Not reliably. PlanBench, proposed by a group at Arizona State University, uses problems from the automated planning community, including those from the International Planning Competition. On 600 problems in the Blocksworld domain — a hand stacking blocks, one at a time, onto the table or onto a clear block — GPT-4 generated correct plans 34.3% of the time and cost-optimal plans 33% of the time under one-shot learning. I-GPT-3 managed 6.8% and 5.8%. Verifying a plan is easier than producing one: GPT-4 got plan verification right 58.6% of the time, I-GPT-3 12%. Planning sits alongside competition-level mathematics and visual commonsense reasoning on the short list of things humans still do better.",
              zh: "不可靠。亞利桑那州立大學團隊提出的 PlanBench，取材自自動規劃社群的題目，包含國際規劃競賽用題。在 600 道 Blocksworld 題目上 — 一隻手一次只能移動一塊積木，放到桌上或放到另一塊淨空的積木上 — 單樣本學習下的 GPT-4 有 34.3% 的機率生成正確計畫、33% 的機率生成成本最佳計畫，I-GPT-3 則是 6.8% 與 5.8%。驗證計畫比生成計畫容易：GPT-4 的計畫驗證正確率 58.6%，I-GPT-3 為 12%。規劃與競賽等級數學、視覺常識推理並列在人類仍舊做得比較好的那份短名單上。" } },
-      { q: { en: "Do models get better when they check their own work?", zh: "模型自己檢查一遍，會變好嗎?" },
+      { q: { en: "Do models get better when they check their own work?", zh: "模型自己檢查一遍，會變好嗎？" },
         a: { en: "They get worse. Self-correction sounds like the obvious answer to hallucination and faulty reasoning, and intrinsic self-correction — where the model fixes itself without external guidance — is the appealing version. Researchers from DeepMind and the University of Illinois at Urbana-Champaign tested GPT-4 on three reasoning benchmarks and found performance declined across all of them. On GSM8K, standard prompting scored 95.50%, one round of self-correction 91.50%, two rounds 89.00%. On CommonSenseQA: 82.00%, then 79.50%, then 80.00%. On HotpotQA: 49.00%, then 49.00%, then 43.00%. Each round also costs more calls — three, then five, instead of one.",
              zh: "會變差。自我修正聽起來是幻覺與推理瑕疵的當然解法，而內在自我修正 — 模型不靠外部指引就自行修正 — 是其中最誘人的版本。DeepMind 與伊利諾大學厄巴納香檳分校的研究者在三個推理基準上測試 GPT-4，發現表現全數下滑。GSM8K 上，標準提示是 95.50%，自我修正第一輪 91.50%，第二輪 89.00%。CommonSenseQA 是 82.00%、79.50%、80.00%。HotpotQA 是 49.00%、49.00%、43.00%。而且每多一輪就多花呼叫次數 — 從一次變成三次，再變成五次。" } },
-      { q: { en: "Are emergent abilities real?", zh: "湧現能力是真的嗎?" },
+      { q: { en: "Are emergent abilities real?", zh: "湧現能力是真的嗎？" },
         a: { en: "Often they are an artifact of how you measure. Many papers have argued that LLMs unpredictably display new capabilities at larger scales, which raised the worry that bigger models might develop surprising and uncontrollable abilities. Stanford researchers argue the emergence is frequently a property of the benchmark rather than the model: with nonlinear or discontinuous metrics such as multiple-choice grading, emergent abilities look obvious, and with linear or continuous metrics they largely vanish. Across BIG-bench, they observed emergent abilities on only five of 39 benchmarks. That is a direct challenge to a prevailing belief in AI safety and alignment research.",
-             zh: "很多時候那是量測方式造成的假象。許多論文主張 LLM 會在更大規模時不可預測地突然展現新能力，這也帶來一種擔憂：更大的模型可能長出令人意外、甚至無法控制的能力。史丹佛研究者主張，這種湧現往往是基準的性質而非模型的性質：用多選題評分這類非線性或不連續的指標時，湧現看起來很明顯;換成線性或連續的指標，這些能力大致就消失了。在 BIG-bench 的 39 個基準中，他們只在其中 5 個觀察到湧現能力。這直接挑戰了 AI 安全與對齊研究中相當流行的一種信念。" } },
-      { q: { en: "Does a model stay the same after it ships?", zh: "模型上線之後還是同一個模型嗎?" },
+             zh: "很多時候那是量測方式造成的假象。許多論文主張 LLM 會在更大規模時不可預測地突然展現新能力，這也帶來一種擔憂：更大的模型可能長出令人意外、甚至無法控制的能力。史丹佛研究者主張，這種湧現往往是基準的性質而非模型的性質：用多選題評分這類非線性或不連續的指標時，湧現看起來很明顯；換成線性或連續的指標，這些能力大致就消失了。在 BIG-bench 的 39 個基準中，他們只在其中 5 個觀察到湧現能力。這直接挑戰了 AI 安全與對齊研究中相當流行的一種信念。" } },
+      { q: { en: "Does a model stay the same after it ships?", zh: "模型上線之後還是同一個模型嗎？" },
         a: { en: "No, and it can go backwards. Closed models such as GPT-4, Claude 2 and Gemini are updated by their developers in response to new data and user feedback, and there is little public research on what that does to them. A study from Stanford and Berkeley compared the March 2023 and June 2023 versions of GPT-3.5 and GPT-4 and found the June GPT-4 was 42 percentage points worse at generating code, 16 points worse at answering sensitive questions and 33 points worse on certain mathematical tasks. Its ability to follow instructions had also diminished, which the researchers suggest may explain the broader declines. Every leaderboard number in this chapter is a snapshot of a moving object.",
              zh: "不是，而且可能倒退。GPT-4、Claude 2、Gemini 這類封閉模型會被開發者依新資料與使用者回饋持續更新，而外界幾乎沒有研究在追蹤這對模型做了什麼。史丹佛與柏克萊的一項研究比較 GPT-3.5 與 GPT-4 的 2023 年 3 月版與 6 月版，發現 6 月版的 GPT-4 在產生程式碼上差了 42 個百分點、回答敏感問題差了 16 個百分點、某些數學任務差了 33 個百分點。它遵循指令的能力也下降了，研究者認為這或許能解釋更廣泛的退步。本章每一個排行榜數字，都是對一個移動中物體拍下的快照。" } },
-      { q: { en: "What does training one of these cost the planet?", zh: "訓練一個這樣的模型，要付出多少環境代價?" },
+      { q: { en: "What does training one of these cost the planet?", zh: "訓練一個這樣的模型，要付出多少環境代價？" },
         a: { en: "More than most developers will say. Training GPT-3 (175B) released a reported 502 tonnes of CO2 equivalent and consumed 1,287 MWh; Gopher (280B) 352 tonnes and 1,066 MWh; Meta’s Llama 2 70B about 291 tonnes on 400 MWh — nearly 291 times the emissions of one traveler on a round-trip flight from New York to San Francisco, and roughly 16 times an average American’s annual footprint. Smaller models cost far less: Starcoder (15.5B) 16.68 tonnes, Luminous Base (13B) 3.17. The bigger problem is silence. OpenAI, Google, Anthropic and Mistral do not report training emissions, though Meta does, and inference is barely reported at all — even though per-query emissions are small, total inference impact can surpass training once a model is queried millions of times a day.",
-             zh: "比多數開發者願意講的更多。訓練 GPT-3(175B)據報排放 502 公噸二氧化碳當量、耗電 1,287 MWh;Gopher(280B)是 352 公噸與 1,066 MWh;Meta 的 Llama 2 70B 約 291 公噸、耗電 400 MWh — 幾乎是一名旅客紐約到舊金山來回航班排放量的 291 倍，約等於一個美國人年排放量的 16 倍。較小的模型便宜得多：Starcoder(15.5B)16.68 公噸，Luminous Base(13B)3.17 公噸。更大的問題是沉默。OpenAI、Google、Anthropic 與 Mistral 都不揭露訓練排放，Meta 則有;推論階段幾乎完全沒人報告 — 即使單次查詢的排放很低，一旦模型每天被查詢數百萬次，推論的總影響仍可能超過訓練。" } }
+             zh: "比多數開發者願意講的更多。訓練 GPT-3(175B)據報排放 502 公噸二氧化碳當量、耗電 1,287 MWh；Gopher(280B)是 352 公噸與 1,066 MWh；Meta 的 Llama 2 70B 約 291 公噸、耗電 400 MWh — 幾乎是一名旅客紐約到舊金山來回航班排放量的 291 倍，約等於一個美國人年排放量的 16 倍。較小的模型便宜得多：Starcoder(15.5B)16.68 公噸，Luminous Base(13B)3.17 公噸。更大的問題是沉默。OpenAI、Google、Anthropic 與 Mistral 都不揭露訓練排放，Meta 則有；推論階段幾乎完全沒人報告 — 即使單次查詢的排放很低，一旦模型每天被查詢數百萬次，推論的總影響仍可能超過訓練。" } }
     ]
   },
 

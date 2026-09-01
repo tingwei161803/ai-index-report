@@ -33,7 +33,7 @@ window.SITE_SECTIONS = [
       { label: { en: "percentage-point rise since 2022 in those who say AI makes them nervous (39% → 52%)", zh: "說 AI 讓自己緊張的比例自 2022 年上升的百分點(39% → 52%)" }, value: 13 },
       { label: { en: "% of Americans more concerned than excited about AI (37% in 2021, 38% in 2022)", zh: "% 對 AI 擔憂多於興奮的美國人(2021 年 37%、2022 年 38%)" }, value: 52 },
       { label: { en: "% who think AI will improve the job market — lowest of six livelihood questions", zh: "% 認為 AI 會改善就業市場的人 — 六個生計問題中最低的一項" }, value: 32 },
-      { label: { en: "% worldwide aware of ChatGPT; about half of them use it weekly or more", zh: "% 全球知道 ChatGPT 的人;其中約半數每週使用一次以上" }, value: 63 }
+      { label: { en: "% worldwide aware of ChatGPT; about half of them use it weekly or more", zh: "% 全球知道 ChatGPT 的人；其中約半數每週使用一次以上" }, value: 63 }
     ]
   },
 
@@ -57,7 +57,7 @@ window.SITE_SECTIONS = [
         text: { en: "Nervousness rose in every single country", zh: "每一個國家的緊張感都上升了" } },
       { type: "p",
         text: { en: "Of the 24 countries surveyed in both 2022 and 2023, every one reported an increase in the share saying AI products make them nervous — not one exception. The sharpest rises were Italy (24 points), France (19), Chile (18) and Australia (18); the mildest were South Africa (1), Japan (3) and Spain (3). Belief that AI will significantly change daily life within three to five years rose almost as broadly, with South Africa the only country to fall (down 2 points) and gains of 12 points each in Japan, Great Britain, Germany and Australia.",
-                zh: "在 2022 與 2023 年都受訪的 24 國中，每一國說 AI 產品讓自己緊張的比例都上升了 — 沒有任何例外。漲幅最大的是義大利(24 個百分點)、法國(19)、智利(18)與澳洲(18);最溫和的是南非(1)、日本(3)與西班牙(3)。認為 AI 會在三到五年內顯著改變日常生活的比例也幾乎全面上升，南非是唯一下滑的國家(掉 2 個百分點)，而日本、英國、德國與澳洲各增加 12 個百分點，並列最高。" } },
+                zh: "在 2022 與 2023 年都受訪的 24 國中，每一國說 AI 產品讓自己緊張的比例都上升了 — 沒有任何例外。漲幅最大的是義大利(24 個百分點)、法國(19)、智利(18)與澳洲(18)；最溫和的是南非(1)、日本(3)與西班牙(3)。認為 AI 會在三到五年內顯著改變日常生活的比例也幾乎全面上升，南非是唯一下滑的國家(掉 2 個百分點)，而日本、英國、德國與澳洲各增加 12 個百分點，並列最高。" } },
       { type: "h3",
         text: { en: "Where sentiment was lowest, it improved the most", zh: "情緒最低的地方，改善得最多" } },
       { type: "p",
@@ -77,7 +77,7 @@ window.SITE_SECTIONS = [
     id: "optimism",
     nav:      { en: "Optimism", zh: "樂觀程度" },
     title:    { en: "Do AI products and services have more benefits than drawbacks?",
-                zh: "AI 產品與服務是利大於弊嗎?" },
+                zh: "AI 產品與服務是利大於弊嗎？" },
     subtitle: { en: "% who agree, 2023, from the Ipsos survey of 31 countries. The 41-point spread between Indonesia and the two most skeptical countries is the widest gap in the chapter — and it maps almost exactly onto how rich the country is.",
                 zh: "同意的比例，2023 年，取自 Ipsos 對 31 國的調查。印尼與兩個最懷疑的國家之間有 41 個百分點的落差，是本章最大的一道差距 — 而且幾乎完全對應到國家的富裕程度。" },
     series: [
@@ -105,7 +105,7 @@ window.SITE_SECTIONS = [
                 zh: "2023 年的 Ipsos 調查新增了關於工作的題目。57% 認為 AI 有可能在未來五年改變自己執行現職的方式，35% 認為不太可能，8% 不知道。問到直接被取代，答案就翻轉了：36% 認為 AI 有可能在同一期間取代自己現在的工作，56% 認為不會，8% 不知道。大眾預期的是保住這份工作，然後換個方式做。" } },
       { type: "p",
         text: { en: "Who expects the change depends heavily on who you ask. 66% of Gen Z respondents agreed AI will likely affect how they do their current job, against 61% of millennials, 53% of Gen X and 46% of baby boomers — a 20-point generational spread. The other splits point the same way: 68% of those in decision-making roles agreed against 51% of those who are not, 61% of the highest-educated group against 52% of the lowest, and 60% of upper-income respondents against 56% of both middle- and lower-income respondents. Gender barely registers, at 58% for men and 55% for women.",
-                zh: "誰預期會改變，取決於你問誰。66% 的 Z 世代同意 AI 有可能影響自己執行現職的方式，千禧世代 61%、X 世代 53%、嬰兒潮世代 46% — 世代之間拉開 20 個百分點。其他分野指向同一件事：擔任決策角色的有 68% 同意，非決策角色只有 51%;學歷最高的一群 61%，最低的一群 52%;高收入族群 60%，中低收入族群都是 56%。性別幾乎不構成差異，男性 58%、女性 55%。" } },
+                zh: "誰預期會改變，取決於你問誰。66% 的 Z 世代同意 AI 有可能影響自己執行現職的方式，千禧世代 61%、X 世代 53%、嬰兒潮世代 46% — 世代之間拉開 20 個百分點。其他分野指向同一件事：擔任決策角色的有 68% 同意，非決策角色只有 51%；學歷最高的一群 61%，最低的一群 52%；高收入族群 60%，中低收入族群都是 56%。性別幾乎不構成差異，男性 58%、女性 55%。" } },
       { type: "h3",
         text: { en: "Convenience, yes. Prosperity, no.", zh: "便利可以，繁榮不行" } },
       { type: "ul",
@@ -121,7 +121,7 @@ window.SITE_SECTIONS = [
                "產品與服務那幾題的國家分布，在這裡幾乎原樣重演。日本、瑞典與美國的受訪者一致地悲觀，巴西、印尼與墨西哥的受訪者一致地樂觀。",
                "健康方面，墨西哥以 61% 居首，全球平均是 39%，日本則以 16% 墊底。問到 AI 會不會改善自己的工作，泰國以 66% 居冠，日本又是最低的 19%。",
                "就業市場是整份調查中最灰暗的一題：南韓 17%、比利時 18%、加拿大 19%，而墨西哥與秘魯都有 54%。",
-               "樂觀度跟年齡、收入與學歷同步移動。59% 的 Z 世代相信 AI 會改善自己的娛樂選項，嬰兒潮世代只有 40%;六個題目全部都是 Z 世代、高收入者與高學歷者最高，嬰兒潮世代、低收入者與低學歷者最低。"]
+               "樂觀度跟年齡、收入與學歷同步移動。59% 的 Z 世代相信 AI 會改善自己的娛樂選項，嬰兒潮世代只有 40%；六個題目全部都是 Z 世代、高收入者與高學歷者最高，嬰兒潮世代、低收入者與低學歷者最低。"]
         } }
     ]
   },
@@ -132,7 +132,7 @@ window.SITE_SECTIONS = [
     id: "livelihood",
     nav:      { en: "Livelihood", zh: "生活面向" },
     title:    { en: "Will AI improve this part of your life?",
-                zh: "AI 會改善你生活的這個部分嗎?" },
+                zh: "AI 會改善你生活的這個部分嗎？" },
     subtitle: { en: "% of global respondents who agree, Ipsos 2023. Only the two questions that cost nobody anything clear 50%. Every question about earning a living sits in the thirties.",
                 zh: "全球受訪者同意的比例，Ipsos 2023 年。只有兩個不必付出代價的問題過半，每一個關於謀生的問題都停在三十幾趴。" },
     series: [
@@ -153,7 +153,7 @@ window.SITE_SECTIONS = [
     title:    { en: "ChatGPT is the front door — and privacy is what people find behind it",
                 zh: "ChatGPT 是那道前門 — 而人們在門後看見的是隱私" },
     subtitle: { en: "The Schwartz Reisman Institute and the PEARL lab at the University of Toronto surveyed 21 countries in October and November 2023 for the Global Public Opinion on Artificial Intelligence report. It asked two things Ipsos did not: does the public actually know ChatGPT, and what exactly are they afraid of?",
-                zh: "多倫多大學的 Schwartz Reisman 研究所與 PEARL 實驗室於 2023 年 10 至 11 月調查了 21 個國家，完成《全球 AI 民意》(GPO-AI)報告。它問了 Ipsos 沒問的兩件事：大眾到底認不認識 ChatGPT?他們具體在怕什麼?" },
+                zh: "多倫多大學的 Schwartz Reisman 研究所與 PEARL 實驗室於 2023 年 10 至 11 月調查了 21 個國家，完成《全球 AI 民意》(GPO-AI)報告。它問了 Ipsos 沒問的兩件事：大眾到底認不認識 ChatGPT？他們具體在怕什麼？" },
     items: [
       { slug: "chatgpt-awareness",
         title:   { en: "63% have heard of ChatGPT", zh: "63% 的人聽過 ChatGPT" },
@@ -221,7 +221,7 @@ window.SITE_SECTIONS = [
                "It nearly disappears on policing. 27% of college graduates say AI helps police maintain public safety against 23% of everyone else — and 49% of both groups answer 'not sure'.",
                "Privacy is the exception that runs the other way: the more educated group is more negative, not less. 59% of college graduates said AI hurts people keeping their personal information private, against 50% of those with some college or less."],
           zh: ["在「AI 幫人們在網路上找到產品與服務」這一題，擁有大學以上學歷的美國人有 60% 認為有幫助，學歷在大學肄業以下的只有 44%。",
-               "醫師提供優質照護：大學以上 46% 認為有幫助，學歷較低的一群 32%;企業製造安全的汽車與卡車：45% 對 33%;人們照顧自己的健康：41% 對 29%。",
+               "醫師提供優質照護：大學以上 46% 認為有幫助，學歷較低的一群 32%；企業製造安全的汽車與卡車：45% 對 33%；人們照顧自己的健康：41% 對 29%。",
                "這個落差在客服(34% 對 25%)與網路上找到正確資訊(36% 對 31%)同樣成立。",
                "但在警政這題幾乎消失。大學以上學歷有 27% 認為 AI 有助於警察維護公共安全，其他人是 23% — 而兩群人回答「不確定」的比例都是 49%。",
                "隱私是唯一反向的例外：學歷較高的一群更負面，而不是更正面。59% 的大學以上學歷者認為 AI 在保護個人資訊隱私上幫倒忙，學歷較低的一群是 50%。"]
@@ -257,7 +257,7 @@ window.SITE_SECTIONS = [
     blocks: [
       { type: "p",
         text: { en: "GPT-4 took 53% of all AI-related social media conversation in the first quarter of 2023, 71% in the second after its March 14 launch, 62% in the third and 45% in the fourth. That last figure is the striking one. Q4 2023 brought Gemini, Grok, GPT-4 Turbo, Claude 2.1, Whisper V3, GraphCast, Orca 2, Inflection-2, Midjourney v6 and Stable Video Diffusion — and nearly half of everything said about AI online was still about a model released in March. Of the models that launched in that quarter, only Grok (16%) and Gemini (11%) registered at all; every other one came in at 2% or below.",
-                zh: "2023 年第一季，GPT-4 拿下所有 AI 相關社群討論的 53%;3 月 14 日發布後的第二季是 71%、第三季 62%、第四季 45%。最值得注意的是最後那個數字。2023 年第四季推出了 Gemini、Grok、GPT-4 Turbo、Claude 2.1、Whisper V3、GraphCast、Orca 2、Inflection-2、Midjourney v6 與 Stable Video Diffusion — 而網路上關於 AI 的所有討論，仍有將近一半是在講一個 3 月發布的模型。當季推出的模型中，只有 Grok(16%)與 Gemini(11%)真的形成聲量，其餘全部落在 2% 以下。" } },
+                zh: "2023 年第一季，GPT-4 拿下所有 AI 相關社群討論的 53%；3 月 14 日發布後的第二季是 71%、第三季 62%、第四季 45%。最值得注意的是最後那個數字。2023 年第四季推出了 Gemini、Grok、GPT-4 Turbo、Claude 2.1、Whisper V3、GraphCast、Orca 2、Inflection-2、Midjourney v6 與 Stable Video Diffusion — 而網路上關於 AI 的所有討論，仍有將近一半是在講一個 3 月發布的模型。當季推出的模型中，只有 Grok(16%)與 Gemini(11%)真的形成聲量，其餘全部落在 2% 以下。" } },
       { type: "p",
         text: { en: "Stable Diffusion is the only other model that ever held a large share, and its arc runs the other way: 46% of conversation in Q1, then 21%, 24% and 12%. Copilot never exceeded 1% of AI conversation in any quarter of the year.",
                 zh: "另一個曾經拿下大量聲量的模型是 Stable Diffusion，而它的曲線走向相反：第一季 46%，接著是 21%、24%、12%。Copilot 則整年沒有任何一季超過 AI 討論的 1%。" } },
@@ -265,7 +265,7 @@ window.SITE_SECTIONS = [
         text: { en: "The best-liked models were the ones nobody was arguing about", zh: "評價最好的，是沒人在吵的那些模型" } },
       { type: "p",
         text: { en: "Attention and approval moved in opposite directions all year. The highest net sentiment score of 2023 went to GraphCast, DeepMind's weather forecasting system, at 94 in Q4 — with a rounded 0% share of conversation. Claude 2.1 scored 87 on a 2% share; Whisper V3 and Orca 2 both scored 83, Inflection-2 81. GPT-4, the model everyone was talking about, never scored above 51 and dipped to 42 in Q1 and 44 in Q4. Gemini, launched into the most crowded quarter of the year, scored 36 — the lowest net sentiment on the chart.",
-                zh: "整年下來，注意力與好感度是往相反方向走的。2023 年最高的淨情緒分數屬於 DeepMind 的天氣預報系統 GraphCast，第四季拿到 94 分 — 而它的討論占比四捨五入後是 0%。Claude 2.1 在 2% 的占比下拿到 87 分;Whisper V3 與 Orca 2 都是 83 分，Inflection-2 是 81 分。而所有人都在談的 GPT-4，全年沒有一季超過 51 分，第一季 42 分、第四季 44 分。在全年最擁擠的一季推出的 Gemini 拿到 36 分，是整張圖裡最低的淨情緒分數。" } },
+                zh: "整年下來，注意力與好感度是往相反方向走的。2023 年最高的淨情緒分數屬於 DeepMind 的天氣預報系統 GraphCast，第四季拿到 94 分 — 而它的討論占比四捨五入後是 0%。Claude 2.1 在 2% 的占比下拿到 87 分；Whisper V3 與 Orca 2 都是 83 分，Inflection-2 是 81 分。而所有人都在談的 GPT-4，全年沒有一季超過 51 分，第一季 42 分、第四季 44 分。在全年最擁擠的一季推出的 Gemini 拿到 36 分，是整張圖裡最低的淨情緒分數。" } },
       { type: "h3",
         text: { en: "What people actually argued about", zh: "人們實際上在吵什麼" } },
       { type: "ul",
@@ -275,9 +275,9 @@ window.SITE_SECTIONS = [
                "Stable Diffusion discussion concentrated in the first half of the year, and posts mentioned the XL models around 16 times more often than Stable Diffusion 2.0. Enthusiasm ran to creativity, resolution and accuracy; the negative half was copyright, ownership of AI-generated work, and the displacement of human artists.",
                "Gemini's Q4 conversation praised its accuracy, multilingual ability and potential inside Google Search and Ads, while criticism centred on inaccurate results, the delayed release, and skepticism toward the launch demo."],
           zh: ["GPT-4 的正面情緒來自更快的處理速度、更好的準確度，以及在程式撰寫、企業協作與內容創作上的生產力提升。負面情緒則來自 ChatGPT 網站當機，以及由馬斯克發起、超過 1,300 位 AI 專家連署、呼籲實驗室暫停訓練強大系統的公開信 — 而這封信本身也引發大量爭論，吳恩達就是反對者之一。",
-               "GPT-4 Turbo 在第四季獲得的好評，集中在更長的對話、更好的脈絡理解與影像生成能力;抱怨則集中在它 2023 年 4 月的知識截止時間，以及比 GPT-4 更慢的載入速度。",
-               "Stable Diffusion 的討論集中在上半年，而貼文提到 XL 系列的次數約為 Stable Diffusion 2.0 的 16 倍。正面聲量圍繞創造力、解析度與準確度;負面那一半則是著作權、AI 生成作品的所有權，以及人類藝術家被取代。",
-               "Gemini 在第四季獲得的好評，集中在準確度、多語言能力，以及它在 Google 搜尋與廣告中的潛力;批評則集中在結果不準確、發布延宕，以及對發表會展示的質疑。"]
+               "GPT-4 Turbo 在第四季獲得的好評，集中在更長的對話、更好的脈絡理解與影像生成能力；抱怨則集中在它 2023 年 4 月的知識截止時間，以及比 GPT-4 更慢的載入速度。",
+               "Stable Diffusion 的討論集中在上半年，而貼文提到 XL 系列的次數約為 Stable Diffusion 2.0 的 16 倍。正面聲量圍繞創造力、解析度與準確度；負面那一半則是著作權、AI 生成作品的所有權，以及人類藝術家被取代。",
+               "Gemini 在第四季獲得的好評，集中在準確度、多語言能力，以及它在 Google 搜尋與廣告中的潛力；批評則集中在結果不準確、發布延宕，以及對發表會展示的質疑。"]
         } }
     ]
   },

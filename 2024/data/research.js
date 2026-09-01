@@ -27,14 +27,14 @@ window.SITE_SECTIONS = [
     title:    { en: "2023 was the year foundation models doubled — and the frontier priced universities out",
                 zh: "2023 年，基礎模型數量翻倍 — 而前沿研究的價碼把大學擋在門外" },
     subtitle: { en: "Chapter 1 of the AI Index 2024 traces where AI knowledge is made: papers, patents, notable models, foundation models, conferences and open-source code. Publication and patent data still run a year behind, so those sections describe 2022; the model data is current through 2023. The through-line is the same everywhere — output keeps rising, and the frontier keeps drifting toward whoever can pay for it. The numbers:",
-                zh: "AI 指數 2024 第 1 章追蹤 AI 知識的產地：論文、專利、重要模型、基礎模型、研討會與開源程式碼。論文與專利資料仍落後一年，因此那兩節講的是 2022 年;模型資料則更新到 2023 年。每一節的主軸都一樣 — 產出持續上升，而前沿持續往付得起錢的人手上移動。先看數字：" },
+                zh: "AI 指數 2024 第 1 章追蹤 AI 知識的產地：論文、專利、重要模型、基礎模型、研討會與開源程式碼。論文與專利資料仍落後一年，因此那兩節講的是 2022 年；模型資料則更新到 2023 年。每一節的主軸都一樣 — 產出持續上升，而前沿持續往付得起錢的人手上移動。先看數字：" },
     stats: [
       { label: { en: "foundation models released in 2023 (72 in 2022)", zh: "2023 年發布的基礎模型數(2022 年為 72)" }, value: 149 },
       { label: { en: "% of 2023 foundation models released open-source (44.4% in 2022)", zh: "% 2023 年以開源形式釋出的基礎模型比例(2022 年為 44.4%)" }, value: 65.7 },
       { label: { en: "notable ML models from US institutions in 2023 (EU 21, China 15)", zh: "2023 年出自美國機構的重要機器學習模型數(歐盟 21、中國 15)" }, value: 61 },
-      { label: { en: "million dollars of compute to train Gemini Ultra (GPT-4: 78)", zh: "訓練 Gemini Ultra 的運算成本(百萬美元;GPT-4 為 78)" }, value: 191 },
+      { label: { en: "million dollars of compute to train Gemini Ultra (GPT-4: 78)", zh: "訓練 Gemini Ultra 的運算成本(百萬美元；GPT-4 為 78)" }, value: 191 },
       { label: { en: "% rise in granted AI patents worldwide from 2021 to 2022", zh: "% 2021 至 2022 年全球核准 AI 專利的成長率" }, value: 62.7 },
-      { label: { en: "million GitHub stars for AI projects in 2023 (4.0 million in 2022)", zh: "2023 年 AI 專案獲得的 GitHub 星數(百萬顆;2022 年為 400 萬)" }, value: 12.2 }
+      { label: { en: "million GitHub stars for AI projects in 2023 (4.0 million in 2022)", zh: "2023 年 AI 專案獲得的 GitHub 星數(百萬顆；2022 年為 400 萬)" }, value: 12.2 }
     ]
   },
 
@@ -50,7 +50,7 @@ window.SITE_SECTIONS = [
     blocks: [
       { type: "p",
         text: { en: "The headline number hides two very different curves. Journals carry the overwhelming bulk of AI research — roughly 232,700 journal articles in 2022 against about 41,200 conference papers — but conferences are the faster-moving half. Since 2015 conference publications have grown 2.6 times and journal publications 2.4 times, and in the last year conference output rose 30.2% against 4.5% for journals. Conference papers climbed from 22,727 in 2020 to 31,629 in 2021 and 41,174 in 2022, more than doubling since 2010.",
-                zh: "總數這個數字藏了兩條走勢完全不同的曲線。期刊承載了絕大多數的 AI 研究 — 2022 年約有 232,700 篇期刊論文，研討會論文則約 41,200 篇 — 但研討會才是跑得比較快的那一半。自 2015 年起，研討會論文成長 2.6 倍，期刊論文成長 2.4 倍;而最近一年研討會產出上升 30.2%，期刊只有 4.5%。研討會論文從 2020 年的 22,727 篇增至 2021 年的 31,629 篇、2022 年的 41,174 篇，自 2010 年以來增加超過一倍。" } },
+                zh: "總數這個數字藏了兩條走勢完全不同的曲線。期刊承載了絕大多數的 AI 研究 — 2022 年約有 232,700 篇期刊論文，研討會論文則約 41,200 篇 — 但研討會才是跑得比較快的那一半。自 2015 年起，研討會論文成長 2.6 倍，期刊論文成長 2.4 倍；而最近一年研討會產出上升 30.2%，期刊只有 4.5%。研討會論文從 2020 年的 22,727 篇增至 2021 年的 31,629 篇、2022 年的 41,174 篇，自 2010 年以來增加超過一倍。" } },
       { type: "h3",
         text: { en: "What the papers are about", zh: "論文都在寫什麼" } },
       { type: "ul",
@@ -90,7 +90,7 @@ window.SITE_SECTIONS = [
     title:    { en: "1.2 — AI patents are exploding, and three in five of them are Chinese",
                 zh: "1.2 — AI 專利正在爆炸性成長，而每五件就有三件來自中國" },
     subtitle: { en: "Granted AI patents worldwide rose 62.7% between 2021 and 2022 alone, reaching 62,264, and have grown more than 31-fold since 2010. China accounts for 61.1% of them; the US share has fallen from 54.1% in 2010 to 20.9%.",
-                zh: "光是 2021 到 2022 年，全球核准的 AI 專利就成長 62.7%，達到 62,264 件，自 2010 年以來增加超過 31 倍。其中 61.1% 來自中國;美國的佔比則從 2010 年的 54.1% 掉到 20.9%。" },
+                zh: "光是 2021 到 2022 年，全球核准的 AI 專利就成長 62.7%，達到 62,264 件，自 2010 年以來增加超過 31 倍。其中 61.1% 來自中國；美國的佔比則從 2010 年的 54.1% 掉到 20.9%。" },
       blocks: [
       { type: "h3",
         text: { en: "Growth, and a rising rejection rate", zh: "成長，以及愈來愈高的駁回率" } },
@@ -101,7 +101,7 @@ window.SITE_SECTIONS = [
                "In 2022 there were 128,952 ungranted AI patents against 62,264 granted — more than double.",
                "The gap shows up in every major filing region. China recorded roughly 80,500 ungranted filings against 35,300 granted, the United States about 15,100 against 12,100, and the EU plus the UK about 2,170 against 1,170."],
           zh: ["整個 2010 至 2014 年間，核准的 AI 專利成長 56.1%。而光是 2021 到 2022 年就成長 62.7% — 等於把十年前的成長幅度壓縮進一年。",
-               "拿到核准變得困難許多。2015 年有 42.2% 的 AI 專利申請沒有獲准;到 2022 年這個數字升到 67.4%。",
+               "拿到核准變得困難許多。2015 年有 42.2% 的 AI 專利申請沒有獲准；到 2022 年這個數字升到 67.4%。",
                "2022 年未獲准的 AI 專利有 128,952 件，獲准的只有 62,264 件 — 前者是後者的兩倍以上。",
                "這道落差在每個主要申請區域都看得到。中國約有 80,500 件未獲准、35,300 件獲准，美國約 15,100 件對 12,100 件，歐盟加英國約 2,170 件對 1,170 件。"]
         } },
@@ -246,7 +246,7 @@ window.SITE_SECTIONS = [
         title: { en: "$78 million and $191 million, in the same year",
                  zh: "同一年，7,800 萬美元與 1.91 億美元" },
         body:  { en: "AI Index estimates put GPT-4’s training compute at $78,352,034 and Gemini Ultra’s at $191,400,000; OpenAI CEO Sam Altman has said GPT-4’s training cost was over $100 million. Llama 2 70B, released the same year, is estimated at $3,931,897 — the frontier and the merely capable are now two different price brackets. The chapter notes that this escalation has effectively excluded universities from building leading-edge foundation models, and that policy responses such as the US National AI Research Resource exist specifically to hand nonindustry actors the compute they lack.",
-                 zh: "AI 指數估計 GPT-4 的訓練運算成本為 78,352,034 美元，Gemini Ultra 為 191,400,000 美元;OpenAI 執行長 Sam Altman 則表示 GPT-4 的訓練費用超過 1 億美元。同年釋出的 Llama 2 70B 估計為 3,931,897 美元 — 前沿與「堪用」之間，如今已是兩個價格級距。本章指出，這樣的漲勢實質上把大學排除在尖端基礎模型的開發之外，而美國國家 AI 研究資源等政策，正是為了把非產業界缺少的算力補回去而設。" } }
+                 zh: "AI 指數估計 GPT-4 的訓練運算成本為 78,352,034 美元，Gemini Ultra 為 191,400,000 美元；OpenAI 執行長 Sam Altman 則表示 GPT-4 的訓練費用超過 1 億美元。同年釋出的 Llama 2 70B 估計為 3,931,897 美元 — 前沿與「堪用」之間，如今已是兩個價格級距。本章指出，這樣的漲勢實質上把大學排除在尖端基礎模型的開發之外，而美國國家 AI 研究資源等政策，正是為了把非產業界缺少的算力補回去而設。" } }
     ]
   },
 
@@ -258,7 +258,7 @@ window.SITE_SECTIONS = [
     title:    { en: "Running out of data — and why synthetic data is not a clean substitute",
                 zh: "資料會不會用完 — 以及為什麼合成資料不是乾淨的替代品" },
     subtitle: { en: "A dedicated highlight inside section 1.3. Epoch AI projected when each stock of training data gets exhausted, using both historical growth in training set sizes and a compute-adjusted method; separate 2023 studies tested what happens when models are fed their own output instead. Tap a card for the detail.",
-                zh: "1.3 節裡的專題。Epoch AI 用兩種方法推估各類訓練資料存量何時見底：一種依訓練資料集規模的歷史成長率，一種依算力可得性調整;另外兩份 2023 年的研究，則測試了改餵模型自己產出的資料會發生什麼事。點卡片看細節。" },
+                zh: "1.3 節裡的專題。Epoch AI 用兩種方法推估各類訓練資料存量何時見底：一種依訓練資料集規模的歷史成長率，一種依算力可得性調整；另外兩份 2023 年的研究，則測試了改餵模型自己產出的資料會發生什麼事。點卡片看細節。" },
     items: [
       { slug: "high-quality-text",
         title:   { en: "High-quality language data: about now", zh: "高品質語言資料：大約就是現在" },
@@ -270,14 +270,14 @@ window.SITE_SECTIONS = [
       { slug: "low-quality-text",
         title:   { en: "Low-quality language data: the 2030s", zh: "低品質語言資料：2030 年代" },
         summary: { en: "Historical projection 2032.4; the compute-based projection pushes it out to 2040.5.",
-                   zh: "歷史推估為 2032.4 年;以算力調整後則往後推到 2040.5 年。" },
+                   zh: "歷史推估為 2032.4 年；以算力調整後則往後推到 2040.5 年。" },
         tags: ["data", "projections"],
         overview: { en: "The wider, messier pool of internet text has roughly two decades of headroom. Epoch’s historical projection puts exhaustion at 2032.4 (90% CI: 2028.4–2039.2) and the compute-based projection at 2040.5 (90% CI: 2034.6–2048.9). The eight-year gap between the two methods is itself informative: the further out a projection reaches, the less the two approaches agree.",
                    zh: "範圍更廣、也更雜亂的網路文字大約還有二十年的餘裕。Epoch 的歷史推估把耗盡時點放在 2032.4 年(90% 信賴區間：2028.4 至 2039.2)，以算力調整後則是 2040.5 年(90% 信賴區間：2034.6 至 2048.9)。兩種方法差了八年，這件事本身也有意義：推得愈遠，兩種方法就愈不一致。" } },
       { slug: "image-stock",
         title:   { en: "Image data: late 2030s to mid-2040s", zh: "影像資料：2030 年代末到 2040 年代中" },
         summary: { en: "Historical projection 2046; here it is the compute-based method that is the pessimistic one, at 2038.8.",
-                   zh: "歷史推估為 2046 年;這一類反而是算力調整後的推估較悲觀，落在 2038.8 年。" },
+                   zh: "歷史推估為 2046 年；這一類反而是算力調整後的推估較悲觀，落在 2038.8 年。" },
         tags: ["data", "projections"],
         overview: { en: "Image data is the longest-dated stock in the table. Epoch’s historical projection puts exhaustion at 2046 (90% CI: 2037–2062.8), while the compute-based projection lands earlier at 2038.8 (90% CI: 2032–2049.8) — the reverse of the pattern in language data, and a reminder that the direction of the adjustment depends on which growth rate you start from.",
                    zh: "影像是這張表裡到期日最遠的一類存量。Epoch 的歷史推估把耗盡時點放在 2046 年(90% 信賴區間：2037 至 2062.8)，而算力調整後的推估反而更早，落在 2038.8 年(90% 信賴區間：2032 至 2049.8) — 和語言資料的模式剛好相反，也提醒我們調整的方向取決於你從哪一條成長率出發。" } },
@@ -294,7 +294,7 @@ window.SITE_SECTIONS = [
                    zh: "2023 年一份影像研究把同樣的失效命名為 MAD(取自狂牛症)，並用三種指標量了出來。" },
         tags: ["synthetic", "research"],
         overview: { en: "The researchers compared fully synthetic training loops, where models are trained exclusively on synthetic data, with synthetic augmentation loops that keep some real human data in the mix. As generations accumulate, both produce higher FID scores (less similar to real images), lower precision (reduced realism) and lower recall (decreased diversity); generated faces visibly degrade, picking up strange hash marks by the seventh and ninth steps. Keeping real data in the loop slows the decay but does not stop it — both methods show diminishing returns with further training.",
-                   zh: "研究者比較了兩種訓練流程：完全合成迴圈，也就是模型只用合成資料訓練;以及合成擴增迴圈，也就是混入部分真實的人類資料。隨著世代累積，兩者的 FID 分數都上升(與真實影像愈不相似)、精確率下降(擬真度變差)、召回率下降(多樣性變差);生成的人臉會肉眼可見地劣化，到第七、第九步時開始出現奇怪的網格紋路。保留真實資料能減緩劣化，但擋不住 — 兩種做法在持續訓練下都出現報酬遞減。" } }
+                   zh: "研究者比較了兩種訓練流程：完全合成迴圈，也就是模型只用合成資料訓練；以及合成擴增迴圈，也就是混入部分真實的人類資料。隨著世代累積，兩者的 FID 分數都上升(與真實影像愈不相似)、精確率下降(擬真度變差)、召回率下降(多樣性變差)；生成的人臉會肉眼可見地劣化，到第七、第九步時開始出現奇怪的網格紋路。保留真實資料能減緩劣化，但擋不住 — 兩種做法在持續訓練下都出現報酬遞減。" } }
     ]
   },
 
