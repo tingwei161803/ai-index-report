@@ -481,7 +481,7 @@
     wrap.innerHTML =
       '<button class="ch-menu__btn nav-link" id="chMenuBtn" type="button" aria-haspopup="true" ' +
         'aria-expanded="false" title="' + escapeHtml(ui("navChaptersTitle")) + '">' +
-        '<span class="material-symbols-rounded">menu_book</span>' +
+        '<span class="material-symbols-rounded" aria-hidden="true">menu_book</span>' +
         '<span class="nav-link__txt">' + escapeHtml(ui("navChapters")) + "</span>" +
         '<span class="material-symbols-rounded ch-menu__caret" aria-hidden="true">expand_more</span>' +
       "</button>" +
@@ -645,7 +645,7 @@
       b.className = "navscroll navscroll--" + dir;
       b.tabIndex = -1;
       b.setAttribute("aria-hidden", "true");
-      b.innerHTML = '<span class="material-symbols-rounded">' +
+      b.innerHTML = '<span class="material-symbols-rounded" aria-hidden="true">' +
         (dir === "left" ? "chevron_left" : "chevron_right") + "</span>";
       b.addEventListener("click", function () {
         /* 80% of a screenful, not 100%: the overlap keeps a couple of pills
