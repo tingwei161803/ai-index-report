@@ -674,6 +674,10 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--outline-variant);
 }
 .chart-wrap { width: 100%; max-width: 600px; margin: 0 auto; }
+/* A five-point line chart with three series needs more room than a
+   four-bar chart; the viewBox scales either way, but at 600px the axis
+   labels start colliding. */
+.chart-wrap--wide { max-width: 780px; }
 .chart-wrap svg { width: 100%; height: auto; display: block; }
 /* Hovering a bar used to move opacity .9 -> 1 — an 11% change nobody can see.
    Dim the siblings instead: relative contrast reads at a glance, and it also
@@ -702,6 +706,228 @@ a { color: inherit; text-decoration: none; }
 }
 .bar-label { fill: var(--on-surface-variant); font-size: 12px; font-family: var(--font-body); }
 .axis-line { stroke: var(--outline-variant); stroke-width: 1; }
+
+/* ---- CROSS-YEAR BLOCKS ------------------------------------------------
+   Four block types the index page needs and a single-series bar chart
+   cannot express: a comparison table, a multi-series line chart, a
+   lineage diagram, and a chart whose data the reader can switch.
+
+   Series colours are declared as tokens rather than inlined so the same
+   four hues mean the same four things on every chart, in both themes.
+   Each one clears 3:1 against the card it sits on (WCAG 1.4.11), and no
+   chart uses colour alone — every line also carries a dash pattern and a
+   label printed at its right-hand end. */
+:root, [data-theme="light"] {
+  --series-1: #8C3A2E;   /* clay — same accent as the bars */
+  --series-2: #4F6B5C;   /* sage */
+  --series-3: #3C5A80;   /* slate blue */
+  --series-4: #6F6B63;   /* warm gray */
+}
+[data-theme="dark"] {
+  --series-1: #E3A593;
+  --series-2: #8FB3A0;
+  --series-3: #93B0D1;
+  --series-4: #A8A296;
+}
+
+/* Text for assistive tech only. Not display:none — that removes it from the
+   accessibility tree too, which is the opposite of the point. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* ---- TABLE ---- */
+.table-card {
+  margin: 0;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius);
+  padding: 20px 20px 16px;
+}
+/* A table wider than the phone is the one thing allowed to scroll sideways,
+   and only inside this box — the page body must never do it. The box is
+   focusable on purpose: a region that scrolls has to be reachable by keyboard,
+   or its right-hand columns exist for mouse users only. */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  /* Without a position, this box scrolls its own content correctly and STILL
+     leaks the overflow to the page: measured at 390px, the table scrolled
+     inside the box (312 visible of 763) and the document scrolled sideways
+     218px as well. Positioning the scroller stops the propagation.
+
+     `overflow:hidden` or `contain:paint` on the card outside also stop it, but
+     both clip painting to that box — which takes the focus ring below with
+     them, since it is drawn 3px outside the scroller's edge. This keeps the
+     ring. (Removing the sticky row header does NOT fix it, so the cause is the
+     containing-block chain, not stickiness.) */
+  position: relative;
+}
+.table-wrap:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.ctable {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: .9rem;
+  font-family: var(--font-body);
+}
+.ctable th, .ctable td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--outline-variant);
+  white-space: nowrap;
+}
+.ctable thead th {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  border-bottom-color: var(--outline);
+}
+/* The row header stays put while the rest scrolls — without it you lose track
+   of which row you are reading two columns in. */
+.ctable tbody th {
+  position: sticky; left: 0;
+  background: var(--surface-container);
+  font-weight: 600;
+  color: var(--on-surface);
+}
+.ctable td.is-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.ctable td.is-strong { font-weight: 700; color: var(--primary); }
+.ctable td.is-absent { color: var(--on-surface-variant); opacity: .55; }
+.ctable tbody tr:last-child th,
+.ctable tbody tr:last-child td { border-bottom: none; }
+@media (hover: hover) and (pointer: fine) {
+  .ctable tbody tr:hover td,
+  .ctable tbody tr:hover th { background: var(--surface-container-high); }
+}
+.table-note {
+  margin: 12px 2px 0;
+  font-size: .82rem;
+  line-height: 1.55;
+  color: var(--on-surface-variant);
+}
+
+/* ---- LINES (multi-series, inline SVG) ---- */
+.ln-grid { stroke: var(--outline-variant); stroke-width: 1; }
+.ln-axis { fill: var(--on-surface-variant); font-size: 11px; font-family: var(--font-body); }
+.ln-path { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+.ln-dot  { stroke: var(--surface-container); stroke-width: 1.5; }
+.ln-end  {
+  font-size: 11.5px; font-weight: 700;
+  font-family: var(--font-mono); font-variant-numeric: tabular-nums;
+}
+.ln-s1 { stroke: var(--series-1); } .ln-s1.ln-dot, text.ln-s1 { fill: var(--series-1); }
+.ln-s2 { stroke: var(--series-2); } .ln-s2.ln-dot, text.ln-s2 { fill: var(--series-2); }
+.ln-s3 { stroke: var(--series-3); } .ln-s3.ln-dot, text.ln-s3 { fill: var(--series-3); }
+.ln-s4 { stroke: var(--series-4); } .ln-s4.ln-dot, text.ln-s4 { fill: var(--series-4); }
+.ln-legend {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  margin: 14px 0 0; padding: 0; list-style: none;
+  font-size: .82rem; color: var(--on-surface-variant);
+}
+.ln-legend li { display: flex; align-items: center; gap: 7px; }
+.ln-legend svg { flex: none; }
+
+/* ---- MERMAID ----
+   The reserved height comes from the data, so the box occupies its final
+   size from the first paint. Without it the text fallback and the rendered
+   diagram are different heights and the swap shifts everything below it. */
+.mmd-card {
+  margin: 0;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius);
+  padding: 22px 20px 16px;
+}
+.mmd { display: flex; align-items: center; justify-content: center; overflow-x: auto; }
+.mmd svg { max-width: 100%; height: auto; }
+/* The prose equivalent, shown until (and instead of) the diagram. It is not
+   a placeholder to be hidden and forgotten: with JS off, or if the CDN is
+   blocked, this is the content. */
+.mmd__alt {
+  margin: 0; max-width: 60ch;
+  font-size: .9rem; line-height: 1.65; color: var(--on-surface-variant);
+}
+/* Mermaid writes its palette into a <style> block inside the SVG, scoped by
+   the element id — so those rules carry an ID selector and win against
+   anything reasonable. Overriding them here is what lets one baked diagram
+   serve both themes: without it the light-mode colours from prerender time
+   would sit on a dark page, and the only alternative would be shipping the
+   library to every dark-mode reader just to draw it again.
+   `!important` is load-bearing, not laziness. */
+.mmd svg .node rect,
+.mmd svg .node polygon,
+.mmd svg .node circle,
+.mmd svg .node path {
+  fill: var(--surface-container-high) !important;
+  stroke: var(--outline) !important;
+}
+.mmd svg .nodeLabel,
+.mmd svg .nodeLabel *,
+.mmd svg .edgeLabel,
+.mmd svg .edgeLabel * {
+  color: var(--on-surface) !important;
+  fill: var(--on-surface) !important;
+  background: transparent !important;
+  font-family: var(--font-body) !important;
+}
+.mmd svg .edgePath .path,
+.mmd svg path.flowchart-link,
+.mmd svg .flowchart-link {
+  stroke: var(--outline) !important;
+}
+.mmd svg marker path,
+.mmd svg .marker,
+.mmd svg .arrowMarkerPath {
+  fill: var(--outline) !important;
+  stroke: var(--outline) !important;
+}
+
+/* ---- COMPARE (reader switches the data behind one chart) ---- */
+.cmp-switch {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 18px;
+}
+/* Toggle buttons, not tabs. A tablist promises arrow-key navigation between
+   panels; this is one chart with two datasets, and aria-pressed says exactly
+   that without promising keys nothing implements. */
+.cmp-btn {
+  font: inherit; font-size: .84rem; font-weight: 600;
+  padding: 7px 14px; min-height: 34px;
+  border: 1px solid var(--outline);
+  border-radius: 999px;
+  background: transparent; color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.cmp-btn:hover { background: var(--surface-container-high); }
+.cmp-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.cmp-btn[aria-pressed="true"] {
+  background: var(--primary); color: var(--on-primary); border-color: var(--primary);
+}
+.cmp-note {
+  margin: 14px 2px 0;
+  font-size: .84rem; line-height: 1.6; color: var(--on-surface-variant);
+}
+.cmp-note b { color: var(--on-surface); font-weight: 600; }
+/* Bars grow from the baseline when the dataset changes, so the eye can follow
+   which bar became which. transform-box/origin keep the scale anchored to the
+   axis rather than the viewBox corner. */
+.cmp-bar {
+  transform-box: fill-box; transform-origin: bottom;
+  transition: transform .45s cubic-bezier(.22,.61,.36,1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cmp-bar { transition: none; }
+}
 
 /* ---- ACCORDION (flat, hairline-separated) ---- */
 .accordion {
