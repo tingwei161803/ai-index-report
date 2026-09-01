@@ -520,10 +520,19 @@
        Used for the one thing no table or chart says well: how the chapters
        themselves split, merged and were renamed from edition to edition.
 
-       The prose equivalent is in the DOM from the start and is what ships in
-       the prerendered HTML. The library is fetched only when the diagram is
-       about to come into view, so a reader who never scrolls this far pays
-       nothing for it. ------------------------------------------------- */
+       What ships in the prerendered HTML is the drawn SVG, not the prose
+       fallback: prerender.py runs the diagram through the library once and
+       writes the result into <main>, and BAKED (harvested at module scope,
+       before the first repaint wipes it) hands it back here. So a reader on a
+       prerendered page never fetches the library — measured on this page,
+       zero requests to the CDN, in both languages, even after scrolling the
+       diagram into view.
+
+       The prose fallback below is only what a page that was NEVER prerendered
+       shows on screen. It is not what carries the description to assistive
+       tech — that is the div's own aria-label, which is there either way. The
+       lazy-loading path in setupMermaid() serves the same never-prerendered
+       case. On this site every page is prerendered, so both are dormant. */
     mermaid: function (sec) {
       var h = Number(sec.height) > 0 ? Number(sec.height) : 320;
       return sectionHead(sec) +
