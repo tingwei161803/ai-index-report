@@ -47,7 +47,7 @@ window.SITE_SECTIONS = [
       { label: { en: "% of organizations using AI in 2025 (50% in 2022)", zh: "% 2025 年使用 AI 的組織(2022 年為 50%)" }, value: 88 },
       { label: { en: "% growth in global corporate AI investment, 2024 → 2025", zh: "% 全球企業 AI 投資成長，2024 → 2025" }, value: 129.9 },
       { label: { en: "AI incidents logged in 2025 (149 in 2023)", zh: "2025 年 AI 事故通報件數(2023 年為 149)" }, value: 362 },
-      { label: { en: "US$ millions to train Gemini Ultra in 2023; the 2017 Transformer cost $930", zh: "百萬美元 — 2023 年訓練 Gemini Ultra 的成本；2017 年的 Transformer 只要 930 美元" }, value: 191.4 },
+      { label: { en: "US$ millions to train Gemini Ultra in 2023 — the 2017 Transformer cost under $1,000", zh: "百萬美元 — 2023 年訓練 Gemini Ultra 的成本；2017 年的 Transformer 不到 1,000 美元" }, value: 191.4 },
       { label: { en: "chapters across the five editions — the structure changes every year", zh: "五個版本的章節總數 — 結構每年都在變" }, value: 39 }
     ]
   },
@@ -296,8 +296,8 @@ window.SITE_SECTIONS = [
       { label: { en: "Benefits outweigh drawbacks — US", zh: "認為利大於弊 — 美國" },
         values: [null, 35, 37, 39, 42], dash: "2 3" }
     ],
-    foot: { en: "Every point on these lines is corroborated by at least two editions except the 2025 values, which only the 2026 edition has reported so far. The 2022 global figure of 52% appears identically in four separate editions.",
-            zh: "這三條線上的每一個點，除了 2025 年只有 2026 版報過之外，都有至少兩個版本互相印證。2022 年的全球數字 52%，在四個不同版本裡一字不差。" }
+    foot: { en: "Every point is corroborated by at least two editions except the 2025 values, which only the 2026 edition has reported; the 2022 global figure of 52% appears identically in four separate editions. Two caveats the corroboration does not cover. The adoption question changed in the 2025 edition — from organizations that have “adopted” AI to those that “use” it, with the chapter retitled from Industry Adoption to Industry Usage — and the 23-point jump falls in exactly that year. And the 2025 US sentiment figure is derived: the 2026 edition prints only a point change against 2022, from which 42% follows.",
+            zh: "這三條線上的每一個點，除了 2025 年只有 2026 版報過之外，都有至少兩個版本互相印證；2022 年的全球數字 52%，在四個不同版本裡一字不差。但有兩件事是「互相印證」保護不到的。採用率的問法在 2025 版改過 —— 從「已導入(adopted)AI 的組織」改成「有在使用(uses)AI 的組織」，章節標題也從 Industry Adoption 改為 Industry Usage —— 而那 23 個百分點的跳升，正好落在改動的那一年。另外，2025 年的美國民意數字是推算出來的：2026 版只印出相對 2022 年的變化幅度，42% 是由此得出。" }
   },
 
   /* --------------------------------------------- GOVERNANCE VS INCIDENTS */
@@ -350,8 +350,8 @@ window.SITE_SECTIONS = [
       { head: { en: "DeepSeek-V3", zh: "DeepSeek-V3" },
         cells: [{ text: { en: "2024", zh: "2024" } }, { text: { en: "$6m", zh: "600 萬美元" } }, { text: { en: "2025 edition, developer figure", zh: "2025 版，開發者自述" } }] }
     ],
-    foot: { en: "The last row is the exception that makes the column worth reading: DeepSeek-V3's $6 million is the developer's own number rather than an Index estimate, and the 2025 edition flags it as disputed. Costs on this scale are estimates of compute alone — no salaries, no data acquisition, and none of the failed runs that came before.",
-            zh: "最後一列正是讓這個欄位值得細讀的例外：DeepSeek-V3 的 600 萬美元是開發者自己的說法而非指數的估算，2025 版特別註明此數字有爭議。這個量級的成本都只是算力的估算 — 不含薪資、不含資料取得，也不含在此之前失敗的訓練。" }
+    foot: { en: "The last row is the exception that makes the column worth reading: DeepSeek-V3's $6 million is the developer's own number rather than an Index estimate, and the 2025 edition flags it as disputed. Costs on this scale are estimates of compute alone — no salaries, no data acquisition, and none of the failed runs that came before. The estimates get revised like everything else here, and the estimator changed: the 2023 edition used the Index's own figures, the 2024 and 2025 editions use Epoch AI. GPT-3 went from $1.80m to $4.32m, PaLM 540B from $8.01m to $12.39m, Megatron-Turing NLG down from $11.35m to $6.41m, and the Transformer itself from $930 to $670. The 2026 edition stopped publishing dollar costs altogether, which is why this table ends where it does.",
+            zh: "最後一列正是讓這個欄位值得細讀的例外：DeepSeek-V3 的 600 萬美元是開發者自己的說法而非指數的估算，2025 版特別註明此數字有爭議。這個量級的成本都只是算力的估算 — 不含薪資、不含資料取得，也不含在此之前失敗的訓練。而這些估算跟本頁其他東西一樣會被修訂，連估算者都換過：2023 版用的是指數自己的數字，2024 與 2025 版改用 Epoch AI。GPT-3 從 180 萬改成 432 萬、PaLM 540B 從 801 萬改成 1,239 萬、Megatron-Turing NLG 反而從 1,135 萬下修到 641 萬，而 Transformer 本身從 930 美元改成 670 美元。2026 版則完全不再公布金額 — 這也是這張表停在這裡的原因。" }
   },
 
   /* --------------------------------------------------------- MILESTONES */
