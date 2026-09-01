@@ -683,6 +683,25 @@
       right.disabled = !scrollable || atEnd;
     }
 
+    /* PR #23 gave the arrows tabindex="-1" on the premise that Tab already
+       scrolls each focused pill into view. That is only true when the pill is
+       ENTIRELY outside the scrollport — Chrome leaves a partially visible one
+       alone, and partial is the normal case here, since the rail usually
+       overflows by less than one pill. So tabbing to the last pill left 67px
+       of it (143px on some pages) outside the rail, with the fade erasing the
+       focus ring and the arrow painted over what was left.
+       Do the scroll the browser declines to do. */
+    if (!rail.dataset.focusWired) {
+      rail.dataset.focusWired = "1";
+      rail.addEventListener("focusin", function (e) {
+        if (!e.target || !e.target.scrollIntoView) return;
+        e.target.scrollIntoView({
+          block: "nearest", inline: "nearest",
+          behavior: prefersReducedMotion() ? "auto" : "smooth"
+        });
+      });
+    }
+
     if (!navScrollWired) {
       navScrollWired = true;
       var ticking = false;
