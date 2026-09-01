@@ -120,8 +120,8 @@ window.SITE_SECTIONS = [
         summary: { en: "53% population adoption in 3 years (faster than PC or internet); U.S. consumer value hit $172B/yr.",
                    zh: "三年達 53% 人口採用率(快過 PC 與網際網路)；美國消費者價值達每年 1,720 億美元。" },
         tags: ["adoption"],
-        overview: { en: "Generative AI reached 53% population adoption within three years, faster than the PC or the internet, though the pace varies by country and correlates strongly with GDP per capita. Some outpace what income predicts — Singapore (61%) and the UAE (54%) — while the U.S. ranks 24th at 28.3%. The estimated value of generative AI tools to U.S. consumers reached $172 billion annually by early 2026 (up from $112 billion a year earlier), with the median value per user tripling between 2025 and 2026. Most tools remain free or close to it.",
-                    zh: "生成式 AI 在三年內達到 53% 的人口採用率，快過個人電腦或網際網路，但各國速度不一，且與人均 GDP 高度相關。有些國家超越所得所能預測 — 新加坡(61%)與阿聯(54%)— 而美國以 28.3% 排名第 24。截至 2026 年初，生成式 AI 工具對美國消費者的估計價值達每年 1,720 億美元(高於一年前的 1,120 億美元)，每位使用者的中位數價值在 2025 至 2026 年間成長為三倍。多數工具仍免費或近乎免費。" }
+        overview: { en: "Generative AI reached 53% population adoption within three years, faster than the PC or the internet, though the pace varies by country and correlates strongly with GDP per capita. Some outpace what income predicts — the UAE (64%) and Singapore (61%) — while the U.S. ranks 24th at 28.3%. The estimated value of generative AI tools to U.S. consumers reached $172 billion annually by early 2026 (up from $112 billion a year earlier), with the median value per user tripling between 2025 and 2026. Most tools remain free or close to it.",
+                    zh: "生成式 AI 在三年內達到 53% 的人口採用率，快過個人電腦或網際網路，但各國速度不一，且與人均 GDP 高度相關。有些國家超越所得所能預測 — 阿聯(64%)與新加坡(61%)— 而美國以 28.3% 排名第 24。截至 2026 年初，生成式 AI 工具對美國消費者的估計價值達每年 1,720 億美元(高於一年前的 1,120 億美元)，每位使用者的中位數價值在 2025 至 2026 年間成長為三倍。多數工具仍免費或近乎免費。" }
       },
       {
         slug: "productivity-jobs",
@@ -266,13 +266,13 @@ window.SITE_SECTIONS = [
     nav:      { en: "Adoption", zh: "採用率" },
     title:    { en: "Who's actually using generative AI",
                 zh: "誰真的在用生成式 AI" },
-    subtitle: { en: "Generative-AI population adoption rate (%). Adoption correlates with GDP per capita — but some countries outpace what income predicts, while the U.S., despite leading investment, ranks 24th.",
-                zh: "生成式 AI 的人口採用率(%)。採用率與人均 GDP 相關 — 但有些國家超越所得所能預測，而美國儘管投資領先，卻只排第 24 名。" },
+    subtitle: { en: "Population-level generative-AI adoption, second half of 2025 (%). All four bars come from the same ranking of the top 30 economies (Figure 4.3.12), so they are directly comparable. Adoption tracks GDP per capita closely, but the UAE and Singapore run far above what their income predicts — while the U.S., first in investment, ranks 24th.",
+                zh: "生成式 AI 的人口採用率，2025 年下半年(%)。四根長條全部取自同一份前 30 大經濟體排名(圖 4.3.12)，因此可以直接並排比較。採用率與人均 GDP 高度相關，但阿聯與新加坡遠高於所得所能預測的水準；而投資居冠的美國只排第 24 名。" },
     series: [
-      { label: { en: "Singapore", zh: "新加坡" },   value: 61 },
-      { label: { en: "UAE", zh: "阿聯" },           value: 54 },
-      { label: { en: "Global avg", zh: "全球平均" }, value: 53 },
-      { label: { en: "United States", zh: "美國" }, value: 28 }
+      { label: { en: "UAE", zh: "阿聯" },             value: 64 },
+      { label: { en: "Singapore", zh: "新加坡" },     value: 61 },
+      { label: { en: "France", zh: "法國" },          value: 44 },
+      { label: { en: "United States", zh: "美國" },   value: 28.3 }
     ]
   },
 
