@@ -38,7 +38,7 @@ window.SITE_SECTIONS = [
       { label: { en: "million USD estimated to train PaLM in 2022 (GPT-2 in 2019: about 0.05)",
                  zh: "2022 年訓練 PaLM 的估計成本(百萬美元；2019 年 GPT-2 約 0.05)" }, value: 8.01 },
       { label: { en: "% of large language and multimodal model authors based in the US in 2022",
-                 zh: "2022 年大型語言與多模態模型作者出自美國機構的比例(%)" }, value: 54.2 },
+                 zh: "% 2022 年大型語言與多模態模型出自美國機構的比例" }, value: 54.2 },
       { label: { en: "GitHub AI projects in 2022, up from 1,536 in 2011",
                  zh: "2022 年 GitHub 上的 AI 專案數(2011 年為 1,536 個)" }, value: 347934 }
     ]
