@@ -190,8 +190,8 @@ window.SITE_SECTIONS = [
       { label: { en: "Private investment only", zh: "僅私人投資" },
         values: [145.4, 113.01, 104.34, 151.48, 344.66], dash: "6 4" }
     ],
-    foot: { en: "Both lines are read from the 2026 edition's own back-series, not assembled from what each edition said at the time. The 2023 total is printed as a whole number in the source; every other year carries two decimals.",
-            zh: "兩條線都取自 2026 版自己的回溯序列，而不是把各版當年的說法接起來。2023 年的總額在原文中就是印成整數，其餘每一年都有兩位小數。" }
+    foot: { en: "Both lines are read from the 2026 edition's own back-series, not assembled from what each edition said at the time. Two values are printed with fewer decimals than the rest, and both are copied exactly as the source has them: the 2023 corporate total is a whole number (201), and the 2021 private figure carries one decimal (145.4).",
+            zh: "兩條線都取自 2026 版自己的回溯序列，而不是把各版當年的說法接起來。有兩個數字的小數位比其餘的少，兩個都是照原文原樣抄錄：2023 年的企業投資總額是整數(201)，2021 年的私人投資則只有一位小數(145.4)。" }
   },
 
   /* ------------------------------------------------------ THE REVISIONS */
@@ -296,8 +296,8 @@ window.SITE_SECTIONS = [
       { label: { en: "Benefits outweigh drawbacks — US", zh: "認為利大於弊 — 美國" },
         values: [null, 35, 37, 39, 42], dash: "2 3" }
     ],
-    foot: { en: "Every point is corroborated by at least two editions except the 2025 values, which only the 2026 edition has reported; the 2022 global figure of 52% appears identically in four separate editions. Two caveats the corroboration does not cover. The adoption question changed in the 2025 edition — from organizations that have “adopted” AI to those that “use” it, with the chapter retitled from Industry Adoption to Industry Usage — and the 23-point jump falls in exactly that year. And the 2025 US sentiment figure is derived: the 2026 edition prints only a point change against 2022, from which 42% follows.",
-            zh: "這三條線上的每一個點，除了 2025 年只有 2026 版報過之外，都有至少兩個版本互相印證；2022 年的全球數字 52%，在四個不同版本裡一字不差。但有兩件事是「互相印證」保護不到的。採用率的問法在 2025 版改過 —— 從「已導入(adopted)AI 的組織」改成「有在使用(uses)AI 的組織」，章節標題也從 Industry Adoption 改為 Industry Usage —— 而那 23 個百分點的跳升，正好落在改動的那一年。另外，2025 年的美國民意數字是推算出來的：2026 版只印出相對 2022 年的變化幅度，42% 是由此得出。" }
+    foot: { en: "Every point is corroborated by at least two editions except the 2025 values, which only the 2026 edition has reported; the 2022 global figure of 52% appears identically in four separate editions. Two caveats the corroboration does not cover. The adoption question changed in the 2025 edition — from organizations that have “adopted” AI to those that “use” it, with the section inside the Economy chapter retitled from Industry Adoption to Industry Usage, the chapter itself having been Economy throughout — and the 23-point jump falls in exactly that year. And the 2025 US sentiment figure is derived: the 2026 edition prints only a point change against 2022, from which 42% follows.",
+            zh: "這三條線上的每一個點，除了 2025 年只有 2026 版報過之外，都有至少兩個版本互相印證；2022 年的全球數字 52%，在四個不同版本裡一字不差。但有兩件事是「互相印證」保護不到的。採用率的問法在 2025 版改過 —— 從「已導入(adopted)AI 的組織」改成「有在使用(uses)AI 的組織」，Economy 章底下的小節標題也從 Industry Adoption 改為 Industry Usage(章名本身一直都是 Economy) —— 而那 23 個百分點的跳升，正好落在改動的那一年。另外，2025 年的美國民意數字是推算出來的：2026 版只印出相對 2022 年的變化幅度，42% 是由此得出。" }
   },
 
   /* --------------------------------------------- GOVERNANCE VS INCIDENTS */
@@ -326,8 +326,8 @@ window.SITE_SECTIONS = [
     nav:      { en: "Cost curve", zh: "訓練成本" },
     title:    { en: "What it cost to train the model of the year",
                 zh: "訓練當年那個模型，要花多少錢" },
-    subtitle: { en: "AI Index estimates of the compute used to train notable models, in US dollars. Six years separate the first row from the last, and the bill grows by a factor of about 200,000.",
-                zh: "AI 指數對訓練重要模型所用算力的估算，單位美元。第一列與最後一列相隔六年，帳單成長了大約 20 萬倍。" },
+    subtitle: { en: "AI Index estimates of the compute used to train notable models, in US dollars. Six years separate the Transformer from Gemini Ultra, the most expensive model here, and across them the bill grows by a factor of about 200,000. The last two rows are where the curve bends back.",
+                zh: "AI 指數對訓練重要模型所用算力的估算，單位美元。從 Transformer 到本表最貴的 Gemini Ultra 相隔六年，帳單成長了大約 20 萬倍。而最後兩列，正是這條曲線折回來的地方。" },
     corner: { en: "Model", zh: "模型" },
     columns: [
       { label: { en: "Released", zh: "發表年" }, num: true },
@@ -350,8 +350,8 @@ window.SITE_SECTIONS = [
       { head: { en: "DeepSeek-V3", zh: "DeepSeek-V3" },
         cells: [{ text: { en: "2024", zh: "2024" } }, { text: { en: "$6m", zh: "600 萬美元" } }, { text: { en: "2025 edition, developer figure", zh: "2025 版，開發者自述" } }] }
     ],
-    foot: { en: "The last row is the exception that makes the column worth reading: DeepSeek-V3's $6 million is the developer's own number rather than an Index estimate, and the 2025 edition flags it as disputed. Costs on this scale are estimates of compute alone — no salaries, no data acquisition, and none of the failed runs that came before. The estimates get revised like everything else here, and the estimator changed: the 2023 edition used the Index's own figures, the 2024 and 2025 editions use Epoch AI. GPT-3 went from $1.80m to $4.32m, PaLM 540B from $8.01m to $12.39m, Megatron-Turing NLG down from $11.35m to $6.41m, and the Transformer itself from $930 to $670. The 2026 edition stopped publishing dollar costs altogether, which is why this table ends where it does.",
-            zh: "最後一列正是讓這個欄位值得細讀的例外：DeepSeek-V3 的 600 萬美元是開發者自己的說法而非指數的估算，2025 版特別註明此數字有爭議。這個量級的成本都只是算力的估算 — 不含薪資、不含資料取得，也不含在此之前失敗的訓練。而這些估算跟本頁其他東西一樣會被修訂，連估算者都換過：2023 版用的是指數自己的數字，2024 與 2025 版改用 Epoch AI。GPT-3 從 180 萬改成 432 萬、PaLM 540B 從 801 萬改成 1,239 萬、Megatron-Turing NLG 反而從 1,135 萬下修到 641 萬，而 Transformer 本身從 930 美元改成 670 美元。2026 版則完全不再公布金額 — 這也是這張表停在這裡的原因。" }
+    foot: { en: "The last row is the exception that makes the column worth reading: DeepSeek-V3's $6 million is the developer's own number rather than an Index estimate, and the 2025 edition flags it as disputed. Costs on this scale are estimates of compute alone — no salaries, no data acquisition, and none of the failed runs that came before. The estimates get revised like everything else here, and the estimator changed: the 2023 edition used the Index's own figures, the 2024 and 2025 editions use Epoch AI. GPT-3 went from $1.80m to $4.32m, PaLM 540B from $8.01m to $12.39m, and Megatron-Turing NLG down from $11.35m to $6.41m. The Transformer's own revision is a different and more unsettling kind: $930 in the 2024 edition became $670 in the 2025 edition, with Epoch AI on both sides — the same estimator changing its mind, with no change of method left to explain it. The 2026 edition stopped publishing dollar costs altogether, which is why this table ends where it does.",
+            zh: "最後一列正是讓這個欄位值得細讀的例外：DeepSeek-V3 的 600 萬美元是開發者自己的說法而非指數的估算，2025 版特別註明此數字有爭議。這個量級的成本都只是算力的估算 — 不含薪資、不含資料取得，也不含在此之前失敗的訓練。而這些估算跟本頁其他東西一樣會被修訂，連估算者都換過：2023 版用的是指數自己的數字，2024 與 2025 版改用 Epoch AI。GPT-3 從 180 萬改成 432 萬、PaLM 540B 從 801 萬改成 1,239 萬、Megatron-Turing NLG 反而從 1,135 萬下修到 641 萬。而 Transformer 自己那一次修訂屬於另一種、也更令人不安的類型：2024 版的 930 美元在 2025 版變成 670 美元，兩邊都是 Epoch AI — 同一個估算者改了口，沒有任何方法變動可以解釋。2026 版則完全不再公布金額 — 這也是這張表停在這裡的原因。" }
   },
 
   /* --------------------------------------------------------- MILESTONES */
@@ -422,12 +422,12 @@ window.SITE_SECTIONS = [
       { type: "ul",
         items: {
           en: [
-            "Global AI laws passed: the country coverage changed in every single edition — 25 countries, then 127, then 128. The raw counts are not a time series at all.",
+            "Global AI laws passed: the country coverage changed in every single edition — 25 countries, then 127, then 128, then down to 114, and finally to the G20 alone on a different data source. The 2026 edition states it outright: its numbers “may differ from what was reported in the 2025 AI Index report, as the methodology has changed.” The raw counts are not a time series at all.",
             "Legislative mentions of AI: coverage shrank from 81 countries to about 75, and the 2026 edition dropped the metric entirely, replacing it with a US-only proxy.",
             "US federal AI regulations: the one metric on this page whose definition never moved, which is why it is the one drawn beside incident counts above."
           ],
           zh: [
-            "全球通過的 AI 法案數：涵蓋國家數每一版都不同 — 25 國、127 國、128 國。原始數字根本不構成一條時間序列。",
+            "全球通過的 AI 法案數：涵蓋國家數每一版都不同 — 25 國、127 國、128 國，接著下修到 114 國，最後只剩 G20，而且換了資料來源。2026 版自己講得很明白：其數字「可能與 2025 版 AI 指數報告所載不同，因為方法已經改變」。原始數字根本不構成一條時間序列。",
             "立法程序中提及 AI 的次數：涵蓋範圍從 81 國縮到約 75 國，而 2026 版乾脆把這個指標拿掉，改用一個只涵蓋美國的替代指標。",
             "美國聯邦 AI 法規數：本頁唯一定義從未變動過的指標 — 這也正是上面把它拿來與事故件數並排的原因。"
           ]
