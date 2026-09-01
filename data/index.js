@@ -41,7 +41,7 @@ window.SITE_SECTIONS = [
       { label: { en: "AI incidents logged in 2025 (233 in 2024)", zh: "2025 年 AI 事故通報件數(2024 年為 233)" }, value: 362 },
       { label: { en: "US private AI investment in 2025 (US$ bn; 109.1 in 2024)", zh: "2025 年美國私人 AI 投資(十億美元；2024 年為 109.1)" }, value: 286 },
       { label: { en: "% of notable models coming from industry, both years", zh: "% 重要模型來自產業界，兩年皆然" }, value: 90 },
-      { label: { en: "editions covered on this site", zh: "本站收錄的版本數" }, value: 3 }
+      { label: { en: "editions covered on this site", zh: "本站收錄的版本數" }, value: 4 }
     ]
   },
 
@@ -61,6 +61,14 @@ window.SITE_SECTIONS = [
                    zh: "衡量 2025 年。九大章節 — 科學與醫療分列為兩章。投資翻倍有餘，組織採用率達 88%，而勞動市場的訊號最先出現在最年輕的工作者身上。" },
         tags: ["2025 data", "9 chapters"],
         cta: { en: "Open the 2026 edition", zh: "開啟 2026 版" }
+      },
+      {
+        href: "2023/index.html",
+        title:   { en: "2023 edition · 6th", zh: "2023 版 · 第 6 版" },
+        summary: { en: "Reports on 2022. Eight chapters, with Responsible AI still under its older name, Technical AI Ethics. DALL·E 2, Stable Diffusion and ChatGPT arrive, and private investment falls year over year for the first time in a decade.",
+                   zh: "衡量 2022 年。八大章節，負責任 AI 在這一版仍叫「AI 技術倫理」。DALL·E 2、Stable Diffusion 與 ChatGPT 在這一年到來，而私人投資出現十年來首次的年度下滑。" },
+        tags: ["2022 data", "8 chapters"],
+        cta: { en: "Open the 2023 edition", zh: "開啟 2023 版" }
       },
       {
         href: "2024/index.html",

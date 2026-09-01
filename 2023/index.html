@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title data-zh="AI 指數報告 2023 · 10 條重點、8 大章節">AI Index Report 2023 · 10 takeaways, 8 chapters</title>
+  <meta name="description" data-zh="史丹佛 HAI 第六版的互動重點整理:10 條重點摘要、8 大章節,以及 2022 年的關鍵數字,中英文皆備。" content="Stanford HAI&#x27;s sixth edition, read as data — 10 top takeaways, 8 chapters, and the key numbers from 2022 in English and Traditional Chinese." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://ai-index-report.peteraim.com/2023/" />
+  <link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2023/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2023/" />
+  <link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2023/" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Index Report 2023 · 10 takeaways, 8 chapters" />
+  <meta property="og:description" content="Stanford HAI&#x27;s sixth edition, read as data — 10 top takeaways, 8 chapters, and the key numbers from 2022 in English and Traditional Chinese." />
+  <meta property="og:url" content="https://ai-index-report.peteraim.com/2023/" />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Index Report 2023 · 10 takeaways, 8 chapters" />
+  <meta name="twitter:description" content="Stanford HAI&#x27;s sixth edition, read as data — 10 top takeaways, 8 chapters, and the key numbers from 2022 in English and Traditional Chinese." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI Index Report 2023 · 10 takeaways, 8 chapters",
+    "description": "Stanford HAI's sixth edition, read as data — 10 top takeaways, 8 chapters, and the key numbers from 2022 in English and Traditional Chinese.",
+    "url": "https://ai-index-report.peteraim.com/2023/",
+    "inLanguage": ["en"],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2023-ai-index-report"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="#top">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2023</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navChapters" href="#chapters"
+           data-i18n="navChaptersTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+          <span class="nav-link__txt" data-i18n="navChapters">Chapters</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2023-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../zh-Hant/2023/index.html"
+           hreflang="zh-Hant" lang="zh-Hant" rel="alternate"
+           title="中文版" aria-label="切換到中文版">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">中</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">2022: the public met generative AI, and the money walked out</h1><p class="section-head__sub">The 2023 AI Index covers calendar year 2022 across eight chapters — research, technical performance, technical AI ethics, the economy, education, policy, diversity and public opinion. It is the edition that recorded two opposite things at once: DALL·E 2, Stable Diffusion and ChatGPT put AI in front of everyone, while private investment fell year over year for the first time in a decade. A few numbers that set the scene:</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="32">32</b><span class="hero__stat-label">significant ML models from industry in 2022 (academia: 3)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="91.9">91.9</b><span class="hero__stat-label">global private AI investment (US$ bn), down 26.7%</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="26">26</b><span class="hero__stat-label">fold rise in AI incidents and controversies since 2012</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="37">37</b><span class="hero__stat-label">AI bills passed into law across 127 countries (one in 2016)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="65.4">65.4</b><span class="hero__stat-label">% of new AI PhDs going to industry (28.2% to academia)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="35">35</b><span class="hero__stat-label">% of Americans saying AI benefits outweigh drawbacks (China: 78%)</span></div></div></section><section class="section section--cards" id="takeaways" aria-labelledby="takeaways-heading"><header class="section-head reveal is-visible"><h2 id="takeaways-heading">The Top Ten Takeaways</h2><p class="section-head__sub">The report's own summary of the year, in its own order. Click any card for the full text.</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="industry-races-ahead" aria-label="1 · Industry races ahead of academia"><h3 class="card__title">1 · Industry races ahead of academia</h3><p class="card__summary">In 2022 industry released 32 significant machine learning models against academia's three. Until 2014 most such models came from universities.</p><div class="card__tags"><span class="tag">research</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="saturation" aria-label="2 · Performance saturation on traditional benchmarks"><h3 class="card__title">2 · Performance saturation on traditional benchmarks</h3><p class="card__summary">AI kept posting state-of-the-art results, but year-over-year improvement on many benchmarks stayed marginal — and the speed at which benchmarks saturate is increasing.</p><div class="card__tags"><span class="tag">benchmarks</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="environment" aria-label="3 · AI is both helping and harming the environment"><h3 class="card__title">3 · AI is both helping and harming the environment</h3><p class="card__summary">BLOOM's training run emitted 25 times more carbon than one air passenger flying New York to San Francisco — while models like BCOOLER show AI optimizing energy use.</p><div class="card__tags"><span class="tag">environment</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="science" aria-label="4 · The world's best new scientist … AI?"><h3 class="card__title">4 · The world's best new scientist … AI?</h3><p class="card__summary">In 2022 AI models were used to aid hydrogen fusion, improve the efficiency of matrix manipulation and generate new antibodies.</p><div class="card__tags"><span class="tag">science</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="incidents" aria-label="5 · The number of AI misuse incidents is rapidly rising"><h3 class="card__title">5 · The number of AI misuse incidents is rapidly rising</h3><p class="card__summary">The AIAAIC database records a 26-fold increase in AI incidents and controversies since 2012, including a deepfake video of President Zelenskyy surrendering.</p><div class="card__tags"><span class="tag">ethics</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="skills-demand" aria-label="6 · Demand for AI skills is rising across nearly every US sector"><h3 class="card__title">6 · Demand for AI skills is rising across nearly every US sector</h3><p class="card__summary">Across every US sector with data except agriculture, forestry, fishing and hunting, AI-related job postings rose on average from 1.7% in 2021 to 1.9% in 2022.</p><div class="card__tags"><span class="tag">labor</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="investment-falls" aria-label="7 · For the first time in a decade, private AI investment decreased"><h3 class="card__title">7 · For the first time in a decade, private AI investment decreased</h3><p class="card__summary">Global private AI investment was $91.9 billion in 2022, a 26.7% decrease from 2021. Funding events and newly funded companies fell too.</p><div class="card__tags"><span class="tag">economy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="adoption-plateau" aria-label="8 · Adoption has plateaued, but adopters keep pulling ahead"><h3 class="card__title">8 · Adoption has plateaued, but adopters keep pulling ahead</h3><p class="card__summary">The share of companies adopting AI has more than doubled since 2017 but has sat between 50% and 60% in recent years — and those that adopted report real cost cuts and revenue gains.</p><div class="card__tags"><span class="tag">adoption</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="policymakers" aria-label="9 · Policymaker interest in AI is on the rise"><h3 class="card__title">9 · Policymaker interest in AI is on the rise</h3><p class="card__summary">Across 127 countries, bills containing 'artificial intelligence' passed into law grew from one in 2016 to 37 in 2022; mentions in parliamentary proceedings rose nearly 6.5-fold since 2016.</p><div class="card__tags"><span class="tag">policy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="china-vs-us-opinion" aria-label="10 · Chinese citizens feel most positively about AI; Americans do not"><h3 class="card__title">10 · Chinese citizens feel most positively about AI; Americans do not</h3><p class="card__summary">In a 2022 IPSOS survey, 78% of Chinese respondents agreed AI products have more benefits than drawbacks — against just 35% of Americans, among the lowest of all surveyed countries.</p><div class="card__tags"><span class="tag">public opinion</span></div></article></div></section><section class="section section--bars" id="investment" aria-labelledby="investment-heading"><header class="section-head reveal is-visible"><h2 id="investment-heading">Private AI investment in 2022, by country</h2><p class="section-head__sub">US$ billions. The global total fell 26.7% to $91.9 billion — the first year-over-year decline in a decade — but the ranking held.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Private AI investment in 2022, by country. United States: 47.4, China: 13.4, United Kingdom: 4.4"><title>Private AI investment in 2022, by country</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="152" height="198" rx="5"><title>United States: 47.4</title></rect><text class="bar-value" x="92" y="10" text-anchor="middle">47.4</text><text class="bar-label" x="92" y="234" text-anchor="middle">United States</text><rect class="bar-rect" x="184" y="158.03" width="152" height="55.97" rx="5"><title>China: 13.4</title></rect><text class="bar-value" x="260" y="152.03" text-anchor="middle">13.4</text><text class="bar-label" x="260" y="234" text-anchor="middle">China</text><rect class="bar-rect" x="352" y="195.62" width="152" height="18.38" rx="5"><title>United Kingdom: 4.4</title></rect><text class="bar-value" x="428" y="189.62" text-anchor="middle">4.4</text><text class="bar-label" x="428" y="234" text-anchor="middle">United Kingdom</text></svg></div></figure></section><section class="section section--bars" id="focus-areas" aria-labelledby="focus-areas-heading"><header class="section-head reveal is-visible"><h2 id="focus-areas-heading">Where that money actually went</h2><p class="section-head__sub">Top AI investment focus areas in 2022, US$ billions. Most focus areas took less money than in 2021 — this is the ranking within a shrinking pool.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Where that money actually went. Medical/health: 6.1, Data &amp; cloud: 5.9, Fintech: 5.5"><title>Where that money actually went</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="152" height="198" rx="5"><title>Medical/health: 6.1</title></rect><text class="bar-value" x="92" y="10" text-anchor="middle">6.1</text><text class="bar-label" x="92" y="234" text-anchor="middle">Medical/health</text><rect class="bar-rect" x="184" y="22.49" width="152" height="191.51" rx="5"><title>Data &amp; cloud: 5.9</title></rect><text class="bar-value" x="260" y="16.49" text-anchor="middle">5.9</text><text class="bar-label" x="260" y="234" text-anchor="middle">Data &amp; cloud</text><rect class="bar-rect" x="352" y="35.48" width="152" height="178.52" rx="5"><title>Fintech: 5.5</title></rect><text class="bar-value" x="428" y="29.48" text-anchor="middle">5.5</text><text class="bar-label" x="428" y="234" text-anchor="middle">Fintech</text></svg></div></figure></section><section class="section section--accordion" id="chapters" aria-labelledby="chapters-heading"><header class="section-head reveal is-visible"><h2 id="chapters-heading">Eight chapters, in brief</h2><p class="section-head__sub">Each chapter's headline highlights. Expand to read the key numbers.</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>1 · Research &amp; Development</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Industry released 32 significant machine learning models in 2022 against academia's three. Large models kept growing and getting costlier: GPT-2 had 1.5 billion parameters and cost an estimated $50,000 to train in 2019; PaLM had 540 billion and cost an estimated $8 million — 360 times larger and 160 times more expensive. China continues to lead total AI journal, conference and repository publications, while the US still leads on conference and repository citations, and produced 54% of the world's large language and multimodal models.<a class="acc-link" href="research.html">Full deep dive: Research &amp; Development →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>2 · Technical Performance</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Year-over-year gains on many benchmarks stayed marginal while saturation arrived faster, prompting broader suites like BIG-bench and HELM. Generative AI broke into public consciousness with DALL·E 2, Stable Diffusion, Make-A-Video and ChatGPT — all prone to hallucination. Systems became more flexible (BEiT-3, PaLI, Gato) but still struggled with complex planning. Nvidia used reinforcement learning to improve chip design, and Google used PaLM to suggest improvements to PaLM.<a class="acc-link" href="performance.html">Full deep dive: Technical Performance →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>3 · Technical AI Ethics</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">AI incidents and controversies logged by the AIAAIC database rose 26-fold since 2012. Generative models arrived with their ethical problems attached — text-to-image generators are routinely biased along gender lines and chatbots can be tricked into harmful uses. Fairer is not always less biased: models scoring better on some fairness benchmarks tend to show worse gender bias. Accepted submissions to FAccT more than doubled since 2021 and grew tenfold since 2018.<a class="acc-link" href="ethics.html">Full deep dive: Technical AI Ethics →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>4 · The Economy</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Global private AI investment fell 26.7% to $91.9 billion — the first decline in a decade, though still 18 times the 2013 figure. The US led with $47.4 billion, about 3.5 times China's $13.4 billion. Medical and healthcare drew the most investment ($6.1B), then data and cloud ($5.9B) and fintech ($5.5B). Adoption plateaued between 50% and 60%. In a GitHub survey, 88% of Copilot users felt more productive. China installed more industrial robots in 2021 than the rest of the world combined.<a class="acc-link" href="economy.html">Full deep dive: The Economy →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>5 · Education</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">The share of new US computer science PhDs specializing in AI jumped to 19.1% in 2021, from 14.9% in 2020 and 10.2% in 2010. 65.4% of new AI PhDs took industry jobs against 28.2% entering academia — in 2011 the split was nearly even. North American CS, CE and information faculty hires stayed flat (710 in 2021 against 733 in 2012). The funding gap widened: median external research expenditure was $9.7 million at private US CS departments against $5.7 million at public ones. 181,040 AP CS exams were taken in 2021, ninefold the 2007 figure.<a class="acc-link" href="education.html">Full deep dive: Education →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>6 · Policy &amp; Governance</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">Across 127 countries, AI bills passed into law grew from one in 2016 to 37 in 2022, and mentions of AI in the parliamentary records of 81 countries rose nearly 6.5-fold since 2016. The US moved from talk to enactment: 2% of federal AI bills became law in 2021 against 10% in 2022, with 35% of state-level bills passing. US government AI-related contract spending has grown roughly 2.5 times since 2017. There were 110 AI-related legal cases in US courts in 2022, 6.5 times the 2016 figure.<a class="acc-link" href="policy.html">Full deep dive: Policy &amp; Governance →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>7 · Diversity</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">North American CS students grew more ethnically diverse: white students were 71.9% of new resident CS bachelor's graduates in 2011 and 46.7% in 2021. New AI PhDs remained overwhelmingly male — 78.7% in 2021, with the female share up just 3.2 percentage points since 2011. The share of new female CS, CE and information faculty hires rose from 24.9% in 2017 to 30.2%, though 75.9% of such faculty are still male. The female share of AP CS exams rose from 16.8% in 2007 to 30.6% in 2021.<a class="acc-link" href="diversity.html">Full deep dive: Diversity →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>8 · Public Opinion</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">In a 2022 IPSOS survey, 78% of Chinese respondents said AI products have more benefits than drawbacks, followed by Saudi Arabia (76%) and India (71%); only 35% of Americans agreed. Men were consistently more positive than women. Self-driving cars remain unconvincing — only 27% globally would feel safe in one, and only 26% of Americans think driverless passenger vehicles are good for society. Among NLP researchers surveyed, 77% agreed private AI firms have too much influence and 73% expected AI to bring revolutionary societal change.<a class="acc-link" href="public-opinion.html">Full deep dive: Public Opinion →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">In the report's own words</h2><p class="section-head__sub">Lines that capture the year, from the Top Ten Takeaways and the chapter highlights.</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Until 2014, most significant machine learning models were released by academia. Since then, industry has taken over.</blockquote><figcaption class="quote-by">— Top Ten Takeaways</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2022 saw the release of text-to-image models like DALL-E 2 and Stable Diffusion, text-to-video systems like Make-A-Video, and chatbots like ChatGPT.</blockquote><figcaption class="quote-by">— Chapter 2 · Technical Performance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Global AI private investment was $91.9 billion in 2022, which represented a 26.7% decrease since 2021.</blockquote><figcaption class="quote-by">— Top Ten Takeaways</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Language models which perform better on certain fairness benchmarks tend to have worse gender bias.</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Only 27% of respondents reported feeling safe in a self-driving car.</blockquote><figcaption class="quote-by">— Chapter 8 · Public Opinion</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>Read the full report</h2><p>386 pages, eight chapters, hundreds of charts — free from Stanford HAI, with the underlying public data.</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2023-ai-index-report" target="_blank" rel="noopener">Open the AI Index 2023 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2023》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../zh-Hant/2023/index.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2023/data/site.js"></script>
+  <script src="../2023/data/index.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

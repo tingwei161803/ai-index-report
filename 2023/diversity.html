@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title data-zh="多元性 · AI 指數報告 2023">Diversity · AI Index Report 2023</title>
+  <meta name="description" data-zh="史丹佛 HAI《人工智慧指數報告 2023》多元性章節的雙語重點整理。" content="A bilingual deep dive into the Diversity chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://ai-index-report.peteraim.com/2023/diversity.html" />
+  <link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2023/diversity.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2023/diversity.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2023/diversity.html" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Diversity · AI Index Report 2023" />
+  <meta property="og:description" content="A bilingual deep dive into the Diversity chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta property="og:url" content="https://ai-index-report.peteraim.com/2023/diversity.html" />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diversity · AI Index Report 2023" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Diversity chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Diversity — Trends from the AI Index 2023",
+    "description": "A bilingual deep dive into the Diversity chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023.",
+    "url": "https://ai-index-report.peteraim.com/2023/diversity.html",
+    "inLanguage": ["en"],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2023-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2023/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2023</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2023-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../zh-Hant/2023/diversity.html"
+           hreflang="zh-Hant" lang="zh-Hant" rel="alternate"
+           title="中文版" aria-label="切換到中文版">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">中</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">Ethnicity is moving. Gender is standing still.</h1><p class="section-head__sub">Chapter 7 is the only chapter in the report whose subject is people rather than models. It draws on three sources: the Women in Machine Learning workshop at NeurIPS (2022), the CRA Taulbee Survey of North American computing departments (2021), and Code.org’s AP computer science data (2021). Read across all three, the same pattern repeats — the ethnic mix of computing classrooms has shifted substantially in a decade, and the gender split has barely moved at any level.</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="21.3">21.3</b><span class="hero__stat-label">% of new AI PhDs in North America who were female in 2021 (up 3.2 points from 2011)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="22.3">22.3</b><span class="hero__stat-label">% of new CS bachelor’s graduates who were female in 2021</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="23.3">23.3</b><span class="hero__stat-label">% of new CS PhD graduates who were female in 2021 (up from 19.9%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="30.2">30.2</b><span class="hero__stat-label">% of new CS, CE, and information faculty hires who were female in 2021 (2017: 24.9%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="46.7">46.7</b><span class="hero__stat-label">% of new resident CS bachelor’s graduates who were white in 2021 (2011: 71.9%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="30.6">30.6</b><span class="hero__stat-label">% of AP computer science exams taken by female students in 2021 (2007: 16.8%)</span></div></div></section><section class="section section--prose" id="wiml" aria-labelledby="wiml-heading"><header class="section-head reveal is-visible"><h2 id="wiml-heading">7.1 — The one room in AI where women are the largest group</h2><p class="section-head__sub">Women in Machine Learning, founded in 2006, runs an annual technical workshop at NeurIPS. In 2022 it drew 1,157 participants — 13 times the 2010 count, but down from 1,486 the year before.</p></header><div class="prose reveal is-visible" data-item=""><p>The decade-long trend is a steady climb: from 2010 to 2022 attendance at the WiML workshop multiplied thirteenfold. The 2021-to-2022 dip is the first real break in that line, and the chapter attributes it to the same drop in overall NeurIPS attendance that followed the conference moving away from a purely virtual format. Since 2020 WiML has also run an Un-Workshop at ICML, built around collaboration between participants from different backgrounds rather than paper presentations.</p><h3>Who was in the room in 2022</h3><ul><li>On gender, 37.0% of respondents identified as female and 25.8% as male — with 36.3% preferring not to say, plus 0.5% nonbinary, 0.2% gender fluid, and 0.2% gender non-conforming.</li><li>Half the room was still in training: PhD students made up 49.4% of participants, ahead of research scientists and data scientists (20.8%), software and data engineers (8.4%), and faculty (4.4%).</li><li>By continent of residence, North America led at 41.5%, followed by Europe (34.2%), Asia (17.1%), Africa (3.4%), South America (1.6%), and Australia/Oceania (1.4%). One respondent was temporarily residing in Antarctica.</li><li>Submissions clustered around practice rather than theory: applications (32.5%), algorithms (23.4%), and deep learning (14.8%) led, while optimization and theory took 1.0% each.</li></ul></div></section><section class="section section--bars" id="wiml-where" aria-labelledby="wiml-where-heading"><header class="section-head reveal is-visible"><h2 id="wiml-where-heading">Continent of residence, 2022 WiML workshop participants</h2><p class="section-head__sub">Percent of survey respondents. Two-thirds of the room lives in North America or Europe. Compared with the previous year, 2022 saw greater representation from Europe, Asia, and South America.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Continent of residence, 2022 WiML workshop participants. North America: 41.5, Europe: 34.2, Asia: 17.1, Africa: 3.4, South America: 1.6"><title>Continent of residence, 2022 WiML workshop participants</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>North America: 41.5</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">41.5</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">North America</text><rect class="bar-rect" x="116.8" y="50.83" width="84.8" height="163.17" rx="5"><title>Europe: 34.2</title></rect><text class="bar-value" x="159.2" y="44.83" text-anchor="middle">34.2</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">Europe</text><rect class="bar-rect" x="217.6" y="132.41" width="84.8" height="81.59" rx="5"><title>Asia: 17.1</title></rect><text class="bar-value" x="260" y="126.41" text-anchor="middle">17.1</text><text class="bar-label" x="260" y="234" text-anchor="middle">Asia</text><rect class="bar-rect" x="318.4" y="197.78" width="84.8" height="16.22" rx="5"><title>Africa: 3.4</title></rect><text class="bar-value" x="360.8" y="191.78" text-anchor="middle">3.4</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">Africa</text><rect class="bar-rect" x="419.2" y="206.37" width="84.8" height="7.63" rx="5"><title>South America: 1.6</title></rect><text class="bar-value" x="461.6" y="200.37" text-anchor="middle">1.6</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">South America</text></svg></div></figure></section><section class="section section--prose" id="higher-ed" aria-labelledby="higher-ed-heading"><header class="section-head reveal is-visible"><h2 id="higher-ed-heading">7.2 — Every level of computing is about three-quarters male</h2><p class="section-head__sub">The CRA Taulbee Survey tracks North American computing departments. On the 2021 numbers, the female share is 22.3% of new CS bachelor’s graduates, 27.8% of master’s, and 23.3% of PhDs — and 21.3% of the AI PhDs specifically.</p></header><div class="prose reveal is-visible" data-item=""><p>Bachelor’s degrees moved the most, and not by much: 22.30% of new CS bachelor’s graduates in 2021 were female, up from the year before and in line with a decade-long climb, against 77.66% male and 0.04% nonbinary or other. Master’s degrees are the least male of the three levels at 27.83% female and 0.90% nonbinary — but the chapter is blunt that this has not substantially increased over time, moving only from 24.6% in 2011 to 27.8% in 2021. PhDs rose to 23.30% female from 19.9%, with 0.12% nonbinary; 76.58% of new CS PhDs were male.</p><h3>The AI PhD is the flattest line in the chapter</h3><p>Among new PhDs whose focus is artificial intelligence, 78.7% were male and 21.3% female in 2021. That is a 3.2 percentage point gain on 2011 — spread over a decade in which AI itself went from academic subfield to the center of the industry. The report’s own reading is that the number rose marginally from 2020 to 2021 and that there are no meaningful trends in the last decade relating to the gender of new AI PhDs.</p><h3>Faculty hiring is the one place with real movement</h3><p>As of 2021, CS, CE, and information faculty in North America were 75.94% male, 23.94% female, and 0.12% nonbinary — the female share up about 5 percentage points since 2011. New hires look different from the standing body: 30.17% of new faculty hires in 2021 were female, up from 24.9% in 2017 and about nine points above 2015, with 0.57% nonbinary. Because faculty turnover is slow, a hiring rate above the standing rate is what the incumbent numbers will follow, eventually.</p><h3>One thing the survey asked for the first time</h3><p>The 2021 edition of the Taulbee Survey was the first to ask departments how many students received disability accommodations in the past year. The counts are small: 4.1% of bachelor’s students, 1.0% of PhD students, and 0.8% of master’s students. The chapter presents these as a first baseline rather than a finding — and notes elsewhere that publicly available demographic data on AI diversity is sparse enough that whole dimensions, sexual orientation among them, are not covered at all.</p></div></section><section class="section section--bars" id="women-share" aria-labelledby="women-share-heading"><header class="section-head reveal is-visible"><h2 id="women-share-heading">Female share at each stage of the computing pipeline, 2021</h2><p class="section-head__sub">Percent of the total at each stage. The pipeline does not narrow smoothly — it starts at 30.6% in the AP exam room and ends at 21.3% among new AI PhDs. Faculty sit at 23.9%, new faculty hires at 30.2%.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Female share at each stage of the computing pipeline, 2021. AP CS exams: 30.58, CS bachelor’s: 22.3, CS master’s: 27.83, CS PhD: 23.3, AI PhD: 21.3"><title>Female share at each stage of the computing pipeline, 2021</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>AP CS exams: 30.58</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">30.58</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">AP CS exams</text><rect class="bar-rect" x="116.8" y="69.61" width="84.8" height="144.39" rx="5"><title>CS bachelor’s: 22.3</title></rect><text class="bar-value" x="159.2" y="63.61" text-anchor="middle">22.3</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">CS bachelor’s</text><rect class="bar-rect" x="217.6" y="33.81" width="84.8" height="180.19" rx="5"><title>CS master’s: 27.83</title></rect><text class="bar-value" x="260" y="27.81" text-anchor="middle">27.83</text><text class="bar-label" x="260" y="234" text-anchor="middle">CS master’s</text><rect class="bar-rect" x="318.4" y="63.14" width="84.8" height="150.86" rx="5"><title>CS PhD: 23.3</title></rect><text class="bar-value" x="360.8" y="57.14" text-anchor="middle">23.3</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">CS PhD</text><rect class="bar-rect" x="419.2" y="76.09" width="84.8" height="137.91" rx="5"><title>AI PhD: 21.3</title></rect><text class="bar-value" x="461.6" y="70.09" text-anchor="middle">21.3</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">AI PhD</text></svg></div></figure></section><section class="section section--prose" id="ethnicity" aria-labelledby="ethnicity-heading"><header class="section-head reveal is-visible"><h2 id="ethnicity-heading">The white share fell at every level. Asian and Hispanic students took up most of the slack.</h2><p class="section-head__sub">In 2011, 71.9% of new resident CS bachelor’s graduates in North America were white. By 2021 that was 46.7% — the single largest shift anywhere in this chapter.</p></header><div class="prose reveal is-visible" data-item=""><p>Among new resident CS bachelor’s graduates in 2021, 46.69% were white, 33.99% Asian, 10.91% Hispanic of any race, 4.10% multiracial, 3.85% Black or African American, 0.24% Native Hawaiian or Pacific Islander, and 0.22% American Indian or Alaska Native. The Asian, Hispanic, and multiracial shares all rose steadily over the decade. These figures cover domestic students only — a real limit, because 16.3% of new CS bachelor’s graduates that year were nonresident aliens, and the survey does not report their ethnicity.</p><p>The same direction shows at the graduate levels, from a higher starting point. Master’s: 50.28% white, 34.83% Asian, 7.25% Hispanic, 3.82% Black, 3.45% multiracial. PhD: 58.64% white, 29.00% Asian, 5.12% Hispanic, 4.05% Black, 2.13% multiracial — with the white share down 9.4 percentage points since 2011. Graduate computing in North America runs heavily on international students, who are outside these percentages entirely: 65.2% of new CS master’s graduates and 68.6% of new CS PhDs in 2021 were nonresident aliens.</p><h3>Faculty is the slowest layer to change</h3><p>Resident CS, CE, and information faculty in 2021 were 58.08% white and 29.70% Asian, with 5.82% unknown, 2.80% Hispanic, 2.54% Black or African American, 0.67% multiracial, 0.25% American Indian or Alaska Native, and 0.13% Native Hawaiian or Pacific Islander. The gap between white faculty and the next largest group is closing, from 46.1 percentage points in 2011 to 28.4 in 2021, but it is closing from one direction only. Black representation is the number that moves least anywhere in the chapter: 3.85% of bachelor’s graduates, 3.82% of master’s, 4.05% of PhDs, and 2.54% of faculty.</p></div></section><section class="section section--prose" id="k12" aria-labelledby="k12-heading"><header class="section-head reveal is-visible"><h2 id="k12-heading">7.3 — The AP exam room is the most balanced stage, and it is still 69% male</h2><p class="section-head__sub">Code.org tracks who sits the AP computer science exams in the United States. In 2021 the female share was 30.58% — almost double the 16.8% of 2007, and still the high-water mark of the whole pipeline.</p></header><div class="prose reveal is-visible" data-item=""><p>Of AP computer science exams taken in 2021, 69.16% were taken by male students, 30.58% by female students, and 0.26% by students who identified as neither. Male students still take more AP computer science exams than any other gender, but the female proportion has almost doubled in the last decade — the fastest gender shift the chapter records at any level.</p><p>The state spread is wide and does not track where the industry is. The highest female shares were in Alabama (36%) and Washington, D.C. (36%), followed by Nevada, Louisiana, Tennessee, Maryland, and New York at 35% each. The states with the most CS and AI activity sit around the national average — Washington 32%, California 31%, Texas 30%. At the bottom are Kansas and South Dakota (15% each), North Dakota (16%), and Alaska (20%).</p><h3>Ethnicity moves the same way it does in university</h3><p>White students took the greatest proportion of 2021 exams at 42.74%, followed by Asian students (28.78%), Hispanic/Latino/Latina students (16.48%), Black/African American students (6.32%), students of two or more races (4.92%), Native American/Alaskan students (0.62%), and Native Hawaiian/Pacific Islander students (0.15%). As in postsecondary computer science, the test-taking pool has become more ethnically diverse year over year, with the Asian, Hispanic/Latino/Latina, and Black/African American shares all rising.</p></div></section><section class="section section--bars" id="ap-ethnicity" aria-labelledby="ap-ethnicity-heading"><header class="section-head reveal is-visible"><h2 id="ap-ethnicity-heading">AP computer science exams taken by race and ethnicity, 2021</h2><p class="section-head__sub">Percent of total responding students. Two groups take seven exams in ten. Native American/Alaskan students account for 0.62% and Native Hawaiian/Pacific Islander students for 0.15%, too small to show here.</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="AP computer science exams taken by race and ethnicity, 2021. White: 42.74, Asian: 28.78, Hispanic: 16.48, Black: 6.32, Two+ races: 4.92"><title>AP computer science exams taken by race and ethnicity, 2021</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>White: 42.74</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">42.74</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">White</text><rect class="bar-rect" x="116.8" y="80.67" width="84.8" height="133.33" rx="5"><title>Asian: 28.78</title></rect><text class="bar-value" x="159.2" y="74.67" text-anchor="middle">28.78</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">Asian</text><rect class="bar-rect" x="217.6" y="137.65" width="84.8" height="76.35" rx="5"><title>Hispanic: 16.48</title></rect><text class="bar-value" x="260" y="131.65" text-anchor="middle">16.48</text><text class="bar-label" x="260" y="234" text-anchor="middle">Hispanic</text><rect class="bar-rect" x="318.4" y="184.72" width="84.8" height="29.28" rx="5"><title>Black: 6.32</title></rect><text class="bar-value" x="360.8" y="178.72" text-anchor="middle">6.32</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">Black</text><rect class="bar-rect" x="419.2" y="191.21" width="84.8" height="22.79" rx="5"><title>Two+ races: 4.92</title></rect><text class="bar-value" x="461.6" y="185.21" text-anchor="middle">4.92</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">Two+ races</text></svg></div></figure></section><section class="section section--cards" id="pipeline" aria-labelledby="pipeline-heading"><header class="section-head reveal is-visible"><h2 id="pipeline-heading">Six stages of the pipeline, six sets of numbers</h2><p class="section-head__sub">The same two questions asked at every stage from the AP exam to the faculty meeting: who is in the room, and who is not.</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="ap-computer-science" aria-label="AP computer science"><h3 class="card__title">AP computer science</h3><p class="card__summary">The most gender-balanced and most ethnically mixed stage in the chapter — 30.58% female in 2021, up from 16.8% in 2007.</p><div class="card__tags"><span class="tag">k12</span><span class="tag">code.org</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="cs-bachelors" aria-label="CS bachelor’s graduates"><h3 class="card__title">CS bachelor’s graduates</h3><p class="card__summary">22.30% female in 2021. The white share dropped from 71.9% in 2011 to 46.69% — the biggest single change in the chapter.</p><div class="card__tags"><span class="tag">undergraduate</span><span class="tag">cra</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="cs-masters" aria-label="CS master’s graduates"><h3 class="card__title">CS master’s graduates</h3><p class="card__summary">27.83% female — the highest of the three degree levels, and the one the chapter says has not substantially increased over time.</p><div class="card__tags"><span class="tag">graduate</span><span class="tag">cra</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="cs-phd" aria-label="CS PhD graduates"><h3 class="card__title">CS PhD graduates</h3><p class="card__summary">23.30% female in 2021, up from 19.9%. Also the whitest student stage at 58.64% — though that is 9.4 points lower than in 2011.</p><div class="card__tags"><span class="tag">doctorate</span><span class="tag">cra</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="ai-phd" aria-label="New AI PhDs"><h3 class="card__title">New AI PhDs</h3><p class="card__summary">78.7% male, 21.3% female — a 3.2 point gain on 2011, and the chapter finds no meaningful trend across the decade.</p><div class="card__tags"><span class="tag">doctorate</span><span class="tag">gender</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="faculty" aria-label="CS, CE, and information faculty"><h3 class="card__title">CS, CE, and information faculty</h3><p class="card__summary">23.94% female overall, but 30.17% of new hires — the one number in the chapter with a clearly better leading edge.</p><div class="card__tags"><span class="tag">faculty</span><span class="tag">hiring</span></div></article></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">The chapter in five lines</h2><p class="section-head__sub">Headline findings from Chapter 7 · Diversity.</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>North American AI researchers and practitioners in both industry and academia are predominantly white and male. This lack of diversity can lead to harms, among them the reinforcement of existing societal inequalities and bias.</blockquote><figcaption class="quote-by">— Chapter 7 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2021, 78.7% of new AI PhDs were male. Only 21.3% were female, a 3.2 percentage point increase from 2011.</blockquote><figcaption class="quote-by">— Chapter 7 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>In 2011, 71.9% of new resident CS bachelor’s graduates were white. In 2021, that number dropped to 46.7%.</blockquote><figcaption class="quote-by">— Chapter 7 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Since 2017, the proportion of new female CS, CE, and information faculty hires has increased from 24.9% to 30.2%. Still, most faculty in North American universities are male (75.9%).</blockquote><figcaption class="quote-by">— Chapter 7 · Diversity</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>The share of AP computer science exams taken by female students increased from 16.8% in 2007 to 30.6% in 2021.</blockquote><figcaption class="quote-by">— Chapter 7 · Diversity</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>Read Chapter 7 in full</h2><p>Chapter 7 (sections 7.1–7.3) with every figure and citation is free from Stanford HAI. The chapter notes its own limits: the data is neither comprehensive nor conclusive, and publicly available demographic data on AI diversity remains sparse.</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2023-ai-index-report" target="_blank" rel="noopener">Open the AI Index 2023 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2023》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../zh-Hant/2023/diversity.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../2023/data/site.js"></script>
+  <script src="../2023/data/diversity.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

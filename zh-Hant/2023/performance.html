@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>技術表現 · AI 指數報告 2023</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2023/performance.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2023/performance.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2023/performance.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2023/performance.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2023/performance.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2023》技術表現章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Technical Performance · AI Index Report 2023" />
+  <meta property="og:description" content="A bilingual deep dive into the Technical Performance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Technical Performance · AI Index Report 2023" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Technical Performance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "技術表現 · AI 指數報告 2023",
+    "description": "史丹佛 HAI《人工智慧指數報告 2023》技術表現章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2023/performance.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2023-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2023/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2023</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2023-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2023/performance.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">計分板不動了 — 於是 2022 年重新造了幾塊</h1><p class="section-head__sub">AI 指數 2023 第 2 章衡量 2022 年在視覺、語言、語音、強化學習與硬體上的技術進展。重點不是躍進而是高原：最先進成績仍持續出現，但在多數基準上只多贏了一點點。真正躍進的是生成式 AI — 以及訓練它的代價。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="4">4</b><span class="hero__stat-label">% AI 指數追蹤的各項基準，年度進步幅度中位數</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="7">7</b><span class="hero__stat-label">全年進步達 5% 以上的基準數量 — 其餘全都低於此</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="204">204</b><span class="hero__stat-label">BIG-bench 的任務數，2022 年 6 月由 132 個機構的 442 位作者共同推出</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="91">91</b><span class="hero__stat-label">% 2022 年 ImageNet top-1 準確率 — 全年只進步 0.1 個百分點</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="75.2">75.2</b><span class="hero__stat-label">% Flan-PaLM 的 MMLU 分數，當年最佳的多任務語言成績</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="502">502</b><span class="hero__stat-label">GPT-3 訓練排放的二氧化碳當量噸數(BLOOM 為 25 噸)</span></div></div></section><section class="section section--prose" id="saturation" aria-labelledby="saturation-heading"><header class="section-head reveal is-visible"><h2 id="saturation-heading">2.6 — 是基準先沒空間了，不是模型</h2><p class="section-head__sub">貫穿整章的主題是飽和。2022 年 AI 仍不斷刷新紀錄，但在 AI 指數追蹤的多數測驗上，新紀錄只比去年好一點點 — 而且基準觸頂的速度還在加快。</p></header><div class="prose reveal is-visible" data-item=""><p>若以各基準推出以來的相對變化來衡量，進步幅度中位數是 42.4%；若只看過去一年，中位數是 4%。本章涵蓋的基準裡，除了七個以外，全年進步都不到 5%。AI 指數這一版還把兩個長年常客 SQuAD1.1 與 SQuAD2.0 整個拿掉 — 因為兩者都沒有新的最先進成績出現。</p><h3>高原長什麼樣子，一個基準一個基準看</h3><ul><li>ImageNet：最強的影像分類器達到 91.0% 的 top-1 準確率。這比十年前高了 27.7 個百分點 — 但只比去年高 0.1 個百分點。</li><li>MPII 人體姿態估計：ViTPose 正確標出 94.3% 的關節點，比 2020 年創下的紀錄只多 0.2 個百分點。</li><li>Cityscapes 語意分割：mIoU 86.46%，自 2014 年競賽開辦以來累積進步 23.4 個百分點，但近幾年已經打平。</li><li>COCO 物件偵測：來自中國學術合作團隊的 EVA 達到 81.9% mAP50 — 偵測器自 2015 年以來累積進步 26 個百分點。</li><li>Kvasir-SEG 醫學影像分割：平均 Dice 94.11%。Celeb-DF 深偽偵測：AUC 78。Procgen 強化學習：最小最大正規化平均分數 0.57。</li><li>人臉辨識實質上已經結束。在 NIST FRVT 的每一組資料上，除了 WILD Photos 之外，最佳模型的錯誤率都已低於 1%，而在 VISA Photos 上只有 0.06%。</li></ul><h3>應對方式：更大、更全面的測驗套組</h3><p>研究者對飽和的回應，是打造更難跑完的評測。2022 年 6 月，132 個機構的 442 位作者推出 BIG-bench(Beyond the Imitation Game)，共 204 項任務，橫跨語言學、兒童發展、數學、常識推理、生物、物理、社會偏見與軟體開發。同年 11 月，史丹佛研究者釋出 HELM(Holistic Evaluation of Language Models)，試圖用統一標準評判語言模型，而不是一次只看一個分數。Google 的 Imagen 團隊則在發表模型的同時推出 DrawBench，正是因為既有的文字轉圖像基準已經分不出高下。</p></div></section><section class="section section--bars" id="human-baseline" aria-labelledby="human-baseline-heading"><header class="section-head reveal is-visible"><h2 id="human-baseline-heading">2022 年 AI 站在人類基準的哪一邊</h2><p class="section-head__sub">四項附有人類基準的測驗，2022 年最先進分數(%)。AI 在 aNLI(人類 92.90)、SuperGLUE(89.80)與 VQA v2(80.78)上都已越線，唯獨視覺常識推理仍在人類基準 85.00 之下。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="2022 年 AI 站在人類基準的哪一邊：aNLI：93.65、SuperGLUE：91.3、VQA v2：84.3、VCR：75.6"><title>2022 年 AI 站在人類基準的哪一邊</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="110" height="198" rx="5"><title>aNLI：93.65</title></rect><text class="bar-value" x="71" y="10" text-anchor="middle">93.65</text><text class="bar-label" x="71" y="234" text-anchor="middle">aNLI</text><rect class="bar-rect" x="142" y="20.97" width="110" height="193.03" rx="5"><title>SuperGLUE：91.3</title></rect><text class="bar-value" x="197" y="14.97" text-anchor="middle">91.3</text><text class="bar-label" x="197" y="234" text-anchor="middle">SuperGLUE</text><rect class="bar-rect" x="268" y="35.77" width="110" height="178.23" rx="5"><title>VQA v2：84.3</title></rect><text class="bar-value" x="323" y="29.77" text-anchor="middle">84.3</text><text class="bar-label" x="323" y="234" text-anchor="middle">VQA v2</text><rect class="bar-rect" x="394" y="54.16" width="110" height="159.84" rx="5"><title>VCR：75.6</title></rect><text class="bar-value" x="449" y="48.16" text-anchor="middle">75.6</text><text class="bar-label" x="449" y="234" text-anchor="middle">VCR</text></svg></div></figure></section><section class="section section--timeline" id="timeline-2022" aria-labelledby="timeline-2022-heading"><header class="section-head reveal is-visible"><h2 id="timeline-2022-heading">2.1 — 生成式 AI 走進大眾視野的那一年</h2><p class="section-head__sub">從本章時間軸中挑出的幾則 2022 年重大 AI 進展，這份名單由 AI 指數指導委員會選定。</p></header><ol class="timeline"><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 2 月 2 日</span><h3 class="tl-title">AlphaCode · DeepMind</h3><p class="tl-body">一套能以競賽水準撰寫電腦程式的 AI 系統，在人類程式競賽中擠進前 54% 的參賽者之列 — 而複雜問題求解正是 AI 一向不擅長的領域。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 4 月 5 日</span><h3 class="tl-title">PaLM · Google</h3><p class="tl-body">全球規模最大的語言模型之一，共 5,400 億參數。PaLM 強化了當時的主流信念 — 只要餵更多資料訓練，效能就會變好。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 4 月 13 日</span><h3 class="tl-title">DALL·E 2 · OpenAI</h3><p class="tl-body">能依文字描述生成寫實藝術與影像的文字轉圖像系統。AI 指數把它的公開釋出，標記為點燃生成式 AI 熱潮的那一刻。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 5 月 12 日</span><h3 class="tl-title">Gato · DeepMind</h3><p class="tl-body">一個能同時做機器手臂操作、玩遊戲、影像描述與自然語言生成的強化學習代理 — 顯示 AI 的泛化能力正在提升。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 6 月 9 日</span><h3 class="tl-title">BIG-bench · 442 位作者</h3><p class="tl-body">為了更有效地挑戰日益強大的大型語言模型，132 個機構的 442 位作者推出 Beyond the Imitation Game 基準：204 項任務，從語言學、兒童發展一路到物理與軟體開發。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 6 月 21 日</span><h3 class="tl-title">Copilot 開賣 · GitHub</h3><p class="tl-body">GitHub 把 Copilot 以訂閱制開放給個別開發者。它能把自然語言提示轉成多種語言的程式碼建議；調查顯示它讓工程師更有生產力、也更少受挫。同類系統還有 OpenAI 的 Codex 與 Salesforce 的 CodeGen。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 8 月 22 日</span><h3 class="tl-title">Stable Diffusion · Stability AI</h3><p class="tl-body">一個開源的文字轉圖像擴散模型，任何人都能自由取用其權重。它以既有的人類創作影像訓練，卻不註明來源或給予署名，留下了影像生成器倫理使用的疑問。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 9 月 21 日</span><h3 class="tl-title">Whisper · OpenAI</h3><p class="tl-body">以約 700,000 小時音訊訓練的大規模語音辨識系統。它既不需要監督式預訓練，也不需要非監督訓練加微調，卻表現優異 — 再一次驗證了單純擴大訓練資料的做法。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 11 月 16 日</span><h3 class="tl-title">HELM · 史丹佛</h3><p class="tl-body">Holistic Evaluation of Language Models 是一套新的評測方法，改以更統一的標準評判語言模型 — 顯示這個領域正試圖為愈來愈強大的系統建立透明度。</p></div></li><li class="tl-item reveal is-visible" data-item=""><div class="tl-dot" aria-hidden="true"></div><div class="tl-card"><span class="tl-date">2022 年 11 月 30 日</span><h3 class="tl-title">ChatGPT · OpenAI</h3><p class="tl-body">一個人人可用、能寫出大學程度文章的聊天機器人。上線幾個月後就達到一億月活躍使用者，成為史上成長最快的消費性應用 — 也為生成式 AI 進入時代精神的這一年畫下句點。</p></div></li></ol></section><section class="section section--prose" id="generative" aria-labelledby="generative-heading"><header class="section-head reveal is-visible"><h2 id="generative-heading">2.2–2.5 — 輸入文字、輸出圖像：生成技術成為主流的一年</h2><p class="section-head__sub">分類基準一路平坦的同時，生成並沒有停下來。2022 年，文字轉圖像、文字轉影片與語音都推出了一般使用者真的碰得到的系統。</p></header><div class="prose reveal is-visible" data-item=""><h3>文字轉圖像</h3><p>DALL·E 2、Stable Diffusion、Midjourney、Meta 的 Make-A-Scene 與 Google 的 Imagen 在短短數月內接連登場。AI 指數用同一句提示 —「a panda playing a piano on a warm evening in Paris」— 分別餵給 DALL·E 2、Stable Diffusion 與 Midjourney 並排比較。在 MS-COCO 256×256 FID-30K 基準上(Fréchet Inception Distance 愈低愈好)，Imagen 以 7.27 領先，其次是 Make-A-Scene 的 7.55 與 DALL·E 2 的 10.39；作為對照，2017 年的 AttnGAN 是 35.49。Google 在發表 Imagen 的同時推出更難的 DrawBench，因為文字轉圖像模型已經長得比舊測驗還大。</p><h3>文字轉影片</h3><ul><li>5 月，清華大學與北京智源人工智慧研究院釋出 CogVideo，以 50.46 的 inception score 拿下當時 UCF-101 文字轉影片基準的最高分。</li><li>9 月，Meta 的 Make-A-Video 以 82.55 的 inception score 大幅超越 — 在 UCF-101 上比 CogVideo 好 63.6%。</li><li>10 月，Google 釋出 Phenaki，不過這個模型並未在 UCF-101 上評測。</li><li>本章加註的但書是：這些模型雖然驚人，但目前都只能生成幾秒鐘長的影片。</li></ul><h3>一個模型，多種技能</h3><p>AI 傳統上擅長狹窄任務，卻不擅長在任務之間切換。2022 年這個界線開始鬆動。微軟的 BEiT-3 一口氣在四項視覺技能與五項視覺語言技能上都拿下最先進成績 — 在 NLVR 視覺推理上達到 92.60，超越先前最佳的 87.00，進步 6.44%，是九項中幅度最大的。Google 的 PaLI 則以 84.30% 登上 VQA v2 榜首，高於 80.78% 的人類基準。這兩個都是單一系統，做的是過去得動用好幾個系統才做得到的事。</p><h3>語音</h3><p>2022 年，規模擴張的做法也來到了語音領域。以 700,000 小時音訊、弱監督方式訓練的 Whisper，在一系列英語語音辨識基準上勝過 wav2vec 2.0 Large，並在 CoVoST 2 的 X→EN 子集上以 29.1 BLEU 勝過 MAESTRO 的 25.2，超越多個頂尖翻譯模型。在 Kincaid46 上，它 8.81% 的中位字錯誤率贏過所有受測的商用語音辨識服務。但它並非樣樣最好：在 FLEURS 語言辨識上，零樣本的 Whisper 只有 64.5%，而 mSLAM-CTC 有 77.7%。另一方面，在原始的 VoxCeleb 語者辨識資料集上，美國研究者寫下 0.1% 的等錯誤率，比前一年的最先進成績再降 0.28 個百分點。</p></div></section><section class="section section--cards" id="ai-for-science" aria-labelledby="ai-for-science-heading"><header class="section-head reveal is-visible"><h2 id="ai-for-science-heading">2.9 — 全世界最好的新科學家 …… 是 AI？</h2><p class="section-head__sub">2022 年，AI 不再只是被研究的對象，而是開始動手做研究。以下是本章的六個案例 — 其中兩個是拿 AI 來改進 AI。點任一張卡片看細節。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="fusion-plasma-control" aria-label="用學習控制核融合電漿"><h3 class="card__title">用學習控制核融合電漿</h3><p class="card__summary">DeepMind 訓練強化學習代理，找出約束氫電漿的最佳托卡馬克操控程序。</p><div class="card__tags"><span class="tag">science</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="alphatensor" aria-label="AlphaTensor 改寫矩陣乘法"><h3 class="card__title">AlphaTensor 改寫矩陣乘法</h3><p class="card__summary">以強化學習找出更快的矩陣乘法演算法 — 這個問題研究者已經啃了 50 年。</p><div class="card__tags"><span class="tag">algorithms</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="prefixrl-chips" aria-label="Nvidia GPU 裡的 AI 設計電路"><h3 class="card__title">Nvidia GPU 裡的 AI 設計電路</h3><p class="card__summary">Nvidia 的 PrefixRL 代理設計出比傳統 EDA 工具更小更快的晶片電路。</p><div class="card__tags"><span class="tag">hardware</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="de-novo-antibodies" aria-label="從零設計出來的抗體"><h3 class="card__title">從零設計出來的抗體</h3><p class="card__summary">生成模型以零樣本方式產出全新抗體 — 只生成一輪，不再優化。</p><div class="card__tags"><span class="tag">biology</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="bcooler-energy" aria-label="BCOOLER 幫 Google 機房降溫"><h3 class="card__title">BCOOLER 幫 Google 機房降溫</h3><p class="card__summary">強化學習代理在三個月的實驗中，把冷卻用電降低約 12.7%。</p><div class="card__tags"><span class="tag">energy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="palm-improves-palm" aria-label="PaLM 改進 PaLM"><h3 class="card__title">PaLM 改進 PaLM</h3><p class="card__summary">Google 研究者用自家的語言模型，去改進同一個模型的推理能力。</p><div class="card__tags"><span class="tag">self-improvement</span></div></article></div></section><section class="section section--prose" id="chips-carbon" aria-labelledby="chips-carbon-heading"><header class="section-head reveal is-visible"><h2 id="chips-carbon-heading">2.7–2.8 — 硬體變快也變便宜，帳單還是寄來了</h2><p class="section-head__sub">這兩節其實該擺在一起看。每一塊錢買到的訓練速度不斷提升，正因如此模型才愈做愈大 — 也正因如此，這一版第一次替它們算出碳排數字。</p></header><div class="prose reveal is-visible" data-item=""><h3>硬體</h3><ul><li>在 MLPerf 訓練競賽中，影像分類與物件偵測的頂尖系統，如今訓練速度約是 2018 年開賽時的 32 倍。2022 年在物件偵測、語音辨識、影像分割、推薦、影像分類與語言處理上全都創下新低，其中最快的語言處理只要 0.18 分鐘。</li><li>這裡面有很大一部分是硬體堆出來的。MLPerf 參賽者使用的加速器數量最高達到 4,216 個；能拿下最佳成績的系統平均用了 1,859 個；而所有參賽者的平均只有 211 個。這道差距在競賽的每一年都在擴大。</li><li>在 MLPerf 推論競賽上，頂尖影像分類器與語言處理器產出的離線樣本數，自 2020 年以來已經翻倍以上，推薦系統的吞吐量也成長約 23%。</li><li>GPU 效能持續往上：FP32 效能中位數自 2021 年以來將近三倍，自 2003 年以來則提升約 7,000 倍。</li><li>真正決定規模擴張的是性價比。2022 年每美元的 FLOP/s 中位數是 2021 年的 1.4 倍、2003 年的 5,600 倍 — 相當於每 1.5 年翻一倍。</li></ul><h3>碳排</h3><p>本章引用 Luccioni 等人 2022 年的研究，從參數量、資料中心能源使用效率(PUE)、電網碳強度、耗電量到排放量，比較四個大型語言模型。GPT-3(1,750 億參數、1,287 MWh、PUE 1.10、電網碳強度 429 gCO₂eq/kWh)排放最多，達 502 噸：是 Gopher 的 1.4 倍、OPT 的 7.2 倍、BLOOM 的 20.1 倍。這種比較並不完美 — 碳排放的計算方法至今沒有統一標準 — 但相對關係已經很清楚。四者中最乾淨的 BLOOM 只有 25 噸，卻仍相當於一名乘客紐約往返舊金山飛行排放量的 25 倍、一個美國人一年排放量的 1.4 倍，而它訓練所耗的電力足以供應一個美國家庭用 41 年。</p></div></section><section class="section section--bars" id="carbon-cost" aria-labelledby="carbon-cost-heading"><header class="section-head reveal is-visible"><h2 id="carbon-cost-heading">一次訓練要付多少噸二氧化碳</h2><p class="section-head__sub">以噸為單位的二氧化碳當量排放，資料出自 Luccioni 等人(2022)與 Strubell 等人(2019)。四個語言模型中有兩個的排放量，超過一輛車含燃料的一生；四個全都超過一個人一年的碳足跡。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="一次訓練要付多少噸二氧化碳：GPT-3：502、Gopher：352、OPT：70、一輛車一生：63、BLOOM：25、美國人一年：18.08"><title>一次訓練要付多少噸二氧化碳</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="68" height="198" rx="5"><title>GPT-3：502</title></rect><text class="bar-value" x="50" y="10" text-anchor="middle">502</text><text class="bar-label" x="50" y="234" text-anchor="middle">GPT-3</text><rect class="bar-rect" x="100" y="75.16" width="68" height="138.84" rx="5"><title>Gopher：352</title></rect><text class="bar-value" x="134" y="69.16" text-anchor="middle">352</text><text class="bar-label" x="134" y="234" text-anchor="middle">Gopher</text><rect class="bar-rect" x="184" y="186.39" width="68" height="27.61" rx="5"><title>OPT：70</title></rect><text class="bar-value" x="218" y="180.39" text-anchor="middle">70</text><text class="bar-label" x="218" y="234" text-anchor="middle">OPT</text><rect class="bar-rect" x="268" y="189.15" width="68" height="24.85" rx="5"><title>一輛車一生：63</title></rect><text class="bar-value" x="302" y="183.15" text-anchor="middle">63</text><text class="bar-label" x="302" y="234" text-anchor="middle">一輛車一生</text><rect class="bar-rect" x="352" y="204.14" width="68" height="9.86" rx="5"><title>BLOOM：25</title></rect><text class="bar-value" x="386" y="198.14" text-anchor="middle">25</text><text class="bar-label" x="386" y="234" text-anchor="middle">BLOOM</text><rect class="bar-rect" x="436" y="206.87" width="68" height="7.13" rx="5"><title>美國人一年：18.08</title></rect><text class="bar-value" x="470" y="200.87" text-anchor="middle">18.08</text><text class="bar-label" x="470" y="234" text-anchor="middle">美國人一年</text></svg></div></figure></section><section class="section section--accordion" id="limits" aria-labelledby="limits-heading"><header class="section-head reveal is-visible"><h2 id="limits-heading">2022 年的系統還做不到什麼</h2><p class="section-head__sub">對於「令人驚豔的展示」與「可靠的能力」之間的落差，以及這些分數本身值多少，本章講得異常直白。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>大型語言模型會規劃與推理嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">並不真的會 — 而 2022 年正好出現了證明這件事的測驗。Valmeekam 等人建立了一套包含七項作業的規劃基準(計畫生成、成本最佳規劃、對計畫執行的推理、目標改述的穩健性、計畫重用、重新規劃、計畫泛化)，並在 Blocksworld 環境中測試 GPT-3、Instruct-GPT3 與 BLOOM — 在這個環境裡，代理必須把不同顏色的積木排成指定順序。結果相當難看：計畫生成上三者分別是 0.6%、5.0% 與 0.5%；最佳規劃是 0.2%、3.2% 與 0%；計畫重用是 0%、14.4% 與 0%。它們在改述目標上好得多，某一項目標改述穩健性測試甚至達到 77.4%，但整體與人類相比仍差得很遠 — 作者認為這說明「有能力」跟「具備人類式推理」並不是同一件事。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>語言模型到底進步了多少？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">AI 指數自己做了一個小實驗：把同一句提示 —「Explain to me the major accomplishments of Theodore Roosevelt’s presidency」— 分別給 GPT-2(2019)、GPT-3(2020)與 ChatGPT(2022)。GPT-2 的回答大部分是胡言亂語，句子合乎文法，卻從頭到尾沒回答問題。GPT-3 有回應問題，但事實錯誤：把帶領美國走出大蕭條、投入二戰的功勞算到老羅斯福頭上(那是小羅斯福)，也說他創立了國家公園管理局與國家野生動物聯盟(這兩者分別成立於 1916 與 1936 年，都在他任期之後)。ChatGPT 的答案最強：除了一項之外事實全對，而且比前兩者更完整也更精簡。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>這些系統可以放心倚賴嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">本章的重點摘要說得很直白：不行。2022 年出現了 DALL·E 2、Stable Diffusion 這類文字轉圖像模型，Make-A-Video 這類文字轉影片系統，以及 ChatGPT 這類聊天機器人 —「然而，這些系統仍容易產生幻覺，會信心十足地輸出不連貫或不真實的回應，使人難以在關鍵應用中倚賴它們。」問題正出在那份自信：它的失效方式不是顯而易見的錯誤，而是一個聽起來很有道理的錯答案。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>還有哪個視覺基準真的還沒被攻克？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">還有幾個。視覺常識推理(VCR)是本報告中極少數 AI 尚未超越人類的視覺基準：2022 年最高的 Q→AR 分數是 75.60，人類基準則是 85.00。VCR 比 VQA 難，因為系統不只要選對答案，還要選對答案背後的推理。在影片方面，Kinetics-600(91.80%)與 Kinetics-700(84.00%)相差 7.8 個百分點，本章認為這代表 700 類別的資料集仍是個有意義的挑戰。而在人臉辨識上，WILD Photos 是 FRVT 中唯一錯誤率仍高於 1% 的資料集，為 2.97%。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>這些進步幅度可以互相比較嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">不行，本章在註腳裡就講明了。飽和分析中的進步幅度是以相對變化呈現，而每個基準的參數各不相同 — 所以那張圖不應拿來跨基準比較進步幅度。同樣的提醒在本章其他地方也適用：MLPerf 比的是絕對牆鐘時間，FID 分數愈低愈好，VoxCeleb 用等錯誤率計分，Procgen 用最小最大正規化分數。把其中任何一個直接讀成「AI 進步了多少」，都是搞錯了範疇。</div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用本章自己的話說</h2><p class="section-head__sub">五句話，取自第 2 章「技術表現」的重點摘要與內文。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>AI 持續刷新最先進成績，但許多基準的年度進步幅度依然微小。而且，基準達到飽和的速度還在加快。</blockquote><figcaption class="quote-by">— Chapter 2 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2022 年出現了 DALL-E 2、Stable Diffusion 這類文字轉圖像模型，Make-A-Video 這類文字轉影片系統，以及 ChatGPT 這類聊天機器人。然而，這些系統仍容易產生幻覺，會信心十足地輸出不連貫或不真實的回應，使人難以在關鍵應用中倚賴它們。</blockquote><figcaption class="quote-by">— Chapter 2 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>與人類相比，這些大型語言模型表現差得多，顯示它們雖然有能力，卻不具備人類的推理能力。</blockquote><figcaption class="quote-by">— Chapter 2 · 2.4 Language</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>AI 模型正開始快速加速科學進展，2022 年就被用來協助氫融合、提升矩陣運算效率，以及生成新的抗體。</blockquote><figcaption class="quote-by">— Chapter 2 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>Nvidia 用 AI 強化學習代理改良了驅動 AI 系統的晶片設計。同樣地，Google 近期也用自家的語言模型 PaLM，來提出改進同一個模型的方法。會自我改進的 AI 學習，將加速 AI 的進展。</blockquote><figcaption class="quote-by">— Chapter 2 · Chapter Highlights</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 2 章原文</h2><p>第 2 章(2.1–2.9 各節) — 2022 年時間軸、影像與影片電腦視覺、語言、語音、強化學習、硬體、環境與 AI 做科學 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2023-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2023 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2023》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2023/performance.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2023/data/site.js"></script>
+  <script src="../../2023/data/performance.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>

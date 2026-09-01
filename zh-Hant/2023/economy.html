@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>經濟 · AI 指數報告 2023</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2023/economy.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2023/economy.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2023/economy.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2023/economy.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2023/economy.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2023》經濟章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Economy · AI Index Report 2023" />
+  <meta property="og:description" content="A bilingual deep dive into the The Economy chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Economy · AI Index Report 2023" />
+  <meta name="twitter:description" content="A bilingual deep dive into the The Economy chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "經濟 · AI 指數報告 2023",
+    "description": "史丹佛 HAI《人工智慧指數報告 2023》經濟章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2023/economy.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2023-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2023/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2023</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2023-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2023/economy.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">資金十年來第一次下滑 — 企業採用率也第一次停下腳步</h1><p class="section-head__sub">AI 指數 2023 第 4 章講的是 2022 年 — 十年來一路向上的投資曲線，終於在這一年折彎。私人投資下降 26.7%，拿到錢的公司變少、交易件數變少，使用 AI 的組織比例不升反降。沒有下滑的是：雇主對 AI 技能的需求、已經導入 AI 的公司把它用得多深，以及中國對工業機器人的胃口。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="91.9">91.9</b><span class="hero__stat-label">2022 年全球 AI 私人投資(十億美元，下降 26.7%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="189.6">189.6</b><span class="hero__stat-label">2022 年全球企業 AI 投資(十億美元，比 2021 年低約三分之一)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="47.4">47.4</b><span class="hero__stat-label">美國私人 AI 投資(十億美元) — 為中國 13.4 的 3.5 倍</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="50">50</b><span class="hero__stat-label">% 至少在一項職能中採用 AI 的組織(2021 年為 56%、2017 年為 20%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="1392">1,392</b><span class="hero__stat-label">2022 年全球新獲資金的 AI 公司數(2021 年為 1,669 家)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="268200">268,200</b><span class="hero__stat-label">2021 年中國安裝的工業機器人 — 佔全球總量的 51.8%</span></div></div></section><section class="section section--prose" id="investment" aria-labelledby="investment-heading"><header class="section-head reveal is-visible"><h2 id="investment-heading">4.2 — 十年來第一個下跌年，而且跌得不輕</h2><p class="section-head__sub">2022 年全球企業 AI 投資降到 1,896 億美元，約比 2021 年低三分之一；私人投資則下降 26.7%，來到 919 億美元。但兩者都仍遠高於十年前的起點：企業投資自 2013 年以來成長十三倍，私人投資也還是 2013 年的 18 倍。</p></header><div class="prose reveal is-visible" data-item=""><h3>更少的交易，更少的公司</h3><ul><li>2022 年共有 3,538 件 AI 相關的私人投資案，較 2021 年減少 12% — 但仍是 2013 年的六倍。</li><li>新獲資金的 AI 公司從前一年的 1,669 家減少到 1,392 家。2013 年這個數字是 495 家。</li><li>除了最頂端的級距之外，每個募資規模級距都在萎縮。超過 10 億美元的交易從 4 件增為 6 件，5 億至 10 億美元的級距卻從 13 件崩到 5 件，1 億至 5 億美元從 277 件掉到 164 件，5,000 萬美元以下的交易也從 2,851 件減為 2,585 件。</li><li>這一年最大的幾筆私人投資，以熱潮期的標準來看都算不上大：中國電動車廠廣汽埃安拿到 25 億美元；美國國防產品公司 Anduril Industries 的 E 輪募得 15 億美元；德國商業數據公司 Celonis 募得 12 億美元。</li><li>全年單筆金額最高的 AI 交易不是募資，而是併購 — Nuance Communications 作價 198 億美元，其後是 Citrix Systems(171.8 億美元)與 Avast(80.2 億美元)。</li></ul><h3>美國仍然領先 — 但也跌了 35.5%</h3><p>美國 474 億美元的 AI 私人投資，約為中國(134 億美元)的 3.5 倍、英國(44 億美元)的 11 倍。但領先並不代表免疫：美國的 AI 私人投資年減 35.5%，中國更減少 41.3%。若把 2013 至 2022 年累加起來，排名沒有改變 — 美國吸引了 2,489 億美元、中國 951 億美元、英國 182 億美元，其後是以色列(108 億美元)、加拿大(88 億美元)與印度(77 億美元)。</p><ul><li>創業活動跟著同一張地圖走。2022 年美國有 542 家新獲資金的 AI 公司，中國 160 家、英國 99 家 — 美國是歐盟加英國總和的 1.9 倍、中國的 3.4 倍。</li><li>拉長到十年，差距更明顯：美國累計 4,643 家，約為中國 1,337 家的 3.5 倍、英國 630 家的 7.4 倍。</li><li>以領域來看，2022 年獲得最多資金的是醫療與健康照護(61 億美元)、資料管理處理與雲端(59 億美元)、金融科技(55 億美元)、資安與資料保護(54 億美元)與零售(42 億美元)。</li><li>多數領域拿到的錢都比 2021 年少。逆勢成長的是半導體、工業自動化與網路、資安與資料保護、無人機、行銷與數位廣告、人資科技、AR/VR 與法律科技。</li><li>換個角度看：即使經歷這波下滑，大多數領域在 2022 年拿到的私人投資，仍多於 2017 年。</li></ul></div></section><section class="section section--bars" id="invest-geo" aria-labelledby="invest-geo-heading"><header class="section-head reveal is-visible"><h2 id="invest-geo-heading">就算在下跌的年份，錢還是集中在同一個國家</h2><p class="section-head__sub">2022 年私人 AI 投資總額(十億美元)。美國的投資額約為中國的 3.5 倍、英國的 11 倍 — 而且這還是它自己先跌了 35.5% 之後的數字。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="就算在下跌的年份，錢還是集中在同一個國家：美國：47.36、中國：13.41、英國：4.37、以色列：3.24、印度：3.24"><title>就算在下跌的年份，錢還是集中在同一個國家</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>美國：47.36</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">47.36</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">美國</text><rect class="bar-rect" x="116.8" y="157.94" width="84.8" height="56.06" rx="5"><title>中國：13.41</title></rect><text class="bar-value" x="159.2" y="151.94" text-anchor="middle">13.41</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">中國</text><rect class="bar-rect" x="217.6" y="195.73" width="84.8" height="18.27" rx="5"><title>英國：4.37</title></rect><text class="bar-value" x="260" y="189.73" text-anchor="middle">4.37</text><text class="bar-label" x="260" y="234" text-anchor="middle">英國</text><rect class="bar-rect" x="318.4" y="200.45" width="84.8" height="13.55" rx="5"><title>以色列：3.24</title></rect><text class="bar-value" x="360.8" y="194.45" text-anchor="middle">3.24</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">以色列</text><rect class="bar-rect" x="419.2" y="200.45" width="84.8" height="13.55" rx="5"><title>印度：3.24</title></rect><text class="bar-value" x="461.6" y="194.45" text-anchor="middle">3.24</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">印度</text></svg></div></figure></section><section class="section section--prose" id="jobs" aria-labelledby="jobs-heading"><header class="section-head reveal is-visible"><h2 id="jobs-heading">4.1 — 投資在跌，但對 AI 人才的需求沒有</h2><p class="section-head__sub">在幾乎每一個有資料的美國產業裡，要求 AI 技能的職缺比例都從 2021 年平均的 1.7% 上升到 2022 年的 1.9%。唯一的例外是農林漁牧業。投資人在收手的同時，雇主仍在為 AI 招人。</p></header><div class="prose reveal is-visible" data-item=""><ul><li>全球來看，美國要求 AI 技能的職缺比例最高(2.05%)，其後是加拿大(1.45%)、西班牙(1.33%)、澳洲(1.23%)與瑞典(1.20%)。樣本中每一個國家在 2022 年的 AI 職缺數都多於 2014 年。</li><li>以技能群來看，機器學習的需求最高(佔全美職缺的 1.03%)，其次是人工智慧(0.61%)、自然語言處理(0.20%)、類神經網路(0.16%)與自動駕駛(0.15%)。所有列出的技能群，需求都高於十年前。</li><li>Python 是 AI 雇主最常指名的專門技能。2022 年它出現在 296,662 則美國 AI 職缺中，2010 至 2012 年間只有 12,884 則；它在 AI 職缺中的佔比也從 5.36% 升到 37.13%，成長 592%。</li><li>佔比成長最快的都是比較新的領域：Amazon Web Services(+4,763%)與資料科學(+3,767%)，相較之下 Java 只有 +52%。</li></ul><h3>美國 AI 職缺的地圖正在攤開</h3><p>2022 年加州釋出 142,154 個 AI 職缺，領先德州(66,624 個)與紐約州(43,899 個)。但若以佔該州自身職缺的比例來看，領先者就換人了：華盛頓特區以 2.95% 居首，其後是德拉瓦州(2.66%)、華盛頓州(2.48%)、維吉尼亞州(2.42%)與加州(2.21%)。真正值得看的是集中度的變化。加州仍握有全美 17.87% 的 AI 職缺，領先德州(8.37%)、紐約州(5.52%)與華盛頓州(3.93%) — 但它的佔比自 2019 年起持續下滑，已不再擁有全國四分之一的 AI 工作。這四個州在 2021 至 2022 年間的職缺絕對數，則都明顯增加。</p><h3>招聘、技能，以及性別落差</h3><ul><li>以 LinkedIn 的相對 AI 招聘指數來看，2022 年香港的 AI 招聘成長最強，達 1.37，其後是西班牙(1.19)、義大利(1.18)、英國(1.18)、阿拉伯聯合大公國(1.15)與南非(1.13)。</li><li>樣本中多數國家如今聘用的 AI 人才都比 2016 年多，但對許多國家而言，招聘率大約在 2020 年見頂、隨後下滑，之後趨於平穩。</li><li>以 2015 至 2022 年的相對 AI 技能滲透率來看，印度以 3.23 居首，其後是美國(2.23)、德國(1.72)、以色列(1.65)，加拿大與英國並列(皆 1.54)。3.23 的意思是：在同一組職業中，印度會員列出 AI 技能的機率是全球平均的 3.23 倍。</li><li>樣本中每一個國家，男性的 AI 技能滲透率都高於女性。女性滲透率最高的是印度(1.99)、美國(1.28)與以色列(0.87) — 同樣三國的男性則分別是 3.27、2.36 與 2.05。</li></ul></div></section><section class="section section--bars" id="jobs-sector" aria-labelledby="jobs-sector-heading"><header class="section-head reveal is-visible"><h2 id="jobs-sector-heading">美國哪些產業在要 AI 技能</h2><p class="section-head__sub">2022 年美國各產業的 AI 職缺佔全部職缺的比例。圖中只有農林漁牧業沒有比 2021 年上升。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="美國哪些產業在要 AI 技能：資訊業：5.3、專業技術服務：4.07、金融保險：3.33、製造業：3.26、農林漁牧：1.64"><title>美國哪些產業在要 AI 技能</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>資訊業：5.3</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">5.3</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">資訊業</text><rect class="bar-rect" x="116.8" y="61.95" width="84.8" height="152.05" rx="5"><title>專業技術服務：4.07</title></rect><text class="bar-value" x="159.2" y="55.95" text-anchor="middle">4.07</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">專業技術服務</text><rect class="bar-rect" x="217.6" y="89.6" width="84.8" height="124.4" rx="5"><title>金融保險：3.33</title></rect><text class="bar-value" x="260" y="83.6" text-anchor="middle">3.33</text><text class="bar-label" x="260" y="234" text-anchor="middle">金融保險</text><rect class="bar-rect" x="318.4" y="92.21" width="84.8" height="121.79" rx="5"><title>製造業：3.26</title></rect><text class="bar-value" x="360.8" y="86.21" text-anchor="middle">3.26</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">製造業</text><rect class="bar-rect" x="419.2" y="152.73" width="84.8" height="61.27" rx="5"><title>農林漁牧：1.64</title></rect><text class="bar-value" x="461.6" y="146.73" text-anchor="middle">1.64</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">農林漁牧</text></svg></div></figure></section><section class="section section--prose" id="adoption" aria-labelledby="adoption-heading"><header class="section-head reveal is-visible"><h2 id="adoption-heading">4.3 — 採用率停在原地，已經進去的公司卻愈鑽愈深</h2><p class="section-head__sub">在麥肯錫調查的 1,492 個組織中，2022 年有 50% 已在至少一個事業單位或職能導入 AI — 低於 2021 年的 56%，但仍遠高於 2017 年的 20%。採用率已經在 50% 到 60% 之間停留了三年。持續上升的，是這些採用者把 AI 用得有多重。</p></header><div class="prose reveal is-visible" data-item=""><p>一個組織在至少一項職能中嵌入的 AI 能力數量，平均值從 2018 年的 1.9 項倍增到 2022 年的 3.8 項。最普遍被嵌入的能力是機器人流程自動化(39%)、電腦視覺(34%)、自然語言文字理解(33%)與虛擬客服(33%)。最常見的應用情境是服務營運最佳化(24%)，其次是打造以 AI 為基礎的新產品(20%)、顧客分群(19%)、客服分析(19%)，以及用 AI 強化既有產品(19%)。把這兩份清單放在一起看，你會看到一種面很廣但不華麗的企業 AI：自動化與文字處理，對準的是營運與顧客。</p><h3>哪裡賺得到錢，哪裡真的在用</h3><ul><li>在成本面，導入 AI 後最多受訪者看到下降的職能是供應鏈管理(52%)、服務營運(45%)、策略暨企業財務(43%)與風險(43%)。</li><li>在營收面，領先的是行銷與業務(70%)、產品或服務開發(70%)，以及策略暨企業財務(65%)。</li><li>以地區來看，北美的採用率以 59% 領先，其次是亞太(55%)與歐洲(48%)。全球平均 50%，比 2021 年低 6 個百分點；大中華區更下跌 20 個百分點到 41%。</li><li>產業與職能交叉後最高的組合是：高科技與電信業的風險(38%)、消費品與零售業的服務營運(31%)，以及金融服務業的產品與服務開發(31%)。</li><li>變化並非全都同一個方向：年增最多的是消費品與零售業的策略暨企業財務(25 個百分點)，跌最多的則是高科技與電信業的產品與服務開發(38 個百分點)。</li></ul><h3>企業領導者說是什麼卡住了他們</h3><ul><li>組織認為導入 AI 時最相關的風險是資安(59%)、法規遵循(45%)、個人隱私(40%)與可解釋性(37%)。最少被提到的是國家安全(13%)與政治穩定(9%)。</li><li>擔心的人多，動手的人少。只有 51% 的組織針對資安採取了減緩措施，法規遵循 36%、個人隱私 28% — 與「認為此風險相關」的比例分別差了 8、9 與 12 個百分點。</li><li>在勤業眾信針對 2,620 位企業領導者的調查中，94% 認為 AI 對組織的整體成功「重要」，82% 同意 AI 能提升績效與工作滿意度。</li><li>76% 預期下一個會計年度會增加 AI 投資 — 仍是絕大多數，但比 2021 年低 9 個百分點、比 2018 年低 12 個百分點。</li><li>啟動 AI 專案的三大挑戰是：證明商業價值(37%)、高層承諾不足(34%)與選對 AI 技術(33%)。擴大規模的主要障礙則是管理 AI 相關風險(50%)、取得更多訓練資料(44%)與實際導入技術(42%)。</li><li>領導者說自己真正達成的成果是：降低成本(37%)、改善跨部門協作(34%)、發掘有價值的洞察(34%)，以及改良或客製化產品與方案(33%)。</li></ul></div></section><section class="section section--bars" id="robots" aria-labelledby="robots-heading"><header class="section-head reveal is-visible"><h2 id="robots-heading">2021 年，中國安裝的機器人超過全世界其餘國家總和</h2><p class="section-head__sub">2021 年安裝的工業機器人(千台)。中國的 268,200 台是日本的 5.7 倍、美國的 7.7 倍 — 也剛好超過其餘所有國家加總的 249,000 台。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="2021 年，中國安裝的機器人超過全世界其餘國家總和：中國：268.2、日本：47.2、美國：35、南韓：31.1、德國：23.8"><title>2021 年，中國安裝的機器人超過全世界其餘國家總和</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>中國：268.2</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">268.2</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">中國</text><rect class="bar-rect" x="116.8" y="179.15" width="84.8" height="34.85" rx="5"><title>日本：47.2</title></rect><text class="bar-value" x="159.2" y="173.15" text-anchor="middle">47.2</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">日本</text><rect class="bar-rect" x="217.6" y="188.16" width="84.8" height="25.84" rx="5"><title>美國：35</title></rect><text class="bar-value" x="260" y="182.16" text-anchor="middle">35</text><text class="bar-label" x="260" y="234" text-anchor="middle">美國</text><rect class="bar-rect" x="318.4" y="191.04" width="84.8" height="22.96" rx="5"><title>南韓：31.1</title></rect><text class="bar-value" x="360.8" y="185.04" text-anchor="middle">31.1</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">南韓</text><rect class="bar-rect" x="419.2" y="196.43" width="84.8" height="17.57" rx="5"><title>德國：23.8</title></rect><text class="bar-value" x="461.6" y="190.43" text-anchor="middle">23.8</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">德國</text></svg></div></figure></section><section class="section section--cards" id="close-ups" aria-labelledby="close-ups-heading"><header class="section-head reveal is-visible"><h2 id="close-ups-heading">章節裡的五個特寫</h2><p class="section-head__sub">五件塞不進總體數字裡的事 — 一場關於程式助理的對照實驗、這一年最大的幾筆交易、高階主管公開說了什麼，以及機器人用途上的兩個轉變。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="copilot-experiment" aria-label="Copilot 的 71 分鐘"><h3 class="card__title">Copilot 的 71 分鐘</h3><p class="card__summary">GitHub 把 95 名開發者隨機分成兩組做同一項程式任務。用 Copilot 的組別花 71 分鐘完成，沒用的組別花了 161 分鐘。</p><div class="card__tags"><span class="tag">productivity</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="biggest-deals" aria-label="這一年最大的四張支票"><h3 class="card__title">這一年最大的四張支票</h3><p class="card__summary">2022 年單筆金額最高的 AI 投資是 Nuance Communications 的 198 億美元 — 而且那是併購，不是募資。</p><div class="card__tags"><span class="tag">investment</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="earnings-calls" aria-label="財星 500 大在法說會上說了什麼"><h3 class="card__title">財星 500 大在法說會上說了什麼</h3><p class="card__summary">2022 會計年度有 268 場財星 500 大的法說會提到 AI — 少於前一年的 306 場，但仍高於 2018 年的 225 場。</p><div class="card__tags"><span class="tag">earnings</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="collaborative-robots" aria-label="設計來站在你旁邊的機器人"><h3 class="card__title">設計來站在你旁邊的機器人</h3><p class="card__summary">協作型機器人 — 設計來與人一起工作，而不是替人工作 — 佔新安裝工業機器人的比例，從 2017 年的 2.8% 上升到 2021 年的 7.5%。</p><div class="card__tags"><span class="tag">robots</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="service-robots" aria-label="不在工廠裡的那些機器人"><h3 class="card__title">不在工廠裡的那些機器人</h3><p class="card__summary">專業服務型機器人的安裝量在旅宿、醫療、清潔與物流全面上升 — 其中運輸與物流一年成長 1.5 倍。</p><div class="card__tags"><span class="tag">robots</span><span class="tag">services</span></div></article></div></section><section class="section section--accordion" id="questions" aria-labelledby="questions-heading"><header class="section-head reveal is-visible"><h2 id="questions-heading">關於一個轉折年的五個問題</h2><p class="section-head__sub">關於 AI 在經濟中的位置，2022 年的數字說了什麼、又沒說什麼。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>2022 年的 AI 投資真的崩了嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">跌得很重，但是從一個非常高的基期跌下來。2022 年全球 AI 私人投資為 919 億美元，較 2021 年下降 26.7%，是過去十年來第一次年減。企業 AI 投資總額 — 併購、少數股權、私人投資與公開發行加總 — 為 1,896 億美元，約比 2021 年低三分之一。但十年尺度的圖像沒有改變：AI 私人投資仍是 2013 年的 18 倍，企業投資十年間成長了十三倍。這次的退潮是全面的，而不是集中在某一處：私人投資件數 3,538 件，減少 12%；新獲資金的 AI 公司 1,392 家，前一年是 1,669 家。除了超過 10 億美元的交易從 4 件增為 6 件之外，每個募資規模級距都在縮小。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>還有哪些國家在投錢？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">還是同一批，只是金額變少。2022 年美國投入 473.6 億美元，約為中國 134.1 億美元的 3.5 倍、英國 43.7 億美元的 11 倍，其後是以色列與印度(皆 32.4 億美元)與南韓(31.0 億美元)。兩個領先者都大幅下滑 — 美國的 AI 私人投資減少 35.5%，中國減少 41.3%。若從 2013 年累計，順序完全相同：美國 2,489 億美元、中國 951 億美元、英國 182 億美元、以色列 108 億美元、加拿大 88 億美元。新公司的誕生也跟著同一張地圖：2022 年美國有 542 家新獲資金的 AI 公司，中國 160 家、英國 99 家 — 美國是歐盟加英國總和的 1.9 倍、中國的 3.4 倍。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>採用率既然停住了，那已經導入的公司有賺到嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">就他們自己的回報來說，有。2022 年有 50% 的受訪組織在至少一項職能中導入了 AI，低於 2021 年的 56%，但仍是 2017 年 20% 的兩倍以上 — 那是停在 50% 到 60% 之間的高原，不是下坡。在這些組織內部，使用還在加深：平均嵌入的 AI 能力數從 2018 年的 1.9 項倍增到 2022 年的 3.8 項。在成本面，受訪者最常回報下降的是供應鏈管理(52%)、服務營運(45%)，以及策略暨企業財務與風險(皆 43%)。在營收面，領先的是行銷與業務(70%)、產品與服務開發(70%)與策略暨企業財務(65%)。本章描繪的是一道正在拉開的差距：採用不再往外擴散，但已經在裡面的組織持續往前走。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>中國在工業機器人上有多強勢？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">2021 年是中國安裝的工業機器人首次超過全世界其餘國家總和的一年 — 268,200 台對上其他所有國家的 249,000 台。這是日本 47,200 台的 5.7 倍、美國 35,000 台的 7.7 倍，其後為南韓(31,100 台)與德國(23,800 台)。中國在 2013 年超越日本，當時佔全球安裝量的 20.8%；到 2021 年，這個比例已是 51.8%。全球數字也在反彈：2021 年全球安裝 517,000 台工業機器人，較 2020 年成長 31.3%，較 2011 年成長 211.5%；運轉存量則從 3,035,000 台增加 14.6% 到 3,477,000 台。幾乎每個受調國家都成長，以加拿大(66%)、義大利(65%)與墨西哥(61%)居首；新加坡是明顯的例外，為 -35%。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>這些機器人到底進了哪裡、在做什麼？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">先是電子，再來是汽車。2021 年全球安裝最多工業機器人的產業是電機電子(137,000 台)，其次是汽車(119,000 台)；圖中每個產業的安裝量都高於 2019 年。若以任務來分，搬運遙遙領先 — 2021 年有 230,000 台機器人被裝來做搬運，是焊接(96,000 台)的 2.4 倍、組裝(62,000 台)的 3.7 倍；除了噴塗與加工之外，每個應用類別在 2021 年的安裝量都多於 2019 年。兩大經濟體的形狀不同：中國最大的產業是電機電子(88,000 台)、汽車(62,000 台)與金屬與機械(34,000 台)，而且中國每一個工業部門在 2021 年的安裝量都高於 2019 年。美國則仍以汽車業的 9,800 台居首，但這個產業年減，同時食品(3,400 台)與塑膠及化學製品(3,500 台)上升。</div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用五句話看這一章</h2><p class="section-head__sub">第 4 章「經濟」的頭條發現。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>十年來，AI 私人投資首次出現年減。2022 年全球 AI 私人投資為 919 億美元，較 2021 年下降 26.7% — 但仍是 2013 年的 18 倍。</blockquote><figcaption class="quote-by">— Chapter 4 · The Economy</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>幾乎每一個美國產業對 AI 專業技能的需求都在上升 — 從 2021 年佔職缺的 1.7%，上升到 2022 年的 1.9%。</blockquote><figcaption class="quote-by">— Chapter 4 · The Economy</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2022 年投入美國的 474 億美元，約為排名第二的中國(134 億美元)的 3.5 倍。</blockquote><figcaption class="quote-by">— Chapter 4 · The Economy</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>採用 AI 的公司比例自 2017 年以來成長超過一倍，但近年停在 50% 到 60% 之間。已導入 AI 的組織回報有實質的成本下降與營收成長。</blockquote><figcaption class="quote-by">— Chapter 4 · The Economy</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年，中國安裝的工業機器人比全世界其餘國家加起來還多。</blockquote><figcaption class="quote-by">— Chapter 4 · The Economy</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 4 章原文</h2><p>第 4 章 — 4.1 就業、4.2 投資、4.3 企業活動與 4.4 機器人安裝 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2023-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2023 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2023》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2023/economy.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2023/data/site.js"></script>
+  <script src="../../2023/data/economy.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
