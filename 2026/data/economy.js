@@ -32,7 +32,7 @@ window.SITE_SECTIONS = [
       { label: { en: "US private AI investment in 2025 (US$ billions; 23× China's)", zh: "2025 年美國私人 AI 投資(十億美元；為中國的 23 倍)" }, value: 286 },
       { label: { en: "US consumer surplus from generative AI (US$ billions, up from 112)", zh: "美國生成式 AI 消費者剩餘(十億美元，由 112 上升)" }, value: 172 },
       { label: { en: "% of organizations now using AI (up from prior years)", zh: "% 已使用 AI 的組織(較往年上升)" }, value: 88 },
-      { label: { en: "% generative-AI adoption reached within three years", zh: "% 生成式 AI 在三年內達到的採用率" }, value: 53 }
+      { label: { en: "% generative-AI adoption in three years (US sample)", zh: "% 生成式 AI 三年內達到的採用率(美國樣本)" }, value: 53 }
     ]
   },
 

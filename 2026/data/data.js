@@ -26,7 +26,7 @@ window.SITE_SECTIONS = [
                 zh: "2026 年 AI 指數是史丹佛 HAI 的獨立計畫，橫跨研發、技術表現、負責任 AI、經濟、科學、醫療、教育、政策與民意。先看幾個定錨的數字：" },
     stats: [
       { label: { en: "% organizational AI adoption", zh: "% 組織採用 AI" }, value: 88 },
-      { label: { en: "% GenAI population adoption in 3 yrs", zh: "% 生成式 AI 三年內人口採用率" }, value: 53 },
+      { label: { en: "% GenAI population adoption in 3 yrs (US sample)", zh: "% 生成式 AI 三年內人口採用率(美國樣本)" }, value: 53 },
       { label: { en: "US private AI investment (US$ bn, 2025)", zh: "美國民間 AI 投資(十億美元，2025)" }, value: 286 },
       { label: { en: "US data centers — 10× any other country", zh: "美國資料中心數 — 是任一他國的 10 倍" }, value: 5427 },
       { label: { en: "AI incidents logged in 2025 (was 233)", zh: "2025 年 AI 事故通報(2024 為 233)" }, value: 362 },
@@ -120,8 +120,8 @@ window.SITE_SECTIONS = [
         summary: { en: "53% population adoption in 3 years (faster than PC or internet); U.S. consumer value hit $172B/yr.",
                    zh: "三年達 53% 人口採用率(快過 PC 與網際網路)；美國消費者價值達每年 1,720 億美元。" },
         tags: ["adoption"],
-        overview: { en: "Generative AI reached 53% population adoption within three years, faster than the PC or the internet, though the pace varies by country and correlates strongly with GDP per capita. Some outpace what income predicts — the UAE (64%) and Singapore (61%) — while the U.S. ranks 24th at 28.3%. The estimated value of generative AI tools to U.S. consumers reached $172 billion annually by early 2026 (up from $112 billion a year earlier), with the median value per user tripling between 2025 and 2026. Most tools remain free or close to it.",
-                    zh: "生成式 AI 在三年內達到 53% 的人口採用率，快過個人電腦或網際網路，但各國速度不一，且與人均 GDP 高度相關。有些國家超越所得所能預測 — 阿聯(64%)與新加坡(61%)— 而美國以 28.3% 排名第 24。截至 2026 年初，生成式 AI 工具對美國消費者的估計價值達每年 1,720 億美元(高於一年前的 1,120 億美元)，每位使用者的中位數價值在 2025 至 2026 年間成長為三倍。多數工具仍免費或近乎免費。" }
+        overview: { en: "Generative AI reached 53% population adoption within three years — a US figure, sampled from adults aged 18–64 — faster than the PC or the internet were at the same age, though the pace varies by country and correlates strongly with GDP per capita. That 53% and the country figures below are not the same measure: one is cumulative reach three years in, the other point-in-time adoption from a cross-country survey. Some outpace what income predicts — the UAE (64%) and Singapore (61%) — while the U.S. ranks 24th at 28.3%. The estimated value of generative AI tools to U.S. consumers reached $172 billion annually by early 2026 (up from $112 billion a year earlier), with the median value per user tripling between 2025 and 2026. Most tools remain free or close to it.",
+                    zh: "生成式 AI 在三年內達到 53% 的人口採用率 — 這是美國數字，樣本為 18–64 歲成年人 — 快過個人電腦與網際網路在同樣年紀時的水準，但各國速度不一，且與人均 GDP 高度相關。要注意這個 53% 與下面各國的數字量的不是同一件事：前者是問世三年內的累積觸及率，後者是跨國調查在特定時點的人口採用率。有些國家超越所得所能預測 — 阿聯(64%)與新加坡(61%)— 而美國以 28.3% 排名第 24。截至 2026 年初，生成式 AI 工具對美國消費者的估計價值達每年 1,720 億美元(高於一年前的 1,120 億美元)，每位使用者的中位數價值在 2025 至 2026 年間成長為三倍。多數工具仍免費或近乎免費。" }
       },
       {
         slug: "productivity-jobs",
