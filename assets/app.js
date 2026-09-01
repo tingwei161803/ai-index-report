@@ -405,9 +405,29 @@
       var W = 680, H = 320, padL = 46, padR = 66, padT = 18, padB = 42;
       var plotW = W - padL - padR, plotH = H - padT - padB;
 
+      /* isFinite, not `typeof v === "number"`. typeof NaN is "number", so the
+         old guard let NaN through into Math.max, which made rawMax NaN, which
+         made yMax NaN — and the defensive line below then "rescued" it to 1.
+         The result was not a crash but a chart with the wrong scale whose real
+         points were drawn outside the viewBox, silently. A guard that turns a
+         loud failure into a quiet one is worse than no guard.
+
+         Both halves of the test are load-bearing. isFinite alone is not enough
+         either: isFinite(null) is true, and null is exactly what a deliberate
+         gap in a series looks like here — the adoption chart has no 2021
+         figure for two of its lines — so isFinite alone would plot those gaps
+         at zero. isFinite("") and isFinite("5") are true as well.
+
+         Two limits this does NOT cover, because the axis is anchored at zero:
+         a negative value plots below the baseline and escapes the viewBox, and
+         a series whose whole range sits under about 0.05 collapses to "0"
+         ticks, since fmtNum rounds to two decimals. No series on the site hits
+         either. Tracked separately rather than widened here. */
       var all = [];
       series.forEach(function (d) {
-        (d.values || []).forEach(function (v) { if (typeof v === "number") all.push(v); });
+        (d.values || []).forEach(function (v) {
+          if (typeof v === "number" && isFinite(v)) all.push(v);
+        });
       });
       var rawMax = Math.max.apply(null, all.concat([1]));
       /* Round the axis up to something a reader can divide by four in their
@@ -438,7 +458,7 @@
         var cls = "ln-s" + (si + 1);
         var pts = [], dots = "", lastX = 0, lastY = 0, lastV = null;
         (d.values || []).forEach(function (v, i) {
-          if (typeof v !== "number") return;
+          if (typeof v !== "number" || !isFinite(v)) return;   /* see the note on `all` */
           var x = xAt(i), y = yAt(v);
           pts.push(r(x) + "," + r(y));
           dots += '<circle class="ln-dot ' + cls + '" cx="' + r(x) + '" cy="' + r(y) +
@@ -461,7 +481,8 @@
         (t(sec.unit) ? t(sec.unit) + TITLESEP : "") +
         series.map(function (d) {
           return t(d.label) + LBLSEP + (d.values || []).map(function (v, i) {
-            return t(xs[i]) + " " + (typeof v === "number" ? v : "-");
+            return t(xs[i]) + " " +
+              (typeof v === "number" && isFinite(v) ? v : "-");
           }).join(LISTSEP);
         }).join(state.lang === "zh" ? "；" : "; ")
       );
