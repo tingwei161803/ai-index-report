@@ -131,6 +131,21 @@
   }
   function r(n) { return Math.round(n * 100) / 100; }
 
+  /* Diagrams that prerender.py already drew into the served HTML.
+     paintSections() clears <main> and rebuilds it from the data, so by the
+     time anything else runs the baked SVG is gone — which is why the first
+     attempt at "skip what is already rendered" never fired, and every reader
+     still fetched the library. Harvest them here, at module scope, before the
+     first paint, and hand them back to the renderer.
+
+     The markup is our own prerender output, not anything a reader supplied,
+     so it is re-inserted as HTML rather than escaped. */
+  var BAKED = {};
+  [].forEach.call(document.querySelectorAll(".mmd[data-mermaid]"), function (el) {
+    var host = el.closest(".section");
+    if (host && host.id && el.querySelector("svg")) BAKED[host.id] = el.innerHTML;
+  });
+
   /* a shared <header class="section-head"> for every section */
   function sectionHead(sec) {
     var sub = t(sec.subtitle)
@@ -485,7 +500,8 @@
           '<div class="mmd" role="img" aria-label="' + escapeHtml(t(sec.alt)) + '"' +
             ' style="min-height:' + h + 'px"' +
             ' data-mermaid="' + escapeHtml(t(sec.code)) + '">' +
-            '<p class="mmd__alt">' + escapeHtml(t(sec.alt)) + "</p>" +
+            (BAKED[sec.id] ||
+              '<p class="mmd__alt">' + escapeHtml(t(sec.alt)) + "</p>") +
           "</div>" +
           (t(sec.foot) ? '<figcaption class="table-note">' + escapeHtml(t(sec.foot)) + "</figcaption>" : "") +
         "</figure>";
@@ -694,7 +710,13 @@
 
   function renderMermaid(el) {
     if (!window.mermaid || !el.dataset.mermaid) return;
-    var id = "mmd-" + Math.random().toString(36).slice(2, 9);
+    /* Derived from the section id, never random. mermaid scopes the <style>
+       block it injects by this id, so a random one meant prerender.py wrote a
+       different file on every run — the whole page showed as modified with no
+       change in it, and `prerender.py --check` could never report a clean
+       tree. */
+    var host = el.closest(".section");
+    var id = "mmd-" + ((host && host.id) || "diagram");
     try {
       var out = window.mermaid.render(id, el.dataset.mermaid);
       /* mermaid 10+ returns a promise; 9 returned the svg string directly. */
@@ -712,7 +734,7 @@
     window.mermaid.initialize({
       startOnLoad: false,
       securityLevel: "strict",
-      theme: document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral",
+      theme: "neutral",
       fontFamily: "Manrope, system-ui, sans-serif"
     });
     mermaidState.ready = true;
@@ -720,7 +742,14 @@
   }
 
   function setupMermaid() {
-    mermaidState.nodes = [].slice.call(document.querySelectorAll(".mmd[data-mermaid]"));
+    /* Anything that already holds an <svg> was drawn by prerender.py and baked
+       into the HTML, so there is nothing to do: not for this reader, not on a
+       theme change (the CSS below styles mermaid's output from the site's own
+       tokens), and the library never has to be fetched at all. What is left
+       here is the fallback for a page that was not prerendered. */
+    mermaidState.nodes = [].slice.call(
+      document.querySelectorAll(".mmd[data-mermaid]")
+    ).filter(function (el) { return !el.querySelector("svg"); });
     if (!mermaidState.nodes.length) return;
     if (mermaidState.ready) { mermaidState.nodes.forEach(renderMermaid); return; }
     if (mermaidState.loading) return;
@@ -743,14 +772,6 @@
       });
     }, { rootMargin: "300px 0px" });
     mermaidState.nodes.forEach(function (n) { io.observe(n); });
-  }
-
-  /* Mermaid bakes its palette into the SVG at render time, so a theme switch
-     needs the diagram built again — re-theming the existing nodes is not
-     something the library exposes. */
-  function refreshMermaid() {
-    if (!mermaidState.ready || !mermaidState.nodes.length) return;
-    initMermaid();
   }
 
   function paintNav() {
@@ -1355,7 +1376,6 @@
     document.documentElement.setAttribute("data-theme", state.theme);
     var icon = $("themeIcon");
     if (icon) icon.textContent = state.theme === "dark" ? "light_mode" : "dark_mode";
-    refreshMermaid();
   }
   /* The language switch is a real link to THIS page in the other language
      (English lives under /en/). The href is derived from location.pathname, so

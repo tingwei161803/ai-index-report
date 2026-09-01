@@ -856,6 +856,40 @@ a { color: inherit; text-decoration: none; }
   margin: 0; max-width: 60ch;
   font-size: .9rem; line-height: 1.65; color: var(--on-surface-variant);
 }
+/* Mermaid writes its palette into a <style> block inside the SVG, scoped by
+   the element id — so those rules carry an ID selector and win against
+   anything reasonable. Overriding them here is what lets one baked diagram
+   serve both themes: without it the light-mode colours from prerender time
+   would sit on a dark page, and the only alternative would be shipping the
+   library to every dark-mode reader just to draw it again.
+   `!important` is load-bearing, not laziness. */
+.mmd svg .node rect,
+.mmd svg .node polygon,
+.mmd svg .node circle,
+.mmd svg .node path {
+  fill: var(--surface-container-high) !important;
+  stroke: var(--outline) !important;
+}
+.mmd svg .nodeLabel,
+.mmd svg .nodeLabel *,
+.mmd svg .edgeLabel,
+.mmd svg .edgeLabel * {
+  color: var(--on-surface) !important;
+  fill: var(--on-surface) !important;
+  background: transparent !important;
+  font-family: var(--font-body) !important;
+}
+.mmd svg .edgePath .path,
+.mmd svg path.flowchart-link,
+.mmd svg .flowchart-link {
+  stroke: var(--outline) !important;
+}
+.mmd svg marker path,
+.mmd svg .marker,
+.mmd svg .arrowMarkerPath {
+  fill: var(--outline) !important;
+  stroke: var(--outline) !important;
+}
 
 /* ---- COMPARE (reader switches the data behind one chart) ---- */
 .cmp-switch {
