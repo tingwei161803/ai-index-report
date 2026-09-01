@@ -137,7 +137,7 @@ window.SITE_SECTIONS = [
       { label: { en: "Singapore", zh: "新加坡" },     value: 61 },
       { label: { en: "Norway", zh: "挪威" },          value: 46 },
       { label: { en: "France", zh: "法國" },          value: 44 },
-      { label: { en: "United States", zh: "美國" },   value: 28 }
+      { label: { en: "United States", zh: "美國" },   value: 28.3 }
     ]
   },
 
