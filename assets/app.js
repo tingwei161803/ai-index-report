@@ -102,10 +102,13 @@
   var LBLSEP = state.lang === "zh" ? "：" : ": ";
   var LISTSEP = state.lang === "zh" ? "、" : ", ";
   /* Separates a chart's headline from its data in the accessible name.
-     English takes a dash so the sentence does not end up with two colons
-     in a row; Chinese takes a fullwidth colon, which carries its own
-     spacing and must not be followed by a space. */
-  var TITLESEP = state.lang === "zh" ? "：" : " — ";
+     English takes a full stop: a dash read better, but four chart titles
+     already contain em dashes of their own, so the boundary between headline
+     and data was no longer findable — "…in one chart — United States: 286"
+     is one continuous sentence to a screen reader. A full stop produces a real
+     pause, and no title ends in one. Chinese keeps the fullwidth colon, which
+     carries its own spacing and must not be followed by a space. */
+  var TITLESEP = state.lang === "zh" ? "：" : ". ";
 
   /* ---------- dom refs ---------- */
   var $ = function (id) { return document.getElementById(id); };
