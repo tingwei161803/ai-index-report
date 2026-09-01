@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>政策與治理 · AI 指數報告 2023</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2023/policy.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2023/policy.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2023/policy.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2023/policy.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2023/policy.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2023》政策與治理章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Policy and Governance · AI Index Report 2023" />
+  <meta property="og:description" content="A bilingual deep dive into the Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Policy and Governance · AI Index Report 2023" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Policy and Governance chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "政策與治理 · AI 指數報告 2023",
+    "description": "史丹佛 HAI《人工智慧指數報告 2023》政策與治理章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2023/policy.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2023-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2023/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2023</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2023-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2023/policy.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">2022 年，關於 AI 的討論開始變成法律</h1><p class="section-head__sub">AI 指數 2023 第 6 章量的不是政府說要做什麼，而是政府實際做了什麼。它讀了 127 國的立法紀錄、81 國的議會會議紀錄、美國聯邦與各州每一件 AI 法案、各國國家 AI 戰略、美國公共支出，以及美國法院的案件。2022 年的故事是一個轉換率：在關注度遠遠跑贏產出好幾年之後，真正變成法律的 AI 法案比例突然拉高了。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="37">37</b><span class="hero__stat-label">2022 年全球通過成為法律的 AI 相關法案數(2016 年為 1 件)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="9">9</b><span class="hero__stat-label">2022 年美國國會通過的 AI 法案數(前四年每年都是 3 件)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="21">21</b><span class="hero__stat-label">2022 年美國各州通過的 AI 法案數(提案共 60 件)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="1340">1,340</b><span class="hero__stat-label">2022 年 81 國立法程序中提及 AI 的次數(2021 年為 1,547 次)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="62">62</b><span class="hero__stat-label">自加拿大 2017 年 3 月率先發布以來，全球已推出的國家 AI 戰略數</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="110">110</b><span class="hero__stat-label">2022 年美國聯邦與州法院的 AI 相關訴訟案件數 — 是 2016 年的 6.5 倍</span></div></div></section><section class="section section--prose" id="global-legislation" aria-labelledby="global-legislation-heading"><header class="section-head reveal is-visible"><h2 id="global-legislation-heading">6.1 — 37 部法律、31 個國家，以及一張極不平均的地圖</h2><p class="section-head__sub">AI 指數讀過了 127 個國家的立法機關在 2016 至 2022 年間通過、內容含有「人工智慧」字樣的每一部法律。成長是真的，而且很陡 — 但集中在少數幾個地方。</p></header><div class="prose reveal is-visible" data-item=""><p>在分析的 127 個國家中，自 2016 年起只有 31 個通過過任何一部 AI 相關法案，這 31 國加起來共 123 部。年產出從 2016 年的僅僅 1 部，爬升到 2022 年的 37 部。2022 年由美國以 9 部領先，西班牙(5 部)與菲律賓(4 部)次之；安道爾、比利時、義大利、葡萄牙、俄羅斯與英國則各 2 部。換成 2016–22 的累計數字，排序就不一樣了：美國以 22 部居首，接著是葡萄牙(13)、西班牙(10)，以及義大利與俄羅斯(各 9)。</p><h3>所謂「AI 法律」實際上長什麼樣</h3><p>這裡面幾乎沒有一部是今天講到「AI 法」時所想像的那種法律。AI 指數抽樣了 2022 年五部法律，發現「人工智慧」這幾個字是埋在關於創意產業、國家安全、學校、反歧視與公務人力訓練的法條裡：</p><ul><li>吉爾吉斯 —《關於創意產業園區》：規定為加速創意產業(其中包含人工智慧)而設立的園區的法律地位、管理與營運程序。</li><li>拉脫維亞 —《國家安全法修正案》：對攸關國家安全的商業公司、協會與基金會設下限制，其中明列開發人工智慧的商業公司。</li><li>菲律賓 —《第二屆國會教育委員會(EDCOM II)法》：成立一個委員會，面對以人工智慧快速發展為特徵之一的第四次工業革命，檢討並改革教育。</li><li>西班牙 —《平等對待與不歧視權法》：要求公共行政決策所涉及的 AI 演算法，在技術可行的前提下必須納入降低偏誤的標準、透明度與問責。</li><li>美國 —《AI 訓練法》：要求管理及預算局為行政機關的採購人力提供 AI 訓練課程，讓採購方了解 AI 的能力與風險。</li></ul><h3>本章放在註腳裡的但書</h3><p>AI 指數提醒，這個計數很可能低估了實際情況，因為一部大法案裡可能包著好幾條 AI 相關的子法案 — 它舉的例子是美國 2022 年通過的《晶片與科學法》。涵蓋範圍也不完整：有些國家根本沒有可公開取得的立法資料庫。</p></div></section><section class="section section--bars" id="country-laws" aria-labelledby="country-laws-heading"><header class="section-head reveal is-visible"><h2 id="country-laws-heading">各國通過成為法律的 AI 相關法案數，2016–22</h2><p class="section-head__sub">累計數字。自 2016 年以來全球通過的 123 部法律中，這五個國家就佔了 63 部 — 而分析的 127 國裡有 96 國一部都沒有。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="各國通過成為法律的 AI 相關法案數，2016–22：美國：22、葡萄牙：13、西班牙：10、義大利：9、俄羅斯：9"><title>各國通過成為法律的 AI 相關法案數，2016–22</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>美國：22</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">22</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">美國</text><rect class="bar-rect" x="116.8" y="97" width="84.8" height="117" rx="5"><title>葡萄牙：13</title></rect><text class="bar-value" x="159.2" y="91" text-anchor="middle">13</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">葡萄牙</text><rect class="bar-rect" x="217.6" y="124" width="84.8" height="90" rx="5"><title>西班牙：10</title></rect><text class="bar-value" x="260" y="118" text-anchor="middle">10</text><text class="bar-label" x="260" y="234" text-anchor="middle">西班牙</text><rect class="bar-rect" x="318.4" y="133" width="84.8" height="81" rx="5"><title>義大利：9</title></rect><text class="bar-value" x="360.8" y="127" text-anchor="middle">9</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">義大利</text><rect class="bar-rect" x="419.2" y="133" width="84.8" height="81" rx="5"><title>俄羅斯：9</title></rect><text class="bar-value" x="461.6" y="127" text-anchor="middle">9</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">俄羅斯</text></svg></div></figure></section><section class="section section--prose" id="us-legislation" aria-labelledby="us-legislation-heading"><header class="section-head reveal is-visible"><h2 id="us-legislation-heading">6.1 — 華府提案變少，通過變多</h2><p class="section-head__sub">2022 年美國立法紀錄裡最值得看的數字不是總量，是比例。提出的 AI 法案比前一年少，但真正變成法律的卻是三倍。</p></header><div class="prose reveal is-visible" data-item=""><p>2015 年，聯邦層級只有 1 件 AI 相關法案被提出。到 2021 年這個數字來到 134 件，2022 年回落到 88 件。同一段期間，真正通過的法案連續四年都停在每年 3 件 — 然後在 2022 年跳到 9 件。換成比例：2021 年只有 2% 的聯邦 AI 法案變成法律，2022 年是 10%。</p><h3>各州的轉換率是聯邦的三倍</h3><p>各州議會呈現同樣的模式，而且走得更前面。提案數從 2015 年的 5 件增加到 2022 年的 60 件；通過數則從 1 件(佔當年提案的 16%)增加到 21 件(35%)。2022 年由加州以 5 部領先，馬里蘭(3 部)次之，科羅拉多、紐澤西與華盛頓州各 2 部。2016 至 2022 累計，馬里蘭以 7 部居首，加州(6)、麻州與華盛頓州(各 5)、伊利諾、猶他與佛蒙特(各 3)緊接在後。全美仍有大約一半的州從未通過任何一部。</p><h3>五部州法，五種完全不同的「AI 政策」想像</h3><ul><li>阿拉巴馬 —《人工智慧：限制人臉辨識使用，確保比對結果不得作為逮捕的唯一依據》：禁止州與地方執法機關把人臉辨識的比對結果當成逮捕或認定相當理由的唯一根據。</li><li>加州 —《2022 年預算法》：一項撥款條文，撥給沙加緬度加州州立大學 1,300,000 美元改善校園托育中心，其中包含開發一間 AI 混合實境教室。</li><li>馬里蘭 —《保育財務法》：要求自然資源部研究並評估包含 AI 與機器學習在內的數位工具，能否為切薩皮克灣復育與氣候解方帶來貢獻。</li><li>紐澤西 —《21 世紀整合數位體驗法》：要求技術長每年評估州政府機關以 AI 與機器學習提供公共服務的可行性。</li><li>佛蒙特 —《關於州政府使用與監督人工智慧法》：在數位服務局底下設立人工智慧處，檢視州政府開發、使用或採購的每一套 AI 系統，並提出州政府 AI 使用的倫理準則。</li></ul></div></section><section class="section section--bars" id="state-laws" aria-labelledby="state-laws-heading"><header class="section-head reveal is-visible"><h2 id="state-laws-heading">美國各州通過成為法律的 AI 相關法案數，2016–22</h2><p class="section-head__sub">累計數字。沒有任何一州達到兩位數 — 馬里蘭以 7 部居七年榜首，比葡萄牙一國通過的還少。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="美國各州通過成為法律的 AI 相關法案數，2016–22：馬里蘭：7、加州：6、麻州：5、華盛頓州：5、伊利諾：3、猶他：3"><title>美國各州通過成為法律的 AI 相關法案數，2016–22</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="68" height="198" rx="5"><title>馬里蘭：7</title></rect><text class="bar-value" x="50" y="10" text-anchor="middle">7</text><text class="bar-label" x="50" y="234" text-anchor="middle">馬里蘭</text><rect class="bar-rect" x="100" y="44.29" width="68" height="169.71" rx="5"><title>加州：6</title></rect><text class="bar-value" x="134" y="38.29" text-anchor="middle">6</text><text class="bar-label" x="134" y="234" text-anchor="middle">加州</text><rect class="bar-rect" x="184" y="72.57" width="68" height="141.43" rx="5"><title>麻州：5</title></rect><text class="bar-value" x="218" y="66.57" text-anchor="middle">5</text><text class="bar-label" x="218" y="234" text-anchor="middle">麻州</text><rect class="bar-rect" x="268" y="72.57" width="68" height="141.43" rx="5"><title>華盛頓州：5</title></rect><text class="bar-value" x="302" y="66.57" text-anchor="middle">5</text><text class="bar-label" x="302" y="234" text-anchor="middle">華盛頓州</text><rect class="bar-rect" x="352" y="129.14" width="68" height="84.86" rx="5"><title>伊利諾：3</title></rect><text class="bar-value" x="386" y="123.14" text-anchor="middle">3</text><text class="bar-label" x="386" y="234" text-anchor="middle">伊利諾</text><rect class="bar-rect" x="436" y="129.14" width="68" height="84.86" rx="5"><title>猶他：3</title></rect><text class="bar-value" x="470" y="123.14" text-anchor="middle">3</text><text class="bar-label" x="470" y="234" text-anchor="middle">猶他</text></svg></div></figure></section><section class="section section--prose" id="attention" aria-labelledby="attention-heading"><header class="section-head reveal is-visible"><h2 id="attention-heading">6.1 — 全球議場的討論降溫，美國國會卻相反</h2><p class="section-head__sub">除了法案，AI 指數還數了「人工智慧」這個詞在各國議會會議紀錄、美國國會委員會報告，以及智庫與大學政策報告裡出現的頻率。三個不同的溫度計，三種不同的讀數。</p></header><div class="prose reveal is-visible" data-item=""><p>在 81 個國家的議會與政府會議紀錄中，2022 年提及 AI 的次數其實小幅下滑 — 從 1,547 次降到 1,340 次 — 儘管這條曲線自 2016 年以來仍成長了近 6.5 倍。81 國中，整年連一次提及都沒有的有 35 國。2022 年由西班牙以 273 次居首，加拿大(211)、英國(146)與美國(138)次之。若看 2016–22 的全期累計，英國以 1,092 次遙遙領先，西班牙(832)、美國(626)、日本(511)與香港(478)在後；81 國中有 62 國至少被記錄到一次。</p><h3>議員實際上在吵什麼</h3><p>本章直接抽樣了那些辯論，而重點就在落差 — 同樣兩個字，在不同議場裡做的是很不一樣的事：</p><ul><li>英國 — Dame Angela Eagle 在《金融服務與市場法案》的審查中質問下議院：監管機關對於 AI 的實際應用方式能有多透明？它會不會演變成把歧視內建進系統，讓某些人被排除在外？</li><li>日本 — 大塚耕平在參議院憲法審查會指出，隨著 AI 與網路技術融合，人權保障必須更新，才能處理個人評分、歧視，以及不當影響公民投票行為的網路廣告等問題。</li><li>尚比亞 — 部長 Collins Nzovu 在國民議會表示，政府在聯合國經費支持下，正運用 AI 提升天氣預報的品質與準確度。</li><li>澳洲 — 工業與科學部長 Ed Husic 在《2022 年國家重建基金公司法案》的二讀中主張，澳洲應該把量子技術、機器人與人工智慧這些「無可否認的專長」再往上推。</li><li>巴西 — 眾議員 Gustavo Fruet 在一場關於讓幼兒家長遠距工作的法案辯論中援引《第四次工業革命》一書，談 5G、物聯網與 AI 會讓哪些職業消失、又會讓哪些職業要求更高的資格。</li></ul><h3>美國國會內部：委員會報告與政策報告</h3><p>AI 在參眾兩院委員會報告中被提及的次數，從第 115 屆會期起大幅攀升，到第 117 屆(2021–22)達到 73 次，是這條 2001 年起算的序列中的最高點。眾議院由撥款委員會以 20 次領先，科學、太空與技術委員會(9 次)與規則委員會(5 次)次之；參議院則由國土安全與政府事務委員會以 8 次居首，撥款委員會(3 次)在後。政府之外，AI 指數追蹤了 55 個美國組織 — 19 個智庫與政策研究所、14 個大學研究機構與研究計畫、9 個公民社會組織、9 個產業與顧問機構，以及 4 個政府機關 — 它們在 2022 年發表了 284 份 AI 政策報告，是 2018 年的 3.2 倍。最主要的題目是產業與監管(107 份)、創新與技術(90 份)，以及政府與公共行政(82 份)。2021 年報告量第一的隱私、安全與資安，則掉到第四(59 份)。</p></div></section><section class="section section--bars" id="mentions" aria-labelledby="mentions-heading"><header class="section-head reveal is-visible"><h2 id="mentions-heading">2022 年立法程序中提及 AI 的次數</h2><p class="section-head__sub">AI 指數搜尋了 81 國的會議紀錄，2022 年只有 46 國提到過 AI。這四個國家就佔了全年 1,340 次提及的大約一半。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="2022 年立法程序中提及 AI 的次數：西班牙：273、加拿大：211、英國：146、美國：138"><title>2022 年立法程序中提及 AI 的次數</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="110" height="198" rx="5"><title>西班牙：273</title></rect><text class="bar-value" x="71" y="10" text-anchor="middle">273</text><text class="bar-label" x="71" y="234" text-anchor="middle">西班牙</text><rect class="bar-rect" x="142" y="60.97" width="110" height="153.03" rx="5"><title>加拿大：211</title></rect><text class="bar-value" x="197" y="54.97" text-anchor="middle">211</text><text class="bar-label" x="197" y="234" text-anchor="middle">加拿大</text><rect class="bar-rect" x="268" y="108.11" width="110" height="105.89" rx="5"><title>英國：146</title></rect><text class="bar-value" x="323" y="102.11" text-anchor="middle">146</text><text class="bar-label" x="323" y="234" text-anchor="middle">英國</text><rect class="bar-rect" x="394" y="113.91" width="110" height="100.09" rx="5"><title>美國：138</title></rect><text class="bar-value" x="449" y="107.91" text-anchor="middle">138</text><text class="bar-label" x="449" y="234" text-anchor="middle">美國</text></svg></div></figure></section><section class="section section--prose" id="public-money" aria-labelledby="public-money-heading"><header class="section-head reveal is-visible"><h2 id="public-money-heading">6.2–6.3 — 寫戰略的高峰在 2019 年，花錢的高峰不是</h2><p class="section-head__sub">國家 AI 戰略是 2010 年代後期的政策工具；到了 2022 年，這一波幾乎已經結束。而美國的公共資金 — 分別從研發預算與政府採購兩邊追蹤 — 還在往上走。</p></header><div class="prose reveal is-visible" data-item=""><p>加拿大在 2017 年 3 月推出全球第一份國家 AI 戰略，同年的還有中國與芬蘭。此後全球共發布 62 份戰略，高峰落在 2019 年 — 那一年有 26 國發表，包括阿根廷、丹麥、愛沙尼亞、日本、肯亞、卡達、新加坡、阿聯與美國。2020 年再有 14 國，2021 年 10 國。到 2022 年，只剩兩個國家發布新的國家 AI 戰略：義大利與泰國。另有 7 國在 2021 年承諾要制定(亞美尼亞、巴林、古巴、冰島、摩洛哥、紐西蘭、阿曼)，2022 年又有 7 國(亞塞拜然、比利時、貝南、以色列、約旦、奈及利亞、烏茲別克)。</p><h3>兩條聯邦預算線，方向相反</h3><p>2022 會計年度，美國非國防部門的政府機關編列了 17 億美元用於 AI 研發 — 比 FY21 的 17.5 億略減，但比 FY18 的 5.6 億成長了 208.9%。FY23 則請求了更高的 18.4 億美元。國防部這條線走的是相反方向，然後又轉了回來：它針對非機密 AI 專項研究、開發、測試與評估的預算請求，從 FY20 的 10.0 億美元滑落到 FY21 的 9.3 億與 FY22 的 8.7 億，再在 FY23 跳到 11.0 億美元 — 增加 26.4%。這兩個數字都不包含國防與情報機關的機密 AI 研發，原始報告沒有涵蓋那一塊。</p><h3>真正在成長的是政府採購</h3><ul><li>美國政府在 AI 上的總支出從 2021 年的 27 億美元增加到 2022 年的 33 億美元，比 2017 年的 12.9 億成長了大約 2.5 倍。</li><li>2022 年分類別看：決策科學拿到 11.9 億美元(年增 18%)、電腦視覺 8.2 億美元(年增 55%)、自主系統 6.9 億美元(年增 33%)。機器學習則減少 5% 至 4.1 億美元，自然語言處理減少 19% 至 1.7 億美元。</li><li>FY22 依撥付形式區分：主契約佔金額的 62.5%、補助 34.9%、其他交易授權(OTA)2.6% — 分別是 20.5 億、11.5 億與 0.9 億美元。與 FY21 相比，契約的佔比大致持平，補助的佔比則上升。</li></ul></div></section><section class="section section--cards" id="courts" aria-labelledby="courts-heading"><header class="section-head reveal is-visible"><h2 id="courts-heading">6.4 — 司法系統在無意間開始寫 AI 政策</h2><p class="section-head__sub">AI 指數與 AI 法律學者 Elif Kiesow Cortez 合作，追蹤 2000 至 2022 年間含有 AI 相關關鍵字的美國聯邦與州法院案件。2022 年共 110 件，是 2016 年的 6.5 倍。點卡片看細節。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="where-cases-file" aria-label="案件從哪裡來"><h3 class="card__title">案件從哪裡來</h3><p class="card__summary">2022 年的案件多數來自加州(23 件)、伊利諾(17 件)與紐約(11 件)。伊利諾會上榜，是因為一部 2008 年的法律。</p><div class="card__tags"><span class="tag">courts</span><span class="tag">states</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="which-law" aria-label="哪一種法、哪一個產業"><h3 class="card__title">哪一種法、哪一個產業</h3><p class="card__summary">民事(29%)、智慧財產(19%)與契約(13.6%)佔了最大宗。最常涉入的產業是金融與專業服務。</p><div class="card__tags"><span class="tag">courts</span><span class="tag">law</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="duerr-bradley" aria-label="Duerr 訴布萊德利大學(2022)"><h3 class="card__title">Duerr 訴布萊德利大學(2022)</h3><p class="card__summary">學生依伊利諾生物特徵隱私法控告 AI 監考工具，卻敗在「金融機構」這個定義上。</p><div class="card__tags"><span class="tag">courts</span><span class="tag">privacy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="flores-stanford" aria-label="Flores 訴 Stanford(2021)"><h3 class="card__title">Flores 訴 Stanford(2021)</h3><p class="card__summary">假釋委員會用 COMPAS 做風險評估。法院裁定，該演算法的機密資料必須交給原告的專家證人。</p><div class="card__tags"><span class="tag">courts</span><span class="tag">transparency</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="dyroff-ultimate" aria-label="Dyroff 訴 Ultimate Software(2017)"><h3 class="card__title">Dyroff 訴 Ultimate Software(2017)</h3><p class="card__summary">推薦演算法把毒品相關社群推給一名後來身故的使用者。法院認定平台享有免責。</p><div class="card__tags"><span class="tag">courts</span><span class="tag">platforms</span></div></article></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用五句話看這一章</h2><p class="section-head__sub">AI 指數報告 2023 第 6 章「政策與治理」的頭條發現。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>AI 指數分析了 127 個國家的立法紀錄，含有「人工智慧」字樣並通過成為法律的法案，從 2016 年的僅僅 1 件成長到 2022 年的 37 件。</blockquote><figcaption class="quote-by">— Chapter 6 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年，美國所有聯邦 AI 法案中只有 2% 通過成為法律。這個數字在 2022 年跳到 10%。同樣地，去年州級 AI 法案有 35% 通過成為法律。</blockquote><figcaption class="quote-by">— Chapter 6 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>對一組多元國家的議會紀錄所做的質性分析顯示，政策制定者是從非常多不同的角度在思考 AI。</blockquote><figcaption class="quote-by">— Chapter 6 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>自 2017 年以來，美國政府 AI 相關的契約支出大約增加了 2.5 倍。</blockquote><figcaption class="quote-by">— Chapter 6 · Chapter Highlights</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2022 年，美國聯邦與州法院共有 110 件 AI 相關案件，是 2016 年的 6.5 倍。</blockquote><figcaption class="quote-by">— Chapter 6 · 6.4 U.S. AI-Related Legal Cases</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 6 章原文</h2><p>第 6 章(6.1–6.4 各節)連同所有圖表、表格與註腳，皆由史丹佛 HAI 免費提供。或回到報告重點與八大章節總覽。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2023-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2023 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2023》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2023/policy.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2023/data/site.js"></script>
+  <script src="../../2023/data/policy.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>

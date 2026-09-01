@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>教育 · AI 指數報告 2023</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2023/education.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2023/education.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2023/education.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2023/education.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2023/education.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2023》教育章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Education · AI Index Report 2023" />
+  <meta property="og:description" content="A bilingual deep dive into the Education chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Education · AI Index Report 2023" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Education chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2023." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "教育 · AI 指數報告 2023",
+    "description": "史丹佛 HAI《人工智慧指數報告 2023》教育章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2023/education.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2023-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2023/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2023</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2023-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2023/education.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">大學培養出 AI 博士，產業界把他們接走</h1><p class="section-head__sub">AI 指數 2023 第 5 章問的是：誰在學 AI，以及還剩下誰能教 AI。高等教育的數字來自 CRA Taulbee 調查，涵蓋到 2021 年；K–12 的數字來自 Code.org 與 UNESCO 對 193 個會員國的調查。整體樣貌是：專攻 AI 的資訊科學博士比例創下新高，其中三分之二畢業後直接進產業界，而教職的新聘人數已經萎縮十年。</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="19.1">19.1</b><span class="hero__stat-label">% 2021 年北美專攻 AI 的資訊科學新科博士生比例(2020 年為 14.9%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="65.4">65.4</b><span class="hero__stat-label">% 2021 年進入產業界的新科 AI 博士(進入學術界的是 28.2%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="68.6">68.6</b><span class="hero__stat-label">% 2021 年北美資訊科學新科博士中的國際學生比例(2010 年為 45.8%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="710">710</b><span class="hero__stat-label">2021 年北美資訊科學、計算機工程與資訊學系新聘教職數(2012 年為 733)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="181040">181,040</b><span class="hero__stat-label">2021 年美國 AP 資訊科學應考卷數，較前一年增加 1.0%</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="11">11</b><span class="hero__stat-label">截至 2021 年已正式認可並實施 K–12 AI 課綱的國家數</span></div></div></section><section class="section section--prose" id="degrees" aria-labelledby="degrees-heading"><header class="section-head reveal is-visible"><h2 id="degrees-heading">5.1 — 大學部的熱潮，到博士就停住了</h2><p class="section-head__sub">北美資訊科學新科學士自 2012 年以來成長了將近四倍。碩士翻倍之後就走平。博士根本沒動過 — 2021 年的人數甚至比 2012 年還少。</p></header><div class="prose reveal is-visible" data-item=""><p>2021 年，北美大學培養出 33,059 位資訊科學新科學士，接近 2012 年的四倍。碩士畢業生在同一段期間大約翻倍，來到 15,068 人，但成長在 2018 年就停了：從當年的 15,532 人一路微幅下滑。博士層級則談不上什麼熱潮。2021 年北美只產出 1,893 位資訊科學新科博士 — 比 2020 年的 1,997 位少，也比 2012 年的 1,929 位少。</p><h3>研究所是靠國際學生撐起來的</h3><ul><li>2021 年，北美資訊科學新科學士中有 16.3% 是國際學生，比 2012 年增加 9.5 個百分點。</li><li>碩士層級的多數是國際學生：2021 年為 65.2%。這個比例其實從 2016 年就開始下滑，而碩士畢業總人數自 2018 年起也走平。</li><li>博士層級的國際學生比例還在往上爬 — 2010 年 45.8%，2021 年 68.6%。</li><li>接著就反轉了。2021 年北美資訊科學、計算機工程與資訊學系的終身職軌新聘中，只有 13.2% 是國際人士。</li></ul><h3>AI 正在悄悄吃下博士班</h3><p>2021 年，北美專攻 AI 的資訊科學新科博士生佔 19.1% — 一年之內就從 2020 年的 14.9% 增加 4.2 個百分點，比 2012 年高出 8.6 個百分點。2010 年這個數字是 10.2%。現在每五個資訊科學博士就有將近一個是 AI 博士，而這個群體的總人數十年來並沒有變大。</p></div></section><section class="section section--bars" id="intl-share" aria-labelledby="intl-share-heading"><header class="section-head reveal is-visible"><h2 id="intl-share-heading">北美資訊科學人才管道中的國際比例，2021</h2><p class="section-head__sub">各層級中國際人士的百分比。學位愈高，這條管道就愈依賴來自國外的學生 — 而到了系所實際聘人的那一關，這份依賴就不見了。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="北美資訊科學人才管道中的國際比例，2021：學士：16.3、碩士：65.2、博士：68.6、新聘教職：13.2"><title>北美資訊科學人才管道中的國際比例，2021</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="166.95" width="110" height="47.05" rx="5"><title>學士：16.3</title></rect><text class="bar-value" x="71" y="160.95" text-anchor="middle">16.3</text><text class="bar-label" x="71" y="234" text-anchor="middle">學士</text><rect class="bar-rect" x="142" y="25.81" width="110" height="188.19" rx="5"><title>碩士：65.2</title></rect><text class="bar-value" x="197" y="19.81" text-anchor="middle">65.2</text><text class="bar-label" x="197" y="234" text-anchor="middle">碩士</text><rect class="bar-rect" x="268" y="16" width="110" height="198" rx="5"><title>博士：68.6</title></rect><text class="bar-value" x="323" y="10" text-anchor="middle">68.6</text><text class="bar-label" x="323" y="234" text-anchor="middle">博士</text><rect class="bar-rect" x="394" y="175.9" width="110" height="38.1" rx="5"><title>新聘教職：13.2</title></rect><text class="bar-value" x="449" y="169.9" text-anchor="middle">13.2</text><text class="bar-label" x="449" y="234" text-anchor="middle">新聘教職</text></svg></div></figure></section><section class="section section--bars" id="phd-jobs" aria-labelledby="phd-jobs-heading"><header class="section-head reveal is-visible"><h2 id="phd-jobs-heading">北美新科 AI 博士的去向，2011 對 2021</h2><p class="section-head__sub">新科 AI 博士依部門別的百分比。十年前產業界與學術界勢均力敵。到了 2021 年，產業界拿走的人數是學術界的兩倍以上。政府部門拿到 0.7%，這個比例五年來幾乎沒變。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="北美新科 AI 博士的去向，2011 對 2021：2011 產業：40.9、2011 學術：41.6、2021 產業：65.4、2021 學術：28.2"><title>北美新科 AI 博士的去向，2011 對 2021</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="90.17" width="110" height="123.83" rx="5"><title>2011 產業：40.9</title></rect><text class="bar-value" x="71" y="84.17" text-anchor="middle">40.9</text><text class="bar-label" x="71" y="234" text-anchor="middle">2011 產業</text><rect class="bar-rect" x="142" y="88.06" width="110" height="125.94" rx="5"><title>2011 學術：41.6</title></rect><text class="bar-value" x="197" y="82.06" text-anchor="middle">41.6</text><text class="bar-label" x="197" y="234" text-anchor="middle">2011 學術</text><rect class="bar-rect" x="268" y="16" width="110" height="198" rx="5"><title>2021 產業：65.4</title></rect><text class="bar-value" x="323" y="10" text-anchor="middle">65.4</text><text class="bar-label" x="323" y="234" text-anchor="middle">2021 產業</text><rect class="bar-rect" x="394" y="128.62" width="110" height="85.38" rx="5"><title>2021 學術：28.2</title></rect><text class="bar-value" x="449" y="122.62" text-anchor="middle">28.2</text><text class="bar-label" x="449" y="234" text-anchor="middle">2021 學術</text></svg></div></figure></section><section class="section section--prose" id="faculty" aria-labelledby="faculty-heading"><header class="section-head reveal is-visible"><h2 id="faculty-heading">能教 AI 的那些人，並沒有被聘進來</h2><p class="section-head__sub">資訊科學教師的總人數還在緩慢往上爬。但新聘人數已經萎縮十年，其中終身職軌的核心自 2019 年以來掉了將近四分之一。</p></header><div class="prose reveal is-visible" data-item=""><p>2021 年北美有 8,149 位資訊科學、計算機工程與資訊學系的教師 — 比前一年多 2.2%，比 2011 年多 32.8%。光看美國是 6,789 位，一年增加 2.0%，十年增加 39.0%。但新聘的故事完全相反。2021 年北美新聘教職 710 人，2012 年是 733 人；終身職軌新聘在 2019 年達到 422 人的高點，到 2021 年掉到 324 人。</p><h3>新教師從哪裡來</h3><ul><li>2021 年，40% 的資訊科學、計算機工程與資訊學系新聘教師是剛拿到博士學位，34% 來自其他學術職位，15% 來自博士後。</li><li>只有 11% 來自產業界 — 低於 2018 與 2019 年的 13%，而這正是產業界吸走 65.4% 新科 AI 博士的同一個時間點。</li><li>2021 年有 89.3% 的新開教職職缺被填滿，高於 2011 年的 82.7%。系所並不是招不到人，而是開的缺變少了。</li><li>職缺真的留白時，53% 的情況是對方拒絕了聘書。22% 是還在招聘流程中，14% 是沒有找到符合系所聘任目標的人選。</li><li>2021 年的教職流失裡，36.3% 是轉到別的學術機構。15.2% 是離開學界去非學術職位 — 幾乎跟十年前的 15.9% 一模一樣。</li></ul><h3>薪水在漲，很慢，而且沒扣通膨</h3><p>2021 年，美國資訊科學正教授的九個月薪資中位數達到 176,010 美元 — 比 2020 年高 3.2%，比 2015 年高 12.8%。副教授的中位數是 127,470 美元，助理教授是 114,070 美元。本章特別註明，這些數字都沒有經過通膨調整，而 2021 年的通膨正在往反方向出力。</p></div></section><section class="section section--cards" id="funding" aria-labelledby="funding-heading"><header class="section-head reveal is-visible"><h2 id="funding-heading">美國的資訊科學研究，實際上是誰在付錢</h2><p class="section-head__sub">CRA 追蹤美國資訊科學系所的外部經費來源。聯邦資金仍然是主力，但組成正在改變 — 而私立與公立系所之間的差距持續拉大。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="nsf" aria-label="NSF 仍然開出最大的那張支票"><h3 class="card__title">NSF 仍然開出最大的那張支票</h3><p class="card__summary">2021 年，美國國家科學基金會(NSF)佔美國資訊科學系所外部經費的 34.9% — 是最大的單一來源，而且比重在縮小。</p><div class="card__tags"><span class="tag">funding</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="defense" aria-label="國防是第二大金主"><h3 class="card__title">國防是第二大金主</h3><p class="card__summary">DARPA 以外的國防機構 — 陸軍研究辦公室、海軍研究辦公室與空軍研究實驗室 — 在 2021 年提供了 20.3% 的外部經費。</p><div class="card__tags"><span class="tag">funding</span><span class="tag">defense</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="industry-money" aria-label="產業界的錢正在變多"><h3 class="card__title">產業界的錢正在變多</h3><p class="card__summary">2021 年，產業界來源提供了美國資訊科學系所 12.1% 的外部經費，高於 DARPA(8.8%)與 NIH(6.8%)。</p><div class="card__tags"><span class="tag">funding</span><span class="tag">industry</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="private-public-gap" aria-label="私立系所的支出已經超過公立"><h3 class="card__title">私立系所的支出已經超過公立</h3><p class="card__summary">2021 年，美國私立資訊科學系所的外部研究經費支出中位數是 971 萬美元，公立系所是 569 萬美元。</p><div class="card__tags"><span class="tag">funding</span></div></article></div></section><section class="section section--prose" id="k12-us" aria-labelledby="k12-us-heading"><header class="section-head reveal is-visible"><h2 id="k12-us-heading">5.2 — 你能不能修到資訊科學課，取決於你在哪一州</h2><p class="section-head__sub">2022 年有 27 個州規定所有高中都必須開設資訊科學課。而實際有在教的公立高中比例，從馬里蘭的 98% 一路橫跨到明尼蘇達的 21%。</p></header><div class="prose reveal is-visible" data-item=""><p>Code.org 的 2022 年資料顯示，有 27 個州規定所有高中都要開設資訊科學課。但規定跟實際教什麼並不完全對得上。以有在教資訊科學的公立高中比例來看，馬里蘭以 98% 居首，其次是南卡羅來納(93%)與阿肯色(92%)。另一端則是明尼蘇達 21%、路易斯安那 32%，亞利桑那與蒙大拿各 36%。加州 — 人口最多、AP 資訊科學考卷絕對數量也最多的州 — 只有 40%。</p><h3>AP 考試：九倍成長，然後停下來</h3><p>2021 年美國學生一共應考 181,040 份 AP 資訊科學考卷，在連續幾年大幅成長之後，這一年只增加 1.0%。AI 指數把這個走平歸因於疫情。若拿 2007 年當基準，AP 資訊科學考卷數已經成長超過九倍。這個數字同時涵蓋 AP Computer Science A 與 AP Computer Science Principles，後者是 2017 年才首度開考。</p><h3>數量與密度是兩張不同的地圖</h3><p>2021 年 AP 資訊科學考卷數最多的是加州，共 31,189 份，其次是德州(17,307)、佛羅里達(14,864)、紐約(13,304)與紐澤西(9,391)。改用人口做標準化，排名就整個重排：馬里蘭以每十萬人 124.1 份居首，接著是紐澤西(101.3)、康乃狄克(89.7)、加州(79.7)與麻州(78.0)。絕對數量的另一端，阿拉斯加全年只考了 100 份，蒙大拿 42 份。</p></div></section><section class="section section--bars" id="ap-states" aria-labelledby="ap-states-heading"><header class="section-head reveal is-visible"><h2 id="ap-states-heading">每十萬人的 AP 資訊科學應考卷數，2021</h2><p class="section-head__sub">密度最高的五個州。馬里蘭每人平均應考的 AP 資訊科學卷數，是加州的一倍半以上；而加州在絕對數量上以 31,189 份居冠。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="每十萬人的 AP 資訊科學應考卷數，2021：馬里蘭：124.09、紐澤西：101.33、康乃狄克：89.72、加州：79.68、麻州：77.99"><title>每十萬人的 AP 資訊科學應考卷數，2021</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>馬里蘭：124.09</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">124.09</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">馬里蘭</text><rect class="bar-rect" x="116.8" y="52.32" width="84.8" height="161.68" rx="5"><title>紐澤西：101.33</title></rect><text class="bar-value" x="159.2" y="46.32" text-anchor="middle">101.33</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">紐澤西</text><rect class="bar-rect" x="217.6" y="70.84" width="84.8" height="143.16" rx="5"><title>康乃狄克：89.72</title></rect><text class="bar-value" x="260" y="64.84" text-anchor="middle">89.72</text><text class="bar-label" x="260" y="234" text-anchor="middle">康乃狄克</text><rect class="bar-rect" x="318.4" y="86.86" width="84.8" height="127.14" rx="5"><title>加州：79.68</title></rect><text class="bar-value" x="360.8" y="80.86" text-anchor="middle">79.68</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">加州</text><rect class="bar-rect" x="419.2" y="89.56" width="84.8" height="124.44" rx="5"><title>麻州：77.99</title></rect><text class="bar-value" x="461.6" y="83.56" text-anchor="middle">77.99</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">麻州</text></svg></div></figure></section><section class="section section--accordion" id="global-k12" aria-labelledby="global-k12-heading"><header class="section-head reveal is-visible"><h2 id="global-k12-heading">一份國家級 AI 課綱裡到底裝了什麼</h2><p class="section-head__sub">UNESCO 針對政府認可的 K–12 AI 課綱現況，調查了 193 個會員國的代表，以及超過 10,000 個私部門與第三部門單位。以下是回收結果帶出的五個問題。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>有多少國家已經有 AI 課綱？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">截至 2021 年，有 11 個國家已經正式認可並實施 K–12 AI 課綱：亞美尼亞、奧地利、比利時、中國、印度、科威特、葡萄牙、卡達、塞爾維亞、南韓與阿拉伯聯合大公國。另有 5 個國家還在開發中 — 保加利亞、德國、約旦、沙烏地阿拉伯與塞爾維亞；塞爾維亞同時出現在兩份名單上，是因為它在已實施的內容之外，還在繼續開發新的課綱。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>這些課綱涵蓋哪些學習階段？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">年紀愈小，涵蓋得愈少。中國、葡萄牙、卡達與阿拉伯聯合大公國的已實施 AI 課綱橫跨小學、國中與高中三個階段。亞美尼亞、印度與塞爾維亞涵蓋國中與高中。奧地利、比利時與南韓只到高中。科威特是已實施名單中唯一涵蓋小學與國中、卻不含高中的國家。在仍在開發的國家裡，保加利亞、德國與沙烏地阿拉伯都是三個階段一起做。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>學生實際上把時間花在什麼上？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">在 UNESCO 收錄的 K–12 AI 課綱裡，佔用時間最多的是演算法與程式設計，達 18%。接著是 AI 技術 14%，資料素養與「AI 在其他領域的應用」各 12%，情境式問題解決 11%，開發 AI 技術 9%，AI 倫理 7%，AI 的社會影響 5%，AI 技法 2%。另有 10% 的時間沒有被歸類。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>所以這是倫理教育還是工程教育？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">壓倒性地偏向工程。AI 倫理(7%)與 AI 的社會影響(5%)加起來佔課程時間的 12% — 比演算法與程式設計自己一項的 18% 還少。UNESCO 歸類在「理解、使用與開發 AI」底下的三項 — AI 技術(14%)、開發 AI 技術(9%)與 AI 技法(2%) — 合計佔 25%。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>近距離看一份這樣的課綱，長什麼樣？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">UNESCO 報告詳細記錄了奧地利的「資料科學與人工智慧」課綱。課程從數位基礎開始 — 用作業系統儲存與列印檔案、設計簡報、使用試算表與文書處理軟體 — 接著談數位媒體的類型、數位媒體中的社會議題，以及安全使用。高中階段學生會接觸程式語言、演算法與模擬，並學習資料素養的基本原則：收集資料、建立試算表結構、進行分析與視覺化，以及用一套標準判斷資料來源與數位內容是否可信。課綱期待學生了解資通訊與 AI 領域的職涯、能自己創作數位媒體，並理解雲端與電腦如何連網。最後收在公民素養：理解這些技術伴隨的倫理兩難、成為相關社會討論的積極參與者，並運用科技表達公共意見。</div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用五句話看這一章</h2><p class="section-head__sub">第 5 章「教育」的頭條發現，用報告自己的說法。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>美國大學資訊科學新科博士中專攻 AI 的比例，從 2010 年的 10.2%、2020 年的 14.9%，跳升到 2021 年的 19.1%。</blockquote><figcaption class="quote-by">— Chapter 5 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2011 年，新科 AI 博士進入產業界(40.9%)與進入學術界(41.6%)的比例大致相當。到了 2021 年，65.4% 的 AI 博士進了產業界，是進入學術界的 28.2% 的兩倍以上。</blockquote><figcaption class="quote-by">— Chapter 5 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>過去十年，北美資訊科學、計算機工程與資訊學系的新聘教職總數是減少的：2021 年共 710 人，2012 年是 733 人。</blockquote><figcaption class="quote-by">— Chapter 5 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年，私立大學的支出中位數是 970 萬美元，公立大學是 570 萬美元。</blockquote><figcaption class="quote-by">— Chapter 5 · Education</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年美國學生共應考 181,040 份 AP 資訊科學考卷，比前一年增加 1.0%。自 2007 年以來，AP 資訊科學考卷數已經成長九倍。</blockquote><figcaption class="quote-by">— Chapter 5 · Education</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 5 章原文</h2><p>第 5 章(5.1 與 5.2 兩節)連同所有圖表、各州地圖與引用，皆由史丹佛 HAI 免費提供。或回到報告重點與八大章節總覽。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2023-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2023 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2023》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2023/education.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2023/data/site.js"></script>
+  <script src="../../2023/data/education.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
