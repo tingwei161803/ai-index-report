@@ -326,8 +326,8 @@ window.SITE_SECTIONS = [
     nav:      { en: "Cost curve", zh: "訓練成本" },
     title:    { en: "What it cost to train the model of the year",
                 zh: "訓練當年那個模型，要花多少錢" },
-    subtitle: { en: "AI Index estimates of the compute used to train notable models, in US dollars. Six years separate the first row from the last, and the bill grows by a factor of about 200,000.",
-                zh: "AI 指數對訓練重要模型所用算力的估算，單位美元。第一列與最後一列相隔六年，帳單成長了大約 20 萬倍。" },
+    subtitle: { en: "AI Index estimates of the compute used to train notable models, in US dollars. Six years separate the Transformer from Gemini Ultra, the most expensive model here, and across them the bill grows by a factor of about 200,000. The last two rows are where the curve bends back.",
+                zh: "AI 指數對訓練重要模型所用算力的估算，單位美元。從 Transformer 到本表最貴的 Gemini Ultra 相隔六年，帳單成長了大約 20 萬倍。而最後兩列，正是這條曲線折回來的地方。" },
     corner: { en: "Model", zh: "模型" },
     columns: [
       { label: { en: "Released", zh: "發表年" }, num: true },
