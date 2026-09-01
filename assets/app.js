@@ -769,10 +769,20 @@
         requestAnimationFrame(function () { ticking = false; sync(); });
       }
       window.addEventListener("scroll", onScroll, { passive: true });
-      /* Page height changes as sections reveal and images settle, so the
-         denominator moves after load — re-measure rather than trust it once. */
+
+      /* Both, not either. The observer catches the page growing or shrinking
+         (sections revealing, images settling). `resize` catches the viewport
+         changing — and a viewport that only changes HEIGHT leaves body's
+         content box alone, so the observer never fires for it, while
+         documentElement.clientHeight (half the progress denominator, and the
+         whole back-to-top threshold) has moved. The everyday trigger is a
+         phone's URL bar collapsing, which is exactly a height-only change.
+
+         Note setupNavScroll has the same shape but genuinely needs only the
+         observer: it watches the rail, and horizontal overflow does not depend
+         on viewport height. Do not "fix" both the same way. */
+      window.addEventListener("resize", onScroll, { passive: true });
       if (window.ResizeObserver) new ResizeObserver(onScroll).observe(document.body);
-      else window.addEventListener("resize", onScroll, { passive: true });
     }
     sync();
   }
