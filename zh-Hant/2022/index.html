@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>AI 指數報告 2022 · 8 條重點、5 大章節</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2022/" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2022/" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2022/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2022/" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2022/" />
+  <meta name="description" content="史丹佛 HAI 第五版的互動重點整理:8 條重點摘要、5 大章節,以及 2021 年的關鍵數字,中英文皆備。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Index Report 2022 · 8 takeaways, 5 chapters" />
+  <meta property="og:description" content="Stanford HAI&#x27;s fifth edition, read as data — 8 top takeaways, 5 chapters, and the key numbers from 2021 in English and Traditional Chinese." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Index Report 2022 · 8 takeaways, 5 chapters" />
+  <meta name="twitter:description" content="Stanford HAI&#x27;s fifth edition, read as data — 8 top takeaways, 5 chapters, and the key numbers from 2021 in English and Traditional Chinese." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI 指數報告 2022 · 8 條重點、5 大章節",
+    "description": "史丹佛 HAI 第五版的互動重點整理:8 條重點摘要、5 大章節,以及 2021 年的關鍵數字,中英文皆備。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2022/",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2022-ai-index-report"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="#top">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2022</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navChapters" href="#chapters"
+           data-i18n="navChaptersTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+          <span class="nav-link__txt" data-i18n="navChapters">Chapters</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2022-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2022/index.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">2021 年：投資翻倍，卻流向更少的公司</h1><p class="section-head__sub">2022 年 AI 指數涵蓋 2021 年，分為五大章節：研發、技術表現、AI 技術倫理、經濟與教育(合併成一章)，以及 AI 政策與治理。這是本站收錄中最精簡的一版，卻最早記錄下往後十年的形狀：資金集中、模型跑起來更便宜卻用起來更偏誤，而各國國會開始把 AI 寫進法律。先看幾個定錨的數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="93.5">93.5</b><span class="hero__stat-label">2021 年全球 AI 私人投資(十億美元)，為 2020 年的兩倍以上</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="15">15</b><span class="hero__stat-label">2021 年 5 億美元以上的募資輪數(2020 年為 4 輪)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="746">746</b><span class="hero__stat-label">2021 年新募資的 AI 公司數，2019 年為 1,051 家</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="29">29</b><span class="hero__stat-label">% 2,800 億參數模型比 2018 年 1.17 億參數模型多出的誘發毒性</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="63.6">63.6</b><span class="hero__stat-label">% 訓練影像分類器的成本自 2018 年以來的降幅</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="18">18</b><span class="hero__stat-label">25 國通過的 AI 法案件數(2016 年僅 1 件)</span></div></div></section><section class="section section--cards" id="takeaways" aria-labelledby="takeaways-heading"><header class="section-head reveal is-visible"><h2 id="takeaways-heading">8 條重點摘要</h2><p class="section-head__sub">報告自身對這一年的總結，依其原本順序排列。點任一張卡片可看完整內容。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="investment-concentration" aria-label="1 · 私人投資暴增，同時集中度也在加深"><h3 class="card__title">1 · 私人投資暴增，同時集中度也在加深</h3><p class="card__summary">2021 年 AI 私人投資約達 935 億美元，是 2020 年的兩倍以上 — 但新募資的 AI 公司數持續下滑，由 2019 年的 1,051 家減至 746 家。</p><div class="card__tags"><span class="tag">economy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="us-china-collab" aria-label="2 · 美中主導了跨國 AI 合作"><h3 class="card__title">2 · 美中主導了跨國 AI 合作</h3><p class="card__summary">儘管地緣政治緊張升高，美中在 AI 論文上的合作自 2010 年成長五倍，產出的論文是次高的英中組合的 2.7 倍。</p><div class="card__tags"><span class="tag">research</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="bigger-more-biased" aria-label="3 · 語言模型能力空前，偏誤也空前"><h3 class="card__title">3 · 語言模型能力空前，偏誤也空前</h3><p class="card__summary">2021 年建造的 2,800 億參數模型，誘發毒性比 2018 年被視為最佳的 1.17 億參數模型高出 29%。</p><div class="card__tags"><span class="tag">ethics</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="ethics-everywhere" aria-label="4 · AI 倫理全面崛起"><h3 class="card__title">4 · AI 倫理全面崛起</h3><p class="card__summary">公平性與透明度的研究自 2014 年以來暴增，倫理相關會議的論文成長五倍；具產業背景的研究者論文數則年增 71%。</p><div class="card__tags"><span class="tag">ethics</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="cheaper-faster" aria-label="5 · AI 變得更便宜也更強"><h3 class="card__title">5 · AI 變得更便宜也更強</h3><p class="card__summary">自 2018 年以來，訓練影像分類系統的成本下降 63.6%，訓練時間改善 94.4% — 其他 MLPerf 類別也呈現相同模式。</p><div class="card__tags"><span class="tag">cost</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="data-data-data" aria-label="6 · 資料、資料、還是資料"><h3 class="card__title">6 · 資料、資料、還是資料</h3><p class="card__summary">本報告的十項基準中，有九項的最佳系統是用額外資料訓練出來的 — 這個趨勢實質上有利於握有龐大資料集的私人企業。</p><div class="card__tags"><span class="tag">benchmarks</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="legislation" aria-label="7 · 全球 AI 立法數量創下新高"><h3 class="card__title">7 · 全球 AI 立法數量創下新高</h3><p class="card__summary">在 25 個國家中，含「人工智慧」字樣並通過成為法律的法案，由 2016 年的 1 件增至 2021 年的 18 件。西班牙、英國與美國各通過 3 件。</p><div class="card__tags"><span class="tag">policy</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="robotic-arms" aria-label="8 · 機器手臂正在變便宜"><h3 class="card__title">8 · 機器手臂正在變便宜</h3><p class="card__summary">AI 指數的調查發現，機器手臂的中位價格五年內下跌 46.2% — 由 2017 年每支 42,000 美元降至 2021 年的 22,600 美元。</p><div class="card__tags"><span class="tag">robotics</span></div></article></div></section><section class="section section--bars" id="startups" aria-labelledby="startups-heading"><header class="section-head reveal is-visible"><h2 id="startups-heading">錢更多，公司更少</h2><p class="section-head__sub">全球新募資的 AI 公司家數，依年份。2021 年私人投資翻倍有餘，拿到錢的公司家數卻持續下滑 — 這個背離正是這一版最核心的經濟發現。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="錢更多，公司更少：2019：1051、2020：762、2021：746"><title>錢更多，公司更少</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="152" height="198" rx="5"><title>2019：1051</title></rect><text class="bar-value" x="92" y="10" text-anchor="middle">1051</text><text class="bar-label" x="92" y="234" text-anchor="middle">2019</text><rect class="bar-rect" x="184" y="70.45" width="152" height="143.55" rx="5"><title>2020：762</title></rect><text class="bar-value" x="260" y="64.45" text-anchor="middle">762</text><text class="bar-label" x="260" y="234" text-anchor="middle">2020</text><rect class="bar-rect" x="352" y="73.46" width="152" height="140.54" rx="5"><title>2021：746</title></rect><text class="bar-value" x="428" y="67.46" text-anchor="middle">746</text><text class="bar-label" x="428" y="234" text-anchor="middle">2021</text></svg></div></figure></section><section class="section section--bars" id="robot-price" aria-labelledby="robot-price-heading"><header class="section-head reveal is-visible"><h2 id="robot-price-heading">機器手臂價格，五年腰斬</h2><p class="section-head__sub">AI 指數調查中，機器手臂的中位價格，單位美元。46.2% 的跌幅，是機器人研究從資金充裕的實驗室走進一般實驗室的原因。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="機器手臂價格，五年腰斬：2017：42000、2021：22600"><title>機器手臂價格，五年腰斬</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="236" height="198" rx="5"><title>2017：42000</title></rect><text class="bar-value" x="134" y="10" text-anchor="middle">42000</text><text class="bar-label" x="134" y="234" text-anchor="middle">2017</text><rect class="bar-rect" x="268" y="107.46" width="236" height="106.54" rx="5"><title>2021：22600</title></rect><text class="bar-value" x="386" y="101.46" text-anchor="middle">22600</text><text class="bar-label" x="386" y="234" text-anchor="middle">2021</text></svg></div></figure></section><section class="section section--accordion" id="chapters" aria-labelledby="chapters-heading"><header class="section-head reveal is-visible"><h2 id="chapters-heading">五大章節速覽</h2><p class="section-head__sub">各章的重點摘要。展開可看關鍵數字。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>1 · 研發</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">美中在 AI 論文上的跨國合作自 2010 年成長五倍，產出的論文是英中組合的 2.7 倍。中國在期刊、會議與 repo 論文合計上領先全球，較美國高出 63.2%；美國則在會議與 repo 引用數上維持明顯領先。教育機構與非營利組織之間的合作產出最多論文。2021 年申請的 AI 專利數是 2015 年的 30 倍以上，年複合成長率 76.9%。<a class="acc-link" href="research.html">完整詳解：研發 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>2 · 技術表現</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">報告中的十項基準有九項，其最佳成績來自使用額外資料訓練的系統。AI 在 SuperGLUE 與 SQuAD 上已超越人類 1% 至 5%；在溯因自然語言推論(aNLI)上，人類的領先幅度則由 2019 年的 9 個百分點縮小到 1 個。通用強化學習在 Procgen 上兩年進步 129%，頂尖西洋棋引擎的 Elo 超越 Magnus Carlsen 最高分 24%。訓練成本自 2018 年下降 63.6%、訓練時間改善 94.4%；機器手臂中位價格五年下跌 46.2%。<a class="acc-link" href="performance.html">完整詳解：技術表現 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>3 · AI 技術倫理</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">2021 年的 2,800 億參數模型，誘發毒性比 2018 年最佳的 1.17 億參數模型高出 29% — 能力與偏誤一起成長。公平性與透明度研究在倫理會議上自 2014 年成長五倍，具產業背景的研究者論文數年增 71%。多模態模型學到了多模態偏誤：CLIP 的實驗顯示，黑人影像被誤分類為非人的比率，是其他任何族裔的兩倍以上。<a class="acc-link" href="ethics.html">完整詳解：AI 技術倫理 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>4 · 經濟與教育</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">2021 年 AI 私人投資約達 935 億美元，是 2020 年的兩倍以上；新募資公司家數由 2019 年的 1,051 家降至 746 家，而 5 億美元以上的募資輪則由 4 輪增至 15 輪。「資料管理、處理與雲端」吸引最多投資，是 2020 年的 2.6 倍。自 2016 年以來 AI 招聘成長最快的是紐西蘭、香港、愛爾蘭、盧森堡與瑞典。McKinsey 調查顯示，29% 與 41% 的受訪者分別認知到公平性與可解釋性是風險，但只有 19% 與 27% 採取了行動。2020 年每 5 位資訊科學博士就有 1 位主修 AI 或機器學習。<a class="acc-link" href="economy-education.html">完整詳解：經濟與教育 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>5 · AI 政策與治理</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">在 25 個國家中，含「人工智慧」字樣並通過成為法律的法案由 2016 年的 1 件增至 2021 年的 18 件，西班牙、英國與美國各通過 3 件。美國聯邦紀錄顯示，2015 至 2021 年提出的 AI 相關法案大幅增加，但只有 2% 成為法律。州議員在 2021 年是每 50 件 AI 提案通過 1 件，提案數則由 2012 年的 2 件增至 131 件。第 117 屆國會有望創下 2001 年以來提及 AI 最多的紀錄 — 截至 2021 年底(會期過半)已有 295 次，而前一屆整屆為 506 次。<a class="acc-link" href="policy.html">完整詳解：AI 政策與治理 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">報告自己的說法</h2><p class="section-head__sub">取自 8 條重點與各章摘要，足以定義這一年的句子。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年 AI 私人投資總額約 935 億美元 — 是 2020 年的兩倍以上，但新募資的 AI 公司家數持續下滑。</blockquote><figcaption class="quote-by">— Top Takeaways</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>大型語言模型正在技術基準上刷新紀錄，但新資料顯示，更大的模型也更容易反映訓練資料中的偏誤。</blockquote><figcaption class="quote-by">— Top Takeaways</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>各項技術基準的最佳成績，愈來愈依賴額外的訓練資料。這個趨勢實質上有利於能取得龐大資料集的私人企業。</blockquote><figcaption class="quote-by">— Chapter 2 · Technical Performance</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>演算法公平性與偏誤，已從以學術為主的題目，轉變為紮實嵌入主流的研究領域。</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>美國聯邦立法紀錄顯示，2015 至 2021 年提出的 AI 相關法案急遽增加，但通過數仍低，最終只有 2% 成為法律。</blockquote><figcaption class="quote-by">— Chapter 5 · AI Policy &amp; Governance</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀完整報告</h2><p>230 頁、五大章節、數百張圖表 — 史丹佛 HAI 免費提供，並附上原始公開資料。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2022-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2022 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2022》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2022/index.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2022/data/site.js"></script>
+  <script src="../../2022/data/index.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>

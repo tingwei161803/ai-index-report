@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <!-- ==== Google Analytics 4 (Measurement ID: G-VXP1THPRD0) ==== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXP1THPRD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VXP1THPRD0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Set the theme before first paint. app.js is at the end of <body>, so
+       without this a reader on dark mode gets a full white flash on every page
+       load. Inline and tiny on purpose: an external file would be one more
+       blocking round-trip in front of the paint. -->
+  <script>
+    (function () {
+      /* Only the storage read is guarded. Wrapping the whole thing meant a
+         throwing getItem (Safari private mode, blocked site data) also skipped
+         the system-preference fallback AND the setAttribute — so the page kept
+         the markup's data-theme="light" until app.js flipped it at the end of
+         <body>, which is the exact flash this script exists to prevent, for
+         the readers least able to avoid it: storage blocked means their
+         preference can never be cached, so it happened on every load. */
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { /* storage blocked */ }
+      if (!t) {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <!-- ==== Primary meta ==== -->
+  <title>AI 技術倫理 · AI 指數報告 2022</title>
+<meta property="og:url" content="https://ai-index-report.peteraim.com/zh-Hant/2022/ethics.html" />
+<link rel="canonical" href="https://ai-index-report.peteraim.com/zh-Hant/2022/ethics.html" />
+<link rel="alternate" hreflang="en" href="https://ai-index-report.peteraim.com/2022/ethics.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://ai-index-report.peteraim.com/zh-Hant/2022/ethics.html" />
+<link rel="alternate" hreflang="x-default" href="https://ai-index-report.peteraim.com/2022/ethics.html" />
+  <meta name="description" content="史丹佛 HAI《人工智慧指數報告 2022》AI 技術倫理章節的雙語重點整理。" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="../../favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <meta name="theme-color" content="#8C3A2E" />
+
+  <!-- ==== Open Graph ==== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Technical AI Ethics · AI Index Report 2022" />
+  <meta property="og:description" content="A bilingual deep dive into the Technical AI Ethics chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <meta property="og:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== Twitter ==== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Technical AI Ethics · AI Index Report 2022" />
+  <meta name="twitter:description" content="A bilingual deep dive into the Technical AI Ethics chapter of Stanford HAI&#x27;s Artificial Intelligence Index Report 2022." />
+  <meta name="twitter:image" content="https://ai-index-report.peteraim.com/og-image.png" />
+
+  <!-- ==== JSON-LD structured data ==== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 技術倫理 · AI 指數報告 2022",
+    "description": "史丹佛 HAI《人工智慧指數報告 2022》AI 技術倫理章節的雙語重點整理。",
+    "url": "https://ai-index-report.peteraim.com/zh-Hant/2022/ethics.html",
+    "inLanguage": [
+      "en"
+    ],
+    "isBasedOn": "https://hai.stanford.edu/ai-index/2022-ai-index-report",
+    "isPartOf": "https://ai-index-report.peteraim.com/2022/"
+  }
+  </script>
+
+  <!-- ==== Fonts (CDN, no local files): Newsreader serif · Manrope sans · JetBrains Mono · Noto TC ==== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- The Traditional Chinese faces are 203KB of CSS on their own (687
+       @font-face subsets, since Google Fonts splits CJK by unicode-range) —
+       99% of what the font request used to cost, and it was blocking first
+       paint on all 40 pages. An English page renders three CJK characters in
+       total, in the language switch, which any system font covers.
+
+       So: fetch it only on the Chinese twins, and even there without blocking
+       the paint (media="print" until it arrives). The head stays identical on
+       both languages so build_i18n.py can keep generating one from the other.
+       System CJK fallbacks are already in --font-body, so nothing renders
+       blank while this is in flight. -->
+  <script>
+    (function () {
+      if ((document.documentElement.lang || "").toLowerCase().indexOf("zh") !== 0) return;
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.media = "print";
+      l.onload = function () { this.onload = null; this.media = "all"; };
+      l.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700" +
+               "&family=Noto+Serif+TC:wght@500;600;700&display=swap";
+      document.head.appendChild(l);
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+</head>
+<body>
+  <!-- ==== App bar ==== -->
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="brand" href="index.html">
+        <span class="material-symbols-rounded brand__logo" aria-hidden="true">query_stats</span>
+        <span class="brand__name" id="brandName">AI Index Report 2022</span>
+      </a>
+
+      <div class="appbar__actions">
+        <a class="nav-link" id="navHome" href="index.html"
+           data-i18n="navHomeTitle" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span class="nav-link__txt" data-i18n="navHome">Overview</span>
+        </a>
+
+        <a class="src-link" id="srcLink" href="https://hai.stanford.edu/ai-index/2022-ai-index-report"
+           target="_blank" rel="noopener" data-i18n="srcLink" data-i18n-attr="title">
+          <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          <span class="src-link__txt" data-i18n="srcLinkTxt">Stanford HAI</span>
+        </a>
+
+        <a class="icon-btn" id="langLink" href="../../2022/ethics.html"
+           hreflang="en" lang="en" rel="alternate"
+           title="English" aria-label="Switch to English">
+          <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+          <span class="icon-btn__txt" id="langLabel">EN</span>
+        </a>
+
+        <button class="icon-btn" id="themeToggle" type="button"
+                data-i18n="theme" data-i18n-attr="aria-label,title"
+                title="Toggle theme" aria-label="Toggle theme">
+          <span class="material-symbols-rounded" id="themeIcon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==== Sticky section nav (auto-generated anchor pills + scrollspy) ==== -->
+  <nav class="sectionnav" id="sectionNav" aria-label="Section navigation">
+    <div class="sectionnav__inner" id="sectionNavInner"></div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ==== Composite sections (rendered in order from SITE_SECTIONS) ==== -->
+  <main id="sections">
+<section class="section section--hero" id="overview" aria-labelledby="overview-heading"><header class="section-head reveal is-visible"><h1 id="overview-heading">模型什麼都變強了 — 包括偏見</h1><p class="section-head__sub">AI 指數 2022 第 3 章，是報告第一次用衡量準確率的方式來衡量 AI 倫理：靠基準、指標與被引用次數。它在 2021 年看到的，是一條沒有人想要的縮放定律。更大的語言模型刷新了技術基準紀錄，同時也變得更毒性、更刻板，更擅長把訓練資料裡最糟的部分記起來。與此同時，研究這個問題的社群，成長速度是史上最快。先看數字：</p></header><div class="hero__stats"><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="29">29</b><span class="hero__stat-label">% 2021 年的 2,800 億參數模型比 2018 年最先進的 1.17 億參數模型多出的誘發毒性</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="53">53</b><span class="hero__stat-label">2021 年 FAccT 具產業界身分的作者數(2020 年 31 人、2018 年 5 人) — 一年成長 71%</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="168">168</b><span class="hero__stat-label">2021 年 NeurIPS 接受的公平性與偏誤論文數(2015 年為 2 篇)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="75.4">75.4</b><span class="hero__stat-label">% 2021 年 FAccT 論文來自北美機構的比例(2020 年為 70.2%)</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="14">14</b><span class="hero__stat-label">% CLIP 把黑人影像誤分類為非人的比率 — 次高的族裔是 7.6%</span></div><div class="hero__stat reveal is-visible" data-item=""><b class="hero__stat-value" data-count="142">142</b><span class="hero__stat-label">純英文的自動事實查核基準數；所有其他語言加總只有 35 個</span></div></div></section><section class="section section--prose" id="scaling" aria-labelledby="scaling-heading"><header class="section-head reveal is-visible"><h2 id="scaling-heading">3.2 — 本章的每一項偏誤指標，都隨模型變大而惡化</h2><p class="section-head__sub">毒性、刻板印象分數、宗教偏誤 — 2021 年的結果全都指向同一個方向。能力更強的模型，學習與放大訓練資料內容的能力也更強，而訓練資料就是網路本身。</p></header><div class="prose reveal is-visible" data-item=""><h3>毒性隨參數量上升</h3><p>DeepMind 在 2021 年 12 月發表的 Gopher 論文，是本章最乾淨的證據。固定提示分布、把模型規模從 1.17 億掃到 2,800 億參數，在每一種提示毒性水準下，產出毒性續寫的機率都上升。這個比較就是本章的頭條：2021 年開發的 2,800 億參數模型，比 2018 年被視為最先進的 1.17 億參數模型多出 29% 的誘發毒性。同一組實驗也帶來真正的安慰 — 更大的模型辨識毒性留言的能力也強得多，在 CivilComments 上的少樣本分類 AUC，從 4,400 萬參數一路穩定爬升到 2,800 億參數。製造問題的模型，同時也是最好的偵測器。</p><p>毒性從哪裡來，同樣可以量測。用過濾掉毒性內容的網路文字訓練的模型，在預期最大毒性上的分數，遠低於用未過濾語料訓練的模型。意外的是 BookCorpus：作為一個書籍資料集，它產生毒性文字的頻率高得出乎意料 — 報告認為原因是其中含有大量情節露骨的言情小說。網路上毒性內容的占比推估只有 0.1%–3%，而這正是趨勢重要的原因：模型愈大，愈擅長記住罕見文字。</p><h3>去毒化不是免費的</h3><p>顯而易見的解法，代價卻分配得極不平均。去毒化方法 — 領域自適應預訓練(DAPT)、隨插即用語言模型(PPLM)、生成式判別器引導序列生成(GeDi) — 全都會推高困惑度，也就是語言建模變差，而且相較於白人語域的文字，在非裔美語與提及少數族群身分的文字上惡化得更嚴重。原因很可能出在模型之前：人類標註者更容易把非裔美語誤標為毒性，去毒器於是學會懲罰它。把模型的輸出清乾淨，可能悄悄邊緣化了它本該保護的聲音。</p><h3>刻板印象走同一條曲線</h3><ul><li>StereoSet 衡量模型在性別、種族、宗教與職業上，是否偏好刻板印象甚於反刻板印象。刻板印象分數隨模型規模上升，從 1.1 億參數的 58.30 升到 1,750 億參數的 62.00 — 除非在訓練過程中主動介入，減少學到的刻板印象。</li><li>CrowS-Pairs 對比的是歷史上的優勢與弱勢群體，而非單一群體的屬性。用 BERT、RoBERTa、ALBERT 測試的結果，把能力排名整個倒過來：在 SQuAD、GLUE、RACE 上 ALBERT 勝過 RoBERTa、RoBERTa 勝過 BERT，但三者之中偏誤最深的正是 ALBERT。</li><li>宗教面向的偏斜可以追回語料。這三個模型都用 BookCorpus、英文維基百科與網路爬文的某種組合訓練，而針對 BookCorpus 與 Smashwords21 的稽核發現，關於基督教與伊斯蘭教的書，數量遠遠壓過錫克教、猶太教、印度教、佛教或無神論。</li><li>StereoSet 本身也有缺陷，本章直說了：有些例子根本沒有表達出有害的刻板印象，有些把對國家的刻板印象與對種族的混為一談，而整份資料集都由位於美國的群眾工作者提供，其中的價值判斷未必具有普遍代表性。</li></ul></div></section><section class="section section--bars" id="stereoset" aria-labelledby="stereoset-heading"><header class="section-head reveal is-visible"><h2 id="stereoset-heading">StereoSet 刻板印象分數：依模型規模</h2><p class="section-head__sub">分數愈高，代表模型愈常偏好刻板印象而非反刻板印象。這條曲線並非完全單調 — 一個 3.45 億參數的模型得到 58.20，低於 3.4 億參數模型的 59.30，而圖中最大的模型也不是偏誤最深的 — 但橫跨兩個數量級的方向再清楚不過。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="StereoSet 刻板印象分數：依模型規模：1.1 億：58.3、3.4 億：59.3、15.6 億：60.1、1,750 億：62、1,780 億：60.7"><title>StereoSet 刻板印象分數：依模型規模</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="27.82" width="84.8" height="186.18" rx="5"><title>1.1 億：58.3</title></rect><text class="bar-value" x="58.4" y="21.82" text-anchor="middle">58.3</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">1.1 億</text><rect class="bar-rect" x="116.8" y="24.62" width="84.8" height="189.38" rx="5"><title>3.4 億：59.3</title></rect><text class="bar-value" x="159.2" y="18.62" text-anchor="middle">59.3</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">3.4 億</text><rect class="bar-rect" x="217.6" y="22.07" width="84.8" height="191.93" rx="5"><title>15.6 億：60.1</title></rect><text class="bar-value" x="260" y="16.07" text-anchor="middle">60.1</text><text class="bar-label" x="260" y="234" text-anchor="middle">15.6 億</text><rect class="bar-rect" x="318.4" y="16" width="84.8" height="198" rx="5"><title>1,750 億：62</title></rect><text class="bar-value" x="360.8" y="10" text-anchor="middle">62</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">1,750 億</text><rect class="bar-rect" x="419.2" y="20.15" width="84.8" height="193.85" rx="5"><title>1,780 億：60.7</title></rect><text class="bar-value" x="461.6" y="14.15" text-anchor="middle">60.7</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">1,780 億</text></svg></div></figure></section><section class="section section--prose" id="metrics-landscape" aria-labelledby="metrics-landscape-heading"><header class="section-head reveal is-visible"><h2 id="metrics-landscape-heading">3.1 — 我們有了很多偏誤指標，卻仍然不知道它們對下游有沒有意義</h2><p class="section-head__sub">AI 指數做了原創研究來盤點這個領域，計算每一項至少被其他研究引用過一次的公平性與偏誤指標。這個數字自 2018 年起穩定成長，分成回答不同問題的兩類量測 — 而兩者之間的連結，是缺的。</p></header><div class="prose reveal is-visible" data-item=""><ul><li>基準資料集含有標註資料，而且不隨時間改變。它們是領域專屬的 — 語言用 StereoSet 與 SuperGLUE、視覺用 ImageNet — 通常衡量的是模型的內在性質，而非它在真實族群上的下游表現。它們的價值在於社群採用度：排行榜投稿數與回報該指標的論文數，讓整個領域的進展變得可讀。</li><li>診斷指標衡量的是模型在下游任務上的影響，例如某個族群子群體相對於另一群體的表現。人口統計均等、機會均等這類群體公平性量測屬於這一類。它們才是真正對應到現實傷害的指標，而我們對它們的公開資訊也最少，因為它們沒有掛在會獎勵公開結果的排行榜上。</li><li>兩類指標自 2016 年以來都以穩定速度成長。2017 年之所以特別多，主要來自單一次發布：Perspective API 一口氣定義了七個毒性面向 — 毒性、嚴重毒性、身分攻擊、侮辱、猥褻、性露骨與威脅。</li><li>基準是特定文化與時間脈絡下的靜態快照。用本章的話說，2017 年發表的基準，未必對應得上 2022 年的部署情境。有些排行榜也可能被操弄，有些則建立在標籤錯誤或類別界定不清的資料集上。</li></ul><h3>還沒有人補上的落差</h3><p>本章影響最深遠的一句話，是一個否定結果。人們普遍假設，把模型的嵌入去偏誤 — 降低內在偏誤 — 就會減少應用層面浮現的偏誤。但研究已經證明，內在偏誤指標與下游應用偏誤之間，並沒有可靠的相關性。而本章列出的多數指標，量測的正是內在偏誤。也就是說，這個領域打造了一套規模愈來愈大的量測裝置，它與真實傷害的關係卻仍未被建立；本章直白地說，還需要進一步的研究。</p><h3>性別、職業與翻譯</h3><ul><li>Winogender 依據美國勞工統計局資料，挑出性別分布明顯偏斜的職業來造共指句 — 收銀員 73% 是女性，司機只有 6%。在 SuperGLUE 排行榜上，較大的模型確實解得更好：共指準確率在 640 億參數達到 0.72、2,800 億參數 0.71，而 3,100 萬參數只有 0.53。群眾標註推估的人類表現是 99.7%。</li><li>Winogender 分數漂亮，不代表模型在性別上沒有偏誤。只代表這個基準沒有抓到那個偏誤。</li><li>WinoBias 由另一個團隊同期發布，被引用次數更高 — 2021 年 128 次對 Winogender 的 95 次 — 但 Winogender 進了 SuperGLUE 排行榜，所以有更多模型在它上面被評測。</li><li>WinoMT 把兩份資料集合起來測機器翻譯。在受測的八種語言 — 阿拉伯文、英文、法文、德文、希伯來文、義大利文、俄文、烏克蘭文 — Google 翻譯在職業符合性別刻板印象時表現都比較好，而翻對性別的比例最高也只到 60%。Microsoft Translator、Amazon Translate 與 SYSTRAN 的行為類似。</li></ul></div></section><section class="section section--cards" id="toolbox" aria-labelledby="toolbox-heading"><header class="section-head reveal is-visible"><h2 id="toolbox-heading">量測工具箱 — 以及每個工具看不見的東西</h2><p class="section-head__sub">本章的重量幾乎都落在六類指標上。每一類都是針對某種特定傷害設計的，也各自有本章謹慎點名的盲點。</p></header><div class="grid"><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="realtoxicityprompts" aria-label="RealToxicityPrompts 與 Perspective API"><h3 class="card__title">RealToxicityPrompts 與 Perspective API</h3><p class="card__summary">一組英文提示，用來衡量模型多常把它們續寫成毒性文字，由一個 Google 打造、研究社群全面採用的分類器評分。</p><div class="card__tags"><span class="tag">toxicity</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="stereoset" aria-label="StereoSet"><h3 class="card__title">StereoSet</h3><p class="card__summary">衡量模型是否同等看待刻板印象與反刻板印象，涵蓋性別、種族、宗教與職業，同時一併測量原始語言建模能力。</p><div class="card__tags"><span class="tag">stereotypes</span><span class="tag">benchmarks</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="crows-pairs" aria-label="CrowS-Pairs"><h3 class="card__title">CrowS-Pairs</h3><p class="card__summary">在九個偏誤面向上對比歷史優勢與弱勢群體 — 結果發現三個模型中能力最強的那個，偏誤也最深。</p><div class="card__tags"><span class="tag">stereotypes</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="winogender-winobias" aria-label="Winogender 與 WinoBias"><h3 class="card__title">Winogender 與 WinoBias</h3><p class="card__summary">以美國勞動統計中性別分布偏斜的職業為基礎的共指測試。兩個團隊在同一時間發布了幾乎相同的基準。</p><div class="card__tags"><span class="tag">gender</span><span class="tag">benchmarks</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="winomt" aria-label="WinoMT"><h3 class="card__title">WinoMT</h3><p class="card__summary">結合 Winogender 與 WinoBias，用來衡量商用機器翻譯的性別偏誤 — 在全球規模下，這種錯誤代價高昂。</p><div class="card__tags"><span class="tag">gender</span><span class="tag">translation</span></div></article><article class="card reveal is-visible" tabindex="0" role="button" data-item="" data-slug="embedding-tests" aria-label="WEAT、SEAT、iEAT 與其延伸"><h3 class="card__title">WEAT、SEAT、iEAT 與其延伸</h3><p class="card__summary">聯想測試量測的是表徵內部的偏誤 — 而且同樣適用於影像，以及英文以外的語言。</p><div class="card__tags"><span class="tag">embeddings</span></div></article></div></section><section class="section section--bars" id="neurips" aria-labelledby="neurips-heading"><header class="section-head reveal is-visible"><h2 id="neurips-heading">2021 年 NeurIPS 在倫理題目上接受了什麼</h2><p class="section-head__sub">2021 年被接受的論文數，計入主議程與對應的倫理相關工作坊。這些線每一條都是從近乎零開始的：公平性與偏誤在 2015 年只有 2 篇、隱私 1 篇、可解釋性 2 篇。NeurIPS 在 2014 年舉辦第一場公平性、問責與透明度工作坊，並自 2020 年起要求作者提交更廣泛影響聲明。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="2021 年 NeurIPS 在倫理題目上接受了什麼：公平與偏誤：168、隱私：128、因果推論：76、可解釋性：41"><title>2021 年 NeurIPS 在倫理題目上接受了什麼</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="110" height="198" rx="5"><title>公平與偏誤：168</title></rect><text class="bar-value" x="71" y="10" text-anchor="middle">168</text><text class="bar-label" x="71" y="234" text-anchor="middle">公平與偏誤</text><rect class="bar-rect" x="142" y="63.14" width="110" height="150.86" rx="5"><title>隱私：128</title></rect><text class="bar-value" x="197" y="57.14" text-anchor="middle">128</text><text class="bar-label" x="197" y="234" text-anchor="middle">隱私</text><rect class="bar-rect" x="268" y="124.43" width="110" height="89.57" rx="5"><title>因果推論：76</title></rect><text class="bar-value" x="323" y="118.43" text-anchor="middle">76</text><text class="bar-label" x="323" y="234" text-anchor="middle">因果推論</text><rect class="bar-rect" x="394" y="165.68" width="110" height="48.32" rx="5"><title>可解釋性：41</title></rect><text class="bar-value" x="449" y="159.68" text-anchor="middle">41</text><text class="bar-label" x="449" y="234" text-anchor="middle">可解釋性</text></svg></div></figure></section><section class="section section--prose" id="community" aria-labelledby="community-heading"><header class="section-head reveal is-visible"><h2 id="community-heading">3.3 — AI 倫理不再是邊緣工作坊，但也不再是全球性的</h2><p class="section-head__sub">公平性與透明度研究自 2014 年起爆發，倫理相關研討會的相關論文成長為五倍。伴隨成長而來的有兩件事：產業界的資金與作者身分，以及一個在 2021 年不但沒有變廣、反而更收窄的地理集中度。</p></header><div class="prose reveal is-visible" data-item=""><h3>產業界進場了</h3><p>FAccT 是最早成立、把研究者、實務工作者與政策制定者聚在一起做演算法社會技術分析的大型研討會之一，而且發表了大量批判當代 AI 方法的研究 — 2019 年的〈Model Cards for Model Reporting〉與 2021 年的〈On the Dangers of Stochastic Parrots〉都出自這裡。2021 年有 53 位作者標註了產業界身分，高於 2020 年的 31 位，以及 2018 年首屆會議的區區 5 位。這是年增 71%，也呼應了深度學習研究者從學界移往產業實驗室的更大趨勢。產業團隊仍常與學界合作發表，但獨立的產業界研究正在增加。</p><h3>地圖反而縮小了</h3><p>在 FAccT 發表的論文，多數由位於美國的研究者撰寫，其次是歐洲與中亞。從 2020 到 2021 年，北美的占比並沒有隨著領域擴張而下降 — 反而上升，從 70.2% 升到 75.4%。其他每一個區域都落在個位數或更低：東亞與太平洋 4.03%、拉丁美洲與加勒比海 1.61%、中東與北非 1.21%、撒哈拉以南非洲 0.40%，南亞 0.00%。決定什麼算「公平」的這群人，每年來自世界上更窄的一塊。</p><h3>NeurIPS 選擇投入的題目</h3><ul><li>公平性與偏誤論文 — 主議程標題加上公平性工作坊 — 從 2015 年的 2 篇攀升到 2021 年的 168 篇，急轉點出現在 2017 年。</li><li>隱私研究從 2015 年的 1 篇成長到 2021 年的 128 篇，涵蓋聯邦式學習、差分隱私，以及金融服務等特定領域的隱私議題。它在 2020 年達到高點 150 篇。</li><li>因果效應與反事實推理在 2021 年達到 76 篇，同年 NeurIPS 舉辦了三場專門討論因果推論的工作坊，其中一場完全聚焦於因果與演算法公平性。反事實公平性把一個想法形式化：如果當事人屬於另一個人口群體時決策不變，這個決策就是公平的。</li><li>可解釋性與說明性達到 41 篇，而 2015 年只有 2 篇；近期的成長多半發生在 NeurIPS 主議程，而非工作坊。</li><li>除了倫理題目本身，NeurIPS 工作坊中關於真實世界影響的論文 — 氣候、金融、醫療、開發中國家 — 在過去六年持續成長，顯示 AI 應用於高風險、高影響場域的關注度正在上升。</li></ul></div></section><section class="section section--bars" id="languages" aria-labelledby="languages-heading"><header class="section-head reveal is-visible"><h2 id="languages-heading">自動事實查核基準：依語言分布</h2><p class="section-head__sub">純英文的基準有 142 個，所有其他語言加起來只有 35 個。西班牙文之後的長尾是各 2 個的法文、德文與葡萄牙文，再來是各 1 個的孟加拉文、保加利亞文、克羅埃西亞文、義大利文、馬拉雅拉姆文與坦米爾文。2021 年自動事實查核能做到的事，基本上只能用英文做。</p></header><figure class="chart-card reveal is-visible" data-item=""><div class="chart-wrap"><svg viewBox="0 0 520 260" role="img" preserveAspectRatio="xMidYMid meet" aria-label="自動事實查核基準：依語言分布：英文：142、阿拉伯文：14、中文：5、印地文：3、西班牙文：3"><title>自動事實查核基準：依語言分布</title><line class="axis-line" x1="16" y1="214" x2="504" y2="214"></line><rect class="bar-rect" x="16" y="16" width="84.8" height="198" rx="5"><title>英文：142</title></rect><text class="bar-value" x="58.4" y="10" text-anchor="middle">142</text><text class="bar-label" x="58.4" y="234" text-anchor="middle">英文</text><rect class="bar-rect" x="116.8" y="194.48" width="84.8" height="19.52" rx="5"><title>阿拉伯文：14</title></rect><text class="bar-value" x="159.2" y="188.48" text-anchor="middle">14</text><text class="bar-label" x="159.2" y="234" text-anchor="middle">阿拉伯文</text><rect class="bar-rect" x="217.6" y="207.03" width="84.8" height="6.97" rx="5"><title>中文：5</title></rect><text class="bar-value" x="260" y="201.03" text-anchor="middle">5</text><text class="bar-label" x="260" y="234" text-anchor="middle">中文</text><rect class="bar-rect" x="318.4" y="209.82" width="84.8" height="4.18" rx="5"><title>印地文：3</title></rect><text class="bar-value" x="360.8" y="203.82" text-anchor="middle">3</text><text class="bar-label" x="360.8" y="234" text-anchor="middle">印地文</text><rect class="bar-rect" x="419.2" y="209.82" width="84.8" height="4.18" rx="5"><title>西班牙文：3</title></rect><text class="bar-value" x="461.6" y="203.82" text-anchor="middle">3</text><text class="bar-label" x="461.6" y="234" text-anchor="middle">西班牙文</text></svg></div></figure></section><section class="section section--accordion" id="truthfulness" aria-labelledby="truthfulness-heading"><header class="section-head reveal is-visible"><h2 id="truthfulness-heading">3.4 — 關於模型說什麼、看到什麼的五個問題</h2><p class="section-head__sub">當今最先進的語言模型會生成關於世界的錯誤資訊，這讓它們不適合用於全自動決策。這一節量測「錯得多嚴重」，並追問規模到底有沒有幫助。</p></header><div class="accordion"><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>AI 現在能查核事實了嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">部分可以，而且主要是當助手而非取代人。已部署的系統協助人類查核者標出可能的不實主張、找出先前查核過的類似主張，或檢索支持證據。全自動事實查核仍是活躍的研究領域 — 2017 年的 Fake News Challenge 推動立場偵測，2019 年一家加拿大創投為自動事實查核競賽投入 100 萬美元。在 FEVER 上，系統必須同時分類主張並從英文維基百科抽出支持證據，2021 年的最佳表現達到 79.35 的標籤準確率與 76.78 的 FEVER 分數，兩者自 2018 年起穩定上升。這個任務通常被設定得很窄：在被盤點的事實查核資料集中，有 75 個把標籤二元化為真或假，28 個用三類，16 個用四類。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>更大的模型會更常說實話嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">本章無法給出定論，而且直說了。TruthfulQA 出的是健康、法律、金融與政治領域的問題，人類常因為常見迷思而答錯 — 問「打破鏡子會怎樣」，GPT-3 回答你會倒楣七年。針對 GPT-Neo、GPT-2、T5 與 GPT-3 的初期選擇題實驗發現，較大的模型給出更有資訊量的答案，但未必更真實。後來針對 Gopher 的實驗則得出相反結論：準確率隨模型規模上升。可能的解釋是，TruthfulQA 是針對 GPT-3 175B 對抗式蒐集的，因此會特別壓低該系列的表現。在開放式生成任務上，WebGPT 與 InstructGPT 都隨規模變得更真實、更有資訊量；例外是監督式微調的基線模型，它隨規模表現變差，正如 TruthfulQA 論文所預測。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>會引用來源的模型比較安全嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">可能剛好相反。WebGPT 的設計目的是改善 GPT-3 的事實準確度，做法是上網搜尋來源，在回答旁附上引用，而它確實勝過 GPT-3。但它在分布外的問題上仍然吃力，表現也遠低於人類。本章導出了一個不太舒服的結論：正因為 WebGPT 會引用來源、看起來更權威，它不實的回答反而可能更有害 — 使用者不太可能一一點開引用去查證。讓模型看起來可信，和讓模型真的可信，是兩回事。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>CLIP 從 4 億組圖文配對學到了什麼？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">學到了多模態能力，也一併學到了多模態偏誤。CLIP 從自然語言學習視覺概念，在一系列分類任務上可以勝過最好的 ImageNet 訓練模型。研究者在 FairFace 資料集的類別中加入非人與犯罪相關的標籤 — 動物、大猩猩、黑猩猩、紅毛猩猩、小偷、罪犯、可疑人物 — 結果黑人影像被誤分類為非人的比率是 14%，而次高的族裔(印度人影像)是 7.6%。20 歲以下的人被歸入犯罪相關類別的機率，高於任何其他年齡層。用國會議員資料集探測時，保母與管家被連到女性，囚犯與黑幫被連到男性；CLIP 幾乎只把主管、醫師這類高地位標籤給男性，並不成比例地把外表相關標籤貼到女性身上。連相似度門檻這種平凡的設計決定，都會對表現與偏誤造成過大的影響。</div></details><details class="acc-item reveal is-visible" data-item=""><summary class="acc-q"><span>這些偏誤會留在 CLIP 裡面嗎？</span><span class="material-symbols-rounded acc-chevron" aria-hidden="true">add</span></summary><div class="acc-a">不會 — 它會被烘進下一個資料集。CLIP 也從網路來源的訓練資料學到了歷史偏見與陰謀論：在一次記錄下來的探測中，面對太空人 Eileen Collins 的照片，它給「穿橘色連身衣的家庭主婦」的相似度，高於正確的描述。這件事之所以重要，是因為 LAION-400M 正是用 CLIP 的嵌入篩選出高品質圖文配對的，而研究顯示 CLIP 學到的偏誤會傳遞進 LAION-400M，影響之後所有以它為基礎打造的東西。語言落差讓問題加倍：CLIP 可以換上 mBERT 這類多語編碼器來延伸到其他語言，但 mBERT 在它 104 種語言中的 30% 上，表現比完全不用預訓練模型還差，而即使是法文與西班牙文，性別與年齡分類也還有明顯的準確率落差。</div></details></div></section><section class="section section--quotes" id="voices" aria-labelledby="voices-heading"><header class="section-head reveal is-visible"><h2 id="voices-heading">用五句話看這一章</h2><p class="section-head__sub">第 3 章「AI 技術倫理」的頭條發現。</p></header><div class="quotes-grid"><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2021 年開發的 2,800 億參數模型，誘發毒性比 2018 年被視為最先進的 1.17 億參數模型高出 29%。</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>AI 的公平性與透明度研究自 2014 年起爆發，倫理相關研討會的相關論文成長為五倍。具產業界身分的研究者，論文產出年增 71%。</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>在 CLIP 上的實驗顯示，黑人影像被誤分類為非人的比率，是其他任何族裔的兩倍以上。</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>研究已經證明，內在偏誤指標與下游應用偏誤之間並沒有可靠的相關性。還需要進一步的研究。</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure><figure class="quote-card reveal is-visible" data-item=""><span class="material-symbols-rounded quote-mark" aria-hidden="true">format_quote</span><blockquote>2017 年發表的基準，未必對應得上 2022 年的部署情境。</blockquote><figcaption class="quote-by">— Chapter 3 · Technical AI Ethics</figcaption></figure></div></section><section class="section section--cta" id="source"><div class="cta-card reveal is-visible" data-item=""><h2>閱讀第 3 章原文</h2><p>第 3 章(3.1–3.4 各節) — 公平性與偏誤指標的統合分析、自然語言處理偏誤基準、FAccT 與 NeurIPS 的 AI 倫理趨勢，以及事實性與真實性 — 連同所有圖表與引用，皆由史丹佛 HAI 免費提供。</p><a class="cta-btn" href="https://hai.stanford.edu/ai-index/2022-ai-index-report" target="_blank" rel="noopener">開啟 AI 指數 2022 →<span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div></section>
+</main>
+
+  <!-- ==== Detail dialog (used by card sections) ==== -->
+  <dialog class="dialog" id="dialog" aria-labelledby="dialogTitle">
+    <div class="dialog__bar">
+      <span class="dialog__spacer"></span>
+      <button class="icon-btn" id="dialogClose" type="button" data-i18n="close" data-i18n-attr="aria-label" aria-label="Close">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <div class="dialog__body" id="dialogBody"></div>
+  </dialog>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p id="footerText" data-i18n="footer">非官方教育性整理 · 資料來源:史丹佛 HAI《人工智慧指數報告 2022》(CC BY-ND 4.0)· 以零建置純靜態網站打造。</p>
+      <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+        <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" data-i18n="home" data-i18n-attr="aria-label,title" title="Back to peteraim.com" aria-label="Back to peteraim.com">
+          <span class="material-symbols-rounded" aria-hidden="true">home</span>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" data-i18n="linkedin" data-i18n-attr="aria-label,title" title="LinkedIn (opens in a new tab)" aria-label="LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    <p class="lang-alt-link"><a id="langAlt" href="../../2022/ethics.html" hreflang="en" rel="alternate" lang="en">English</a></p>
+  </footer>
+
+  <!-- ==== Scripts (order matters: data first) ====
+       Paths climb to the site root before coming back down so the generated
+       /zh-Hant/ twin, which sits one level deeper, resolves them correctly
+       too. Writing "data/x.js" here would break the twin. ==== -->
+  <script src="../../2022/data/site.js"></script>
+  <script src="../../2022/data/ethics.js"></script>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
