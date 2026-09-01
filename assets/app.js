@@ -565,13 +565,34 @@
       firstPaint = false;
       return;
     }
-    blocks.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    blocks.forEach(function (el) { io.observe(el); });
+
+    /* Anything already on screen is marked visible synchronously instead of
+       being handed to the observer. The observer's callback is async, so a
+       block that is already in view still spends a frame at opacity 0 before
+       it can be restored, and then fades back in over 600ms. On this site the
+       page is pre-rendered, so that block was fully readable at ~161ms — the
+       replay blanks it at ~214ms and spends the pre-render's whole benefit
+       re-animating text the reader could already read, pushing LCP from ~161ms
+       to ~300ms. Below the fold nothing has been read yet, so those still get
+       the reveal they were written for. */
+    /* Read every position first, then write. Measuring in between the two
+       class writes forces a synchronous layout, and that layout resolves with
+       .reveal applied and .is-visible not yet — so the block really does exist
+       at opacity 0 for an instant and the transition fires, which is the exact
+       replay this is meant to remove. Batched, the browser only resolves style
+       once, with both classes already on. */
+    var above = blocks.map(function (el) {
+      return el.getBoundingClientRect().top < window.innerHeight;
+    });
+    blocks.forEach(function (el, i) {
+      if (above[i]) el.classList.add("reveal", "is-visible");
+      else { el.classList.add("reveal"); io.observe(el); }
+    });
     firstPaint = false;
   }
 
